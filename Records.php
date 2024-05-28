@@ -43,12 +43,15 @@ if (isset($_SESSION['UserID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/output.css">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/style2.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Records</title>
 </head>
+
+<?php include('./modals/AddCasesModal.php') ?>
 
 <body style="display: flex; flex-direction: row;">
     <div style="width: 20%; height: 100%;">
@@ -57,12 +60,13 @@ if (isset($_SESSION['UserID'])) {
         include('./components/sidebar.php'); 
         ?>
     </div>
-    <div id="content" style="width: 80%; height: 100%;">
+    <div id="content" style="width: 60%; height: 100%;">
         <?php include('./components/RecordsForm.php') ?>
     </div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="./javascript/sessionmessage.js"></script>
 <script src="./javascript//active.js"></script>
 
