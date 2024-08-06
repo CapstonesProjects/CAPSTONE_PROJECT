@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Gideon+Roman&family=Montagu+Slab:opsz,wght@16..144,100;16..144,200;16..144,300;16..144,400;16..144,500;16..144,600;16..144,700&family=Onest:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Sono:wght@200;300;400;500&family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap");
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+:root {
+  --Green: green;
+  --Yellow: yellow;
+  --Blue: blue;
+  --White: #f0f0f0;
+  --Gray: #424242eb;
+  --Black: #000;
+}
+:root {
+  --font1: "Kaushan", sans-serif;
+  --font2: "Gideon", sans-serif;
+}
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* The whole Container */
+.container {
+  /* padding: auto; */
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Header and logo  */
+.sub-container {
+  display: flex;
+  padding-left: 40px;
+  background-color: green;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.head1 {
+  display: flex;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start */
+  background-color: green;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.head1 .imgs {
+  width: 85px;
+  max-width: 100%;
+  height: auto;
+}
+
+.head2 {
+  font-family: var(--font1);
+  display: flow-root;
+  justify-content: center;
+  font-size: small;
+  padding: 0;
+  color: var(--White);
+  text-align: center;
+  align-self: center;
+}
+.School-name {
+  text-align: center;
+  font-size: medium;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+h2 .School-department {
+  text-align: center;
+}
+
+p .School-address {
+  text-align: center;
+}
+
+/* Navigation Style */
+
+.fa-user {
+  font-size: 1em;
+}
+.fa-solid {
+  position: relative;
+  display: table-cell;
+  width: 55px;
+  height: 36px;
+  text-align: center;
+  top: 12px;
+  font-size: 20px;
+}
+
+.main-menu:hover,
+nav.main-menu.expanded {
+  width: 250px;
+  overflow: hidden;
+  opacity: 1;
+}
+.main-menu {
+  background: var(--White);
+  position: fixed;
+  top: 14vh;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 55px;
+  overflow: hidden;
+  --webkit-transition: width 0.2s linear;
+  transition: width 0.2s linear;
+  --webkit-transform: translateZ(0) scale(1, 1);
+  box-shadow: 1px 0 15px var(--Gray);
+  opacity: 1;
+}
+.main-menu > ul {
+  margin: 7px 0;
+}
+.main-menu li {
+  position: relative;
+  display: block;
+  width: 250px;
+}
+.main-menu li > a {
+  position: relative;
+  width: 255px;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: var(--Green);
+  font-size: 13px;
+  text-decoration: none;
+  --webkit-transform: translateZ(0) scale(1, 1);
+  --webkit-transition: all 0.14s linear;
+  transition: all 0.14s linear;
+  font-family: "Strait", sans-serif;
+  border-top: 1px solid var(--White);
+
+  text-shadow: 1px 1px 1px #fff;
+}
+
+.main-menu .nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 55px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+.main-menu .nav-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 190px;
+  font-family: "Titillium Web", sans-serif;
+  color: var(--Black);
+  font-family: var(--font1);
+}
+.main-menu .nav-text:hover {
+  color: var(--White);
+}
+
+/* Logo Hover Property */
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  border-left: 0px solid #f7f7f7;
+}
+
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+.main-menu li:hover > a,
+nav.main-menu li.active > a,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a {
+  color: #fff;
+  background-color: Green;
+  text-shadow: 0px 0px 0px;
+}
+.area {
+  float: left;
+  background: #e2e2e2;
+  width: 100%;
+  height: 100%;
+}
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Titillium WebLight"), local("TitilliumWeb-Light"),
+    url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
+      format("woff");
+}
+
+.time {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px 2rem;
+}
+#date {
+  font-size: 18px;
+  font-family: "Gideon";
+  text-align: center;
+  padding-left: 5px;
+}
+
+#clock {
+  font-size: 18px;
+  font-family: "Gideon";
+  text-align: center;
+  align-items: right;
+}
+
+/* section
+{
+    padding: 18rem;
+    text-align: center;
+    justify-content: space-around;
+    height: 60vh;
+    background-color: aquamarine;
+} */
+
+/* Student information style form */
+.mainshow {
+  display: inline-grid;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  margin: 0 50vh;
+  margin-top: 70px;
+  /* padding: 30px; */
+  width: 50%;
+  border-radius: 2rem;
+  box-shadow: -2px 1px 8px 0px rgba(0, 0, 0, 0.66);
+  -webkit-box-shadow: -2px 1px 8px 0px rgba(0, 0, 0, 0.66);
+  -moz-box-shadow: -2px 1px 8px 0px rgba(0, 0, 0, 0.66);
+}
+
+.Student-info {
+  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 15px;
+  font-family: "Gideon";
+  font-size: 300;
+}
+
+.profile {
+  display: block;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px;
+}
+.SInfoname,
+.Status {
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sub-profile {
+  display: flex;
+  text-align: justify;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: center;
+}
+table,
+tr,
+th {
+  text-align: justify;
+  font-family: var(--font1);
+  padding: 10px;
+}
+
+
