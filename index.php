@@ -11,6 +11,19 @@
 <body>
     <header>
         <a href="#" class="logo"><img src="images/osa_logo.png" alt=""></a>
+        <div class="logo-letter-container">
+            <h1 class="LL1 logo-letter">LOA</h1>
+            <p class="LL2 logo-letter">Office of Student Affairs</p>
+
+            <div class="IPI-container">
+                <p class="IPI-letter">Integrity</p>
+                <p class="IPI-letter">Professionalism</p>
+                <p class="IPI-letter">Innovation</p>
+            </div>
+        </div>
+
+
+
         <div class="menu-toggle" id="menu-toggle">
             <div class="line"></div>
             <div class="line"></div>
