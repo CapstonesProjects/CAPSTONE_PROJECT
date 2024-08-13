@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/home.css">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <title>Login - LOA OSA</title>
 </head>
@@ -59,6 +60,14 @@
             </li>
         </ul>
     </header>
+
+    <!-- <section id="home" class="home">
+        <div class="text-title-container">
+            <h1 class="title-sm">Welcome to the</h1>
+            <h4 class="title-xl">Lyceum of Alabang</h4>
+            <h4 class="title-xl">Office of Student Affairs</h4>
+        </div>
+    </section> -->
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 

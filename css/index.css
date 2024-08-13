@@ -7,7 +7,6 @@
     list-style: none;
     text-decoration: none;
     scroll-behavior: smooth;
-
 }
 
 html, body {
@@ -25,9 +24,9 @@ body {
     background-position: top top; 
 }
 
-header{
+/* header{
     position: fixed;
-    width: 115%;
+    width: 100%;
     top: 0;
     right: 0;
     z-index: 1000;
@@ -40,6 +39,7 @@ header{
     flex-wrap: wrap;
     align-content: space-between;
     flex-direction: row;
+    height: 70px;
   }
   
   .logo img{
@@ -52,7 +52,6 @@ header{
   .navlist {
     display: flex;
     margin-right: -7%; 
-    /* align-items: center; */
   }
   .navlist li{
     position: relative;
@@ -63,14 +62,14 @@ header{
     font-weight: 500;
     padding: 10px 27px;
     
-  }
+  } */
 
   /* #home, #learn, #events, #contact {
     color: #ffffff;
     margin-left: -5%;
   } */
   
-  .navlist a::after {
+  /* .navlist a::after {
     content: '';
     position: absolute;
     width: 0%;
@@ -88,7 +87,6 @@ header{
   }
 
 .logo-letter-container {
-  /* margin-left: -13%; */
   margin-top: -2%;
   display: flex;
   flex-direction: column;
@@ -137,4 +135,4 @@ header {
   display: flex;
   margin-right: -20%;
   margin-left: 18%;
-}
+} */
