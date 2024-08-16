@@ -4,25 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/header.css"> -->
+    <!-- <link rel="stylesheet" href="css/home.css"> -->
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/home.css">
+    <!-- <link rel="stylesheet" href="css/index-background.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <title>Login - LOA OSA</title>
 </head>
 
 <body>
     <header>
-        <div class="logo-img-container">
-            <a href="#" class="logo"><img src="images/osa_logo.png" alt=""></a>
-        </div>
-        <div class="logo-letter-container">
-            <h1 class="LL1 logo-letter">LOA</h1>
-            <p class="LL2 logo-letter">Office of Student Affairs</p>
+        <div class="logo-text-container">
+            <div class="logo-img-container">
+                <a href="#" class="logo"><img src="images/osa_logo.png" alt=""></a>
+            </div>
+            <div class="logo-letter-container">
+                <h1 class="LL1 logo-letter">LOA</h1>
+                <p class="LL2 logo-letter">Office of Student Affairs</p>
 
-            <div class="IPI-container">
-                <p class="IPI-letter">Integrity</p>
-                <p class="IPI-letter">Professionalism</p>
-                <p class="IPI-letter">Innovation</p>
+                <div class="IPI-container">
+                    <p class="IPI-letter">Integrity</p>
+                    <p class="IPI-letter">Professionalism</p>
+                    <p class="IPI-letter">Innovation</p>
+                </div>
             </div>
         </div>
 
@@ -46,7 +50,6 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                     </svg>
                 </button>
-                <!-- Login Dropdown menu -->
                 <div id="loginDropdown" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="loginDropdownLink">
                         <li>
@@ -61,13 +64,50 @@
         </ul>
     </header>
 
-    <!-- <section id="home" class="home">
-        <div class="text-title-container">
+    <section id="home" class="home">
+        <div class="home-title-container">
             <h1 class="title-sm">Welcome to the</h1>
             <h4 class="title-xl">Lyceum of Alabang</h4>
             <h4 class="title-xl">Office of Student Affairs</h4>
+            <div class="btn-officialsite-container">
+                <button class="btn-officialsite"><a href="#" class="">Official Site</a></button>
+            </div>
         </div>
-    </section> -->
+
+    </section>
+
+    <footer>
+        <div class="footer-item-container">
+            <div class="footer-item">
+                <img class="footer-img" src="images/CHED.png" alt="CHED IMAGES">
+                <div class="ched-text-container title-container">
+                    <h3 class="item-title CHED">Commision on </h3>
+                    <h3 class="item-title CHED">Higher Education</h3>
+                </div>
+            </div>
+
+            <div class="footer-item">
+                <img class="footer-img" src="images/ISO-9001.png" alt="ISO 9001 IMAGES">
+                <div class="iso-text-container title-container">
+                    <h3 class="item-title ISO">ISO 9001</h3>
+                </div>
+            </div>
+
+            <div class="footer-item">
+                <img class="footer-img" src="images/TESDA.png" alt="TESDA IMAGES">
+                <div class="tesda-text-container title-container">
+                    <h3 class="item-title TESDA">TESDA</h3>
+                </div>
+            </div>
+
+            <div class="footer-item">
+                <img class="footer-img" src="images/SAFETY-SEAL.png" alt="SAFETY SEAL IMAGES">
+                <div class="safetyseal-text-container title-container">
+                    <h3 class="item-title SAFETYSEAL">Safety Seal</h3>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 
