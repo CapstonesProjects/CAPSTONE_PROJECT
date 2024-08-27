@@ -20,7 +20,7 @@
             <li><a href="./index.php">Home</a></li>
             <li><a href="#learn">About Us</a></li>
             <li><a href="#about">Events</a></li>
-            <li><a href="#contact">Scholar</a></li>
+            <li><a href="./Scholar.php">Scholar</a></li>
         </ul>
 
         <!-- <ul class="navlist">
@@ -38,10 +38,10 @@
                 <div id="loginDropdown" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="loginDropdownLink">
                         <li>
-                            <a href="./student-login.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="color: black;">Student</a>
+                            <a href="./Student_Index.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="color: black;">Student</a>
                         </li>
                         <li>
-                            <a href="./osa-login.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="color: black;">OSA Staff</a>
+                            <a href="./OSA_Index.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="color: black;">OSA Staff</a>
                         </li>
                     </ul>
                 </div>
