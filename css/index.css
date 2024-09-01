@@ -40,7 +40,7 @@ header {
   padding: 8px 8%;
   flex-wrap: wrap;
   align-items: space-between;
-  flex-direction: row;  
+  flex-direction: row;
 }
 
 .logo img {
