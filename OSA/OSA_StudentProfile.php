@@ -29,14 +29,16 @@ if (isset($_SESSION['UserID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/output.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/style2.css">
-    <link rel="stylesheet" href="../css/student_profile.css">
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+    <!-- <link rel="stylesheet" href="../css/style2.css"> -->
+    <!-- <link rel="stylesheet" href="../css/student_profile.css"> -->
     <link rel="shortcut icon" href="../images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>OSA Student Profile - LOA OSA</title>
 </head>
+<?php include('../modals/AddStudentModal_OSA.php') ?>
 
 <body class="font-poppins antialiased">
     <div class="flex h-screen">
@@ -47,7 +49,9 @@ if (isset($_SESSION['UserID'])) {
             ?>
         </div>
         <div class="flex justify-center items-center">
-            
+            <?php  
+            include('../components/OSA_StudentsProfile.php');
+            ?>
         </div>
     </div>
 </body>

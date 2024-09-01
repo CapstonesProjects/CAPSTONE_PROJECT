@@ -29,7 +29,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    padding: 5px;
 }
 
 .first {
@@ -40,17 +39,20 @@ body {
 
 .profile-card {
     width: 1550px;
-    height: 260px;
+    height: 290px;
     background-color: #F2F2F2;
+    border: 1px solid red;
 }
 
 .cut {
     width: 1200px;
     height: 260px;
     background-color: #F2F2F2; 
+    border: 1px solid red;
 }
 .profile-card2 {
     width: 330px;
     height: 260px;
     background-color: #F2F2F2;
+    border: 1px solid red;
 }
