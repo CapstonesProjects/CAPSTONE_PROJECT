@@ -1,8 +1,11 @@
+console.log('sessionmessage.js loaded');
+
 window.addEventListener('load', function() {
-    let alert = document.querySelector('.alert');
-    if (alert) {
+    console.log('script loaded');
+    let alerts = document.querySelectorAll('.alert');
+    alerts.forEach(alert => {
         setTimeout(function() {
             alert.style.display = 'none';
-        }, 3000); // Hide the alert after 5 seconds
-    }
+        }, 3000); // Hide the alert after 3 seconds
+    });
 });
