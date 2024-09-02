@@ -1,5 +1,5 @@
 <!-- component -->
-<div class="antialiased sans-serif h-screen ml-32">
+<div class="antialiased sans-serif h-screen ml-0">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
     <style>
@@ -41,9 +41,15 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
+        @media (min-width: 900px) {
+            .container {
+                max-width: 1490px;
+            }
+        }
     </style>
 
-    <div class="container mx-auto py-6 px-4 ml-24 overflow-hidden" x-data="datatables()" x-cloak>
+<div class="container py-3 px-1 ml-12 overflow-hidden" x-data="datatables()" x-cloak>
         <div style="width: 130%;">
             <h1 class="text-3xl py-3 mb-10">Records</h1>
         </div>
@@ -80,7 +86,7 @@
             </div>
         </div>
 
-        <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" style="height: 645px; width: 1500px;">
+        <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" style="height: 645px; width: 1490px;">
             <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
                 <thead>
                     <tr class="text-left">
