@@ -2,29 +2,22 @@
 session_start();
 include('../config/db_connection.php');
 
-// $query = "SELECT StudentID, FirstName, LastName, Email, Gender FROM tblusers_student";
-// $result = mysqli_query($conn, $query);
+$query = "SELECT UserID, StudentID, FirstName, LastName, MiddleName, Suffix, Course, YearLevel, StudentType, Email, PhoneNumber, DateBirth, Address, Gender, Nationality, EmergencyContact, MaritalStatus, GuardiansName, GuardiansContact, Username, Password, Role, Status FROM tblusers_student";
+$result = mysqli_query($conn, $query);
 
-if (isset($_SESSION['UserID'])) {
-    $userId = $_SESSION['UserID'];
-
-    $query = "SELECT FirstName, LastName, Role FROM tblusers_osa WHERE UserID = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-
-    $_SESSION['FirstName'] = $user['FirstName'];
-    $_SESSION['LastName'] = $user['LastName'];
-    $_SESSION['Role'] = $user['Role'];
+if ($result) {
+    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 } else {
-    // Redirect to login page or show an error
+    echo "Error: " . $query . "<br>" . mysqli_error($conn);
 }
 
-include('../modals/AddStudentModal_OSA.php')
+
+include('../modals/AddStudentModal_OSA.php');
+
+
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +35,10 @@ include('../modals/AddStudentModal_OSA.php')
 
 
 <body class="font-poppins antialiased">
+
+    
+
+
     <!-- Define the SVG symbol -->
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check-circle-fill" viewBox="0 0 16 16">

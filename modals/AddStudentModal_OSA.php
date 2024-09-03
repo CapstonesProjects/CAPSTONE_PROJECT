@@ -72,8 +72,8 @@
                                 <label for="studentType" class="form-label">Student Type</label>
                                 <select class="form-select" id="studentType" name="StudentType" required>
                                     <option selected disabled value="">Choose...</option>
-                                    <option value="fullTime">Regular</option>
-                                    <option value="partTime">Irregular</option>
+                                    <option value="Regular">Regular</option>
+                                    <option value="Irregular">Irregular</option>
                                 </select>
                             </div>
                         </div>
@@ -121,8 +121,14 @@
                                 <input type="tel" class="form-control" id="emergencyContact" name="EmergencyContact" required>
                             </div>
                             <div class="col-md-4">
-                                <label for="relationship" class="form-label">Relationship</label>
-                                <input type="text" class="form-control" id="relationship" name="Relationship" required>
+                                <label for="maritalStatus" class="form-label">Marital Status</label>
+                                <select class="form-select" id="maritalStatus" name="MaritalStatus" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option value="single">Single</option>
+                                    <option value="married">Married</option>
+                                    <option value="divorced">Divorced</option>
+                                    <option value="widowed">Widowed</option>
+                                </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="guardianName" class="form-label">Guardian's Name</label>
