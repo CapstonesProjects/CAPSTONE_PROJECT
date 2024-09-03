@@ -1,3 +1,14 @@
+<?php
+// session_start();
+include('../config/db_connection.php');
+
+// Fetch student data from the database
+$query = "SELECT StudentID, FirstName, LastName, Email, Course FROM tblusers_student";
+$result = mysqli_query($conn, $query);
+?>
+
+
+
 <!-- component -->
 <div class="antialiased sans-serif h-screen ml-0 " style="width: 1500px; padding: 0;">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
@@ -84,26 +95,31 @@
             <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
                 <thead>
                     <tr class="text-left">
-                        <template x-for="heading in headings">
-                            <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center" x-text="heading.value" :x-ref="heading.key" :class="{ [heading.key]: true }"></th>
-                        </template>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Student ID</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">First Name</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Last Name</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Email</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Course</th>
                         <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <template x-for="user in users" :key="user.userId">
+                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                         <tr>
                             <td class="border-dashed border-t border-gray-200 userId text-center">
-                                <span class="text-gray-700 px-4 py-2 flex items-center justify-center" x-text="user.userId"></span>
+                                <span class="text-gray-700 px-4 py-2 flex items-center justify-center"><?php echo $row['StudentID']; ?></span>
                             </td>
                             <td class="border-dashed border-t border-gray-200 firstName text-center">
-                                <span class="text-gray-700 px-4 py-2 flex items-center justify-center" x-text="user.Name"></span>
+                                <span class="text-gray-700 px-4 py-2 flex items-center justify-center"><?php echo $row['FirstName']; ?></span>
+                            </td>
+                            <td class="border-dashed border-t border-gray-200 lastName text-center">
+                                <span class="text-gray-700 px-4 py-2 flex items-center justify-center"><?php echo $row['LastName']; ?></span>
                             </td>
                             <td class="border-dashed border-t border-gray-200 emailAddress text-center">
-                                <span class="text-gray-700 px-4 py-2 flex items-center justify-center" x-text="user.emailAddress"></span>
+                                <span class="text-gray-700 px-4 py-2 flex items-center justify-center"><?php echo $row['Email']; ?></span>
                             </td>
                             <td class="border-dashed border-t border-gray-200 gender text-center">
-                                <span class="text-gray-700 px-4 py-2 flex items-center justify-center" x-text="user.Category"></span>
+                                <span class="text-gray-700 px-4 py-2 flex items-center justify-center"><?php echo $row['Course']; ?></span>
                             </td>
                             <td class="border-dashed border-t border-gray-200 action text-center">
                                 <div class="flex justify-center space-x-2">
@@ -113,7 +129,7 @@
                                 </div>
                             </td>
                         </tr>
-                    </template>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -122,28 +138,113 @@
     <script>
         function datatables() {
             return {
-                headings: [
-                    { 'key': 'userId', 'value': 'Student ID' },
-                    { 'key': 'Name', 'value': 'Name' },
-                    { 'key': 'emailAddress', 'value': 'Email' },
-                    { 'key': 'Category', 'value': 'Category' }
+                headings: [{
+                        'key': 'userId',
+                        'value': 'Student ID'
+                    },
+                    {
+                        'key': 'Name',
+                        'value': 'Name'
+                    },
+                    {
+                        'key': 'emailAddress',
+                        'value': 'Email'
+                    },
+                    {
+                        'key': 'Category',
+                        'value': 'Category'
+                    }
                 ],
-                users: [
-                    { "userId": 1, "Name": "Cort Tosh", "emailAddress": "ctosh0@github.com", "Category": "Major" },
-                    { "userId": 2, "Name": "Brianne Dzeniskevich", "emailAddress": "bdzeniskevich1@hostgator.com", "Category": "Minor" },
-                    { "userId": 3, "Name": "Isadore Botler", "emailAddress": "ibotler2@gmpg.org", "Category": "Major" },
-                    { "userId": 4, "Name": "Janaya Klosges", "emailAddress": "jklosges3@amazon.de", "Category": "Major" },
-                    { "userId": 5, "Name": "Freddi Di Claudio", "emailAddress": "fdiclaudio4@phoca.cz", "Category": "Minor" },
-                    { "userId": 6, "Name": "Oliy Mairs", "emailAddress": "omairs5@fda.gov", "Category": "Major" },
-                    { "userId": 7, "Name": "Tabb Wiseman", "emailAddress": "twiseman6@friendfeed.com", "Category": "Major" },
-                    { "userId": 8, "Name": "Joela Betteriss", "emailAddress": "jbetteriss7@msu.edu", "Category": "Major" },
-                    { "userId": 9, "Name": "Alistair Vasyagin", "emailAddress": "avasyagin8@gnu.org", "Category": "Minor" },
-                    { "userId": 10, "Name": "Nealon Ratray", "emailAddress": "nratray9@typepad.com", "Category": "Minor" },
-                    { "userId": 11, "Name": "Annissa Kissick", "emailAddress": "akissicka@deliciousdays.com", "Category": "Major" },
-                    { "userId": 12, "Name": "Nissie Sidnell", "emailAddress": "nsidnellb@freewebs.com", "Category": "Major" },
-                    { "userId": 13, "Name": "Madalena Fouch", "emailAddress": "mfouchc@mozilla.org", "Category": "Major" },
-                    { "userId": 14, "Name": "Rozina Atkins", "emailAddress": "ratkinsd@japanpost.jp", "Category": "Major" },
-                    { "userId": 15, "Name": "Lorelle Sandcroft", "emailAddress": "lsandcrofte@google.nl", "Category": "Major" }
+                users: [{
+                        "userId": 1,
+                        "Name": "Cort Tosh",
+                        "emailAddress": "ctosh0@github.com",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 2,
+                        "Name": "Brianne Dzeniskevich",
+                        "emailAddress": "bdzeniskevich1@hostgator.com",
+                        "Category": "Minor"
+                    },
+                    {
+                        "userId": 3,
+                        "Name": "Isadore Botler",
+                        "emailAddress": "ibotler2@gmpg.org",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 4,
+                        "Name": "Janaya Klosges",
+                        "emailAddress": "jklosges3@amazon.de",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 5,
+                        "Name": "Freddi Di Claudio",
+                        "emailAddress": "fdiclaudio4@phoca.cz",
+                        "Category": "Minor"
+                    },
+                    {
+                        "userId": 6,
+                        "Name": "Oliy Mairs",
+                        "emailAddress": "omairs5@fda.gov",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 7,
+                        "Name": "Tabb Wiseman",
+                        "emailAddress": "twiseman6@friendfeed.com",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 8,
+                        "Name": "Joela Betteriss",
+                        "emailAddress": "jbetteriss7@msu.edu",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 9,
+                        "Name": "Alistair Vasyagin",
+                        "emailAddress": "avasyagin8@gnu.org",
+                        "Category": "Minor"
+                    },
+                    {
+                        "userId": 10,
+                        "Name": "Nealon Ratray",
+                        "emailAddress": "nratray9@typepad.com",
+                        "Category": "Minor"
+                    },
+                    {
+                        "userId": 11,
+                        "Name": "Annissa Kissick",
+                        "emailAddress": "akissicka@deliciousdays.com",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 12,
+                        "Name": "Nissie Sidnell",
+                        "emailAddress": "nsidnellb@freewebs.com",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 13,
+                        "Name": "Madalena Fouch",
+                        "emailAddress": "mfouchc@mozilla.org",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 14,
+                        "Name": "Rozina Atkins",
+                        "emailAddress": "ratkinsd@japanpost.jp",
+                        "Category": "Major"
+                    },
+                    {
+                        "userId": 15,
+                        "Name": "Lorelle Sandcroft",
+                        "emailAddress": "lsandcrofte@google.nl",
+                        "Category": "Major"
+                    }
                 ],
                 selectedRows: [],
                 open: false,

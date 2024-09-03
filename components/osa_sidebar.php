@@ -214,7 +214,7 @@
                         <h2 class="font-medium text-xs md:text-xl text-center text-teal-500">
                             <?php echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName']; ?>
                         </h2>
-                        <p class="text-xs text-gray-500 text-center" style="margin-bottom: 50%;">College Student</p>
+                        <p class="text-xs text-gray-500 text-center" style="margin-bottom: 50%;"><?php echo $_SESSION['Role'] ?></p>
                     </div>
                 </div>
 
