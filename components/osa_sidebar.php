@@ -1,3 +1,20 @@
+<?php if (isset($_SESSION['UserID'])) {
+    $userId = $_SESSION['UserID'];
+
+    $query = "SELECT FirstName, LastName, Role FROM tblusers_osa WHERE UserID = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    $_SESSION['FirstName'] = $user['FirstName'];
+    $_SESSION['LastName'] = $user['LastName'];
+    $_SESSION['Role'] = $user['Role'];
+} else {
+    // Redirect to login page or show an error
+} ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
