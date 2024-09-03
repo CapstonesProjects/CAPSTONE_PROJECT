@@ -33,6 +33,17 @@ if (isset($_POST['btnadd_student'])) {
     $Role = 'student';
     $Status = $_POST['Status'];
 
+     // Check if the StudentID already exists
+     $checkQuery = "SELECT * FROM tblusers_student WHERE StudentID = '$StudentID'";
+     $checkResult = mysqli_query($conn, $checkQuery);
+ 
+     if (mysqli_num_rows($checkResult) > 0) {
+         // StudentID already exists
+         $_SESSION['addingstudent_error'] = "Student ID already exists.";
+         header('Location: ../OSA/OSA_StudentProfile.php');
+         exit;
+     }
+
     $insertQuery = "INSERT INTO tblusers_student (
         StudentID, FirstName, LastName, MiddleName, Suffix, Course, YearLevel,
         StudentType, Email, PhoneNumber, DateBirth, Address, Gender, Nationality, EmergencyContact, MaritalStatus, GuardiansName, GuardiansContact, Username, Password, 
@@ -44,9 +55,9 @@ if (isset($_POST['btnadd_student'])) {
     )";
 
     if (mysqli_query($conn, $insertQuery)) {
-        $_SESSION['success'] = 'The student was successfully added.';
+        $_SESSION['addingstudent_success'] = 'The student was successfully added.';
     } else {
-        $_SESSION['error'] = "Error: " . $insertQuery . "<br>" . mysqli_error($conn);
+        $_SESSION['addingstudent_error'] = "Error: " . $insertQuery . "<br>" . mysqli_error($conn);
     }
 
     // Redirect back to the profile page

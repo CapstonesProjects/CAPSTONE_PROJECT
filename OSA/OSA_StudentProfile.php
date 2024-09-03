@@ -2,10 +2,13 @@
 session_start();
 include('../config/db_connection.php');
 
+// $query = "SELECT StudentID, FirstName, LastName, Email, Gender FROM tblusers_student";
+// $result = mysqli_query($conn, $query);
+
 if (isset($_SESSION['UserID'])) {
     $userId = $_SESSION['UserID'];
 
-    $query = "SELECT FirstName, LastName FROM tblusers_osa WHERE UserID = ?";
+    $query = "SELECT FirstName, LastName, Role FROM tblusers_osa WHERE UserID = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $userId);
     $stmt->execute();
@@ -14,9 +17,12 @@ if (isset($_SESSION['UserID'])) {
 
     $_SESSION['FirstName'] = $user['FirstName'];
     $_SESSION['LastName'] = $user['LastName'];
+    $_SESSION['Role'] = $user['Role'];
 } else {
     // Redirect to login page or show an error
 }
+
+include('../modals/AddStudentModal_OSA.php')
 
 ?>
 
@@ -33,7 +39,7 @@ if (isset($_SESSION['UserID'])) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>OSA Student Profile - LOA OSA</title>
 </head>
-<?php include('../modals/AddStudentModal_OSA.php') ?>
+
 
 <body class="font-poppins antialiased">
     <!-- Define the SVG symbol -->
