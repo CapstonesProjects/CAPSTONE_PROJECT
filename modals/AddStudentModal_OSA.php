@@ -124,10 +124,10 @@
                                 <label for="maritalStatus" class="form-label">Marital Status</label>
                                 <select class="form-select" id="maritalStatus" name="MaritalStatus" required>
                                     <option selected disabled value="">Choose...</option>
-                                    <option value="single">Single</option>
-                                    <option value="married">Married</option>
-                                    <option value="divorced">Divorced</option>
-                                    <option value="widowed">Widowed</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
