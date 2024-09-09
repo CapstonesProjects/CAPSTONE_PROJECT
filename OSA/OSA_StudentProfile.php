@@ -2,7 +2,7 @@
 session_start();
 include('../config/db_connection.php');
 
-$query = "SELECT UserID, StudentID, FirstName, LastName, MiddleName, Suffix, Course, YearLevel, StudentType, Email, PhoneNumber, DateBirth, Address, Gender, Nationality, EmergencyContact, MaritalStatus, GuardiansName, GuardiansContact, Username, Password, Role, Status FROM tblusers_student";
+$query = "SELECT UserID, StudentID, FirstName, LastName, MiddleName, Suffix, Course, YearLevel, StudentType, Email, PhoneNumber, DateBirth, Address, Gender, Nationality, EmergencyContact, MaritalStatus, GuardiansName, GuardiansContact, Username, Status FROM tblusers_student";
 $result = mysqli_query($conn, $query);
 
 if ($result) {
@@ -11,13 +11,8 @@ if ($result) {
     echo "Error: " . $query . "<br>" . mysqli_error($conn);
 }
 
-
 include('../modals/AddStudentModal_OSA.php');
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,12 +28,7 @@ include('../modals/AddStudentModal_OSA.php');
     <title>OSA Student Profile - LOA OSA</title>
 </head>
 
-
 <body class="font-poppins antialiased">
-
-    
-
-
     <!-- Define the SVG symbol -->
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check-circle-fill" viewBox="0 0 16 16">
@@ -64,7 +54,6 @@ include('../modals/AddStudentModal_OSA.php');
     </div>
 
     <?php include('../alerts/adding_student_alerts.php'); ?>
-
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
@@ -72,5 +61,6 @@ include('../modals/AddStudentModal_OSA.php');
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="../javascript/sessionmessage.js"></script>
 <script src="../javascript/active.js"></script>
+<script src="../javascript/searchbar.js"></script>
 
 </html>

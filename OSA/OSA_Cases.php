@@ -1,7 +1,6 @@
 <?php
-session_start();
+session_start(); // Start the session
 include('../config/db_connection.php');
-
 
 if (isset($_SESSION['UserID'])) {
     $userId = $_SESSION['UserID'];
@@ -39,8 +38,8 @@ if (isset($_SESSION['UserID'])) {
     <title>OSA Cases - LOA OSA</title>
 </head>
 <?php include('../modals/AddCasesModal.php') ?>
+<body class="font-poppins antialiased ">
 
-<body class="font-poppins antialiased">
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php
@@ -54,6 +53,8 @@ if (isset($_SESSION['UserID'])) {
             ?>
         </div>
     </div>
+
+    <?php include('../alerts/addcases_alerts.php'); ?>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
