@@ -125,7 +125,7 @@ mysqli_close($conn);
                 </thead>
                 <tbody>
                     <template x-for="caseItem in filteredCases()" :key="caseItem.StudentID">
-                        <tr class="text-center hover:bg-blue-100">
+                        <tr class="text-center hover:bg-gray-300">
                             <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.StudentID"></td>
                             <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.FullName"></td>
                             <!-- <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.Email"></td> -->
