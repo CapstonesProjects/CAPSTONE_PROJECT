@@ -1,3 +1,18 @@
+<?php
+include('../config/db_connection.php');
+
+// Fetch data from tblcases
+$query = "SELECT StudentID, FullName, Email, OffenseCategory, Status FROM tblcases";
+$result = mysqli_query($conn, $query);
+
+$cases = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $cases[] = $row;
+}
+
+mysqli_close($conn);
+?>
+
 <!-- component -->
 <div class="antialiased sans-serif h-screen ml-0">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
@@ -34,7 +49,7 @@
         }
 
         .form-checkbox:checked {
-            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a 1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
             border-color: transparent;
             background-color: currentColor;
             background-size: 100% 100%;
@@ -49,9 +64,19 @@
         }
     </style>
 
-<div class="container py-3 px-1 ml-12 overflow-hidden" x-data="datatables()" x-cloak>
-        <div style="width: 130%;">
-            <h1 class="text-3xl py-3 mb-10">Records</h1>
+    <div class="container py-3 px-1 ml-12 overflow-hidden" x-data="filteredCases()">
+        <div class="flex justify-between items-center mb-10">
+            <h1 class="text-3xl">Records</h1>
+            <form action="import_from_excel.php" method="POST" enctype="multipart/form-data" class="flex items-center space-x-4">
+                <input type="file" name="excelFile" class="hidden" id="excelFileInput">
+                <label for="excelFileInput" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V3zm2 0v12h10V3H5zm3 4a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm1 1v1h2V8H9z" clip-rule="evenodd" />
+                    </svg>
+                    Import
+                </label>
+                <button type="submit" class="hidden" id="importExcelButton"></button>
+            </form>
         </div>
 
         <div class="mb-4 flex justify-between items-center">
@@ -71,7 +96,7 @@
                 <div class="shadow rounded-lg flex justify-between mb-4" style="margin-left: 0%;">
                     <div class="relative">
                         <div style="width: 800px;" class="flex justify-between">
-                            <div x-data="{ selected: 'all' }" class="flex justify-center items-center space-x-4">
+                            <div class="flex justify-center items-center space-x-4">
                                 <button :class="{ 'bg-blue-500 text-white': selected === 'all' }" class="px-10 py-2 rounded" @click="selected = 'all'">All</button>
                                 <button :class="{ 'bg-blue-500 text-white': selected === 'ongoing' }" class="px-10 py-2 rounded" @click="selected = 'ongoing'">Ongoing</button>
                                 <button :class="{ 'bg-blue-500 text-white': selected === 'resolved' }" class="px-10 py-2 rounded" @click="selected = 'resolved'">Resolved</button>
@@ -89,29 +114,31 @@
         <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" style="height: 645px; width: 1490px;">
             <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
                 <thead>
-                    <tr class="text-left">
-                        <template x-for="heading in headings">
-                            <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs" x-text="heading.value" :x-ref="heading.key" :class="{ [heading.key]: true }"></th>
-                        </template>
+                    <tr class="text-center">
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Student ID</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Name</th>
+                        <!-- <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Email</th> -->
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Category</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Status</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <template x-for="user in users" :key="user.userId">
-                        <tr>
-                            <td class="border-dashed border-t border-gray-200 userId">
-                                <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.userId"></span>
+                    <template x-for="caseItem in filteredCases()" :key="caseItem.StudentID">
+                        <tr class="text-center hover:bg-blue-100">
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.StudentID"></td>
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.FullName"></td>
+                            <!-- <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.Email"></td> -->
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.OffenseCategory"></td>
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3">
+                                <span :class="{
+                                    'bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase() === 'resolved',
+                                    'bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase() === 'ongoing',
+                                    'bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase() === 'pending'
+                                }" x-text="caseItem.Status"></span>
                             </td>
-                            <td class="border-dashed border-t border-gray-200 firstName">
-                                <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.Name"></span>
-                            </td>
-                            <td class="border-dashed border-t border-gray-200 emailAddress">
-                                <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.emailAddress"></span>
-                            </td>
-                            <td class="border-dashed border-t border-gray-200 gender">
-                                <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.Category"></span>
-                            </td>
-                            <td class="border-dashed border-t border-gray-200 phoneNumber">
-                                <span class="text-gray-700 px-6 py-3 flex items-center" x-text="user.Status"></span>
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded">View</button>
                             </td>
                         </tr>
                     </template>
@@ -121,69 +148,15 @@
     </div>
 
     <script>
-        function datatables() {
+        function filteredCases() {
             return {
-                headings: [
-                    { 'key': 'userId', 'value': 'Student ID' },
-                    { 'key': 'Name', 'value': 'Name' },
-                    { 'key': 'emailAddress', 'value': 'Email' },
-                    { 'key': 'Category', 'value': 'Category' },
-                    { 'key': 'Status', 'value': 'Status' }
-                ],
-                users: [
-                    { "userId": 1, "Name": "Cort Tosh", "emailAddress": "ctosh0@github.com", "Category": "Major", "Status": "Pending" },
-                    { "userId": 2, "Name": "Brianne Dzeniskevich", "emailAddress": "bdzeniskevich1@hostgator.com", "Category": "Minor", "Status": "Resolved" },
-                    { "userId": 3, "Name": "Isadore Botler", "emailAddress": "ibotler2@gmpg.org", "Category": "Major", "Status": "Pending" },
-                    { "userId": 4, "Name": "Janaya Klosges", "emailAddress": "jklosges3@amazon.de", "Category": "Major", "Status": "Pending" },
-                    { "userId": 5, "Name": "Freddi Di Claudio", "emailAddress": "fdiclaudio4@phoca.cz", "Category": "Minor", "Status": "Resolved" },
-                    { "userId": 6, "Name": "Oliy Mairs", "emailAddress": "omairs5@fda.gov", "Category": "Major", "Status": "Pending" },
-                    { "userId": 7, "Name": "Tabb Wiseman", "emailAddress": "twiseman6@friendfeed.com", "Category": "Major", "Status": "Pending" },
-                    { "userId": 8, "Name": "Joela Betteriss", "emailAddress": "jbetteriss7@msu.edu", "Category": "Major", "Status": "Pending" },
-                    { "userId": 9, "Name": "Alistair Vasyagin", "emailAddress": "avasyagin8@gnu.org", "Category": "Minor", "Status": "Pending" },
-                    { "userId": 10, "Name": "Nealon Ratray", "emailAddress": "nratray9@typepad.com", "Category": "Minor", "Status": "Pending" },
-                    { "userId": 11, "Name": "Annissa Kissick", "emailAddress": "akissicka@deliciousdays.com", "Category": "Major", "Status": "Pending" },
-                    { "userId": 12, "Name": "Nissie Sidnell", "emailAddress": "nsidnellb@freewebs.com", "Category": "Major", "Status": "Pending" },
-                    { "userId": 13, "Name": "Madalena Fouch", "emailAddress": "mfouchc@mozilla.org", "Category": "Major", "Status": "Pending" },
-                    { "userId": 14, "Name": "Rozina Atkins", "emailAddress": "ratkinsd@japanpost.jp", "Category": "Major", "Status": "Pending" },
-                    { "userId": 15, "Name": "Lorelle Sandcroft", "emailAddress": "lsandcrofte@google.nl", "Category": "Major", "Status": "Pending" }
-                ],
-                selectedRows: [],
-                open: false,
-                toggleColumn(key) {
-                    let columns = document.querySelectorAll('.' + key);
-                    if (this.$refs[key].classList.contains('hidden') && this.$refs[key].classList.contains(key)) {
-                        columns.forEach(column => {
-                            column.classList.remove('hidden');
-                        });
-                    } else {
-                        columns.forEach(column => {
-                            column.classList.add('hidden');
-                        });
+                selected: 'all',
+                cases: <?php echo json_encode($cases); ?>,
+                filteredCases() {
+                    if (this.selected === 'all') {
+                        return this.cases;
                     }
-                },
-                getRowDetail($event, id) {
-                    let rows = this.selectedRows;
-                    if (rows.includes(id)) {
-                        let index = rows.indexOf(id);
-                        rows.splice(index, 1);
-                    } else {
-                        rows.push(id);
-                    }
-                },
-                selectAllCheckbox($event) {
-                    let columns = document.querySelectorAll('.rowCheckbox');
-                    this.selectedRows = [];
-                    if ($event.target.checked == true) {
-                        columns.forEach(column => {
-                            column.checked = true;
-                            this.selectedRows.push(parseInt(column.name));
-                        });
-                    } else {
-                        columns.forEach(column => {
-                            column.checked = false;
-                        });
-                        this.selectedRows = [];
-                    }
+                    return this.cases.filter(caseItem => caseItem.Status.toLowerCase() === this.selected);
                 }
             }
         }
