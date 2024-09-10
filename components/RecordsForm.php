@@ -14,7 +14,7 @@ mysqli_close($conn);
 ?>
 
 <!-- component -->
-<div class="antialiased sans-serif h-screen ml-0">
+<div class="antialiased sans-serif h-screen ml-0 m-3">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
     <style>
@@ -111,7 +111,7 @@ mysqli_close($conn);
             </div>
         </div>
 
-        <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" style="height: 645px; width: 1490px;">
+        <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" style="height: 685px; width: 1490px;">
             <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
                 <thead>
                     <tr class="text-center">

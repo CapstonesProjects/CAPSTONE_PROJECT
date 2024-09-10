@@ -41,6 +41,7 @@
                                     <option value="III">III</option>
                                     <option value="IV">IV</option>
                                     <option value="V">V</option>
+                                    <option value="N/A">N/A</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
@@ -105,9 +106,9 @@
                                 <label for="gender" class="form-label">Gender</label>
                                 <select class="form-select" id="gender" name="Gender" required>
                                     <option selected disabled value="">Choose...</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
