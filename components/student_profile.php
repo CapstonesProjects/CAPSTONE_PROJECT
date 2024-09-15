@@ -1,3 +1,26 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include('../config/db_connection.php');
+
+// Check if the session variables are set
+if (!isset($_SESSION['StudentID'])) {
+    // Handle the case where the session variable is not set
+    echo "Student ID is not set in the session.";
+    exit;
+}
+
+// Fetch the profile picture path from the database
+$student_id = $_SESSION['StudentID'];
+$sql = "SELECT profile_picture FROM tblusers_student WHERE StudentID = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $student_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://i.pinimg.com/736x/10/26/73/1026734a49e1a7bdbbec411c861a69ab.jpg'; // Use a default picture if none is set
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +34,7 @@
 </head>
 
 <body>
-    <div class="h-full bg-gray-200 p-4">
+    <div class="h-full bg-gray-200 pt-2 pl-6 pr-6 overflow-hidden">
         <div class="bg-white rounded-lg shadow-xl pb-8" style="width: 1550px; margin: 0 auto;">
             <div x-data="{ openSettings: false }" class="absolute right-12 mt-4 rounded">
                 <button @click="openSettings = !openSettings" class="border border-gray-400 p-2 rounded text-gray-300 hover:text-gray-300 bg-gray-100 bg-opacity-10 hover:bg-opacity-20" title="Settings">
@@ -56,14 +79,16 @@
                 <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" class="w-full h-full rounded-tl-lg rounded-tr-lg opacity-75">
             </div>
             <div class="flex flex-col items-center -mt-20">
-                <div class="relative w-38 h-38">
-                    <img id="profileImage" src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg" class="w-full h-full border-4 border-white rounded-full">
-                    <input type="file" id="fileInput" class="hidden" accept="image/*" onchange="previewImage(event)">
-                    <button class="absolute bottom-2 right-2 bg-gray-800 text-white p-1 rounded-full hover:bg-gray-700" title="Change Profile Picture" onclick="document.getElementById('fileInput').click()">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a2 2 0 00-2 2H8a2 2 0 00-2 2v1H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2h-2V6a2 2 0 00-2-2h-2a2 2 0 00-2-2zm0 4a4 4 0 110 8 4 4 0 010-8z"></path>
-                        </svg>
-                    </button>
+                <div class="relative w-40 h-40">
+                    <img id="profileImage" src="<?php echo $profile_picture ?>" class="w-full h-full border-4 border-white rounded-full object-cover">
+                    <form id="profilePictureForm" action="../phpfiles/upload_profile_picture.php" method="post" enctype="multipart/form-data" class="absolute bottom-0 right-0">
+                        <input type="file" id="fileInput" name="profile_picture" class="hidden" accept="image/*" onchange="document.getElementById('profilePictureForm').submit()">
+                        <button type="button" class="bg-gray-800 text-white p-1 rounded-full hover:bg-gray-700 absolute bottom-2 right-2 flex items-center justify-center" title="Change Profile Picture" onclick="document.getElementById('fileInput').click()">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a2 2 0 00-2 2H8a2 2 0 00-2 2v1H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2h-2V6a2 2 0 00-2-2h-2a2 2 0 00-2-2zm0 4a4 4 0 110 8 4 4 0 010-8z"></path>
+                            </svg>
+                        </button>
+                    </form>
                 </div>
                 <div class="flex items-center space-x-2 mt-2">
                     <p class="text-2xl"><?php echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName']; ?></p>
@@ -164,42 +189,7 @@
 
     </div>
 
-    <script>
-        const DATA_SET_VERTICAL_BAR_CHART_1 = [68.106, 26.762, 94.255, 72.021, 74.082, 64.923, 85.565, 32.432, 54.664, 87.654, 43.013, 91.443];
 
-        const labels_vertical_bar_chart = ['January', 'February', 'Mart', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-        const dataVerticalBarChart = {
-            labels: labels_vertical_bar_chart,
-            datasets: [{
-                label: 'Revenue',
-                data: DATA_SET_VERTICAL_BAR_CHART_1,
-                borderColor: 'rgb(54, 162, 235)',
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            }]
-        };
-        const configVerticalBarChart = {
-            type: 'bar',
-            data: dataVerticalBarChart,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Last 12 Months'
-                    }
-                }
-            },
-        };
-
-        var verticalBarChart = new Chart(
-            document.getElementById('verticalBarChart'),
-            configVerticalBarChart
-        );
-    </script>
 </body>
 
 </html>
