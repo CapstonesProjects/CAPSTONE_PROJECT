@@ -3,8 +3,24 @@ session_start();
 include('./config/db_connection.php');
 
 // Display session messages
+// if (isset($_SESSION['error'])) {
+//     echo "<div class='alert' id='error-message' style='padding: 20px; margin-bottom: 20px; color: black; background-color: #FF6868; border: 1px solid #DCFFB7; border-radius: 4px;'>";
+//     echo $_SESSION['error'];
+//     echo "</div>";
+//     unset($_SESSION['error']);
+// } else {
+//     echo "<div class='alert' id='error-message' style='padding: 20px; margin-bottom: 20px; color: black; background-color: #FF6868; border: 1px solid #DCFFB7; border-radius: 4px; display: none;'>";
+//     echo "No error message set.";
+//     echo "</div>";
+// }
+
 include('./alerts/login_alerts.php');
+
+
+// $activeMenu = 'dashboard';
+// include('./components/sidebar.php');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +33,9 @@ include('./alerts/login_alerts.php');
     <link rel="stylesheet" href="css/login_form.css">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <title>OSA Login - LOA OSA</title>
-    <style>
+</head>
+
+<style>
         .loading-screen {
             display: none;
             position: fixed;
@@ -65,6 +83,8 @@ include('./alerts/login_alerts.php');
     <?php
     include('./components/osa_login_form.php');
     ?>
+
+    <?php include('./alerts/login_alerts.php') ?>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', function() {

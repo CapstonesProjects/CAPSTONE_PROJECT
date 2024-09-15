@@ -1,3 +1,10 @@
+<style>
+    *{
+        text-decoration: none;
+        list-style: none;
+    }
+</style>
+
 <header>
         <div class="logo-text-container">
             <div class="logo-img-container">

@@ -30,6 +30,7 @@ if (isset($_SESSION['error'])) {
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/login_form.css">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Student Login - LOA OSA</title>
 </head>
 
@@ -64,6 +65,17 @@ if (isset($_SESSION['error'])) {
         100% {
             transform: rotate(360deg);
         }
+
+    
+    }
+
+    * {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    a {
+        text-decoration: none;
     }
 </style>
 </head>
@@ -90,6 +102,8 @@ if (isset($_SESSION['error'])) {
     ?>
 
 
+
+    <?php include('./alerts/login_alerts.php') ?>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function() {
             document.getElementById('loadingScreen').style.display = 'flex';
