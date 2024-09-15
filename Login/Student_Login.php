@@ -14,11 +14,13 @@ $result = mysqli_stmt_get_result($stmt);
 if ($user = mysqli_fetch_assoc($result)) {
     // Login successful. Store the UserID.
     $_SESSION['UserID'] = $user['UserID'];
-    $_SESSION['success'] = 'You have successfully logged in!';
+    $_SESSION['login_success'] = 'You have successfully logged in!';
+    // Optional: Add a small delay to simulate loading
+    sleep(2);
     header('Location: ../Student/Student_Dashboard.php');
 } else {
     // Invalid username or password
-    $_SESSION['error'] = 'Invalid username or password';
+    $_SESSION['login_error'] = 'Invalid username or password';
     header('Location: ../Student_Index.php');
 }
 

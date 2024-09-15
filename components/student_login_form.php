@@ -1,7 +1,7 @@
 <div class="parent-container">
     <div class="login-form-container">
         <div class="login_form_card">
-            <form action="./Login/Student_Login.php" method="POST">
+            <form id="loginForm" action="./Login/Student_Login.php" method="POST">
                 <div class="login-text-title">
                     <h2>Login</h2>
                     <h4>Welcome Back, Please Login To Your Student Account.</h4>
@@ -10,11 +10,11 @@
                 <div class="text-box-container">
                     <div class="text-box">
                         <label for="username">Username</label>
-                        <input type="text" name="username" id="username">
+                        <input type="text" name="username" id="username" required>
                     </div>
                     <div class="text-box">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password">
+                        <input type="password" name="password" id="password" required>
                     </div>
 
                     <div class="links-container">
@@ -28,8 +28,8 @@
                     <div class="btn-container">
                         <button class="login-btn">Login</button>
                     </div>
-                </div>
             </form>
         </div>
     </div>
+</div>
 </div>

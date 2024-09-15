@@ -80,21 +80,17 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
             </div>
             <div class="flex flex-col items-center -mt-20">
                 <div class="relative w-40 h-40">
-                    <img id="profileImage" src="<?php echo $profile_picture ?>" class="w-full h-full border-4 border-white rounded-full object-cover">
-                    <form id="profilePictureForm" action="../phpfiles/upload_profile_picture.php" method="post" enctype="multipart/form-data" class="absolute bottom-0 right-0">
+                    <img id="profileImage" src="<?php echo $profile_picture ?>" class="w-full h-full border-4 border-white rounded-full object-cover absolute">
+                    <form id="profilePictureForm" action="../phpfiles/upload_profile_picture.php" method="post" enctype="multipart/form-data" class="absolute inset-0 flex items-center justify-center">
                         <input type="file" id="fileInput" name="profile_picture" class="hidden" accept="image/*" onchange="document.getElementById('profilePictureForm').submit()">
-                        <button type="button" class="bg-gray-800 text-white p-1 rounded-full hover:bg-gray-700 absolute bottom-2 right-2 flex items-center justify-center" title="Change Profile Picture" onclick="document.getElementById('fileInput').click()">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a2 2 0 00-2 2H8a2 2 0 00-2 2v1H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2h-2V6a2 2 0 00-2-2h-2a2 2 0 00-2-2zm0 4a4 4 0 110 8 4 4 0 010-8z"></path>
-                            </svg>
-                        </button>
+                        <div class="w-full h-full group hover:bg-gray-200 opacity-60 rounded-full absolute flex justify-center items-center cursor-pointer transition duration-500" onclick="document.getElementById('fileInput').click()">
+                            <img class="hidden group-hover:block w-12" src="https://www.svgrepo.com/show/33565/upload.svg" alt="Upload Icon">
+                        </div>
                     </form>
                 </div>
                 <div class="flex items-center space-x-2 mt-2">
                     <p class="text-2xl"><?php echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName']; ?></p>
-
                 </div>
-                <!-- <p class="text-gray-700">Senior Software Engineer at Tailwind CSS</p> -->
                 <p class="text-sm text-gray-500"><?php echo $_SESSION['Course'] ?></p>
             </div>
 
