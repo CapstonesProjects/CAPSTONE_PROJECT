@@ -52,7 +52,7 @@ $result = mysqli_query($conn, $query);
                         <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Student ID</th>
                         <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">First Name</th>
                         <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Last Name</th>
-                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Email</th>
+                        <!-- <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Email</th> -->
                         <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Course</th>
                         <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-4 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Action</th>
                     </tr>
@@ -70,9 +70,9 @@ $result = mysqli_query($conn, $query);
                             <td class="border-dashed border-t border-gray-200 lastName text-center">
                                 <span class="text-gray-700 px-4 py-2 flex items-center justify-center"><?php echo $row['LastName']; ?></span>
                             </td>
-                            <td class="border-dashed border-t border-gray-200 emailAddress text-center">
+                            <!-- <td class="border-dashed border-t border-gray-200 emailAddress text-center">
                                 <span class="text-gray-700 px-4 py-2 flex items-center justify-center"><?php echo $row['Email']; ?></span>
-                            </td>
+                            </td> -->
                             <td class="border-dashed border-t border-gray-200 gender text-center">
                                 <span class="text-gray-700 px-4 py-2 flex items-center justify-center"><?php echo $row['Course']; ?></span>
                             </td>
