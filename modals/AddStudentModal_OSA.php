@@ -48,12 +48,13 @@
                                 <label for="course" class="form-label">Course</label>
                                 <select class="form-select" id="course" name="Course" required>
                                     <option selected disabled value="">Choose...</option>
-                                    <option value="Computer Science">Computer Science</option>
-                                    <option value="Information Technology">Information Technology</option>
-                                    <option value="Engineering">Engineering</option>
-                                    <option value="Business Administration">Business Administration</option>
-                                    <option value="Nursing">Nursing</option>
-                                    <option value="Education">Education</option>
+                                    <option value="Bachelor of Science in Computer Science">BSCS</option>
+                                    <option value="Bachelor of Science in Information Technology">BSIT</option>
+                                    <option value="Bachelor of Science in Engineering">BSE</option>
+                                    <option value="Bachelor of Science in Business Administration">BSBA</option>
+                                    <option value="Bachelor of Science in Psychology">BSPSYCH</option>
+                                    <option value="Bachelor of Science in Education">BSED</option>
+                                    <option value="Bachelor of Science in Tourism Management">BSTM</option>
                                 </select>
                             </div>
                         </div>

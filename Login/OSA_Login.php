@@ -15,6 +15,8 @@ if ($user = mysqli_fetch_assoc($result)) {
     // Login successful. Store the UserID.
     $_SESSION['UserID'] = $user['UserID'];
     $_SESSION['login_success'] = 'You have successfully logged in!';
+    // Optional: Add a small delay to simulate loading
+    sleep(2);
     header('Location: ../OSA/MainDashboard.php');
 } else {
     // Invalid username or password

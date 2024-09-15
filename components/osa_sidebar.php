@@ -226,7 +226,7 @@
             <div class="space-y-6 md:space-y-10 mt-10">
                 <h1 class="hidden md:block font-bold text-sm md:text-xl text-center"></h1>
                 <div id="profile" class="space-y-3 mb-8">
-                    <img src="../images/logo.png" alt="Avatar user" class="w-8 md:w-36 mb-6 rounded-full mx-auto" />
+                    <img src="../images/osa_logo.png" alt="Avatar user" class="w-8 md:w-36 mb-6 rounded-full mx-auto" />
                     <div>
                         <h2 class="font-medium text-xs md:text-xl text-center text-teal-500">
                             <?php echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName']; ?>
