@@ -38,6 +38,7 @@ if (isset($_SESSION['UserID'])) {
     <title>OSA Cases - LOA OSA</title>
 </head>
 <?php include('../modals/AddCasesModal.php') ?>
+
 <body class="font-poppins antialiased ">
 
     <div class="flex h-screen">
@@ -48,7 +49,7 @@ if (isset($_SESSION['UserID'])) {
             ?>
         </div>
         <div class="flex justify-center items-center">
-            <?php  
+            <?php
             include('../components/RecordsForm.php');
             ?>
         </div>
@@ -62,5 +63,13 @@ if (isset($_SESSION['UserID'])) {
 <script src="../javascript/sessionmessage.js"></script>
 <script src="../javascript/active.js"></script>
 <script src="../javascript/searchbar.js"></script>
+<script src="../javascript/saction_offense_counting.js"></script>
+<script src="../javascript/autogenerate_field.js"></script>
+<script src="../javascript/offenses.js"></script>
+<script>
+    
+
+    
+</script>
 
 </html>
