@@ -3,8 +3,8 @@
         <div class="login_form_card">
             <form id="loginForm" action="./Login/OSA_Login.php" method="POST">
                 <div class="login-text-title">
-                    <h2>Login</h2>
-                    <h4>Welcome Back, Please Login To Your OSA Account.</h4>
+                    <h2 style="font-size: 2.3rem;">Login</h2>
+                    <h4 class="mt-1" style="font-size: 0.8rem;">Welcome Back, Please Login To Your OSA Account.</h4>
                 </div>
 
                 <div class="text-box-container">
