@@ -35,10 +35,11 @@ if (isset($_SESSION['UserID'])) {
     <link rel="stylesheet" href="../css/student_profile.css">
     <link rel="shortcut icon" href="../images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>Student Scholarship - LOA OSA</title>
 </head>
 
-<body class="font-poppins antialiased">
+<body class="font-poppins antialiased bg-gray-200">
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php
@@ -47,7 +48,7 @@ if (isset($_SESSION['UserID'])) {
             ?>
         </div>
         <div class="flex justify-center items-center">
-            
+            <?php include('../components/student_case.php') ?>
         </div>
     </div>
 </body>

@@ -53,7 +53,7 @@ document.getElementById('offense').addEventListener('change', function() {
                         }
                     }
                     document.getElementById('sanction').innerText = `Sanction: ${sanction}`;
-                    document.getElementById('sanctionInput').value = sanction; // Set the value of the hidden input field
+                    document.getElementById('sanctionInput').value = sanction;
 
                     // Show or hide the Written Reprimand Attachment field
                     const writtenReprimandAttachmentContainer = document.getElementById('writtenReprimandAttachmentContainer');
@@ -72,5 +72,6 @@ document.getElementById('offense').addEventListener('change', function() {
 
         // Hide the Written Reprimand Attachment field
         document.getElementById('writtenReprimandAttachmentContainer').style.display = 'none';
+        // document.getElementById('sanctionLetterAttachmentContainer').style.display = 'none';
     }
 });

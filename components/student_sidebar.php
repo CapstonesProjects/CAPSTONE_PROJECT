@@ -1,3 +1,24 @@
+<?php
+
+include('../config/db_connection.php');
+
+$studentID = $_SESSION['StudentID'];
+
+// Check if cases have been viewed
+if (!isset($_SESSION['casesViewed'])) {
+    $_SESSION['casesViewed'] = false;
+}
+
+// Fetch the number of cases
+$query = "SELECT COUNT(*) as caseCount FROM tblcases WHERE StudentID = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $studentID);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$caseCount = $row['caseCount'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -234,11 +255,14 @@
                         </svg>
                         <span class="text-md">Notification</span>
                     </a>
-                    <a href="../Student/Scholarship.php" class="text-lg font-medium <?php echo $activeMenu == 'scholarship' ? 'active' : 'text-black-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M12 3L1 9l11 6l9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z" />
+                    <a href="../Student/Case.php" class="text-lg font-medium <?php echo $activeMenu == 'scholarship' ? 'active' : 'text-black-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+                            <path d="M18 22a2 2 0 0 0 2-2V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12zM13 4l5 5h-5V4zM7 8h3v2H7V8zm0 4h10v2H7v-2zm0 4h10v2H7v-2z"></path>
                         </svg>
-                        <span class="text-md">Scholarship</span>
+                        <span class="text-md">Case</span>
+                        <?php if ($caseCount > 0 && !$_SESSION['casesViewed']): ?>
+                            <span class="ml-2 bg-red-500 text-white text-sm font-semibold px-2 py-1 rounded-full"><?php echo $caseCount; ?></span>
+                        <?php endif; ?>
                     </a>
                     <a href="../Student/Rules_Regulation.php" class="text-lg font-medium <?php echo $activeMenu == 'rules&regulation' ? 'active' : 'text-black-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">

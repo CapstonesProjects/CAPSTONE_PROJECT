@@ -97,90 +97,89 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
         </div>
 
         <div class="flex-1 bg-white rounded-lg shadow-xl p-8 mt-4 mx-auto" style="max-width: 1550px;">
-            <div class="overflow-auto max-h-96">
-                <h4 class="text-2xl text-gray-900 font-bold mb-4">Basic Information</h4>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-gray-700">
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Student ID:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['StudentID'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">First Name:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['FirstName'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Last Name:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['LastName'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Middle Name:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['MiddleName'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Suffix:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['Suffix'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Course:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['Course'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Year Level:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['YearLevel'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Student Type:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['StudentType'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Email:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['Email'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Phone Number:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['PhoneNumber'] ?></span>
-                    </li>
-                </ul>
-
-                <div class="border-t border-gray-300 my-8"></div>
-
-                <h4 class="text-2xl text-gray-900 font-bold mb-4">Personal Information</h4>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-gray-700">
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Date of Birth:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['DateBirth'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Address:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['Address'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Gender:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['Gender'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Nationality:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['Nationality'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Emergency Contact:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['EmergencyContact'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Marital Status:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['MaritalStatus'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Guardian's Name:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['GuardiansName'] ?></span>
-                    </li>
-                    <li class="flex flex-col border p-4 rounded-lg shadow-sm bg-gray-50">
-                        <span class="font-bold text-gray-900">Guardian's Contact:</span>
-                        <span class="text-gray-700"><?php echo $_SESSION['GuardiansContact'] ?></span>
-                    </li>
-                </ul>
+    <div class="overflow-auto max-h-96">
+        <h4 class="text-2xl text-gray-900 font-bold mb-4">Basic Information</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Student ID:</label>
+                <input type="text" value="<?php echo $_SESSION['StudentID'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">First Name:</label>
+                <input type="text" value="<?php echo $_SESSION['FirstName'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Last Name:</label>
+                <input type="text" value="<?php echo $_SESSION['LastName'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Middle Name:</label>
+                <input type="text" value="<?php echo $_SESSION['MiddleName'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Suffix:</label>
+                <input type="text" value="<?php echo $_SESSION['Suffix'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Course:</label>
+                <input type="text" value="<?php echo $_SESSION['Course'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Year Level:</label>
+                <input type="text" value="<?php echo $_SESSION['YearLevel'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Student Type:</label>
+                <input type="text" value="<?php echo $_SESSION['StudentType'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                <input type="text" value="<?php echo $_SESSION['Email'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
+                <input type="text" value="<?php echo $_SESSION['PhoneNumber'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
             </div>
         </div>
+
+        <div class="border-t border-gray-300 my-8"></div>
+
+        <h4 class="text-2xl text-gray-900 font-bold mb-4">Personal Information</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Date of Birth:</label>
+                <input type="text" value="<?php echo $_SESSION['DateBirth'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Address:</label>
+                <input type="text" value="<?php echo $_SESSION['Address'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Gender:</label>
+                <input type="text" value="<?php echo $_SESSION['Gender'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Nationality:</label>
+                <input type="text" value="<?php echo $_SESSION['Nationality'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Emergency Contact:</label>
+                <input type="text" value="<?php echo $_SESSION['EmergencyContact'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Marital Status:</label>
+                <input type="text" value="<?php echo $_SESSION['MaritalStatus'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Guardian's Name:</label>
+                <input type="text" value="<?php echo $_SESSION['GuardiansName'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Guardian's Contact:</label>
+                <input type="text" value="<?php echo $_SESSION['GuardiansContact'] ?>" class="w-2/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+            </div>
+        </div>
+    </div>
 
 
     </div>
