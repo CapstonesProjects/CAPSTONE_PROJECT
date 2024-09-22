@@ -79,37 +79,39 @@ mysqli_close($conn);
             </form>
         </div>
 
-        <div class="mb-4 flex justify-between items-center">
-            <div class="flex-1 pr-4">
-                <div class="relative md:w-1/3">
-                    <form action="" method="post">
-                        <input type="search" class="searchbar form-control me-2 w-60 mr-0 pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium" placeholder="Search...">
-                    </form>
-                    <div class="absolute top-0 left-0 inline-flex items-center p-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-                            <circle cx="10" cy="10" r="7" />
-                            <line x1="21" y1="21" x2="15" y2="15" />
-                        </svg>
-                    </div>
+        <div class="mb-4 flex justify-between items-center space-x-4">
+            <div class="relative md:w-1/4">
+                <form action="" method="post">
+                    <input type="search" class="searchbar form-control me-2 w-full pl-10 pr-4 py-2 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium" placeholder="Search...">
+                </form>
+                <div class="absolute top-0 left-0 inline-flex items-center p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
+                        <circle cx="10" cy="10" r="7" />
+                        <line x1="21" y1="21" x2="15" y2="15" />
+                    </svg>
                 </div>
             </div>
+
+            <div class="shadow rounded-lg flex justify-center items-center space-x-4">
+                <button :class="{ 'bg-blue-500 text-white': selected === 'all' }" class="px-4 py-2 rounded" @click="selected = 'all'">All</button>
+                <button :class="{ 'bg-blue-500 text-white': selected === 'ongoing' }" class="px-4 py-2 rounded" @click="selected = 'ongoing'">Ongoing</button>
+                <button :class="{ 'bg-blue-500 text-white': selected === 'resolved' }" class="px-4 py-2 rounded" @click="selected = 'resolved'">Resolved</button>
+                <button :class="{ 'bg-blue-500 text-white': selected === 'pending' }" class="px-4 py-2 rounded" @click="selected = 'pending'">Pending</button>
+            </div>
+
+            <div class="shadow rounded-lg flex justify-center items-center space-x-4">
+    <select x-model="selectedSchoolYear" class="form-select block w-full mt-1 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium">
+        <option value="">Select School Year</option>
+        <option value="2021-2022">2021-2022</option>
+        <option value="2022-2023">2022-2023</option>
+        <option value="2023-2024">2023-2024</option>
+        <option value="2024-2025">2024-2025</option>
+    </select>
+</div>
+
             <div>
-                <div class="shadow rounded-lg flex justify-between mb-4" style="margin-left: 0%;">
-                    <div class="relative">
-                        <div style="width: 800px;" class="flex justify-between">
-                            <div class="flex justify-center items-center space-x-4">
-                                <button :class="{ 'bg-blue-500 text-white': selected === 'all' }" class="px-10 py-2 rounded" @click="selected = 'all'">All</button>
-                                <button :class="{ 'bg-blue-500 text-white': selected === 'ongoing' }" class="px-10 py-2 rounded" @click="selected = 'ongoing'">Ongoing</button>
-                                <button :class="{ 'bg-blue-500 text-white': selected === 'resolved' }" class="px-10 py-2 rounded" @click="selected = 'resolved'">Resolved</button>
-                                <button :class="{ 'bg-blue-500 text-white': selected === 'pending' }" class="px-10 py-2 rounded" @click="selected = 'pending'">Pending</button>
-                            </div>
-                            <div class="flex ml-36" style="margin-left: 20px;">
-                                <button class="bg-green-500 text-white px-10 py-2 rounded" data-bs-toggle="modal" data-bs-target="#AddCasesModal">Add Cases</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button class="bg-green-500 text-white px-10 py-2 rounded" data-bs-toggle="modal" data-bs-target="#AddCasesModal">Add Cases</button>
             </div>
         </div>
 
@@ -146,27 +148,35 @@ mysqli_close($conn);
                                 }" x-text="caseItem.Status"></span>
                             </td>
                             <td class="border-dashed border-t border-gray-200 px-6 py-3">
-                                <button class="bg-blue-500 text-white px-4 py-2 rounded">View</button>
+                                <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded" data-bs-toggle="modal" :data-bs-target="'#ViewCasesModal' + caseItem.CaseID">View</button>
                             </td>
                         </tr>
                     </template>
                 </tbody>
             </table>
         </div>
+
+      <!-- Modals -->
+        <?php include('../modals/ViewCaseModal.php') ?>
     </div>
 
     <script>
-        function filteredCases() {
-            return {
-                selected: 'all',
-                cases: <?php echo json_encode($cases); ?>,
-                filteredCases() {
-                    if (this.selected === 'all') {
-                        return this.cases;
-                    }
-                    return this.cases.filter(caseItem => caseItem.Status.toLowerCase() === this.selected);
+    function filteredCases() {
+        return {
+            selected: 'all',
+            selectedSchoolYear: '',
+            cases: <?php echo json_encode($cases); ?>,
+            filteredCases() {
+                let filtered = this.cases;
+                if (this.selected !== 'all') {
+                    filtered = filtered.filter(caseItem => caseItem.Status.toLowerCase() === this.selected);
                 }
+                if (this.selectedSchoolYear) {
+                    filtered = filtered.filter(caseItem => caseItem.SchoolYear === this.selectedSchoolYear);
+                }
+                return filtered;
             }
         }
-    </script>
+    }
+</script>
 </div>

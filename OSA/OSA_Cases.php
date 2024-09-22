@@ -39,6 +39,7 @@ if (isset($_SESSION['UserID'])) {
 </head>
 <?php include('../modals/AddCasesModal.php') ?>
 
+
 <body class="font-poppins antialiased ">
 
     <div class="flex h-screen">
@@ -68,7 +69,13 @@ if (isset($_SESSION['UserID'])) {
 <script src="../javascript/offenses.js"></script>
 <script>
     
-
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     const form = document.querySelector('form');
+    //     form.addEventListener('submit', function () {
+    //         const submitButton = form.querySelector('button[type="submit"]');
+    //         submitButton.disabled = true;
+    //     });
+    // });
     
 </script>
 
