@@ -12,6 +12,7 @@
     $_SESSION['LastName'] = $user['LastName'];
     $_SESSION['Role'] = $user['Role'];
     $_SESSION['OSA_number'] = $user['OSA_number'];
+    $_SESSION['FullNameSender'] = $user['FirstName'] . ' ' . $user['LastName']; 
 } else {
     // Redirect to login page or show an error
 } ?>
@@ -32,6 +33,8 @@
         </div>
         <input type="hidden" name="studentId" id="studentId"> <!-- Hidden input for StudentID -->
         <input type="hidden" name="fullName" id="fullName"> <!-- Hidden input for FullName -->
+        <input type="hidden" name="fullNameSender" id="fullNameSender" value="<?php echo $_SESSION['FullNameSender']; ?>"> 
+
         <div class="mb-2">
             <input type="text" name="subject" id="subject" class="w-full text-gray-700 py-1 border-b border-b-gray-300 focus:outline-none focus:ring-0 focus:border-transparent focus:border-b-gray-300" placeholder="Subject">
         </div>

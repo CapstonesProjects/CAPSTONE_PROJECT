@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <div class="px-2 flex items-center space-x-4">
+            <!-- <div class="px-2 flex items-center space-x-4">
                 <span class="text-sm text-gray-500">1-15 of 1,
                 <div class="flex items-center space-x-2">
                     <button class="bg-gray-200 text-gray-400 p-1.5 rounded-lg" title="Newer">
@@ -91,7 +91,7 @@
                         </svg>
                     </button>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div id="inbox-content" class="bg-gray-100 sections" style="display: block;">
             <?php include('inbox_content_osa.php'); ?>

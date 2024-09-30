@@ -70,13 +70,13 @@
         console.log('Current section from local storage:', currentSection);
         if (currentSection) {
             document.querySelectorAll('.sections').forEach(section => {
-                sections.style.display = 'none';
+                // sectionsss.style.display = 'none';
             });
             const sectionElement = document.getElementById(currentSection);
             if (sectionElement) {
                 sectionElement.style.display = 'block';
             } else {
-                console.error('Section element not found:', currentSection);
+                // console.error('Section element not found:', currentSection);
             }
 
             // Update the active nav link
