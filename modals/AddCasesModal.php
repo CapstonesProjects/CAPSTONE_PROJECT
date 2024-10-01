@@ -192,7 +192,7 @@
                             <select class="form-select" id="status" name="Status" required>
                                 <option selected disabled value="">Choose...</option>
                                 <option value="Ongoing">Ongoing</option>
-                                <option value="Resolved">Resolved</option>
+                                <!-- <option value="Resolved">Resolved</option> -->
                                 <option value="Pending">Pending</option>
                             </select>
                         </div>
@@ -231,6 +231,7 @@
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" name="btnadd_case">Add Case</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

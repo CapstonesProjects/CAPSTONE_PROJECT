@@ -20,6 +20,7 @@ if (isset($_SESSION['UserID'])) {
 
 // $activeMenu = 'dashboard';
 // include('./components/sidebar.php');
+include('../alerts/update_case_status_alerts.php');
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +39,8 @@ if (isset($_SESSION['UserID'])) {
     <title>OSA Cases - LOA OSA</title>
 </head>
 <?php include('../modals/AddCasesModal.php') ?>
+
+
 
 
 <body class="font-poppins antialiased ">
@@ -67,6 +70,7 @@ if (isset($_SESSION['UserID'])) {
 <script src="../javascript/saction_offense_counting.js"></script>
 <script src="../javascript/autogenerate_field.js"></script>
 <script src="../javascript/offenses.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 <script>
     
     // document.addEventListener('DOMContentLoaded', function () {
