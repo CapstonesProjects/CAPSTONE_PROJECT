@@ -22,17 +22,21 @@
 
     <section id="scholar" class="scholar">
         <div class="scholar-container">
-            <d class="bg-container">
+            <div class="bg-container">
+            <div class="dep-img">
+            <img src="images/Scho/CCS.png" class="dep-img-item">
+                <img src="images/Scho/CE.png" class="dep-img-item">
+                <img src="images/Scho/CCJ.png" class="dep-img-item">
+                <img src="images/Scho/COAAS.png" class="dep-img-item">
+                <img src="images/Scho/COE.png" class="dep-img-item">
+                <img src="images/Scho/REM.png" class="dep-img-item">
+                <img src="images/Scho/TAHM.png" class="dep-img-item">
+                <img src="images/Scho/BME.png" class="dep-img-item">
+                <img src="images/Scho/BE.png" class="dep-img-item">
+                </div>
+                <div class="text-content">
                 <h1 class="scholar-title">Scholarships and Grants</h1>
-                <img src="images/Scho/CCS.png">
-                <img src="images/Scho/CE.png">
-                <img src="images/Scho/CCJ.png">
-                <img src="images/Scho/COAAS.png">
-                <img src="images/Scho/COE.png">
-                <img src="images/Scho/REM.png">
-                <img src="images/Scho/TAHM.png">
-                <img src="images/Scho/BME.png">
-                <img src="images/Scho/BE.png">
+                
                 <p>Entrance Scholarships (For New Students) - are extended to valedictorians</br> 
                 and salutatorians of all secondary schools recognized by the Department of Education. An</br>
                 academic Scholarship intended for new students is a scholarship grant given to</br> 
@@ -46,7 +50,7 @@
                 <p>If he/she scores 84 points below, the minimum discount will automatically be given to</br> 
                 any student who took the initiative to take the examination. This scholarship grant is good</br> 
                 for 1 semester only.</p>
-
+                </div>
             </div>
         </div>
     </section>
