@@ -24,6 +24,15 @@
         <div class="scholar-container">
             <d class="bg-container">
                 <h1 class="scholar-title">Scholarships and Grants</h1>
+                <img src="images/Scho/CCS.png">
+                <img src="images/Scho/CE.png">
+                <img src="images/Scho/CCJ.png">
+                <img src="images/Scho/COAAS.png">
+                <img src="images/Scho/COE.png">
+                <img src="images/Scho/REM.png">
+                <img src="images/Scho/TAHM.png">
+                <img src="images/Scho/BME.png">
+                <img src="images/Scho/BE.png">
                 <p>Entrance Scholarships (For New Students) - are extended to valedictorians</br> 
                 and salutatorians of all secondary schools recognized by the Department of Education. An</br>
                 academic Scholarship intended for new students is a scholarship grant given to</br> 
