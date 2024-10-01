@@ -22,8 +22,12 @@
 
     <section id="scholar" class="scholar">
         <div class="scholar-container">
-            <div class="bg-container">
-                <div class="scholar-title">Scholarships and Grants</div>
+            <d class="bg-container">
+                <h1 class="scholar-title">Scholarships and Grants</h1>
+                Entrance Scholarships (For New Students) - are extended to valedictorians</br> 
+                and salutatorians of all secondary schools recognized by the Department of Education. An</br>
+                academic Scholarship intended for new students is a scholarship grant given to</br> 
+                incoming freshmen.</p>
             </div>
         </div>
     </section>
