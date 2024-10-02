@@ -82,11 +82,12 @@
 
 .text-content ul {
   margin-bottom: 8px;
-  list-style: disc;
+  list-style: square;
   padding-left: 30px;
 }
 
 .text-content ul li {
+  list-style: square;
   font-weight: 600;
   margin-bottom: 8px;
 }
