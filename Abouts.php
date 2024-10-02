@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/about.css">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
-    <title>ABOUT US</title>
+    <title>About Us</title>
 </head>
 
 <style>
@@ -28,6 +28,12 @@
                 </div>
 
                 <div class="text-content">
+                    <h1>About the Office</h1>
+                    <p>The Ofice of Student Affairs ensures that the student's welfare is implemented; 
+                        thus, it includes a comprehensive approach to the student's campus life. 
+                        The Office covers the overall supervision of the Student's admission, guidance, discipline, 
+                        career placement, and continuous development as an Alumni of the Lyceum of Alabang</p>
+<img src="images/orgimg.PNG" alt="Organizational Chart" class="org-img">
 
                 </div>
             </div>
