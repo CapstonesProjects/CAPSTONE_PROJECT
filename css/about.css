@@ -1,0 +1,45 @@
+#about {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  /* background-color: #b9bbb9; */
+  /* background-image: url(../images/index-background.png); */
+}
+
+.bg-container {
+  width: 1700px;
+  height: 760px;
+  background: rgba(18, 18, 18, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(18, 18, 18, 0.1);
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
+  margin-top: 8%;
+  text-align: center;
+}
+
+.org-img {
+  width: 700px;
+  height: 525px;
+  margin: 5px auto;
+  display: block;
+}
+
+.title {
+  margin-top: 30px;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.org-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+.statement {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+}
