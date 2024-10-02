@@ -28,13 +28,23 @@
                 </div>
 
                 <div class="text-content">
-                    <h1>About the Office</h1>
-                    <p>The Ofice of Student Affairs ensures that the student's welfare is implemented; 
-                        thus, it includes a comprehensive approach to the student's campus life. 
-                        The Office covers the overall supervision of the Student's admission, guidance, discipline, 
-                        career placement, and continuous development as an Alumni of the Lyceum of Alabang</p>
-<img src="images/orgimg.PNG" alt="Organizational Chart" class="org-img">
 
+                    <h1 class="title">About the Office</h1>
+
+                    <div>
+                    <p class="statement">The Ofice of Student Affairs ensures that the student's welfare is implemented; 
+                        thus, it includes a comprehensive approach to the student's campus life.</br> 
+                        The Office covers the overall supervision of the Student's admission, guidance, discipline, 
+                        career placement, and</br> continuous development as an Alumni of the Lyceum of Alabang</p>
+
+                    </div>
+                    
+                    <h1 class="org-title">Organizational Chart</h1>
+
+                        <img src="images/chart.PNG" alt="Organizational Chart" class="org-img">
+                    
+
+                    
                 </div>
             </div>
         </div>
