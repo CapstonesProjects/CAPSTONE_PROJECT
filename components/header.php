@@ -25,8 +25,8 @@
 
         <ul class="navlist">
             <li><a href="./index.php">Home</a></li>
-            <li><a href="#learn">About Us</a></li>
-            <li><a href="#about">Events</a></li>
+            <li><a href="./Abouts.php">About Us</a></li>
+            <li><a href="./Events.php">Events</a></li>
             <li><a href="./Scholar.php">Scholar</a></li>
         </ul>
 

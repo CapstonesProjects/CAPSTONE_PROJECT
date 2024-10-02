@@ -1,0 +1,24 @@
+#about {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  /* background-color: #b9bbb9; */
+  /* background-image: url(../images/index-background.png); */
+}
+.scholar-container {
+}
+
+.bg-container {
+  width: 1700px;
+  height: 760px;
+  background: rgba(18, 18, 18, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(18, 18, 18, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin-top: 8%;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
