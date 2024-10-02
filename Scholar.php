@@ -25,15 +25,13 @@
             <div class="bg-container">
             <div class="dep-img">
                 <h2>Departments</h2>
-            <img src="images/Scho/CCS.png" class="dep-img-item">
-                <img src="images/Scho/CE.png" class="dep-img-item">
-                <img src="images/Scho/CCJ.png" class="dep-img-item">
-                <img src="images/Scho/COAAS.png" class="dep-img-item">
-                <img src="images/Scho/COE.png" class="dep-img-item">
-                <img src="images/Scho/REM.png" class="dep-img-item">
-                <img src="images/Scho/TAHM.png" class="dep-img-item">
-                <img src="images/Scho/BME.png" class="dep-img-item">
-                <img src="images/Scho/BE.png" class="dep-img-item">
+            <img src="images/Scho/CCS.png" class="dep-imgi">
+                <img src="images/Scho/CE.png" class="dep-imgi">
+                <img src="images/Scho/CCJ.png" class="dep-imgi">
+                <img src="images/Scho/COAAS.png" class="dep-imgi">
+                <img src="images/Scho/COE.png" class="dep-imgi">
+                
+                
                 </div>
 
                 <div class="text-content">
@@ -57,11 +55,11 @@
                 <li>Fifth Honorable Mention – 10% tuition fee discount</li>
             </ul>
 
-            <h3>Academics Scholarship / Deans Lister</h3>
+            <h2>Academics Scholarship / Deans Lister</h2>
             <ul>
-                <li>Applicant must be a bonafide, regular student taking regular load prescribed in the curriculum.</li>
-                <li>Any applicant whether graduating or not, maybe a candidate for honors. They must not have grades lower than 1.75 or its numerical equivalent of 90 in all academic subjects in any term and in any year level.</li>
-                <li>Applicant must have grades not lower than 2.25 or its equivalent number of 84 in PE & NSTP.</li>
+                <p>Applicant must be a bonafide, regular student taking regular load prescribed in the curriculum.
+                Any applicant whether graduating or not, maybe a candidate for honors. They must not have grades lower than 1.75 or its numerical equivalent of 90 in all academic subjects in any term and in any year level.
+                Applicant must have grades not lower than 2.25 or its equivalent number of 84 in PE & NSTP.</p>
             </ul>
 
             <h3>GWA Earned Discount Scheme Total No. of Units Enrolled</h3>
