@@ -1,3 +1,5 @@
+
+
 <style>
     /* Adjust the width of the dropdown */
     #offense {
@@ -30,7 +32,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="AddCasesModalLabel">New Case</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
             </div>
             <div class="modal-body">
                 <form id="addCaseForm" action="../phpfiles/add_case.php" method="POST" enctype="multipart/form-data">
@@ -197,8 +199,8 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date" name="Date" required>
+                            <label for="FiledDate" class="form-label">Filed Date</label>
+                            <input type="date" class="form-control" id="fileddate" name="FiledDate" required>
                         </div>
                         <div class="mb-3">
                             <label for="schoolYear" class="form-label">School Year</label>
@@ -217,14 +219,14 @@
                             <label for="reportAttachment" class="form-label">Report Attachment</label>
                             <input type="file" class="form-control" id="reportAttachment" name="ReportAttachment" accept=".pdf" required>
                         </div>
-                        <div class="mb-3" id="writtenReprimandAttachmentContainer">
+                        <!-- <div class="mb-3" id="writtenReprimandAttachmentContainer">
                             <label for="writtenReprimandAttachment" class="form-label">Written Reprimand Attachment</label>
                             <input type="file" class="form-control" id="writtenReprimandAttachment" name="WrittenReprimandAttachment" accept=".pdf">
-                        </div>
-                        <div class="mb-3">
+                        </div> -->
+                        <!-- <div class="mb-3">
                             <label for="sanctionLetterAttachment" class="form-label">Sanction Letter Attachment</label>
                             <input type="file" class="form-control" id="sanctionLetterAttachment" name="SanctionLetterAttachment" accept=".pdf">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="modal-footer" id="sanctionLetterAttachmentContainer">
                         <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600" data-bs-dismiss="modal">Close</button>

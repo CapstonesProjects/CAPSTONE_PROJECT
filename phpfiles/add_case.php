@@ -17,7 +17,7 @@ if (isset($_POST['btnadd_case'])) {
     $offenseCategory = $_POST['OffenseCategory'];
     $complainant = $_POST['Complainant'];
     $status = $_POST['Status'];
-    $date = $_POST['Date'];
+    $fileddate = $_POST['FiledDate'];
     $sanction = $_POST['Sanction'];
     $complainantnumber = $_POST['ComplainantNumber'];
     $affiliation = $_POST['Affiliation'];
@@ -85,10 +85,10 @@ if (isset($_POST['btnadd_case'])) {
     }
 
     $insertQuery = "INSERT INTO tblcases (
-        StudentID, FullName, Email, Offense, OffenseCategory, Sanction, Complainant, Status, Date, ReportAttachment, WrittenReprimandAttachment, SanctionLetterAttachment, ComplainantNumber, Affiliation, SchoolYear, FiledBy
+        StudentID, FullName, Email, Offense, OffenseCategory, Sanction, Complainant, Status, FiledDate, ReportAttachment, WrittenReprimandAttachment, SanctionLetterAttachment, ComplainantNumber, Affiliation, SchoolYear, FiledBy
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insertQuery);
-    $stmt->bind_param("ssssssssssssssss", $studentID, $fullName, $email, $offense, $offenseCategory, $sanction, $complainant, $status, $date, $reportAttachment, $writtenReprimandAttachment, $sanctionLetterAttachment, $complainantnumber, $affiliation, $schoolyear, $filedby);
+    $stmt->bind_param("ssssssssssssssss", $studentID, $fullName, $email, $offense, $offenseCategory, $sanction, $complainant, $status, $fileddate, $reportAttachment, $writtenReprimandAttachment, $sanctionLetterAttachment, $complainantnumber, $affiliation, $schoolyear, $filedby);
 
     if ($stmt->execute()) {
         $_SESSION['addcases_success'] = 'The case was successfully added.';

@@ -49,7 +49,7 @@
                             </div>
                             <div>
                                 <label class="block text-gray-700 text-sm font-bold mb-2">Date:</label>
-                                <input type="text" x-bind:value="caseItem.Date" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+                                <input type="text" x-bind:value="caseItem.FiledDate" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
                             </div>
                             <div>
                                 <label class="block text-gray-700 text-sm font-bold mb-2">Complainant Number:</label>

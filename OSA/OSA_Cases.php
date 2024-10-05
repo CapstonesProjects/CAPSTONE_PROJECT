@@ -14,6 +14,8 @@ if (isset($_SESSION['UserID'])) {
 
     $_SESSION['FirstName'] = $user['FirstName'];
     $_SESSION['LastName'] = $user['LastName'];
+
+
 } else {
     // Redirect to login page or show an error
 }
