@@ -26,7 +26,7 @@
   background-position: 50% 50%;
   background-size: cover;
   display: inline-block;
-  transition: 0.5x;
+  transition: 1s;
 }
 
 .slide .item:nth-child(1),
@@ -131,7 +131,7 @@
     cursor: pointer;
     margin: 0 5px;
     border: 1px solid #000;
-    transition: 0.3s;
+    transition: 0.1s;
 }
 
 .button button:hover{
