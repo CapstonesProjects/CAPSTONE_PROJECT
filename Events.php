@@ -24,9 +24,12 @@
             <div class="item" style="background-image: url(./images/Events/img3.jpg";>
                 <div class="content">
                     <div class="name">Happy international Literacy Day!</div>
-                    <div class="des">Every story starts with a seed. Today, the world comes together to celebrate the power of words and the endless possibilities that literacy brings. Through reading and learning, individuals are empowered, and brighter futures are written. The ink of literacy never runs dry, spanning from timeless hardbound books to modern digital resources. Together, we are inspired to turn pages, file articles, and craft new narratives, all in the pursuit of building a world where literacy is for everyone!</div>
+                    <div class="des">Every story starts with a seed.Today, the world comes together to celebrate the power of words and the endless possibilities that literacy brings.
+                        Through reading and learning, individuals are empowered, and brighter futures are written. The ink of literacy never runs dry, spanning from timeless hardbound books to modern digital resources.
+                        Together, we are inspired to turn pages, file articles, and craft new narratives, all in the pursuit of building a world where literacy is for everyone!</div>
                     <button class="see-more">See More</button>
-                    </div>
+              
+                </div>
             </div>
 
             <div class="item" style="background-image: url(./images/Events/img8.jpg";>
@@ -70,7 +73,7 @@
         </div>
 
     </div>
-    
+
     <script>function toggleText(button) {
                 const description = button.previousElementSibling;
                 if (description.style.display === "none" || description.style.display === "") {
