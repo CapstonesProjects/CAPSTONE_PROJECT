@@ -27,6 +27,7 @@
   background-size: cover;
   display: inline-block;
   transition: 1s;
+  filter: brightness(90%); /* Darken the image */
 }
 
 .slide .item:nth-child(1), .slide .item:nth-child(2){
@@ -63,10 +64,11 @@
     left: 100px;
     width: 300px;
     text-align: left;
-    color: #ffff;
+    color: #fff;
     transform: translate(0, -50%);
     font-family: system-ui;
     display: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Adds a shadow effect to the text */
 }
 
 
@@ -75,13 +77,22 @@
 }
 
 
-.content .name{
+.content .name {
     font-size: 40px;
     text-transform: uppercase;
     font-weight: bold;
     opacity: 0;
     animation: animate 1s ease-in-out 1 forwards;
 }
+
+.date-overlay{
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+}
+
 
 .content .des{
     display: none;
@@ -91,8 +102,8 @@
     margin-bottom: 20px;
     opacity: 0;
     animation: animate 1s ease-in-out 0.3s 1 forwards;
-    background-color: #f5f5f5;
     color: #000;
+    background-color: #ffff;
 }
 
 .content button{
@@ -119,6 +130,8 @@
 .see-more:hover {
     background-color: #0056b3;
 }
+
+
 
 
 @keyframes animate {

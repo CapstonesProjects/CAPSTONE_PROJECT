@@ -26,7 +26,9 @@
                     <div class="name">Happy international Literacy Day!</div>
                     <div class="des">Every story starts with a seed.Today, the world comes together to celebrate the power of words and the endless possibilities that literacy brings.
                         Through reading and learning, individuals are empowered, and brighter futures are written. The ink of literacy never runs dry, spanning from timeless hardbound books to modern digital resources.
-                        Together, we are inspired to turn pages, file articles, and craft new narratives, all in the pursuit of building a world where literacy is for everyone!</div>
+                        Together, we are inspired to turn pages, file articles, and craft new narratives, all in the pursuit of building a world where literacy is for everyone!
+                    </div>
+                    <div class="date-overlay">October 6, 2024</div>
                     <button class="see-more">See More</button>
               
                 </div>
@@ -36,6 +38,7 @@
                 <div class="content">
                     <div class="name">Artist: Albert Jan Francisco</div>
                     <div class="des">Lorem ipusm dolor, sit ament consectetur dipisting elit.ab,eum!</div>
+                    <div class="date-overlay">October 6, 2024</div>
                     <button class="see-more">See More</button>
                 </div>
             </div>
@@ -44,6 +47,7 @@
                 <div class="content">
                     <div class="name">To the Teacher who Inspire</div>
                     <div class="des">Lorem ipusm dolor, sit ament consectetur dipisting elit.ab,eum!</div>
+                    <div class="date-overlay">October 6, 2024</div>
                     <button class="see-more">See More</button>
                 </div>
             </div>
@@ -53,6 +57,7 @@
                 <div class="content">
                     <div class="name">To the Teacher who Inspire</div>
                     <div class="des">Lorem ipusm dolor, sit ament consectetur dipisting elit.ab,eum!</div>
+                    <div class="date-overlay">October 6, 2024</div>
                     <button class="see-more">See More</button>
                 </div>
             </div>
@@ -61,6 +66,7 @@
                 <div class="content">
                     <div class="name">To the Teacher who Inspire</div>
                     <div class="des">Lorem ipusm dolor, sit ament consectetur dipisting elit.ab,eum!</div>
+                    <div class="date-overlay">October 6, 2024</div>
                     <<button class="see-more">See More</button>
                 </div>
             </div>
