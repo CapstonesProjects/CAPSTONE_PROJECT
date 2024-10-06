@@ -29,8 +29,7 @@
   transition: 1s;
 }
 
-.slide .item:nth-child(1),
-.slide .item:nth-child(2){
+.slide .item:nth-child(1), .slide .item:nth-child(2){
     top: 0;
     left: 0;
     transform: translate(0, 0);
@@ -41,18 +40,18 @@
 
 
 .slide .item:nth-child(3){
-    left: 60%;
+    left: 102%;
 }
 .slide .item:nth-child(4){
-    left: calc(60% + 220px);
+    left: calc(102% + 220px);
 }
 .slide .item:nth-child(5){
-    left: calc(60% + 440px);
+    left: calc(102% + 440px);
 }
 
 /* here n = 0, 1, 2, 3,... */
 .slide .item:nth-child(n + 6){
-    left: calc(50% + 700px);
+    left: calc(102% + 660px);
     opacity: 0;
 }
 
@@ -85,10 +84,13 @@
 }
 
 .content .des{
+    display: none;
     margin-top: 10px;
     margin-bottom: 20px;
     opacity: 0;
     animation: animate 1s ease-in-out 0.3s 1 forwards;
+    background-color: #f5f5f5;
+    color: #000;
 }
 
 .content button{
@@ -97,6 +99,8 @@
     cursor: pointer;
     opacity: 0;
     animation: animate 1s ease-in-out 0.6s 1 forwards;
+    color: #000;
+    background-color: #fff; 
 }
 
 
@@ -137,4 +141,19 @@
 .button button:hover{
     background: #ffff;
     color: #fff;
+}
+
+
+/* Optional styling for the See More button */
+.see-more {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.see-more:hover {
+    background-color: #0056b3;
 }

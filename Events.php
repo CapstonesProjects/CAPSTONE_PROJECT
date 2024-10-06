@@ -24,8 +24,8 @@
             <div class="item" style="background-image: url(./images/Events/img3.jpg";>
                 <div class="content">
                     <div class="name">Happy international Literacy Day!</div>
-                    <div class="des">Lorem ipusm dolor, sit ament consectetur dipisting elit.ab,eum!</div>
-                    <button>See More</button>
+                    <div class="des">Every story starts with a seed. Today, the world comes together to celebrate the power of words and the endless possibilities that literacy brings. Through reading and learning, individuals are empowered, and brighter futures are written. The ink of literacy never runs dry, spanning from timeless hardbound books to modern digital resources. Together, we are inspired to turn pages, file articles, and craft new narratives, all in the pursuit of building a world where literacy is for everyone!</div>
+                    <button class="see-more">See More</button>
                     </div>
             </div>
 
@@ -33,7 +33,7 @@
                 <div class="content">
                     <div class="name">Artist: Albert Jan Francisco</div>
                     <div class="des">Lorem ipusm dolor, sit ament consectetur dipisting elit.ab,eum!</div>
-                    <button>See More</button>
+                    <button class="see-more">See More</button>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
                 <div class="content">
                     <div class="name">To the Teacher who Inspire</div>
                     <div class="des">Lorem ipusm dolor, sit ament consectetur dipisting elit.ab,eum!</div>
-                    <button>See More</button>
+                    <button class="see-more">See More</button>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                 <div class="content">
                     <div class="name">To the Teacher who Inspire</div>
                     <div class="des">Lorem ipusm dolor, sit ament consectetur dipisting elit.ab,eum!</div>
-                    <button>See More</button>
+                    <button class="see-more">See More</button>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
                 <div class="content">
                     <div class="name">To the Teacher who Inspire</div>
                     <div class="des">Lorem ipusm dolor, sit ament consectetur dipisting elit.ab,eum!</div>
-                    <button>See More</button>
+                    <<button class="see-more">See More</button>
                 </div>
             </div>
 
@@ -70,11 +70,23 @@
         </div>
 
     </div>
+    
+    <script>function toggleText(button) {
+                const description = button.previousElementSibling;
+                if (description.style.display === "none" || description.style.display === "") {
+                    description.style.display = "block";
+                    button.innerText = "See Less";  // Change button text
+                } else {
+                    description.style.display = "none";
+                    button.innerText = "See More";  // Revert button text
+                }
+            }
+    </script>
 
 
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-<script src="event.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script src="event.js"></script>
+   
 </html>
