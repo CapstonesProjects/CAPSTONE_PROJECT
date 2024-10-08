@@ -21,6 +21,8 @@ if (isset($_SESSION['UserID'])) {
 // $activeMenu = 'dashboard';
 // include('./components/sidebar.php');
 include('../alerts/update_case_status_alerts.php');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -53,13 +55,11 @@ include('../alerts/update_case_status_alerts.php');
             ?>
         </div>
         <div class="flex justify-center items-center">
-            <?php
-            include('../components/OSA_Monitoring.php');
-            ?>
+           <?php include('../components/MonitoringViewComponent.php'); ?>
         </div>
     </div>
 
-  
+
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -72,7 +72,6 @@ include('../alerts/update_case_status_alerts.php');
 <script src="../javascript/offenses.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 <script>
-    
     // document.addEventListener('DOMContentLoaded', function () {
     //     const form = document.querySelector('form');
     //     form.addEventListener('submit', function () {
@@ -80,7 +79,6 @@ include('../alerts/update_case_status_alerts.php');
     //         submitButton.disabled = true;
     //     });
     // });
-    
 </script>
 
 </html>

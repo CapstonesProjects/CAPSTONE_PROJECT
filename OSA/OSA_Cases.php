@@ -47,7 +47,7 @@ include('../alerts/update_case_status_alerts.php');
 
 <body class="font-poppins antialiased ">
 
-    <div class="flex h-screen">
+    <div class="flex h-screen ">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php
             $activeMenu = 'cases';

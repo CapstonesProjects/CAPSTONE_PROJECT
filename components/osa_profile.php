@@ -34,7 +34,7 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
 </head>
 
 <body>
-    <div class="h-full bg-gray-200 pt-2 pl-6 pr-6 overflow-hidden">
+    <div class="h-full  pt-2 pl-6 pr-6 overflow-hidden">
         <div class="bg-white rounded-lg shadow-xl pb-8 mt-8" style="width: 1550px; margin: 0 auto;">
             <div x-data="{ openSettings: false }" class="absolute right-12 mt-4 rounded">
                 <button @click="openSettings = !openSettings" class="border border-gray-400 p-2 rounded text-gray-300 hover:text-gray-300 bg-gray-100 bg-opacity-10 hover:bg-opacity-20" title="Settings">

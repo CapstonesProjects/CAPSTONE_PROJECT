@@ -29,7 +29,7 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
 ?>
 
 <!-- component -->
-<div class="antialiased sans-serif h-screen ml-0 m-3">
+<div class="antialiased sans-serif h-screen ml-0 m-3 ">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
     <style>

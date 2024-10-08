@@ -68,7 +68,7 @@ mysqli_close($conn);
 
     <div class="container py-3 px-1 ml-12 overflow-hidden" x-data="filteredCases()">
         <div class="flex justify-between items-center mb-10">
-            <h1 class="text-3xl">Suspended Students</h1>
+            <h1 class="text-3xl font-bold text-gray-800">Suspended Students</h1>
         </div>
 
         <div class="mb-4 flex justify-between items-center space-x-4">
@@ -84,35 +84,25 @@ mysqli_close($conn);
                     </svg>
                 </div>
             </div>
-<!-- 
-            <div class="shadow rounded-lg flex justify-center items-center space-x-4">
-                <select x-model="selectedSchoolYear" class="form-select block w-full mt-1 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium">
-                    <option value="">Select School Year</option>
-                    <option value="2021-2022">2021-2022</option>
-                    <option value="2022-2023">2022-2023</option>
-                    <option value="2023-2024">2023-2024</option>
-                    <option value="2024-2025">2024-2025</option>
-                </select>
-            </div> -->
         </div>
 
         <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-hidden relative" style="height: 720px; margin-top: 10px;">
             <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
                 <thead>
-                    <tr class="text-center">
-                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Case ID</th>
-                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Student ID</th>
-                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Name</th>
-                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">School Year</th>
+                    <tr class="text-center bg-gray-200 text-gray-600">
+                        <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Case ID</th>
+                        <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Student ID</th>
+                        <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Name</th>
+                        <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">School Year</th>
                     </tr>
                 </thead>
                 <tbody>
                     <template x-for="caseItem in filteredCases()" :key="caseItem.StudentID">
-                        <tr class="text-center hover:bg-gray-300">
-                            <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.CaseID"></td>
-                            <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.StudentID"></td>
-                            <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.FullName"></td>
-                            <td class="border-dashed border-t border-gray-200 px-6 py-3 truncate-hover" x-text="caseItem.SchoolYear"></td>
+                        <tr class="text-center hover:bg-gray-100 cursor-pointer" @click="window.location.href = '../OSA/OSA_MonitoringView.php?caseID=' + caseItem.CaseID">
+                            <td class="border-dashed border-t border-gray-300 px-6 py-3" x-text="caseItem.CaseID"></td>
+                            <td class="border-dashed border-t border-gray-300 px-6 py-3" x-text="caseItem.StudentID"></td>
+                            <td class="border-dashed border-t border-gray-300 px-6 py-3" x-text="caseItem.FullName"></td>
+                            <td class="border-dashed border-t border-gray-300 px-6 py-3 truncate-hover" x-text="caseItem.SchoolYear"></td>
                         </tr>
                     </template>
                 </tbody>
