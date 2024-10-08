@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2024 at 05:42 PM
+-- Generation Time: Oct 08, 2024 at 05:31 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +46,9 @@ CREATE TABLE `messages` (
 INSERT INTO `messages` (`MessageID`, `sender`, `FullNameSender`, `receiver`, `FullNameReceiver`, `subject`, `body`, `status`, `created_at`) VALUES
 (16, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'Summon', '\r\n            Dear [Recipient Name],\r\n\r\n            I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n            [Body of the letter]\r\n\r\n            Best regards,\r\n            [Your Name]\r\n        ', 'sent', '2024-09-30 10:41:01'),
 (17, '1422-21', 'Helen Patalbo', '6911-21', 'Devante Hilton Arm Tillman', 'Summon', '\r\n            Dear [Recipient Name],\r\n\r\n            I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n            [Body of the letter]\r\n\r\n            Best regards,\r\n            [Your Name]\r\n        ', 'sent', '2024-09-30 11:01:15'),
-(18, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'Summon', '\r\n            Dear [Recipient Name],\r\n\r\n            I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n            [Body of the letter]\r\n\r\n            Best regards,\r\n            [Your Name]\r\n        ', 'sent', '2024-09-30 15:16:51');
+(18, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'Summon', '\r\n            Dear [Recipient Name],\r\n\r\n            I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n            [Body of the letter]\r\n\r\n            Best regards,\r\n            [Your Name]\r\n        ', 'sent', '2024-09-30 15:16:51'),
+(19, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'Summon', '\r\n            Dear [Recipient Name],\r\n\r\n            I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n            [Body of the letter]\r\n\r\n            Best regards,\r\n            [Your Name]\r\n        ', 'sent', '2024-10-03 05:29:56'),
+(20, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'Summon', '\r\n            Dear [Recipient Name],\r\n\r\n            I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n            [Body of the letter]\r\n\r\n            Best regards,\r\n            [Your Name]\r\n        ', 'sent', '2024-10-03 06:14:38');
 
 -- --------------------------------------------------------
 
@@ -64,23 +66,28 @@ CREATE TABLE `tblcases` (
   `Sanction` varchar(255) DEFAULT NULL,
   `Complainant` varchar(120) NOT NULL,
   `Status` varchar(50) DEFAULT NULL,
-  `Date` date DEFAULT NULL,
+  `FiledDate` date DEFAULT NULL,
   `ReportAttachment` varchar(255) DEFAULT NULL,
   `WrittenReprimandAttachment` varchar(255) DEFAULT NULL,
   `SanctionLetterAttachment` varchar(255) DEFAULT NULL,
   `ComplainantNumber` varchar(255) DEFAULT NULL,
   `Affiliation` varchar(255) DEFAULT NULL,
   `SchoolYear` varchar(255) DEFAULT NULL,
-  `FiledBy` varchar(255) DEFAULT NULL
+  `FiledBy` varchar(255) DEFAULT NULL,
+  `CaseResolution` varchar(255) DEFAULT NULL,
+  `Remarks` text DEFAULT NULL,
+  `ResolutionAttachment` varchar(255) DEFAULT NULL,
+  `ResolutionDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblcases`
 --
 
-INSERT INTO `tblcases` (`CaseID`, `StudentID`, `FullName`, `Email`, `Offense`, `OffenseCategory`, `Sanction`, `Complainant`, `Status`, `Date`, `ReportAttachment`, `WrittenReprimandAttachment`, `SanctionLetterAttachment`, `ComplainantNumber`, `Affiliation`, `SchoolYear`, `FiledBy`) VALUES
-(11, '1169-21', 'Rogel Ramos Gerodiaz', 'gerodiazrogel0@gmail.com', 'Attitude inside the Classroom - Classroom mischief, failure to turn off or put on silent the mobile phone', 'Minor', 'First offense - Verbal reprimand or censure', 'Phillip Andro G. Banag', 'Ongoing', '2024-09-28', '../fileattachment/Rogel Gerodiaz Resume.pdf', '', '../fileattachment/Untitled (Poster).pdf', '0923322545', 'Faculty', '2024-2025', 'Helen Patalbo'),
-(12, '1169-21', 'Rogel Ramos Gerodiaz', 'gerodiazrogel0@gmail.com', 'Violation with Legal Implications - Smoking within the school premises or approved off-campus activities (100 meters from perimeter to any point, RA 9211)', 'Major', 'First offense - Suspension for a period of not less than five (5) days.', 'Phillip Andro G. Banag', 'Ongoing', '2024-09-30', '../fileattachment/4503-1871-0548-0651.pdf', '', '', '0923322545', 'Faculty', '2024-2025', 'Helen Patalbo');
+INSERT INTO `tblcases` (`CaseID`, `StudentID`, `FullName`, `Email`, `Offense`, `OffenseCategory`, `Sanction`, `Complainant`, `Status`, `FiledDate`, `ReportAttachment`, `WrittenReprimandAttachment`, `SanctionLetterAttachment`, `ComplainantNumber`, `Affiliation`, `SchoolYear`, `FiledBy`, `CaseResolution`, `Remarks`, `ResolutionAttachment`, `ResolutionDate`) VALUES
+(14, '7742-32', 'Jamir Sanford Bo Kohler', 'your.email+fakedata72573@gmail.com', 'Attitude inside the Classroom - Littering', 'Minor', 'First offense - Verbal reprimand or censure', 'Phillip Andro G. Banag', 'Ongoing', '2024-10-01', '../fileattachment/Untitled (Poster).pdf', '', '../fileattachment/Bank Management.pdf', '0923322545', 'Faculty', '2023-2024', 'Helen Patalbo', NULL, NULL, NULL, NULL),
+(15, '1169-21', 'Rogel Ramos Gerodiaz', 'gerodiazrogel0@gmail.com', 'Attitude inside the Classroom - Classroom mischief, failure to turn off or put on silent the mobile phone', 'Minor', 'Second offense - Written reprimand', 'Phillip Andro G. Banag', 'resolved_written_reprimand', '2024-10-05', '../fileattachment/Animal coloring book -  Cover.pdf', '../fileattachment/SYLLABUS_IAS_1..pdf', '', '0923322545', 'Faculty', '2021-2022', 'Helen Patalbo', 'resolved_written_reprimand', 'adadadsdq', '../fileattachment/Febuary-Contract.pdf', '2024-10-06'),
+(17, '1169-21', 'Rogel Ramos Gerodiaz', 'gerodiazrogel0@gmail.com', 'Violation with Legal Implications - Use of the Internet or social media to malign fellow students or persons in authority (Cyberbullying, RA 10175)', 'Major', 'First offense - Suspension for a period of not less than five (5) days.', 'Phillip Andro G. Banag', 'Suspended', '2024-10-07', '../fileattachment/Untitled (Poster).pdf', NULL, NULL, '0923322545', 'Faculty', '2024-2025', 'Helen Patalbo', 'resolved_suspension_five_days', 'adsazczdcxvds', '../fileattachment/Animal coloring book -  Cover.pdf', '2024-10-06');
 
 -- --------------------------------------------------------
 
@@ -95,16 +102,26 @@ CREATE TABLE `tblusers_osa` (
   `LastName` varchar(255) NOT NULL,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `Role` varchar(255) NOT NULL
+  `Role` varchar(255) NOT NULL,
+  `MiddleName` varchar(10) NOT NULL,
+  `Suffix` varchar(12) NOT NULL,
+  `Email` varchar(80) NOT NULL,
+  `PhoneNumber` int(22) NOT NULL,
+  `DateBirth` varchar(24) NOT NULL,
+  `Gender` varchar(24) NOT NULL,
+  `Nationality` varchar(32) NOT NULL,
+  `MaritalStatus` varchar(24) NOT NULL,
+  `Status` varchar(12) NOT NULL,
+  `profile_picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblusers_osa`
 --
 
-INSERT INTO `tblusers_osa` (`UserID`, `OSA_number`, `FirstName`, `LastName`, `Username`, `Password`, `Role`) VALUES
-(1, '1422-21', 'Helen', 'Patalbo', 'patalbohelen', '123456789', 'OSA'),
-(2, '1223-41', 'Rogel', 'Gerodiaz', 'rogelgerodiaz', '123456789', 'OSA');
+INSERT INTO `tblusers_osa` (`UserID`, `OSA_number`, `FirstName`, `LastName`, `Username`, `Password`, `Role`, `MiddleName`, `Suffix`, `Email`, `PhoneNumber`, `DateBirth`, `Gender`, `Nationality`, `MaritalStatus`, `Status`, `profile_picture`) VALUES
+(1, '1422-21', 'Helen', 'Patalbo', 'patalbohelen', '123456789', 'OSA', 'R', 'N/A', 'helen@gmail.com', 925251254, '06/24/1995', 'Female', 'Filipino', 'Married', 'Active', '../osa_profiles_upload/4.png'),
+(2, '1223-41', 'Rogel', 'Gerodiaz', 'rogelgerodiaz', '123456789', 'OSA', '', '', '', 0, '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -151,7 +168,8 @@ INSERT INTO `tblusers_student` (`UserID`, `StudentID`, `FirstName`, `LastName`, 
 (5, '7742-32', 'Jamir', 'Kohler', 'Sanford Bo', 'Sr', 'Bachelor of Science in Psychology', '3', 'Irregular', 'your.email+fakedata72573@gmail.com', 952, '2024-11-13', '682 Stacy Stream', 'Male', 'Palm Harbor', 488, 'Married', 'Julie Carroll', 232, 'Tomas25', 'Z3jFV6QXelqX_Rp', 'student', 'active', NULL),
 (6, '4232-21', 'Jamey', 'Bosco', 'Dandre Bre', 'Sr', 'Bachelor of Science in Business Administration', '1', 'Irregular', 'your.email+fakedata42530@gmail.com', 921, '2024-06-27', '8369 Hodkiewicz Route', 'Other', 'Spring Valley', 243, 'Divorced', 'Everett Beier', 616, 'General.Legros', 'AQMX6GobitT3KKh', 'student', 'active', NULL),
 (7, '4372-31', 'Ronny', 'Gibson', 'Bette Wind', 'Sr', 'Bachelor of Science in Engineering', '2', 'Regular', 'your.email+fakedata57452@gmail.com', 307, '2024-04-26', '8566 Ken Fields', 'Male', 'Porterville', 69, 'Divorced', 'Kamille McLaughlin', 752, 'Isom26', 'OpBJWExaCgdKy68', 'student', 'inactive', NULL),
-(8, '3272-21', 'Mable', 'Swaniawski', 'Meaghan Re', 'Sr', 'Bachelor of Science in Education', '5', 'Irregular', 'your.email+fakedata76110@gmail.com', 919, '2025-07-20', '51807 Beaulah Creek', 'Female', 'Lompoc', 67, 'Divorced', 'Casandra Hoppe', 444, 'Vida.Williamson66', 'Ql1TGov1AzrMyPe', 'student', 'active', NULL);
+(8, '3272-21', 'Mable', 'Swaniawski', 'Meaghan Re', 'Sr', 'Bachelor of Science in Education', '5', 'Irregular', 'your.email+fakedata76110@gmail.com', 919, '2025-07-20', '51807 Beaulah Creek', 'Female', 'Lompoc', 67, 'Divorced', 'Casandra Hoppe', 444, 'Vida.Williamson66', 'Ql1TGov1AzrMyPe', 'student', 'active', NULL),
+(9, '1932-21', 'Kyleigh', 'Bailey', 'Ethelyn Zi', 'Jr', 'Bachelor of Science in Information Technology', '5', 'Irregular', 'your.email+fakedata33120@gmail.com', 237, '2024-06-10', '606 Brittany Hollow', 'Female', 'Miami Gardens', 849, 'Single', 'Berry Wyman', 683, 'Jaleel4', 'ktGJiHEmnoAP18V', 'student', 'active', NULL);
 
 --
 -- Indexes for dumped tables
@@ -194,13 +212,13 @@ ALTER TABLE `tblusers_student`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tblcases`
 --
 ALTER TABLE `tblcases`
-  MODIFY `CaseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `CaseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tblusers_osa`
@@ -212,7 +230,7 @@ ALTER TABLE `tblusers_osa`
 -- AUTO_INCREMENT for table `tblusers_student`
 --
 ALTER TABLE `tblusers_student`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

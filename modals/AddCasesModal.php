@@ -212,6 +212,14 @@
                             </select>
                         </div>
                         <div class="mb-3">
+                            <label for="Semester" class="form-label">Semester</label>
+                            <select class="form-control" id="semester" name="Semester" required>
+                                <option value="">Select Semester</option>
+                                <option value="1st Semester">1st Semester</option>
+                                <option value="2nd Semester">2nd Semester</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="FiledBy" class="form-label">Filed By</label>
                             <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed" id="filedby" name="FiledBy" readonly value="<?php echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName']; ?>">
                         </div>
