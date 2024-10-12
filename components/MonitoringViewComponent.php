@@ -1,11 +1,13 @@
 <?php
-
 include('../config/db_connection.php');
+
 // Fetch case details based on caseID from the query parameter
 $caseID = $_GET['caseID'];
 $query = "SELECT * FROM tblcases WHERE CaseID = '$caseID'";
 $result = mysqli_query($conn, $query);
 $caseDetails = mysqli_fetch_assoc($result);
+
+
 
 mysqli_close($conn);
 ?>
@@ -60,7 +62,6 @@ mysqli_close($conn);
         line-height: 1.25;
         outline: none;
         transition: box-shadow 0.2s ease-in-out;
-        margin-bottom: 1rem;
         background-color: #f7fafc;
     }
 
@@ -85,13 +86,6 @@ mysqli_close($conn);
         transform: scale(1.05);
     }
 
-    .form-section {
-        margin-bottom: 1.5rem;
-    }
-
-    .form-section:last-child {
-        margin-bottom: 0;
-    }
 
     .form-title {
         font-size: 1.5rem;
@@ -116,58 +110,60 @@ mysqli_close($conn);
     <div class="container">
         <a href="../OSA/OSA_Monitoring.php" class="back-button">Back</a>
         <h2 class="form-title">Suspended Student Details</h2>
+        <form action="../phpfiles/Monitoring.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="caseID" value="<?php echo $caseDetails['CaseID']; ?>">
+            <div class="grid-container">
+                <div class="form-section">
+                    <label class="form-label" for="caseID">Case ID</label>
+                    <input type="text" id="caseID" class="form-input" value="<?php echo $caseDetails['CaseID']; ?>" readonly>
+                </div>
 
-        <div class="grid-container">
-            <div class="form-section">
-                <label class="form-label" for="caseID">Case ID</label>
-                <input type="text" id="caseID" class="form-input" value="<?php echo $caseDetails['CaseID']; ?>" readonly>
+                <div class="form-section">
+                    <label class="form-label" for="studentName">Student Name</label>
+                    <input type="text" id="studentName" class="form-input" value="<?php echo $caseDetails['FullName']; ?>" readonly>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label" for="studentID">Student ID</label>
+                    <input type="text" id="studentID" class="form-input" value="<?php echo $caseDetails['StudentID']; ?>" readonly>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label" for="sanction">Sanction</label>
+                    <input type="text" id="sanction" class="form-input" value="<?php echo $caseDetails['Sanction']; ?>" readonly>
+                </div>
+
+                <div class="form-section full-width">
+                    <label class="form-label" for="offense">Offense</label>
+                    <textarea id="offense" class="form-textarea" readonly><?php echo $caseDetails['Offense']; ?></textarea>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label" for="startDate">Suspension Start Date</label>
+                    <input type="date" id="startDate" name="startDate" class="form-input" value="<?php echo $suspensionDetails['StartDate']; ?>">
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label" for="endDate">Suspension End Date</label>
+                    <input type="date" id="endDate" name="endDate" class="form-input" value="<?php echo $suspensionDetails['EndDate']; ?>">
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label" for="liftLetter">Lift Letter</label>
+                    <input type="file" id="liftLetter" name="liftLetter" class="form-file">
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label" for="startLetter">Letter for Starting Suspension</label>
+                    <input type="file" id="startLetter" name="startLetter" class="form-file">
+                </div>
             </div>
 
-            <div class="form-section">
-                <label class="form-label" for="studentName">Student Name</label>
-                <input type="text" id="studentName" class="form-input" value="<?php echo $caseDetails['FullName']; ?>" readonly>
+            <div class="flex items-center justify-between">
+                <button class="form-button" type="submit">
+                    Save
+                </button>
             </div>
-
-            <div class="form-section">
-                <label class="form-label" for="studentID">Student ID</label>
-                <input type="text" id="studentID" class="form-input" value="<?php echo $caseDetails['StudentID']; ?>" readonly>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label" for="sanction">Sanction</label>
-                <input type="text" id="sanction" class="form-input" value="<?php echo $caseDetails['Sanction']; ?>" readonly>
-            </div>
-
-            <div class="form-section full-width">
-                <label class="form-label" for="offense">Offense</label>
-                <textarea id="offense" class="form-textarea" readonly><?php echo $caseDetails['Offense']; ?></textarea>
-            </div>
-
-            <div class="form-section">
-                <label class="form-label" for="startDate">Suspension Start Date</label>
-                <input type="date" id="startDate" class="form-input">
-            </div>
-
-            <div class="form-section">
-                <label class="form-label" for="endDate">Suspension End Date</label>
-                <input type="date" id="endDate" class="form-input">
-            </div>
-
-            <div class="form-section">
-                <label class="form-label" for="liftLetter">Lift Letter</label>
-                <input type="file" id="liftLetter" class="form-file">
-            </div>
-
-            <div class="form-section">
-                <label class="form-label" for="startLetter">Letter for Starting Suspension</label>
-                <input type="file" id="startLetter" class="form-file">
-            </div>
-        </div>
-
-        <div class="flex items-center justify-between mt-6">
-            <button class="form-button" type="button">
-                Save
-            </button>
-        </div>
+        </form>
     </div>
 </div>

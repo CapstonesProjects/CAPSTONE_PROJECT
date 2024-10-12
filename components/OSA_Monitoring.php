@@ -1,8 +1,8 @@
 <?php
 include('../config/db_connection.php');
 
-// Fetch data from tblcases
-$query = "SELECT * FROM tblcases WHERE Status LIKE '%suspended%'";
+// Fetch all cases
+$query = "SELECT * FROM tblcases";
 $result = mysqli_query($conn, $query);
 
 $cases = [];
@@ -94,15 +94,42 @@ mysqli_close($conn);
                         <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Student ID</th>
                         <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Name</th>
                         <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">School Year</th>
+                        <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Status</th>
+                        <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <template x-for="caseItem in filteredCases()" :key="caseItem.StudentID">
-                        <tr class="text-center hover:bg-gray-100 cursor-pointer" @click="window.location.href = '../OSA/OSA_MonitoringView.php?caseID=' + caseItem.CaseID">
+                        <tr class="text-center hover:bg-gray-100 cursor-pointer">
                             <td class="border-dashed border-t border-gray-300 px-6 py-3" x-text="caseItem.CaseID"></td>
                             <td class="border-dashed border-t border-gray-300 px-6 py-3" x-text="caseItem.StudentID"></td>
                             <td class="border-dashed border-t border-gray-300 px-6 py-3" x-text="caseItem.FullName"></td>
                             <td class="border-dashed border-t border-gray-300 px-6 py-3 truncate-hover" x-text="caseItem.SchoolYear"></td>
+                            <td class="border-dashed border-t border-gray-300 px-6 py-3">
+                                <span
+                                    :class="{
+            'bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold': getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate) === 'Suspension Completed',
+            'bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold': getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate) === 'Pending Suspension',
+            'bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-semibold': getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate) === 'Active Suspension',
+            'bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-semibold': !['Suspension Completed', 'Pending Suspension', 'Active Suspension'].includes(getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate))
+        }"
+                                    class="cursor-pointer status-container">
+                                    <span
+                                        x-text="getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate)">
+                                    </span>
+                                </span>
+                            </td>
+
+
+                            <td class="border-dashed border-t border-gray-300 px-6 py-3">
+                                <button @click="window.location.href = '../OSA/OSA_MonitoringView.php?caseID=' + caseItem.CaseID" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    View
+                                </button>
+
+                                <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" data-bs-toggle="modal" :data-bs-target="'#scheduleSuspensionModal' + caseItem.CaseID" @click="openScheduleSuspensionModal(caseItem.CaseID)">
+                                    Schedule Suspension
+                                </button>
+                            </td>
                         </tr>
                     </template>
                 </tbody>
@@ -111,6 +138,7 @@ mysqli_close($conn);
 
         <!-- Modals -->
         <?php include('../modals/ViewCaseModal.php') ?>
+        <?php include('../modals/ScheduleSuspensionModal.php') ?>
     </div>
 
     <script>
@@ -121,16 +149,54 @@ mysqli_close($conn);
                 filteredCases() {
                     let filtered = this.cases;
 
-                    // Filter for suspended cases
-                    filtered = filtered.filter(caseItem => caseItem.Status.toLowerCase().includes('suspended'));
+                    // Filter for cases with specific statuses
+                    filtered = filtered.filter(caseItem => {
+                        const status = this.getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).toLowerCase();
+                        return status.includes('active suspension') || status.includes('pending suspension') || status.includes('suspension completed');
+                    });
 
                     if (this.selectedSchoolYear) {
                         filtered = filtered.filter(caseItem => caseItem.SchoolYear === this.selectedSchoolYear);
                     }
 
                     return filtered;
+                },
+                getStatus(dbStatus, startDate, endDate) {
+                    const currentDate = new Date();
+                    const start = startDate ? new Date(startDate) : null;
+                    const end = endDate ? new Date(endDate) : null;
+
+                    console.log(`Current Date: ${currentDate}`);
+                    console.log(`Start Date: ${start}`);
+                    console.log(`End Date: ${end}`);
+                    console.log(`DB Status: ${dbStatus}`);
+
+                    if (dbStatus.toLowerCase() !== 'Suspended') {
+                        return 'Active Suspension';
+                    }
+
+                    if (!start || !end) {
+                        return 'Active Suspension';
+                    }
+
+                    if (currentDate < start) {
+                        return 'Pending Suspension';
+                    }
+
+                    if (currentDate.toDateString() === start.toDateString()) {
+                        return 'Active Suspension';
+                    }
+
+                    if (currentDate >= start && currentDate <= end) {
+                        return 'Active Suspension';
+                    }
+
+                    if (currentDate > end) {
+                        return 'Suspension Completed';
+                    }
+
+                    return 'Pending Suspension';
                 }
             }
         }
     </script>
-</div>

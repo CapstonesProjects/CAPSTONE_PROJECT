@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Determine the status based on the case resolution
     $status = 'Resolved';
     if (stripos($caseResolution, 'suspension') !== false) {
-        $status = 'Suspended';
+        $status = 'Pending Suspension';
     } else {
         $status = $caseResolution;
     }
