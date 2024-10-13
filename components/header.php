@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-/* Basic Header Styling */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -54,17 +54,17 @@ header {
 
 .navlist {
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 .navlist li a {
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     padding: 5px 15px;
     text-align: center;
 }
 
-/* Hamburger Icon */
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -85,13 +85,14 @@ header {
 }
 
 .navlist.responsive {
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
-    display: none;
+    display: flex;
     position: absolute;
     top: 70px;
     left: 0;
-    
+    background-color: rgba(0, 0, 0, 0.9);
+    font-size: 8px;
 }
 
 .navlist.responsive li {
@@ -100,15 +101,16 @@ header {
 }
 
 .navlist.responsive li a {
-    display: block;
+    display: flex;
     padding: 10px;
+    font-size: 8px;
 }
 
 .navlist.show {
     display: flex;
 }
 
-/* Responsive Media Queries */
+
 @media (max-width: 768px) {
     .navlist {
         display: none;
@@ -123,7 +125,7 @@ header {
     }
 
     .IPI-container {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .IPI-letter {
@@ -151,7 +153,7 @@ header {
 
     <ul class="navlist">
         <li><a href="./index.php">Home</a></li>
-        <li><a href="./Abouts.php">About Us</a></li>
+        <li><a href="./Abouts.php">AboutUs</a></li>
         <li><a href="./Events.php">Events</a></li>
         <li><a href="./Scholar.php">Scholar</a></li>
         <li class="relative">
