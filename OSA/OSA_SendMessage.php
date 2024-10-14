@@ -41,7 +41,7 @@ include('../alerts/send_message.php')
     <title>OSA Send Message - LOA OSA</title>
 </head>
 
-<body class="font-poppins antialiased bg-white">
+<body class="font-poppins antialiased bg-gray-200">
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php

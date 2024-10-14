@@ -6,15 +6,15 @@ document.getElementById('offense').addEventListener('change', function() {
         fetch(`../phpfiles/fetch_offense_count.php?StudentID=${studentID}&OffenseCategory=${offenseCategory}`)
             .then(response => response.text()) // Get raw response as text
             .then(text => {
-                console.log('Raw response:', text); // Log raw response
+                // console.log('Raw response:', text); // Log raw response
                 return JSON.parse(text); // Parse the response as JSON
             })
             .then(data => {
-                console.log(data); // Debugging: Log the response data
+                // console.log(data); // Debugging: Log the response data
                 if (data.error) {
                     console.error('Error:', data.error);
                 } else {
-                    document.getElementById('offenseCount').innerText = `Number of committed offenses: ${data.OffenseCount}`;
+                    document.getElementById('offenseCount').innerText = `History offenses of student: ${data.OffenseCount}`;
 
                     // Determine the sanction based on the offense category and count
                     let sanction = '';

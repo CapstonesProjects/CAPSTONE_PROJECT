@@ -17,17 +17,16 @@ if (isset($_POST['btnadd_case'])) {
     $offenseCategory = $_POST['OffenseCategory'];
     $complainant = $_POST['Complainant'];
     $status = $_POST['Status'];
-    $date = $_POST['Date'];
+    $fileddate = $_POST['FiledDate'];
     $sanction = $_POST['Sanction'];
     $complainantnumber = $_POST['ComplainantNumber'];
     $affiliation = $_POST['Affiliation'];
     $schoolyear = $_POST['SchoolYear'];
     $filedby = $_POST['FiledBy'];
+    $semester = $_POST['Semester'];
 
     // Handle file uploads
     $reportAttachment = '';
-    $writtenReprimandAttachment = '';
-    $sanctionLetterAttachment = '';
 
     $uploadDir = "../fileattachment/";
     if (!is_dir($uploadDir)) {
@@ -51,8 +50,6 @@ if (isset($_POST['btnadd_case'])) {
     }
 
     uploadFile('ReportAttachment', $reportAttachment);
-    uploadFile('WrittenReprimandAttachment', $writtenReprimandAttachment);
-    uploadFile('SanctionLetterAttachment', $sanctionLetterAttachment);
 
     // Check if the StudentID exists in tblusers_student
     $checkQuery = "SELECT * FROM tblusers_student WHERE StudentID = ?";
@@ -85,10 +82,10 @@ if (isset($_POST['btnadd_case'])) {
     }
 
     $insertQuery = "INSERT INTO tblcases (
-        StudentID, FullName, Email, Offense, OffenseCategory, Sanction, Complainant, Status, Date, ReportAttachment, WrittenReprimandAttachment, SanctionLetterAttachment, ComplainantNumber, Affiliation, SchoolYear, FiledBy
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        StudentID, FullName, Email, Offense, OffenseCategory, Sanction, Complainant, Status, FiledDate, ReportAttachment, ComplainantNumber, Affiliation, SchoolYear, Semester, FiledBy
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insertQuery);
-    $stmt->bind_param("ssssssssssssssss", $studentID, $fullName, $email, $offense, $offenseCategory, $sanction, $complainant, $status, $date, $reportAttachment, $writtenReprimandAttachment, $sanctionLetterAttachment, $complainantnumber, $affiliation, $schoolyear, $filedby);
+    $stmt->bind_param("sssssssssssssss", $studentID, $fullName, $email, $offense, $offenseCategory, $sanction, $complainant, $status, $fileddate, $reportAttachment, $complainantnumber, $affiliation, $schoolyear, $semester, $filedby);
 
     if ($stmt->execute()) {
         $_SESSION['addcases_success'] = 'The case was successfully added.';
@@ -102,7 +99,6 @@ if (isset($_POST['btnadd_case'])) {
     exit;
 }
 ?>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

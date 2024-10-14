@@ -60,7 +60,6 @@
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 const section = this.getAttribute('data-section');
-                console.log('Saving section:', sections);
                 localStorage.setItem('currentSection', section);
             });
         });

@@ -38,7 +38,7 @@ if (isset($_SESSION['UserID'])) {
     <title>OSA Dashboard - LOA OSA</title>
 </head>
 
-<body class="font-poppins antialiased">
+<body class="font-poppins antialiased bg-white">
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php

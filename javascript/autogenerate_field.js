@@ -5,11 +5,11 @@ document.getElementById('studentId').addEventListener('input', function() {
         fetch(`../phpfiles/fetch_student.php?StudentID=${studentID}`)
             .then(response => response.text()) // Get raw response as text
             .then(text => {
-                console.log('Raw response:', text); // Log raw response
+                // console.log('Raw response:', text); // Log raw response
                 return JSON.parse(text); // Parse the response as JSON
             })
             .then(data => {
-                console.log(data); // Debugging: Log the response data
+                // console.log(data); // Debugging: Log the response data
                 if (data.error) {
                     console.error('Error:', data.error);
                 } else {
