@@ -110,7 +110,7 @@ mysqli_close($conn);
     <div class="container">
         <a href="../OSA/OSA_Monitoring.php" class="back-button">Back</a>
         <h2 class="form-title">Suspended Student Details</h2>
-        <form action="../phpfiles/Monitoring.php" method="post" enctype="multipart/form-data">
+        <form>
             <input type="hidden" name="caseID" value="<?php echo $caseDetails['CaseID']; ?>">
             <div class="grid-container">
                 <div class="form-section">
@@ -140,30 +140,34 @@ mysqli_close($conn);
 
                 <div class="form-section">
                     <label class="form-label" for="startDate">Suspension Start Date</label>
-                    <input type="date" id="startDate" name="startDate" class="form-input" value="<?php echo $suspensionDetails['StartDate']; ?>">
+                    <input type="date" id="startDate" name="startDate" class="form-input" value="<?php echo $caseDetails['StartDate']; ?>" readonly>
                 </div>
 
                 <div class="form-section">
                     <label class="form-label" for="endDate">Suspension End Date</label>
-                    <input type="date" id="endDate" name="endDate" class="form-input" value="<?php echo $suspensionDetails['EndDate']; ?>">
+                    <input type="date" id="endDate" name="endDate" class="form-input" value="<?php echo $caseDetails['EndDate']; ?>" readonly>
                 </div>
 
                 <div class="form-section">
                     <label class="form-label" for="liftLetter">Lift Letter</label>
-                    <input type="file" id="liftLetter" name="liftLetter" class="form-file">
+                    <?php if (!empty($caseDetails['LiftLetter'])): ?>
+                        <a href="<?php echo $caseDetails['LiftLetter']; ?>" class="attachment" target="_blank">View Attachment</a>
+                    <?php else: ?>
+                        <span class="no-attachment">No attachment available</span>
+                    <?php endif; ?>
                 </div>
 
                 <div class="form-section">
                     <label class="form-label" for="startLetter">Letter for Starting Suspension</label>
-                    <input type="file" id="startLetter" name="startLetter" class="form-file">
+                    <?php if (!empty($caseDetails['StartLetter'])): ?>
+                        <a href="<?php echo $caseDetails['StartLetter']; ?>" class="attachment" target="_blank">View Attachment</a>
+                    <?php else: ?>
+                        <span class="no-attachment">No attachment available</span>
+                    <?php endif; ?>
                 </div>
             </div>
 
-            <div class="flex items-center justify-between">
-                <button class="form-button" type="submit">
-                    Save
-                </button>
-            </div>
+            
         </form>
     </div>
 </div>

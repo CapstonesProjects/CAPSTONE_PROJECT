@@ -12,18 +12,27 @@ while ($row = mysqli_fetch_assoc($result)) {
 mysqli_close($conn);
 ?>
 
+<style>
+    .modal-5xl {
+    max-width: 70%; 
+}
+</style>
+
 <!-- Modals -->
 <?php foreach ($cases as $caseItem): ?>
     <div class="modal fade" id="CaseAttachmentFileModal<?php echo $caseItem['CaseID']; ?>" tabindex="-1" aria-labelledby="CaseAttachmentFileModalLabel<?php echo $caseItem['CaseID']; ?>" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-dialog modal-5xl modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header d-flex justify-content-between align-items-center">
                     <div class="d-flex flex-row gap-5">
                         <h5 class="modal-title" id="CaseAttachmentFileModalLabel<?php echo $caseItem['CaseID']; ?>">
-                            <span class="font-weight-bold">Resolution for Case ID:</span> <span class="text-primary"><?php echo htmlspecialchars($caseItem['CaseID']); ?></span>
+                            <span class="font-weight-bold text-sm">Resolution for Case ID:</span> <span class="text-primary"><?php echo htmlspecialchars($caseItem['CaseID']); ?></span>
                         </h5>
                         <h5 class="modal-title" id="CaseAttachmentFileModalLabel<?php echo $caseItem['CaseID']; ?>">
-                            <span class="font-weight-bold">Resolution for Student ID:</span> <span class="text-primary"><?php echo htmlspecialchars($caseItem['StudentID']); ?></span>
+                            <span class="font-weight-bold text-sm">Resolution for Student ID:</span> <span class="text-primary"><?php echo htmlspecialchars($caseItem['StudentID']); ?></span>
+                        </h5>
+                        <h5 class="modal-title" id="CaseAttachmentFileModalLabel<?php echo $caseItem['CaseID']; ?>">
+                            <span class="font-weight-bold text-sm">Sanction:</span> <span class="text-primary"><?php echo htmlspecialchars($caseItem['Sanction']); ?></span>
                         </h5>
                     </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
@@ -50,16 +59,16 @@ mysqli_close($conn);
                             <select name="caseResolution" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
                                 <option value="" disabled selected>Select resolution</option>
                                 <optgroup label="Minor Offenses">
-                                    <option value="resolved_verbal_reprimand">Resolved - Verbal Reprimand or Censure</option>
-                                    <option value="resolved_written_reprimand">Resolved - Written Reprimand</option>
-                                    <option value="resolved_parent_conference">Resolved - Parent/Guardian Conference</option>
-                                    <option value="resolved_suspension_prescribed_period">Resolved - Suspension for a Prescribed Period</option>
-                                    <option value="resolved_qualifies_major_offense">Resolved - Qualifies for a Major Offense</option>
+                                    <option value="Resolved - Verbal Reprimand">Resolved - Verbal Reprimand or Censure</option>
+                                    <option value="Resolved - Written Reprimand">Resolved - Written Reprimand</option>
+                                    <option value="Resolved - Parent Conference">Resolved - Parent/Guardian Conference</option>
+                                    <option value="Resolved - Suspension">Resolved - Suspension for a Prescribed Period</option>
+                                    <option value="Resolved - Suspension">Resolved - Qualifies for a Major Offense</option>
                                 </optgroup>
                                 <optgroup label="Major Offenses">
-                                    <option value="Resolved Suspension 5 Days">Resolved - Suspension for a Period of Not Less Than Five Days</option>
-                                    <option value="resolved_suspension_one_two_weeks">Resolved - Suspension for a Period of 1 - 2 Weeks</option>
-                                    <option value="resolved_suspension_one_semester">Resolved - Suspension for One Semester</option>
+                                    <option value="Resolved - Suspension 5 Days">Resolved - Suspension for a Period of Not Less Than Five Days</option>
+                                    <option value="Resolved - Suspension 1-2 Weeks">Resolved - Suspension for a Period of 1 - 2 Weeks</option>
+                                    <option value="Resolved - Suspension 1 Semester">Resolved - Suspension for One Semester</option>
                                     <option value="Resolved - Exclusion or Immediate Dismissal">Resolved - Exclusion or Immediate Dismissal and Non-Admission in Lyceum of Alabang</option>
                                 </optgroup>
                                 <option value="Resolved - Dismissed (Lack of Evidence)">Resolved - Dismissed (Lack of Evidence)</option>

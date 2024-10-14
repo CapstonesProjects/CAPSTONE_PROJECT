@@ -104,6 +104,35 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
             visibility: visible;
             opacity: 1;
         }
+
+        .offense-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .offense-tooltip {
+            visibility: hidden;
+            width: max-content;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            /* Position the tooltip above the text */
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .offense-container:hover .offense-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 
     <div class="container py-3 px-1 ml-12 overflow-hidden" x-data="filteredCases()">
@@ -178,21 +207,25 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
                 <tbody>
                     <template x-for="caseItem in filteredCases()" :key="caseItem.StudentID">
                         <tr class="text-center hover:bg-gray-300">
-                            <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.StudentID"></td>
-                            <td class="border-dashed border-t border-gray-200 px-6 py-3" x-text="caseItem.FullName"></td>
-                            <td class="border-dashed border-t border-gray-200 px-6 py-3 truncate-hover" x-text="caseItem.OffenseCategory"></td>
-                            <td class="border-dashed border-t border-gray-200 px-6 py-3 relative">
-                                <span class="block max-w-xl truncate hover:whitespace-normal hover:bg-white hover:overflow-visible hover:z-10" x-text="caseItem.Offense"></span>
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3 text-sm" x-text="caseItem.StudentID"></td>
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3 text-sm" x-text="caseItem.FullName"></td>
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3 truncate-hover text-sm" x-text="caseItem.OffenseCategory"></td>
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3 relative text-sm">
+                                <span class="block max-w-xl truncate hover:whitespace-normal hover:bg-white hover:overflow-visible hover:z-10 offense-container">
+                                    <span x-text="caseItem.Offense"></span>
+                                    <span class="offense-tooltip" x-text="caseItem.Offense"></span>
+                                </span>
                             </td>
-                            <td class="border-dashed border-t border-gray-200 px-6 py-3">
+
+                            <td class="border-dashed border-t border-gray-200 px-6 py-3 text-sm">
                                 <span :class="{
-                                    'bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('resolved'),
-                                    'bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('ongoing'),
-                                    'bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('pending suspension'),
-                                    'bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-semibold': !['resolved', 'ongoing', 'pending suspension'].some(status => caseItem.Status.toLowerCase().includes(status))
-                                }" class="cursor-pointer status-container">
+        'bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('resolved'),
+        'bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('ongoing'),
+        'bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('pending suspension'),
+        'bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-semibold': !['resolved', 'ongoing', 'pending suspension'].some(status => caseItem.Status.toLowerCase().includes(status))
+    }" class="cursor-pointer status-container">
                                     <span x-text="caseItem.Status.toLowerCase().includes('resolved') ? 'Resolved' : caseItem.Status.toLowerCase().includes('ongoing') ? 'Ongoing' : caseItem.Status.toLowerCase().includes('suspended') ? 'Suspended' : caseItem.Status"></span>
-                                    <span class="status-tooltip" x-text="caseItem.Status"></span>
+                                    <span class="status-tooltip" x-text="caseItem.CaseResolution"></span>
                                 </span>
                             </td>
                             <td class="border-dashed border-t border-gray-200 px-6 py-3 text-center">
@@ -202,13 +235,13 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
                                     </button>
                                     <button type="button" class="transition duration-300 ease-in-out text-sm transform hover:scale-105 text-white font-bold py-2 px-2 rounded"
                                         :class="{
-                'bg-gray-600 cursor-not-allowed opacity-50': ['pending', 'suspension'].some(status => caseItem.Status.toLowerCase().includes(status)),
-                'bg-green-500 hover:bg-green-700': !['pending', 'suspension'].some(status => caseItem.Status.toLowerCase().includes(status))
+                'bg-gray-600 cursor-not-allowed opacity-50': ['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)),
+                'bg-green-500 hover:bg-green-700': !['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status))
             }"
                                         data-bs-toggle="modal"
                                         :data-bs-target="'#CaseAttachmentFileModal' + caseItem.CaseID"
-                                        :disabled="['pending', 'suspension'].some(status => caseItem.Status.toLowerCase().includes(status))">
-                                        <span x-text="['pending', 'suspension'].some(status => caseItem.Status.toLowerCase().includes(status)) ? 'Submitted' : 'Submit Resolution'"></span>
+                                        :disabled="['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status))">
+                                        <span x-text="['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)) ? 'Submitted' : 'Submit Resolution'"></span>
                                     </button>
                                 </div>
                             </td>
