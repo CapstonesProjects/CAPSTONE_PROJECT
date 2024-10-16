@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2024 at 05:31 AM
+-- Generation Time: Oct 16, 2024 at 08:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -73,21 +73,29 @@ CREATE TABLE `tblcases` (
   `ComplainantNumber` varchar(255) DEFAULT NULL,
   `Affiliation` varchar(255) DEFAULT NULL,
   `SchoolYear` varchar(255) DEFAULT NULL,
+  `Semester` varchar(120) NOT NULL,
   `FiledBy` varchar(255) DEFAULT NULL,
   `CaseResolution` varchar(255) DEFAULT NULL,
   `Remarks` text DEFAULT NULL,
   `ResolutionAttachment` varchar(255) DEFAULT NULL,
-  `ResolutionDate` date DEFAULT NULL
+  `ResolutionDate` date DEFAULT NULL,
+  `StartDate` date DEFAULT NULL,
+  `EndDate` date DEFAULT NULL,
+  `LiftLetter` varchar(255) DEFAULT NULL,
+  `StartLetter` varchar(255) DEFAULT NULL,
+  `LiftingRemark` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblcases`
 --
 
-INSERT INTO `tblcases` (`CaseID`, `StudentID`, `FullName`, `Email`, `Offense`, `OffenseCategory`, `Sanction`, `Complainant`, `Status`, `FiledDate`, `ReportAttachment`, `WrittenReprimandAttachment`, `SanctionLetterAttachment`, `ComplainantNumber`, `Affiliation`, `SchoolYear`, `FiledBy`, `CaseResolution`, `Remarks`, `ResolutionAttachment`, `ResolutionDate`) VALUES
-(14, '7742-32', 'Jamir Sanford Bo Kohler', 'your.email+fakedata72573@gmail.com', 'Attitude inside the Classroom - Littering', 'Minor', 'First offense - Verbal reprimand or censure', 'Phillip Andro G. Banag', 'Ongoing', '2024-10-01', '../fileattachment/Untitled (Poster).pdf', '', '../fileattachment/Bank Management.pdf', '0923322545', 'Faculty', '2023-2024', 'Helen Patalbo', NULL, NULL, NULL, NULL),
-(15, '1169-21', 'Rogel Ramos Gerodiaz', 'gerodiazrogel0@gmail.com', 'Attitude inside the Classroom - Classroom mischief, failure to turn off or put on silent the mobile phone', 'Minor', 'Second offense - Written reprimand', 'Phillip Andro G. Banag', 'resolved_written_reprimand', '2024-10-05', '../fileattachment/Animal coloring book -  Cover.pdf', '../fileattachment/SYLLABUS_IAS_1..pdf', '', '0923322545', 'Faculty', '2021-2022', 'Helen Patalbo', 'resolved_written_reprimand', 'adadadsdq', '../fileattachment/Febuary-Contract.pdf', '2024-10-06'),
-(17, '1169-21', 'Rogel Ramos Gerodiaz', 'gerodiazrogel0@gmail.com', 'Violation with Legal Implications - Use of the Internet or social media to malign fellow students or persons in authority (Cyberbullying, RA 10175)', 'Major', 'First offense - Suspension for a period of not less than five (5) days.', 'Phillip Andro G. Banag', 'Suspended', '2024-10-07', '../fileattachment/Untitled (Poster).pdf', NULL, NULL, '0923322545', 'Faculty', '2024-2025', 'Helen Patalbo', 'resolved_suspension_five_days', 'adsazczdcxvds', '../fileattachment/Animal coloring book -  Cover.pdf', '2024-10-06');
+INSERT INTO `tblcases` (`CaseID`, `StudentID`, `FullName`, `Email`, `Offense`, `OffenseCategory`, `Sanction`, `Complainant`, `Status`, `FiledDate`, `ReportAttachment`, `WrittenReprimandAttachment`, `SanctionLetterAttachment`, `ComplainantNumber`, `Affiliation`, `SchoolYear`, `Semester`, `FiledBy`, `CaseResolution`, `Remarks`, `ResolutionAttachment`, `ResolutionDate`, `StartDate`, `EndDate`, `LiftLetter`, `StartLetter`, `LiftingRemark`) VALUES
+(27, '1169-21', 'Rogel Ramos Gerodiaz', 'gerodiazrogel0@gmail.com', 'Violation with Legal Implications - Possession use, or sale of illegal drugs (RA 9165) inside the school premises and entering the school while intoxicated', 'Major', 'First offense - Suspension for a period of not less than five (5) days.', 'Phillip Andro G. Banag', 'Resolved', '2024-10-14', '../fileattachment/Febuary-Contract.pdf', NULL, NULL, '0923322545', 'Faculty', '2024-2025', '1st Semester', 'Helen Patalbo', 'Resolved - Suspension 5 Days', 'asdvcvbccasvdvxc', '../fileattachment/Midterm - Assignment 1 - Gerodiaz Rogel R.pdf', '2024-10-14', '2024-10-11', '2024-10-14', NULL, '../suspensionfiles/WEBCRAFT-Final-Manuscript.pdf', NULL),
+(28, '6911-21', 'Devante Hilton Arm Tillman', 'your.email+fakedata96535@gmail.com', 'Violation with Legal Implications - Violation of RA 8049 (Anti-Hazing Act)', 'Major', 'First offense - Suspension for a period of not less than five (5) days.', 'Phillip Andro G. Banag', 'Ongoing', '2024-10-14', '../fileattachment/Untitled (Poster).pdf', NULL, NULL, '0923322545', 'Faculty', '2024-2025', '1st Semester', 'Helen Patalbo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, '4372-31', 'Ronny Bette Wind Gibson', 'your.email+fakedata57452@gmail.com', 'Violation with Legal Implications - Violation of RA 7877 (Anti-sexual Harassment)', 'Major', 'First offense - Suspension for a period of not less than five (5) days.', 'Phillip Andro G. Banag', 'Pending Suspension', '2024-10-14', '../fileattachment/my-resume.pdf', NULL, NULL, '0923322545', 'Faculty', '2024-2025', '1st Semester', 'Helen Patalbo', 'Resolved - Suspension 5 Days', 'axzxcszxcczx', '../fileattachment/4503-1871-0548-0651.pdf', '2024-10-14', NULL, NULL, '', '', ''),
+(31, '1932-21', 'Kyleigh Ethelyn Zi Bailey', 'your.email+fakedata33120@gmail.com', 'Violation with Legal Implications - Possession/carrying or use of firearms, explosives, knives, or weapons that can cause harm (Presidential Decree No. 1866)', 'Major', 'First offense - Suspension for a period of not less than five (5) days.', 'Phillip Andro G. Banag', 'Suspended', '2024-10-14', '../fileattachment/rogel_resume.pdf', NULL, NULL, '0923322545', 'Faculty', '2024-2025', '1st Semester', 'Helen Patalbo', 'Resolved - Suspension 5 Days', 'dasdcvsdszxc', '../fileattachment/RESUME.pdf', '2024-10-14', '2024-10-14', '2024-10-22', NULL, '../suspensionfiles/Reprimand-Letter-Template.docx', NULL),
+(33, '1169-21', 'Rogel Ramos Gerodiaz', 'gerodiazrogel0@gmail.com', 'Noncompliance of Academic Requirements - Truancy or cutting classes', 'Minor', 'First offense - Verbal reprimand or censure', 'Phillip Andro G. Banag', 'Ongoing', '2024-10-15', '../fileattachment/4503-1871-0548-0651.pdf', NULL, NULL, '0923322545', 'Faculty', '2021-2022', '1st Semester', 'Helen Patalbo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -218,7 +226,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `tblcases`
 --
 ALTER TABLE `tblcases`
-  MODIFY `CaseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `CaseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tblusers_osa`
