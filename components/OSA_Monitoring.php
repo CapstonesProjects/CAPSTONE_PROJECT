@@ -1,14 +1,17 @@
 <?php
 include('../config/db_connection.php');
 
-// Fetch all cases
-$query = "SELECT * FROM tblcases";
+// Fetch all cases where Sanction includes Suspension
+$query = "SELECT * FROM tblcases WHERE Sanction LIKE '%Suspension%'";
 $result = mysqli_query($conn, $query);
+
+
 
 $cases = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $cases[] = $row;
 }
+
 
 mysqli_close($conn);
 ?>
@@ -189,8 +192,8 @@ mysqli_close($conn);
                 filteredCases() {
                     let filtered = this.cases;
 
-                     // Filter by status
-                     if (this.selectedStatus !== 'all') {
+                    // Filter by status
+                    if (this.selectedStatus !== 'all') {
                         filtered = filtered.filter(caseItem => {
                             const status = this.getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).text.toLowerCase();
                             return status === this.selectedStatus;
@@ -215,6 +218,9 @@ mysqli_close($conn);
                             );
                         });
                     }
+
+                    // Filter out cases without "Suspension" in the sanction
+                    filtered = filtered.filter(caseItem => caseItem.Sanction && caseItem.Sanction.toLowerCase().includes('suspension'));
 
                     return filtered;
                 },

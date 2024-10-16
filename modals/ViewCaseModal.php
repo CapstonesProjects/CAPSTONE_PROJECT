@@ -13,6 +13,12 @@ while ($row = mysqli_fetch_assoc($result)) {
 mysqli_close($conn);
 ?>
 
+<style>
+    .modal-5xl {
+        width: 120%;
+    }
+</style>
+
 <!-- Modals -->
 <?php foreach ($cases as $caseItem): ?>
     <div class="modal fade" id="ViewCasesModal<?php echo $caseItem['CaseID']; ?>" tabindex="-1" aria-labelledby="ViewCaseModalLabel<?php echo $caseItem['CaseID']; ?>" aria-hidden="true">
@@ -112,7 +118,7 @@ mysqli_close($conn);
                             </div>
                         </div>
                     </div>
-                    <div class="flex justify-center" style="margin-top: -5%;">
+                    <!-- <div class="flex justify-center" style="margin-top: -5%;">
                         <form action="../phpfiles/update_case_status.php" method="POST" onsubmit="return confirmAndDisableButton(event);">
                             <input type="hidden" name="caseID" value="<?php echo htmlspecialchars($caseItem['CaseID']); ?>">
                             <button
@@ -125,7 +131,7 @@ mysqli_close($conn);
                                 <span><?php echo $caseItem['Status'] === 'Resolved' ? 'Resolved' : 'Mark as Resolved'; ?></span>
                             </button>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -133,25 +139,7 @@ mysqli_close($conn);
 <?php endforeach; ?>
 
 <!-- Confirmation Modal -->
-<div id="confirmationModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 hidden">
-    <div class="bg-white p-6 rounded-lg">
-        <h2 class="text-lg font-bold mb-4">Confirm Action</h2>
-        <form id="confirmationForm">
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2">Username</label>
-                <input type="text" id="username" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                <input type="password" id="password" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
-            </div>
-            <div class="flex justify-end">
-                <button type="button" onclick="closeModal()" class="bg-gray-500 text-white px-4 py-2 rounded-md mr-2">Cancel</button>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Confirm</button>
-            </div>
-        </form>
-    </div>
-</div>
+
 
 <script>
     function confirmAndDisableButton(event) {

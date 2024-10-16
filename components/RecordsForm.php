@@ -221,11 +221,13 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
                                 <span :class="{
         'bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('resolved'),
         'bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('ongoing'),
-        'bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('pending suspension'),
+        'bg-red-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold': caseItem.Status.toLowerCase().includes('pending suspension'),
         'bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-semibold': !['resolved', 'ongoing', 'pending suspension'].some(status => caseItem.Status.toLowerCase().includes(status))
     }" class="cursor-pointer status-container">
                                     <span x-text="caseItem.Status.toLowerCase().includes('resolved') ? 'Resolved' : caseItem.Status.toLowerCase().includes('ongoing') ? 'Ongoing' : caseItem.Status.toLowerCase().includes('suspended') ? 'Suspended' : caseItem.Status"></span>
-                                    <span class="status-tooltip" x-text="caseItem.CaseResolution"></span>
+                                    <template x-if="caseItem.Status.toLowerCase().includes('resolved')">
+                                        <span class="status-tooltip" x-text="caseItem.CaseResolution"></span>
+                                    </template>
                                 </span>
                             </td>
                             <td class="border-dashed border-t border-gray-200 px-6 py-3 text-center">
