@@ -38,7 +38,7 @@ header {
 
 .logo-letter {
     color: #ffffff;
-    font-size: 18px;
+    font-size: 30px;
 }
 
 .IPI-container {
@@ -47,7 +47,7 @@ header {
 }
 
 .IPI-letter {
-    font-size: 12px;
+    font-size: 20px;
     color: #cccccc;
     margin-right: 10px;
 }
@@ -57,10 +57,10 @@ header {
     gap: 10px;
 }
 
-.navlist li {
+.navlist li{
     color: white;
-    font-size: 17px;
-    padding-top: 10px;
+    font-size: 25px;
+    padding: 10px 50px;
     text-align: center;
 }
 
@@ -70,7 +70,7 @@ header {
     display: none;
     flex-direction: column;
     cursor: pointer;
-   
+    align-items: ;
 }
 
 .hamburger span {
@@ -82,9 +82,6 @@ header {
 }
 
 /* Hide menu on small screens initially */
-.navlist {
-    flex-direction: column;
-}
 
 .navlist.responsive {
     flex-direction: row;
@@ -114,17 +111,24 @@ header {
 
 
 @media (max-width: 768px) {
+    
     .navlist {
         display: none;
-        font-size: 10px;
+    flex-direction: column;
     }
 
+    .navlist li{
+    color: white;
+    font-size: 20px;
+    padding: 10px 50px;
+    text-align: center;
+}
     .hamburger {
         display: flex;
     }
 
     .logo-letter {
-        font-size: 10px;
+        font-size: 20px;
     }
 
     .IPI-container {
@@ -133,7 +137,7 @@ header {
     }
 
     .IPI-letter {
-        margin-right: 0;
+        margin-right: 5;
     }
 }
 
