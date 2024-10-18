@@ -137,7 +137,9 @@ header {
     }
 
     .IPI-letter {
-        margin-right: 5;
+        margin-right: 5px;
+        font-size: 13px;
+        margin-bottom: 10px;
     }
 }
 
