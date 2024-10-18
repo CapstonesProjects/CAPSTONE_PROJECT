@@ -14,7 +14,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+  
     color: white;
     position: fixed;
     width: 100%;
@@ -57,18 +57,20 @@ header {
     gap: 10px;
 }
 
-.navlist li a {
+.navlist li {
     color: white;
-    font-size: 20px;
-    padding: 5px 15px;
+    font-size: 17px;
+    padding-top: 10px;
     text-align: center;
 }
 
 
 .hamburger {
+
     display: none;
     flex-direction: column;
     cursor: pointer;
+   
 }
 
 .hamburger span {
@@ -81,28 +83,28 @@ header {
 
 /* Hide menu on small screens initially */
 .navlist {
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .navlist.responsive {
     flex-direction: row;
-    width: 100%;
+    width: 50%;
     display: flex;
     position: absolute;
     top: 70px;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+
     font-size: 8px;
 }
 
 .navlist.responsive li {
     text-align: center;
-    width: 100%;
+    width: 50%;
 }
 
 .navlist.responsive li a {
     display: flex;
-    padding: 10px;
+    padding: 5px;
     font-size: 8px;
 }
 
@@ -114,6 +116,7 @@ header {
 @media (max-width: 768px) {
     .navlist {
         display: none;
+        font-size: 10px;
     }
 
     .hamburger {
@@ -121,11 +124,12 @@ header {
     }
 
     .logo-letter {
-        font-size: 16px;
+        font-size: 10px;
     }
 
     .IPI-container {
         flex-direction: row;
+       
     }
 
     .IPI-letter {
@@ -153,7 +157,7 @@ header {
 
     <ul class="navlist">
         <li><a href="./index.php">Home</a></li>
-        <li><a href="./Abouts.php">AboutUs</a></li>
+        <li><a href="./Abouts.php">About</a></li>
         <li><a href="./Events.php">Events</a></li>
         <li><a href="./Scholar.php">Scholar</a></li>
         <li class="relative">
