@@ -53,6 +53,7 @@ $caseCounts = getCaseCounts($schoolYear);
 error_log("Case Counts: " . print_r($caseCounts, true));
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,8 +79,8 @@ error_log("Case Counts: " . print_r($caseCounts, true));
 <body>
   <div class="antialiased sans-serif w-lg">
     <div class="px-2 w-full">
-      <div class="py-10">
-        <div class=" p-4  bg-white overflow-x-hidden" style="height: 830px; width: 1575px;">
+      <div class="py-5">
+        <div class=" p-4  bg-white overflow-hidden " style="height: 830px; width: 1575px;">
           <div class="md:flex md:justify-between md:items-center">
             <div>
               <!-- <h2 class="text-xl text-gray-800 font-bold leading-tight">Cases</h2> -->
@@ -109,15 +110,15 @@ error_log("Case Counts: " . print_r($caseCounts, true));
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
             <div class="bg-blue-200 p-4 rounded-lg shadow-md">
               <h3 class="text-lg font-bold text-blue-800 mb-2">Total Cases</h3>
-              <p id="totalCases" class="text-2xl font-semibold text-blue-600"><?php echo $caseCounts['total_cases']; ?></p>
+              <p id="totalCases" class="text-2xl font-semibold text-blue-600">0</p>
             </div>
             <div class="bg-green-200 p-4 rounded-lg shadow-md">
               <h3 class="text-lg font-bold text-green-800 mb-2">Resolved Cases</h3>
-              <p id="resolvedCases" class="text-2xl font-semibold text-green-600"><?php echo $caseCounts['resolved_cases']; ?></p>
+              <p id="resolvedCases" class="text-2xl font-semibold text-green-600">0</p>
             </div>
             <div class="bg-yellow-200 p-4 rounded-lg shadow-md">
               <h3 class="text-lg font-bold text-yellow-800 mb-2">Ongoing Cases</h3>
-              <p id="ongoingCases" class="text-2xl font-semibold text-yellow-600"><?php echo $caseCounts['ongoing_cases']; ?></p>
+              <p id="ongoingCases" class="text-2xl font-semibold text-yellow-600">0</p>
             </div>
           </div>
 
@@ -127,21 +128,28 @@ error_log("Case Counts: " . print_r($caseCounts, true));
             <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Monthly Total Cases</h3>
               <canvas id="myChart"></canvas>
-              <div id="noDataMessage" class="text-center text-gray-500 mt-4" style="display: none;">No data available for the selected school year.</div>
+              <div id="noDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -2.5rem;">No data available.</div>
             </div>
 
             <!-- Container for Minor and Major Offenses Chart -->
             <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Minor and Major Offenses</h3>
               <canvas id="offenseChart" style="height: 275px;" width="700" height="275"></canvas>
-              <div id="noOffenseDataMessage" class="text-center text-gray-500 mt-4" style="display: none;">No data available for Minor and Major Offenses for the selected school year.</div>
+              <div id="noOffenseDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -10rem;">No data available.</div>
             </div>
 
             <!-- Container for Percentage of Cases per School Year -->
             <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Percentage of Cases per School Year</h3>
               <canvas id="percentageChart" style="height: 275px;" width="700" height="275"></canvas>
-              <div id="noPercentageDataMessage" class="text-center text-gray-500 mt-4" style="display: none;">No data available for the selected school year.</div>
+              <div id="noPercentageDataMessage" class="text-center text-gray-500 mt-4" style="display: none; margin-top: -10rem;">No data available.</div>
+            </div>
+
+            <!-- Container for Cases per Semester Chart -->
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
+              <h3 class="text-lg font-bold text-gray-800 mb-4">Cases per Semester</h3>
+              <canvas id="semesterChart" style="height: 285px;" width="700" height="275"></canvas>
+              <div id="noSemesterDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -10rem;">No data available.</div>
             </div>
           </div>
         </div>
@@ -151,15 +159,21 @@ error_log("Case Counts: " . print_r($caseCounts, true));
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const schoolYearSelect = document.getElementById('schoolYear');
+        const totalCasesElement = document.getElementById('totalCases');
+        const resolvedCasesElement = document.getElementById('resolvedCases');
+        const ongoingCasesElement = document.getElementById('ongoingCases');
         const ctx = document.getElementById('myChart').getContext('2d');
         const offenseCtx = document.getElementById('offenseChart').getContext('2d');
         const percentageCtx = document.getElementById('percentageChart').getContext('2d');
+        const semesterCtx = document.getElementById('semesterChart').getContext('2d');
         const noDataMessage = document.getElementById('noDataMessage');
         const noOffenseDataMessage = document.getElementById('noOffenseDataMessage');
         const noPercentageDataMessage = document.getElementById('noPercentageDataMessage');
+        const noSemesterDataMessage = document.getElementById('noSemesterDataMessage');
         let myChart;
         let offenseChart;
         let percentageChart;
+        let semesterChart;
 
         function destroyCharts() {
           if (myChart) {
@@ -171,10 +185,26 @@ error_log("Case Counts: " . print_r($caseCounts, true));
           if (percentageChart) {
             percentageChart.destroy();
           }
+          if (semesterChart) {
+            semesterChart.destroy();
+          }
         }
 
         function fetchData(schoolYear) {
           destroyCharts();
+
+          if (!schoolYear) {
+            noDataMessage.style.display = 'block';
+            noOffenseDataMessage.style.display = 'block';
+            noPercentageDataMessage.style.display = 'block';
+            noSemesterDataMessage.style.display = 'block';
+            return;
+          }
+
+          noDataMessage.style.display = 'none';
+          noOffenseDataMessage.style.display = 'none';
+          noPercentageDataMessage.style.display = 'none';
+          noSemesterDataMessage.style.display = 'none';
 
           fetch(`../phpfiles/fetch_cases_data.php?schoolYear=${schoolYear}`)
             .then(response => response.json())
@@ -185,8 +215,6 @@ error_log("Case Counts: " . print_r($caseCounts, true));
                 noDataMessage.style.display = 'block';
                 return;
               }
-
-              noDataMessage.style.display = 'none';
 
               const labels = data.map(item => item.month);
               const values = data.map(item => parseInt(item.cases)); // Ensure values are integers
@@ -242,7 +270,10 @@ error_log("Case Counts: " . print_r($caseCounts, true));
 
               console.log('Chart initialized:', myChart); // Debugging: Log the chart initialization
             })
-            .catch(error => console.error('Error fetching data:', error)); // Debugging: Log any errors);
+            .catch(error => {
+              console.error('Error fetching data:', error);
+              noDataMessage.style.display = 'block';
+            });
 
           fetch(`../phpfiles/fetch_offense_category.php?schoolYear=${schoolYear}`)
             .then(response => response.json())
@@ -253,8 +284,6 @@ error_log("Case Counts: " . print_r($caseCounts, true));
                 noOffenseDataMessage.style.display = 'block';
                 return;
               }
-
-              noOffenseDataMessage.style.display = 'none';
 
               const labels = data.map(item => item.month);
               const minorValues = data.map(item => parseInt(item.minor_cases)); // Ensure values are integers
@@ -325,9 +354,12 @@ error_log("Case Counts: " . print_r($caseCounts, true));
 
               console.log('Offense Chart initialized:', offenseChart); // Debugging: Log the chart initialization
             })
-            .catch(error => console.error('Error fetching data:', error)); // Debugging: Log any errors);
+            .catch(error => {
+              console.error('Error fetching data:', error);
+              noOffenseDataMessage.style.display = 'block';
+            });
 
-          fetch(`../phpfiles/fetch_percentage_schoolyear.php`)
+          fetch(`../phpfiles/fetch_percentage_schoolyear.php?schoolYear=${schoolYear}`)
             .then(response => response.json())
             .then(data => {
               console.log(data); // Debugging: Log the fetched data
@@ -336,8 +368,6 @@ error_log("Case Counts: " . print_r($caseCounts, true));
                 noPercentageDataMessage.style.display = 'block';
                 return;
               }
-
-              noPercentageDataMessage.style.display = 'none';
 
               const totalCases = data.reduce((sum, item) => sum + parseInt(item.cases), 0);
               const labels = data.map(item => item.SchoolYear);
@@ -400,7 +430,47 @@ error_log("Case Counts: " . print_r($caseCounts, true));
 
               console.log('Percentage Chart initialized:', percentageChart); // Debugging: Log the chart initialization
             })
-            .catch(error => console.error('Error fetching data:', error)); // Debugging: Log any errors);
+            .catch(error => {
+              console.error('Error fetching data:', error);
+              noPercentageDataMessage.style.display = 'block';
+            });
+
+          fetch(`../phpfiles/fetch_semester_counts.php?schoolYear=${schoolYear}`)
+            .then(response => response.json())
+            .then(data => {
+              console.log(data); // Debugging: Log the fetched data
+              if (data.length === 0) {
+                console.error('No data fetched');
+                noSemesterDataMessage.style.display = 'block';
+                return;
+              }
+
+              // Update Semester Chart
+              semesterChart = new Chart(semesterCtx, {
+                type: 'bar',
+                data: {
+                  labels: ['1st Semester', '2nd Semester'],
+                  datasets: [{
+                    label: 'Cases',
+                    data: [data.first_semester_cases, data.second_semester_cases],
+                    backgroundColor: ['rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+                    borderColor: ['rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+                    borderWidth: 1
+                  }]
+                },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true
+                    }
+                  }
+                }
+              });
+            })
+            .catch(error => {
+              console.error('Error fetching data:', error);
+              noSemesterDataMessage.style.display = 'block';
+            });
         }
 
         // Fetch data for the initial school year
