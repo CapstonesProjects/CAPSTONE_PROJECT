@@ -16,6 +16,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 mysqli_close($conn);
 ?>
 
+<link href="https://unpkg.com/tippy.js@6/dist/tippy.css" rel="stylesheet">
 <!-- component -->
 <div class="antialiased sans-serif h-screen ml-0 m-3">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
@@ -123,7 +124,27 @@ mysqli_close($conn);
                         <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Start Date</th>
                         <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">End Date</th>
                         <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Status</th>
-                        <th class="sticky top-0 border-b border-gray-300 px-6 py-2 font-bold tracking-wider uppercase text-xs text-center">Actions</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-3 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center flex items-center justify-center space-x-2">
+                            <span>Action</span>
+                            <button type="button" class="hover:bg-gray-700 text-black font-bold text-sm py-2 px-1 rounded transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center" style="width: 24px; height: 24px;" data-tippy-content="
+        <div class='text-left'>
+            <div class='flex items-center space-x-2'>
+                <i class='bx bx-show text-lg' style='background-color: #3b82f6; padding: 5px; border-radius: 5px; color: white;'></i>
+                <span>View Button Icon: View case details</span>
+            </div>
+            <div class='flex items-center space-x-2 mt-2'>
+                <i class='bx bx-calendar text-lg' style='background-color: #f59e0b; padding: 5px; border-radius: 5px; color: white;'></i>
+                <span>Schedule Suspension Button: Schedule the suspension for the case</span>
+            </div>
+            <div class='flex items-center space-x-2 mt-2'>
+                <i class='bx bx-up-arrow-alt text-lg' style='background-color: #10b981; padding: 5px; border-radius: 5px; color: white;'></i>
+                <span>Lift Suspension Button: Lift the suspension for the case</span>
+            </div>
+        </div>
+    ">
+                                <i class='bx bx-info-circle'></i> <!-- Information Icon -->
+                            </button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -151,21 +172,23 @@ mysqli_close($conn);
 
 
                             <td class="border-dashed border-t border-gray-300 px-6 py-3">
-                                <button @click="window.location.href = '../OSA/OSA_MonitoringView.php?caseID=' + caseItem.CaseID" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 text-sm rounded">
-                                    View
-                                </button>
-
-                                <template x-if="!getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).isActive && caseItem.Status.toLowerCase() !== 'ongoing' && caseItem.Status.toLowerCase() !== 'suspension completed' && caseItem.Status.toLowerCase() !== 'resolved'">
-                                    <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 rounded text-sm" data-bs-toggle="modal" :data-bs-target="'#scheduleSuspensionModal' + caseItem.CaseID" @click="openScheduleSuspensionModal(caseItem.CaseID)">
-                                        Schedule Suspension
+                                <div class="flex justify-center items-center space-x-2">
+                                    <button @click="window.location.href = '../OSA/OSA_MonitoringView.php?caseID=' + caseItem.CaseID" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 text-sm rounded flex items-center justify-center" style="width: 40px; height: 40px;">
+                                        <i class='bx bx-show'></i> <!-- View Icon -->
                                     </button>
-                                </template>
 
-                                <template x-if="getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).isActive">
-                                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded text-sm" data-bs-toggle="modal" :data-bs-target="'#liftSuspensionModal' + caseItem.CaseID" @click="liftSuspension(caseItem.CaseID)">
-                                        Lift Suspension
-                                    </button>
-                                </template>
+                                    <template x-if="!getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).isActive && caseItem.Status.toLowerCase() !== 'ongoing' && caseItem.Status.toLowerCase() !== 'suspension completed' && caseItem.Status.toLowerCase() !== 'resolved'">
+                                        <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 rounded text-sm flex items-center justify-center" data-bs-toggle="modal" :data-bs-target="'#scheduleSuspensionModal' + caseItem.CaseID" @click="openScheduleSuspensionModal(caseItem.CaseID)" style="width: 40px; height: 40px;">
+                                            <i class='bx bx-calendar'></i> <!-- Schedule Suspension Icon -->
+                                        </button>
+                                    </template>
+
+                                    <template x-if="getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).isActive">
+                                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded text-sm flex items-center justify-center" data-bs-toggle="modal" :data-bs-target="'#liftSuspensionModal' + caseItem.CaseID" @click="liftSuspension(caseItem.CaseID)" style="width: 40px; height: 40px;">
+                                            <i class='bx bx-up-arrow-alt'></i> <!-- Lift Suspension Icon -->
+                                        </button>
+                                    </template>
+                                </div>
                             </td>
                         </tr>
                     </template>
@@ -299,4 +322,13 @@ mysqli_close($conn);
                 }
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+        tippy('[data-tippy-content]', {
+            allowHTML: true,
+            theme: 'light-border',
+        });
+    });
     </script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>

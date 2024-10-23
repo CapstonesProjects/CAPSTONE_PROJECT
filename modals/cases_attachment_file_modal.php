@@ -41,6 +41,7 @@ mysqli_close($conn);
 
                     <form action="../phpfiles/update_case_resolution.php" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="caseID" value="<?php echo htmlspecialchars($caseItem['CaseID']); ?>">
+                        
 
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2">Attach Resolution File:</label>

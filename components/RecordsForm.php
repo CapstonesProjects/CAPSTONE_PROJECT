@@ -28,6 +28,8 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
 }
 ?>
 
+<link href="https://unpkg.com/tippy.js@6/dist/tippy.css" rel="stylesheet">
+
 <!-- component -->
 <div class="antialiased sans-serif h-screen ml-0 m-3 ">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
@@ -201,7 +203,27 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
                         <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Category</th>
                         <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Offense</th>
                         <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Status</th>
-                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center">Action</th>
+                        <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs text-center flex items-center justify-center space-x-2">
+                            <span>Action</span>
+                            <button type="button" class=" hover:bg-gray-700 text-black font-bold text-sm py-2 px-1 rounded transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center" style="width: 14px; height: 14px;" data-tippy-content="
+        <div class='text-left'>
+            <div class='flex items-center space-x-2'>
+                <i class='bx bx-show text-lg' style='background-color: #3b82f6; padding: 5px; border-radius: 5px; color: white;'></i>
+                <span>View Button Icon: View case details</span>
+            </div>
+            <div class='flex items-center space-x-2 mt-2'>
+                <i class='bx bx-upload text-lg' style='background-color: #10b981; padding: 5px; border-radius: 5px; color: white;'></i>
+                <span>Submit Resolution Button: Submit the resolution for the case</span>
+            </div>
+            <div class='flex items-center space-x-2 mt-2'>
+                <i class='bx bx-check-circle text-lg' style='background-color: #f59e0b; padding: 5px; border-radius: 5px; color: white;'></i>
+                <span>Submitted Button: Indicates if the resolution has been submitted</span>
+            </div>
+        </div>
+    ">
+                                <i class='bx bx-info-circle'></i> <!-- Information Icon -->
+                            </button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -232,19 +254,21 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
                             </td>
                             <td class="border-dashed border-t border-gray-200 px-6 py-3 text-center">
                                 <div class="flex space-x-2">
-                                    <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-2 px-3 rounded transition duration-300 ease-in-out transform hover:scale-105" data-bs-toggle="modal" :data-bs-target="'#ViewCasesModal' + caseItem.CaseID">
-                                        View
+                                    <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-2 px-3 rounded transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center" data-bs-toggle="modal" :data-bs-target="'#ViewCasesModal' + caseItem.CaseID" style="width: 40px; height: 40px;">
+                                        <i class='bx bx-show'></i> <!-- View Icon -->
                                     </button>
-                                    <button type="button" class="transition duration-300 ease-in-out text-sm transform hover:scale-105 text-white font-bold py-2 px-2 rounded"
+                                    <button type="button" class="transition duration-300 ease-in-out text-sm transform hover:scale-105 text-white font-bold py-2 px-2 rounded flex items-center justify-center"
                                         :class="{
                 'bg-gray-600 cursor-not-allowed opacity-50': ['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)),
                 'bg-green-500 hover:bg-green-700': !['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status))
             }"
                                         data-bs-toggle="modal"
                                         :data-bs-target="'#CaseAttachmentFileModal' + caseItem.CaseID"
-                                        :disabled="['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status))">
-                                        <span x-text="['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)) ? 'Submitted' : 'Submit Resolution'"></span>
+                                        :disabled="['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status))"
+                                        style="width: 40px; height: 40px;">
+                                        <i :class="['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)) ? 'bx bx-check-circle' : 'bx bx-upload'"></i> <!-- Submit Resolution Icon -->
                                     </button>
+
                                 </div>
                             </td>
                         </tr>
@@ -303,5 +327,14 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
                 }
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            tippy('[data-tippy-content]', {
+                allowHTML: true,
+                theme: 'light-border',
+            });
+        });
     </script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
 </div>
