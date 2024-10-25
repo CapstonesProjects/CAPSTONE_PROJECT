@@ -38,8 +38,8 @@ while ($row = $result->fetch_assoc()) {
                                 <input type="text" value="<?php echo htmlspecialchars($case['Status']); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed <?php echo strtolower($case['Status']) === 'resolved' ? 'text-green-500' : (strtolower($case['Status']) === 'ongoing' ? 'text-yellow-500' : 'text-red-500'); ?>" readonly>
                             </div>
                             <div>
-                                <label class="block text-gray-700 text-sm font-bold mb-2">Date:</label>
-                                <input type="text" value="<?php echo htmlspecialchars($case['Date']); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Filed Date:</label>
+                                <input type="text" value="<?php echo htmlspecialchars($case['FiledDate']); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
                             </div>
                             <div>
                                 <label class="block text-gray-700 text-sm font-bold mb-2">Sanction:</label>
@@ -66,7 +66,7 @@ while ($row = $result->fetch_assoc()) {
                                 <input type="text" value="<?php echo htmlspecialchars($case['FiledBy']); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
                             </div>
                         </div>
-                        <div class="mt-4">
+                        <!-- <div class="mt-4">
                             <?php if (!empty($case['ReportAttachment'])): ?>
                                 <a href="<?php echo htmlspecialchars($case['ReportAttachment']); ?>" target="_blank" class="text-blue-500 hover:underline flex items-center">
                                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -101,7 +101,7 @@ while ($row = $result->fetch_assoc()) {
                             <?php else: ?>
                                 <p class="text-red-500">No Sanction Letter Attachment available</p>
                             <?php endif; ?>
-                        </div>
+                        </div> -->
                     </div>
                 <?php endforeach; ?>
             </div>
