@@ -64,15 +64,4 @@
   z-index: 1;
 }
 
-.slide-nav a {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 100%;
-  background-color: #ffff;
-  opacity: 0.75;
-  transition: opacity ease 250ms;
-}
 
-.slide-nav a:hover {
-  opacity: 1%;
-}
