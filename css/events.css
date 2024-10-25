@@ -1,24 +1,42 @@
 #events {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  /* background-color: #b9bbb9; */
-  /* background-image: url(../images/index-background.png); */
-}
-.events-container {
+  border: 1px solid blue;
 }
 
-.bg-container {
-  width: 1700px;
-  height: 760px;
-  background: rgba(18, 18, 18, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 15px;
-  border: 1px solid rgba(18, 18, 18, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  margin-top: 8%;
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
+.swiper-button-next,
+.swiper-button-prev {
+    color: #000;
+    /* Change to desired color */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent background */
+    border-radius: 50%;
+    /* Make buttons round */
+    width: 40px;
+    /* Set width */
+    height: 40px;
+    /* Set height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Add shadow */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 1);
+    /* Fully opaque on hover */
+}
+
+.swiper-button-next {
+    right: 10px;
+    /* Position to the right */
+}
+
+.swiper-button-prev {
+    left: 10px;
+    /* Position to the left */
 }
