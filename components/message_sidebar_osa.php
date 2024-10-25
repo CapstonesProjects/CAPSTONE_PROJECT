@@ -13,7 +13,7 @@
 <div class="px-2 pt-4 pb-8 border-r border-gray-300">
     <ul class="space-y-2">
         <li>
-            <a id="inbox-link" class="nav-linkss bg-gray-500 bg-opacity-30 text-blue-600 flex items-center justify-between py-1.5 px-4 rounded cursor-pointer" data-section="inboxSection">
+            <a id="inbox-link" class="nav-link bg-gray-500 bg-opacity-30 text-blue-600 flex items-center justify-between py-1.5 px-4 rounded cursor-pointer" data-section="inboxSection">
                 <span class="flex items-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
@@ -52,46 +52,3 @@
         </li>
     </ul>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Save the current section in local storage
-        const navLinks = document.querySelectorAll('.nav-linkss');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                const section = this.getAttribute('data-section');
-                localStorage.setItem('currentSection', section);
-            });
-        });
-
-        // Retrieve the current section from local storage and display it
-        const currentSection = localStorage.getItem('currentSection');
-        console.log('Current section from local storage:', currentSection);
-        if (currentSection) {
-            document.querySelectorAll('.sections').forEach(section => {
-                // sectionsss.style.display = 'none';
-            });
-            const sectionElement = document.getElementById(currentSection);
-            if (sectionElement) {
-                sectionElement.style.display = 'block';
-            } else {
-                // console.error('Section element not found:', currentSection);
-            }
-
-            // Update the active nav link
-            // navLinks.forEach(link => {
-            //     link.classList.remove('active');
-            //     if (link.getAttribute('data-section') === currentSection) {
-            //         link.classList.add('active');
-            //     }
-            // });
-        } else {
-            // Default to showing the inbox section if no section is stored
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById('inbox-content').style.display = 'block';
-            document.getElementById('inbox-link').classList.add('active');
-        }
-    });
-</script>

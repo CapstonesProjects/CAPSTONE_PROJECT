@@ -16,9 +16,7 @@
 
 <body>
 
-    <?php
-    include('./components/header.php');
-    ?>
+   
 
     <section id="events" class="events">
         <div class="events-container">

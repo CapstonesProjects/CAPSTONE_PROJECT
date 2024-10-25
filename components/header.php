@@ -5,7 +5,7 @@
     }
 </style>
 
-<header>
+<header class="" >
         <div class="logo-text-container">
             <div class="logo-img-container">
                 <a href="#" class="logo"><img src="images/osa_logo.png" alt=""></a>
@@ -25,9 +25,9 @@
 
         <ul class="navlist">
             <li><a href="./index.php">Home</a></li>
-            <li><a href="./Abouts.php">About Us</a></li>
-            <li><a href="./Events.php">Events</a></li>
-            <li><a href="./Scholar.php">Scholar</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#scholar">Scholar</a></li>
         </ul>
 
         <!-- <ul class="navlist">
