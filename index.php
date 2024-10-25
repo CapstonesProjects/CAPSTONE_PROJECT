@@ -96,7 +96,6 @@
         <div class="container mx-auto mt-10">
             <h2 class="text-4xl font-semibold text-center mb-8">Events</h2>
             <div class="flex flex-row flex-wrap justify-center relative">
-                <!-- Slide 1 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64">
                     <img src="images/image_slider1.jpg" alt="Event 1" class="w-full h-48 object-cover">
                     <div class="p-4">
@@ -105,7 +104,7 @@
                         <p class="text-gray-700">Join us for an exciting event filled with fun activities and great experiences.</p>
                     </div>
                 </div>
-                <!-- Slide 2 -->
+
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64">
                     <img src="images/image_slider2.jpg" alt="Event 2" class="w-full h-48 object-cover">
                     <div class="p-4">
@@ -114,7 +113,7 @@
                         <p class="text-gray-700">Don't miss out on this amazing event with lots of surprises and entertainment.</p>
                     </div>
                 </div>
-                <!-- Slide 3 -->
+
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64">
                     <img src="images/image_slider3.jpg" alt="Event 3" class="w-full h-48 object-cover">
                     <div class="p-4">
@@ -123,7 +122,7 @@
                         <p class="text-gray-700">Experience a day of fun and excitement at our upcoming event.</p>
                     </div>
                 </div>
-                <!-- Slide 4 -->
+
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64">
                     <img src="images/image_slider4.jpg" alt="Event 4" class="w-full h-48 object-cover">
                     <div class="p-4">
@@ -132,7 +131,7 @@
                         <p class="text-gray-700">Join us for a memorable event with lots of activities and fun.</p>
                     </div>
                 </div>
-                <!-- Add Navigation -->
+
                 <div class="swiper-button-next">
                     <i class='bx bx-chevron-right'></i>
                 </div>
@@ -140,7 +139,7 @@
                     <i class='bx bx-chevron-left'></i>
                 </div>
             </div>
-            <!-- Add Pagination -->
+
             <div class="swiper-pagination"></div>
         </div>
     </section>
