@@ -49,7 +49,7 @@ header {
 
 .title-sm {
   color: #ffffff;
-  font-size: 14px;
+  font-size: 30px;
 }
 
 .title-xl {
@@ -180,12 +180,12 @@ footer {
   }
 
   .title-sm {
-    font-size: 12px;
+    font-size: 20px;
   }
 
   .btn-officialsite {
-    font-size: 12px;
-    padding: 6px 20px;
+    font-size: 30px;
+    padding: 8px 30px;
   }
 
   .home-title-container {
@@ -217,7 +217,6 @@ footer {
     padding: 5px 15px;
   }
 
-  /* Adjustments for mobile devices */
   .home-title-container {
     margin-left: 0;
     text-align: center;
