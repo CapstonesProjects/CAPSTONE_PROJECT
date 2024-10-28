@@ -1,3 +1,13 @@
+<?php
+include('config/db_connection.php');
+
+// Fetch events with one image per event from the database
+$sql = "SELECT e.id, e.title, e.event_date, e.description, e.location, e.category, 
+               (SELECT ei.image_path FROM event_images ei WHERE ei.event_id = e.id LIMIT 1) AS image_path
+        FROM events e";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +20,74 @@
     <link rel="shortcut icon" href="images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
-    <title>LOA OSA</title>
+    <title>OSA - Lyceum of Alabang</title>
     <style>
-      
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .slider-button-prev {
+            left: 10px;
+        }
+
+        .slider-button-next {
+            right: 10px;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover .view-more {
+            opacity: 1;
+        }
+
+        .view-more {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
     </style>
 </head>
 
@@ -96,56 +171,88 @@
     <section id="events" class="events py-10 bg-gray-100 relative">
         <div class="container mx-auto mt-10">
             <h2 class="text-4xl font-semibold text-center mb-8">Events</h2>
-            <div class="flex flex-row flex-wrap justify-center relative">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64">
-                    <img src="images/image_slider1.jpg" alt="Event 1" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Event Title 1</h3>
-                        <p class="text-gray-600 mb-2">Date: January 1, 2023</p>
-                        <p class="text-gray-700">Join us for an exciting event filled with fun activities and great experiences.</p>
-                    </div>
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                    <?php
+                    if ($result->num_rows > 0) {
+                        $counter = 0;
+                        while ($row = $result->fetch_assoc()) {
+                            if ($counter % 4 == 0) {
+                                if ($counter > 0) {
+                                    echo '</div>'; // Close previous slide
+                                }
+                                echo '<div class="slider-slide flex flex-row flex-wrap justify-center">'; // Open new slide
+                            }
+                            $event_id = $row['id'];
+                            $title = $row['title'];
+                            $event_date = date('F j, Y', strtotime($row['event_date']));
+                            // $description = $row['description'];
+                            $image_path = $row['image_path'];
+                            ?>
+                            <a href="EventViewMore.php?id=<?php echo $event_id; ?>" target="_blank" class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64 card">
+                                <img src="<?php echo $image_path; ?>" alt="<?php echo $title; ?>" class="w-full h-48 object-cover">
+                                <div class="p-4">
+                                    <h3 class="text-xl font-semibold mb-2"><?php echo $title; ?></h3>
+                                    <p class="text-gray-600 mb-2">Date: <?php echo $event_date; ?></p>
+                                    <!-- <p class="text-gray-700"><?php echo $description; ?></p> -->
+                                </div>
+                                <div class="view-more">View More</div>
+                            </a>
+                            <?php
+                            $counter++;
+                        }
+                        echo '</div>'; // Close last slide
+                    } else {
+                        echo "<p class='text-center'>No events found.</p>";
+                    }
+                    ?>
                 </div>
-
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64">
-                    <img src="images/image_slider2.jpg" alt="Event 2" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Event Title 2</h3>
-                        <p class="text-gray-600 mb-2">Date: February 1, 2023</p>
-                        <p class="text-gray-700">Don't miss out on this amazing event with lots of surprises and entertainment.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64">
-                    <img src="images/image_slider3.jpg" alt="Event 3" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Event Title 3</h3>
-                        <p class="text-gray-600 mb-2">Date: March 1, 2023</p>
-                        <p class="text-gray-700">Experience a day of fun and excitement at our upcoming event.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64">
-                    <img src="images/image_slider4.jpg" alt="Event 4" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Event Title 4</h3>
-                        <p class="text-gray-600 mb-2">Date: April 1, 2023</p>
-                        <p class="text-gray-700">Join us for a memorable event with lots of activities and fun.</p>
-                    </div>
-                </div>
-
-                <div class="swiper-button-next">
-                    <i class='bx bx-chevron-right'></i>
-                </div>
-                <div class="swiper-button-prev">
+                <!-- Add Navigation -->
+                <button class="slider-button slider-button-prev">
                     <i class='bx bx-chevron-left'></i>
-                </div>
+                </button>
+                <button class="slider-button slider-button-next">
+                    <i class='bx bx-chevron-right'></i>
+                </button>
             </div>
-
-            <div class="swiper-pagination"></div>
         </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sliderWrapper = document.querySelector('.slider-wrapper');
+            const slides = document.querySelectorAll('.slider-slide');
+            const prevButton = document.querySelector('.slider-button-prev');
+            const nextButton = document.querySelector('.slider-button-next');
+            let currentIndex = 0;
+
+            function updateSliderPosition() {
+                const slideWidth = slides[0].clientWidth;
+                sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            }
+
+            prevButton.addEventListener('click', function () {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSliderPosition();
+                }
+            });
+
+            nextButton.addEventListener('click', function () {
+                if (currentIndex < slides.length - 1) {
+                    currentIndex++;
+                    updateSliderPosition();
+                }
+            });
+
+            window.addEventListener('resize', updateSliderPosition);
+        });
+    </script>
 </body>
 
 </html>
+
+<?php
+$conn->close();
+?>
