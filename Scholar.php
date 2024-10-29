@@ -32,7 +32,7 @@
                 <img src="images/Scho/COE.png" class="dep-imgi">
                 
                 
-                </div>
+            </div>
 
                 <div class="text-content">
                 <h1 class="scholar-title">Scholarships and Grants</h1>
@@ -69,6 +69,7 @@
                 <li>GWA of 1.00 (99-100) – 100%</li>
             </ul>
                 </div>
+                
             </div>
         </div>
     </section>
