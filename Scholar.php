@@ -27,7 +27,7 @@
                 <div class="text-content">
                 <h1 class="scholar-title">Scholarships and Grants</h1>
                 <section class="scho-info">
-                <p>An examination is being given to high school graduates whose grades in all subjects during the 4th grading period of their last year
+                <p class="sent-p">An examination is being given to high school graduates whose grades in all subjects during the 4th grading period of their last year
                 in high school are not lower than 85%. However, consideration is being given to students who have a single grade lower than 85%
                 in a particular subject while the remaining subjects fully compensate for the deficit.</p>
 
@@ -35,8 +35,9 @@
             take the examination. This scholarship grant is good for 1 semester only.</p>
             </section>
 
+            
+            <h1 class="title-sub">Scheme:</h1>
             <section class="scheme">
-            <h3>Scheme:</h3>
             <ul>
                 <li>Valedictorian – 100% tuition fee discount</li>
                 <li>Salutatorian – 50% tuition fee discount</li>
@@ -48,8 +49,9 @@
             </ul>
             </section>
 
-            <section class="deans-lister">
-            <h2>Academics Scholarship / Deans Lister</h2>
+            
+            <h1 class="title-sub">Academics Scholarship / Deans Lister</h1>
+            <section class="scho-info">
             <ul>
                 <p>Applicant must be a bonafide, regular student taking regular load prescribed in the curriculum.
                 Any applicant whether graduating or not, maybe a candidate for honors. They must not have grades lower than 1.75 or its numerical equivalent of 90 in all academic subjects in any term and in any year level.
@@ -57,8 +59,9 @@
             </ul>
             </section>
 
-            <section class="gwa-dis">
-            <h3>GWA Earned Discount Scheme Total No. of Units Enrolled</h3>
+            
+            <h1 class="title-sub">GWA Earned Discount Scheme Total No. of Units Enrolled</h1>
+            <section class="scheme">
             <ul>
                 <li>GWA of 1.50 (93-95) – 25%</li>
                 <li>GWA of 1.25 (96-98) – 50%</li>
@@ -69,7 +72,7 @@
                 </div>
 
             <div class="dep-img">
-                <h2>Departments</h2>
+                <h1 class="title-sub">Departments</h1>
                 <div class="dep-logo">
             <img src="images/Scho/CCS.png" class="dep-imgi">
             <img src="images/Scho/CE.png" class="dep-imgi">

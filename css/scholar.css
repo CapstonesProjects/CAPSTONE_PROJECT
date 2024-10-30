@@ -11,59 +11,64 @@
 
 .bg-container {
   width: 100%; /* Adjusts based on screen width */
-  max-width: 3000px; /* Sets a maximum width to prevent it from being too large */
+  max-width: 2000px; /* Sets a maximum width to prevent it from being too large */
   height: auto; /* Allows height to scale based on content */
-  padding: 2rem; /* Adds inner spacing */
+  padding: 3rem; /* Adds inner spacing */
   background: rgba(18, 18, 18, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   border: 1px solid rgba(18, 18, 18, 0.1);
   box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
-  margin: 10% auto; /* Centers the container */
+  margin-top: 18%; /* Centers the container */
   text-align: center;
 }
 
-.scholarship-info,
-.scheme,
-.deans-lister,
-.gwa-discount {
-  margin-bottom: 30px;
-}
-
-.scheme ul,
-.gwa-discount ul {
-  list-style-type: disc;
-  padding-left: 40px;
-}
-
-h1,
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.dep-img {
-  text-align: center;
-}
-
-.dep-img h2 {
+.scholar-title {
   margin-top: 10px;
+  font-size: 30px;
   margin-bottom: 10px;
-  font-size: 20px;
   font-weight: bold;
-  text-align: left;
 }
+
+.title-sub {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.scho-info {
+  padding-left: 3rem;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.scheme ul {
+  font-size: 20px;
+  margin-bottom: 10px;
+  list-style: square;
+  text-align: left;
+  padding-left: 80px;
+}
+
+.scheme ul li {
+  list-style: square;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
 .dep-logo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 3 columns in a row */
+  gap: none; /* Space between the images */
+  justify-items: center; /* Center items horizontally */
+  margin-top: 20px;
 }
 .dep-imgi {
-  width: 150px;
-  height: 150px;
-  margin: 10px;
-  object-fit: contain;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+  width: 350px;
+  height: auto;
+  margin: 20px;
 }
