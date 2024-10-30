@@ -75,13 +75,22 @@
 }
 
 @media (max-width: 1024px) {
+  #scholar {
+    display: flex;
+    height: 180vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
   .bg-container {
-    padding: 2rem;
-    margin-top: 5%;
+    padding: 1rem;
+    margin-top: 25%;
+    max-width: 880px;
+    height: auto;
   }
 
   .scholar-title {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
 
   .title-sub {
@@ -89,13 +98,20 @@
   }
 
   .scho-info {
-    font-size: 1.15rem;
-    padding-left: 2rem;
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+  .scheme ul {
+    font-size: 1rem;
+  }
+
+  .scheme ul li {
+    font-weight: 400;
   }
 
   .dep-logo {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 5px;
   }
 
   .dep-imgi {
@@ -104,39 +120,18 @@
 }
 
 @media (max-width: 768px) {
-  .bg-container {
-    padding: 1.5rem;
-    margin-top: 0;
+  #scholar {
+    display: flex;
+    height: 180vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
   }
-
-  .scholar-title {
-    font-size: 1.5rem;
-  }
-
-  .title-sub {
-    font-size: 1.1rem;
-  }
-
-  .scho-info {
-    font-size: 1rem;
-    padding-left: 1rem;
-  }
-
-  .dep-logo {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .dep-imgi {
-    max-width: 200px;
-    margin: 10px;
-  }
-}
-
-@media (max-width: 480px) {
   .bg-container {
     padding: 1rem;
-    margin-top: 0;
+    margin-top: 25%;
+    max-width: 750px;
+    height: auto;
   }
 
   .scholar-title {
@@ -144,19 +139,72 @@
   }
 
   .title-sub {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   .scho-info {
-    font-size: 0.9rem;
-    padding-left: 0.5rem;
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+  .scheme ul {
+    font-size: 1rem;
+  }
+
+  .scheme ul li {
+    font-weight: 400;
   }
 
   .dep-logo {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
   }
 
   .dep-imgi {
-    max-width: 150px;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  #scholar {
+    display: flex;
+    height: 155vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .bg-container {
+    padding: 1rem;
+    margin-top: 38%;
+    max-width: 750px;
+    height: auto;
+  }
+
+  .scholar-title {
+    font-size: 1rem;
+  }
+
+  .title-sub {
+    font-size: 0.75rem;
+  }
+
+  .scho-info {
+    font-size: 0.5rem;
+    padding-left: 0.25rem;
+  }
+  .scheme ul {
+    font-size: 0.5rem;
+  }
+
+  .scheme ul li {
+    font-weight: 600;
+  }
+
+  .dep-logo {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+
+  .dep-imgi {
+    max-width: 250px;
   }
 }
