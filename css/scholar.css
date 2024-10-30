@@ -1,6 +1,7 @@
+/* Main Container */
 #scholar {
   display: flex;
-  height: 100vh;
+  height: 130vh;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -9,9 +10,10 @@
 .scholar-container {
 }
 
+/* Background Container */
 .bg-container {
   width: 100%; /* Adjusts based on screen width */
-  max-width: 2000px; /* Sets a maximum width to prevent it from being too large */
+  max-width: 1680px; /* Sets a maximum width to prevent it from being too large */
   height: auto; /* Allows height to scale based on content */
   padding: 3rem; /* Adds inner spacing */
   background: rgba(18, 18, 18, 0.1);
@@ -20,34 +22,37 @@
   border-radius: 20px;
   border: 1px solid rgba(18, 18, 18, 0.1);
   box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
-  margin-top: 18%; /* Centers the container */
+  margin-top: 10%; /* Centers the container */
   text-align: center;
 }
 
+/* Scholar Title Styling */
 .scholar-title {
-  margin-top: 10px;
-  font-size: 30px;
+  font-size: 2rem;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
+/* Subtitle */
 .title-sub {
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+/* Info Section */
 .scho-info {
   padding-left: 3rem;
-  font-size: 20px;
+  font-size: 1.5rem;
   line-height: 1.5;
   margin-bottom: 10px;
   font-weight: 600;
   text-align: center;
 }
 
+/* Scholarship Scheme */
 .scheme ul {
-  font-size: 20px;
+  font-size: 1.35rem;
   margin-bottom: 10px;
   list-style: square;
   text-align: left;
@@ -60,15 +65,113 @@
   margin-bottom: 10px;
 }
 
+/* Department Logos Grid */
 .dep-logo {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 3 columns in a row */
-  gap: none; /* Space between the images */
+  grid-template-columns: repeat(4, 1fr); /* 5 columns for large screens */
+  gap: 10px; /* Space between the images */
   justify-items: center; /* Center items horizontally */
-  margin-top: 20px;
+  margin-top: 10px;
 }
+
 .dep-imgi {
-  width: 350px;
+  width: 100%; /* Full width for smaller screens */
+  max-width: 350px; /* Limit maximum width */
   height: auto;
-  margin: 20px;
+  margin: 10px;
+}
+
+/* Responsive Media Queries */
+
+/* For smaller screens like tablets */
+@media (max-width: 1024px) {
+  .bg-container {
+    padding: 2rem;
+    margin-top: 5%;
+  }
+
+  .scholar-title {
+    font-size: 1.75rem;
+  }
+
+  .title-sub {
+    font-size: 1.25rem;
+  }
+
+  .scho-info {
+    font-size: 1.15rem;
+    padding-left: 2rem;
+  }
+
+  /* Adjust department grid to 3 columns */
+  .dep-logo {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .dep-imgi {
+    max-width: 250px;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  .bg-container {
+    padding: 1.5rem;
+    margin-top: 0;
+  }
+
+  .scholar-title {
+    font-size: 1.5rem;
+  }
+
+  .title-sub {
+    font-size: 1.1rem;
+  }
+
+  .scho-info {
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+
+  /* Adjust department grid to 2 columns */
+  .dep-logo {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .dep-imgi {
+    max-width: 200px;
+    margin: 10px;
+  }
+}
+
+/* For very small mobile screens */
+@media (max-width: 480px) {
+  .bg-container {
+    padding: 1rem;
+    margin-top: 0;
+  }
+
+  .scholar-title {
+    font-size: 1.25rem;
+  }
+
+  .title-sub {
+    font-size: 1rem;
+  }
+
+  .scho-info {
+    font-size: 0.9rem;
+    padding-left: 0.5rem;
+  }
+
+  /* Adjust department grid to 1 column */
+  .dep-logo {
+    grid-template-columns: 1fr;
+  }
+
+  .dep-imgi {
+    max-width: 150px;
+  }
 }
