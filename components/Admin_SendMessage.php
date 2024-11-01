@@ -15,9 +15,9 @@ include('../config/db_connection.php');
                 <span>Compose</span>
             </a>
         </div>
-        <?php include('../components/osa_compose_window.php') ?>
+        <?php include('../components/admin_compose_window.php') ?>
 
-        <?php include('../components/message_sidebar_osa.php') ?>
+        <?php include('../components/message_sidebar_admin.php') ?>
     </div>
     <div class="flex-1 px-2" x-data="{ checkAll: false, filterMessages: false }">
         <div class="h-16 flex items-center justify-between">
@@ -86,11 +86,11 @@ include('../config/db_connection.php');
 
         </div>
         <div id="inbox-content" class="bg-gray-100 sections" style="display: block;">
-            <?php include('inbox_content_osa.php'); ?>
+            <?php include('inbox_content_admin.php'); ?>
         </div>
 
         <div id="sent-content" class=" bg-gray-100 sections" style="display: none;">
-            <?php include('sent_content_osa.php'); ?>
+            <?php include('sent_content_admin.php'); ?>
         </div>
 
     </div>

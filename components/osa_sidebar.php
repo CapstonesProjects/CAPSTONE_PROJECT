@@ -275,7 +275,7 @@
                         </svg>
                         <span class="text-sm">Monitoring</span>
                     </a>
-                    <a href="../OSA/OSA_SendMessage.php" class="text-lg font-medium <?php echo $activeMenu == 'send_message' ? 'active' : 'text-gray-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
+                    <a href="../OSA/OSA_Send_Message.php" class="text-lg font-medium <?php echo $activeMenu == 'send_message' ? 'active' : 'text-gray-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="0.5em" height="0.5em" viewBox="0 0 24 24">
                             <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
                                 <path d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h1v2a1 1 0 0 0 1.707.707L9.414 13H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1z" />
@@ -303,10 +303,9 @@
                         </svg>
                     </a> -->
                 </div>
-
                 <div>
                     <form action="../Login/OSA_Admin_Logout.php" method="post">
-                        <button type="submit" class="flex flex-row text-lg lg:mt-48 font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out items-end justify-start">
+                        <button type="submit" id="logoutButton" class="flex flex-row text-lg lg:mt-48 font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out items-end justify-start">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current inline-block">
                                 <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
                                 <path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path>

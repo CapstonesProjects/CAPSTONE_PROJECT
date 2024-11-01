@@ -12,7 +12,7 @@
     $_SESSION['LastName'] = $user['LastName'];
     $_SESSION['Role'] = $user['Role'];
     $_SESSION['OSA_number'] = $user['OSA_number'];
-    $_SESSION['FullNameSender'] = $user['FirstName'] . ' ' . $user['LastName']; 
+    $_SESSION['FullNameSender'] = $user['FirstName'] . ' ' . $user['LastName'];
 } else {
     // Redirect to login page or show an error
 } ?>
@@ -26,14 +26,15 @@
             </svg>
         </button>
     </div>
-    <form method="POST" action="../phpfiles/sendmessage.php">
+    <form method="POST" action="../phpfiles/sendmessage_osa.php">
         <div class="mb-2">
             <input type="text" name="to" id="to" class="w-full text-gray-700 py-1 border-b border-b-gray-300 focus:outline-none focus:ring-0 focus:border-transparent focus:border-b-gray-300" placeholder="To">
             <div id="suggestions" class="bg-white border border-gray-300 mt-1 rounded-lg shadow-lg hidden"></div>
         </div>
-        <input type="hidden" name="studentId" id="studentId"> <!-- Hidden input for StudentID -->
+        <input type="hidden" name="receiverId" id="receiverId"> <!-- Hidden input for ReceiverID -->
+        <input type="hidden" name="receiverType" id="receiverType"> <!-- Hidden input for ReceiverType -->
         <input type="hidden" name="fullName" id="fullName"> <!-- Hidden input for FullName -->
-        <input type="hidden" name="fullNameSender" id="fullNameSender" value="<?php echo $_SESSION['FullNameSender']; ?>"> 
+        <input type="hidden" name="fullNameSender" id="fullNameSender" value="<?php echo $_SESSION['FullNameSender']; ?>">
 
         <div class="mb-2">
             <input type="text" name="subject" id="subject" class="w-full text-gray-700 py-1 border-b border-b-gray-300 focus:outline-none focus:ring-0 focus:border-transparent focus:border-b-gray-300" placeholder="Subject">
@@ -60,3 +61,20 @@
         </div>
     </form>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const composeButton = document.getElementById('composeButton');
+        const composeWindow = document.getElementById('composeWindow');
+        const closeCompose = document.getElementById('closeCompose');
+
+        composeButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            composeWindow.classList.remove('hidden');
+        });
+
+        closeCompose.addEventListener('click', function() {
+            composeWindow.classList.add('hidden');
+        });
+    });
+</script>

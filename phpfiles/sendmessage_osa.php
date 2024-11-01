@@ -9,36 +9,37 @@ $response = [];
 
 // var_dump($_POST); // Debugging output to see the received POST data
 
-if (isset($_POST['body']) && isset($_POST['studentId']) && isset($_POST['subject']) && isset($_POST['fullName']) && isset($_POST['fullNameSender'])) {
+if (isset($_POST['body']) && isset($_POST['receiverId']) && isset($_POST['receiverType']) && isset($_POST['subject']) && isset($_POST['fullName']) && isset($_POST['fullNameSender'])) {
     $body = $_POST['body'];
-    $studentID = $_POST['studentId'];
+    $receiverId = $_POST['receiverId'];
+    $receiverType = $_POST['receiverType'];
     $subject = $_POST['subject'];
     $fullNameReceiver = $_POST['fullName'];
     $fullNameSender = $_POST['fullNameSender'];
 
     // Debugging output to check the received values
-    error_log("Received values: body=$body, studentID=$studentID, subject=$subject, fullNameReceiver=$fullNameReceiver, fullNameSender=$fullNameSender");
+    error_log("Received values: body=$body, receiverId=$receiverId, receiverType=$receiverType, subject=$subject, fullNameReceiver=$fullNameReceiver, fullNameSender=$fullNameSender");
 
-    // Assuming the OSA_number is stored in the session
+    // Assuming the AdminNumber is stored in the session
     if (isset($_SESSION['OSA_number'])) {
         $osaNumber = $_SESSION['OSA_number'];
         error_log("OSA_number is set: " . $osaNumber); // Debugging statement
     } else {
         error_log("OSA_number is not set in session"); // Debugging statement
         $_SESSION['error_message'] = 'OSA number not set in session';
-        header('Location: ../OSA/OSA_SendMessage.php');
+        header('Location: ../OSA/OSA_Send_Message.php');
         exit;
     }
 
-    // Save the message with the correct StudentID, subject, body, sender, FullNameReceiver, and FullNameSender
-    $query = "INSERT INTO messages (receiver, subject, body, status, created_at, sender, FullNameReceiver, FullNameSender) VALUES (?, ?, ?, 'sent', NOW(), ?, ?, ?)";
+    // Save the message with the correct receiverId, receiverType, subject, body, sender, FullNameReceiver, and FullNameSender
+    $query = "INSERT INTO messages (receiver, receiverType, subject, body, status, created_at, sender, FullNameReceiver, FullNameSender) VALUES (?, ?, ?, ?, 'sent', NOW(), ?, ?, ?)";
     $stmt = $conn->prepare($query);
     if ($stmt === false) {
         $_SESSION['error_message'] = 'Failed to prepare statement';
-        header('Location: ../OSA/OSA_SendMessage.php');
+        header('Location: ../OSA/OSA_Send_Message.php');
         exit;
     }
-    $stmt->bind_param("ssssss", $studentID, $subject, $body, $osaNumber, $fullNameReceiver, $fullNameSender);
+    $stmt->bind_param("sssssss", $receiverId, $receiverType, $subject, $body, $osaNumber, $fullNameReceiver, $fullNameSender);
     $stmt->execute();
 
     // Debugging output to check the execution result
@@ -49,11 +50,11 @@ if (isset($_POST['body']) && isset($_POST['studentId']) && isset($_POST['subject
     } else {
         $_SESSION['error_message'] = 'Failed to send message';
     }
-    header('Location: ../OSA/OSA_SendMessage.php');
+    header('Location: ../OSA/OSA_Send_Message.php');
     exit;
 } else {
-    $_SESSION['error_message'] = 'Message, StudentID, subject, FullNameReceiver, or FullNameSender not set';
-    header('Location: ../OSA/OSA_SendMessage.php');
+    $_SESSION['error_message'] = 'Message, receiverId, receiverType, subject, FullNameReceiver, or FullNameSender not set';
+    header('Location: ../OSA/OSA_Send_Message.php');
     exit;
 }
 ?>

@@ -2,17 +2,17 @@
 include('../config/db_connection.php');
 
 // Check if the user is logged in and has an OSA_number
-if (!isset($_SESSION['OSA_number'])) {
-    echo "OSA number not set in session";
+if (!isset($_SESSION['AdminNumber'])) {
+    echo "Admin number not set in session";
     exit;
 }
 
-$osaNumber = $_SESSION['OSA_number'];
+$adminNumber = $_SESSION['AdminNumber'];
 
 // Query to get the sent messages for the logged-in user
 $query = "SELECT * FROM messages WHERE sender = ? ORDER BY created_at DESC";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("s", $osaNumber);
+$stmt->bind_param("s", $adminNumber);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
