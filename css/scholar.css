@@ -1,6 +1,6 @@
 #scholar {
   display: flex;
-  height: 130vh;
+  height: 190vh;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -11,7 +11,7 @@
 
 .bg-container {
   width: 100%;
-  max-width: 1680px;
+  max-width: 1400px;
   height: auto;
   padding: 3rem;
   background: rgba(18, 18, 18, 0.1);
@@ -20,7 +20,7 @@
   border-radius: 20px;
   border: 1px solid rgba(18, 18, 18, 0.1);
   box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
-  margin-top: 10%;
+  margin-top: 12%;
   text-align: center;
 }
 
@@ -38,7 +38,7 @@
 
 .scho-info {
   padding-left: 3rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   margin-bottom: 10px;
   font-weight: 600;
@@ -46,7 +46,7 @@
 }
 
 .scheme ul {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   margin-bottom: 10px;
   list-style: square;
   text-align: left;

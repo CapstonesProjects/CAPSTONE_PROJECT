@@ -17,6 +17,7 @@
     include('./components/header.php');
     ?>
 
+<section id="events" class="events">
     <div class="container">
 
         <div class="slide">
@@ -92,7 +93,7 @@
             }
     </script>
 
-
+</section>
 
 </body>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>

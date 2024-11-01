@@ -1,6 +1,6 @@
 #about {
   display: flex;
-  height: 100vh;
+  height: 150vh;
   justify-content: center;
   /* background-color: #b9bbb9; */
   /* background-image: url(../images/index-background.png); */
@@ -22,7 +22,7 @@
 
 .bg-container {
   width: 100%; /* Adjusts based on screen width */
-  max-width: 3000px; /* Sets a maximum width to prevent it from being too large */
+  max-width: 2500px; /* Sets a maximum width to prevent it from being too large */
   height: auto; /* Allows height to scale based on content */
   padding: 2rem; /* Adds inner spacing */
   background: rgba(18, 18, 18, 0.1);
