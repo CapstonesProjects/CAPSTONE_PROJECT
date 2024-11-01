@@ -14,11 +14,13 @@
 
 .container {
   position: absolute;
-  top: 75%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1000px;
-  height: 900px;
+  width: 90%;
+  max-width: 1000px;
+  height: 90vh;
+  max-height: 900px;
   background: rgba(18, 18, 18, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -39,7 +41,7 @@
   background-size: cover;
   display: inline-block;
   transition: 1s;
-  filter: brightness(90%); /* Darken the image */
+  filter: brightness(90%);
 }
 
 .slide .item:nth-child(1),
@@ -62,7 +64,6 @@
   left: calc(101%);
 }
 
-/* here n = 0, 1, 2, 3,... */
 .slide .item:nth-child(n + 6) {
   left: calc(102% + 660px);
   opacity: 0;
@@ -71,14 +72,14 @@
 .item .content {
   position: absolute;
   top: 50%;
-  left: 100px;
-  width: 300px;
+  left: 10%;
+  width: 80%;
   text-align: left;
   color: #fff;
   transform: translate(0, -50%);
   font-family: system-ui;
   display: none;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Adds a shadow effect to the text */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .slide .item:nth-child(2) .content {
@@ -86,7 +87,7 @@
 }
 
 .content .name {
-  font-size: 40px;
+  font-size: 2rem;
   text-transform: uppercase;
   font-weight: bold;
   opacity: 0;
@@ -94,7 +95,7 @@
 }
 
 .date-overlay {
-  font-size: 20px;
+  font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: bold;
   opacity: 0;
@@ -103,8 +104,8 @@
 
 .content .des {
   display: none;
-  font-size: 20px;
-  width: 50vw;
+  font-size: 1rem;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
   opacity: 0;
@@ -123,7 +124,6 @@
   background-color: #fff;
 }
 
-/* Optional styling for the See More button */
 .see-more {
   background-color: #007bff;
   color: white;
@@ -172,4 +172,40 @@
 .button button:hover {
   background: #ffff;
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: auto;
+  }
+
+  .content .name {
+    font-size: 1.5rem;
+  }
+
+  .date-overlay,
+  .content .des {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .content .name {
+    font-size: 1.2rem;
+  }
+
+  .date-overlay,
+  .content .des {
+    font-size: 0.8rem;
+  }
+
+  .button button {
+    width: 50px;
+    height: 40px;
+  }
 }

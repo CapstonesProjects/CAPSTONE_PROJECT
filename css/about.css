@@ -21,21 +21,19 @@
 }*/
 
 .bg-container {
-  width: 100%; /* Adjusts based on screen width */
-  max-width: 2500px; /* Sets a maximum width to prevent it from being too large */
-  height: auto; /* Allows height to scale based on content */
-  padding: 2rem; /* Adds inner spacing */
+  width: 100%;
+  max-width: 2500px;
+  height: auto;
+  padding: 2rem;
   background: rgba(18, 18, 18, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   border: 1px solid rgba(18, 18, 18, 0.1);
   box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
-  margin: 10% auto; /* Centers the container */
+  margin: 10% auto;
   text-align: center;
 }
-
-/* Example media query for smaller screens */
 
 .org-img {
   width: 800px;
@@ -65,9 +63,9 @@
 
 @media (max-width: 2501px) {
   .bg-container {
-    width: 90%; /* Increase width for smaller screens */
-    padding: 2rem; /* Reduce padding */
-    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2); /* Lighter shadow for smaller screens */
+    width: 90%;
+    padding: 2rem;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2);
     margin: 13% auto;
   }
 
@@ -98,9 +96,9 @@
 }
 @media (max-width: 1200px) {
   .bg-container {
-    width: 90%; /* Increase width for smaller screens */
-    padding: 1rem; /* Reduce padding */
-    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2); /* Lighter shadow for smaller screens */
+    width: 90%;
+    padding: 1rem;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2);
     margin: 25% auto;
   }
 
@@ -132,9 +130,9 @@
 
 @media (max-width: 768px) {
   .bg-container {
-    width: 80%; /* Increase width for smaller screens */
-    padding: 1rem; /* Reduce padding */
-    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2); /* Lighter shadow for smaller screens */
+    width: 80%;
+    padding: 1rem;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2);
     margin: 25% auto;
   }
 
@@ -166,9 +164,9 @@
 
 @media (max-width: 480px) {
   .bg-container {
-    width: 80%; /* Increase width for smaller screens */
-    padding: 1rem; /* Reduce padding */
-    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2); /* Lighter shadow for smaller screens */
+    width: 80%;
+    padding: 1rem;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2);
     margin: 50% auto;
   }
 
