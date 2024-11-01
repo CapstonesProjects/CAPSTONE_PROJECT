@@ -32,7 +32,6 @@ if (isset($_SESSION['AdminID'])) {
     <link rel="stylesheet" href="../css/output.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/style2.css">
-    <link rel="stylesheet" href="../css/student_profile.css">
     <link rel="shortcut icon" href="../images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -61,7 +60,7 @@ if (isset($_SESSION['AdminID'])) {
             ?>
         </div>
         <div class="flex justify-center items-center">
-            
+            <?php include('../components/Charts.php') ?>
         </div>
     </div>
 </body>

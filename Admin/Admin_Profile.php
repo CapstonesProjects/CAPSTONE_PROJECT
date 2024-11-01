@@ -3,12 +3,12 @@ session_start();
 include('../config/db_connection.php');
 
 
-if (isset($_SESSION['UserID'])) {
-    $userId = $_SESSION['UserID'];
+if (isset($_SESSION['AdminID'])) {
+    $adminId = $_SESSION['AdminID'];
 
-    $query = "SELECT * FROM tblusers_osa WHERE UserID = ?";
+    $query = "SELECT * FROM admin WHERE AdminID = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $userId);
+    $stmt->bind_param("i", $adminId);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
@@ -16,7 +16,7 @@ if (isset($_SESSION['UserID'])) {
     $_SESSION['FirstName'] = $user['FirstName'];
     $_SESSION['LastName'] = $user['LastName'];
     $_SESSION['MiddleName'] = $user['MiddleName'];
-    $_SESSION['OSA_number'] = $user['OSA_number'];
+    $_SESSION['OSA_number'] = $user['AdminNumber'];
     $_SESSION['Suffix'] = $user['Suffix'];
     $_SESSION['Email'] = $user['Email'];
     $_SESSION['PhoneNumber'] = $user['PhoneNumber'];
@@ -54,13 +54,13 @@ if (isset($_SESSION['UserID'])) {
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php
-            $activeMenu = 'osa_profile';
-            include('../components/osa_sidebar.php');
+            $activeMenu = 'admin_profile';
+            include('../components/admin_sidebar.php');
             ?>
         </div>
         <div class="flex justify-center items-center">
         <?php
-            include('../components/osa_profile.php');
+            include('../components/admin_profile.php');
             ?>
         </div>
     </div>
@@ -71,7 +71,7 @@ if (isset($_SESSION['UserID'])) {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<!-- <script src="../javascript/session_message_osa.js"></script> -->
+<script src="../javascript/sessionmessage.js"></script>
 <script src="../javascript/active.js"></script>
 
 </html>

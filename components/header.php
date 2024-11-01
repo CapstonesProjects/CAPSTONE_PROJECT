@@ -48,7 +48,7 @@
                             <a href="./Student_Index.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="color: black;">Student</a>
                         </li>
                         <li>
-                            <a href="./OSA_Index.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="color: black;">OSA Staff</a>
+                            <a href="./Org_Index.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="color: black;">Organization</a>
                         </li>
                     </ul>
                 </div>
