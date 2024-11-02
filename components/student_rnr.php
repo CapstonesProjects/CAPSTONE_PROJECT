@@ -48,7 +48,7 @@
                 information about student organizations and other student services. </p>
             </section>
             <h2 class="sub-sec">Student Rights and Responsibilities </h2>
-                <section class="scho-info">
+                <section class="sec-info">
                 <p class="para-sent">The Lyceum of Alabang provides certain rights to allow students to develop and evolve as 
                     productive members of society. However, certain privileges do not allow behavior that will create 
                     unhealthy or unsafe conditions within the Institution or disrupt the normal institutional process. 
@@ -66,52 +66,62 @@
             </ul>
             </section>
 
-            <section class="scho-info">
+           
             <h2 class="sub-sec">2. The Right to Organize</h2>
-                <section class="scho-info">
+                <section class="sec-info">
+                <p class="para-sent">The students may form, assist, or join recognized organizations by the Lyceum of Alabang under the 
+                    premise that this is for their physical, intellectual, moral, cultural, civic, spiritual, and political 
+                    interests (within Lyceum of Alabang only and is subject to the approval of the Office of Student 
+                    Affairs) NO fraternities or sororities.</p>
+            </section>
+
+            
+            <h2 class="sub-sec">3. Right to Publication </h2>
+                <section class="sec-info">
                 <p class="para-sent">The students may form, assist, or join recognized organizations by the Lyceum of Alabang under the 
                     premise that this is for their physical, intellectual, moral, cultural, civic, spiritual, and political 
                     interests (within Lyceum of Alabang only and is subject to the approval of the Office of Student 
                     Affairs) NO fraternities or sororities.</p>
             </section>
             
-            <h1 class="title-sub">Academics Scholarship / Deans Lister</h1>
-            <section class="scho-info">
+            <h2 class="sub-sec">4. The Student's Responsibilities</h2>
+            <section class="right">
             <ul>
-                <p>Applicant must be a bonafide, regular student taking regular load prescribed in the curriculum.
-                Any applicant whether graduating or not, maybe a candidate for honors. They must not have grades lower than 1.75 or its numerical equivalent of 90 in all academic subjects in any term and in any year level.
-                Applicant must have grades not lower than 2.25 or its equivalent number of 84 in PE & NSTP.</p>
+                <li>Be respectful and accountable for their actions. </li>
+                <li>Be academically responsible.</li>
+                <li>Be morally upright</li>
+                <li>Be well groomed</li>
+                <li>Be accountable in complying with the OSA process (Example: Leave of Absence for students applying for leave of absence).</li>
+                <li>Be respectful on the property of the LOA (proper use of facilities and utilities). </li>
+                <li>Be responsible with cleaning after themselves (practice Clean-As-You-Go) CLAYGO. </li>
             </ul>
             </section>
+
+            <h2 class="sub-sec">5. The Appropriate Attire</h2>
+            <section class="right">
+            <ul>
+                <li>The student must always wear the I.D. from Lyceum of Alabang inside the campus. </li>
+                <li>The student must wear the institutional-prescribed uniform and follow the scheduled days:</li>
+                <li>Monday, Tuesday, and Thursday -The Lyceum of Alabang school prescribed uniform</li>
+                <li>Wednesday - Corporate Attire</li>
+                <li>Friday to Saturday - wash day. The only acceptable outfit</li>
+                
+            </ul>
+            </section>
+
+            <h2 class="sub-note">Note: </h2>
+                <section class="sec-info">
+                <p class="para-note">The only acceptable outfits are Polo shirt, T-shirt and Blouse (not ripped, no plunging neckline, and 
+                    does not expose stomach and armpit). Pants that are decent, not ripped, not tattered, and not 
+                    faded. The skirt should be two (2) inches below the knee). Shoes (enclosed, sneakers only on 
+                    P.E. and wash days). P.E. uniforms are worn during P.E. classes and campus games only. Working or OJT 
+                    Students - Corporate Attire and secure gate pass at the Office of Student Affairs(OSA).</p>
+            </section>
+
 
             
-            <h1 class="title-sub">GWA Earned Discount Scheme Total No. of Units Enrolled</h1>
-            <section class="scheme">
-            <ul>
-                <li>GWA of 1.50 (93-95) – 25%</li>
-                <li>GWA of 1.25 (96-98) – 50%</li>
-                <li>GWA of 1.00 (99-100) – 100%</li>
-            </ul>
-            </section>
 
-                </div>
-
-            <div class="dep-img">
-                <h1 class="title-sub">Departments</h1>
-                <div class="dep-logo">
-            <img src="images/Scho/CCS.png" class="dep-imgi">
-            <img src="images/Scho/CE.png" class="dep-imgi">
-            <img src="images/Scho/CCJ.png" class="dep-imgi">
-            <img src="images/Scho/COAAS.png" class="dep-imgi">
-            <img src="images/Scho/COE.png" class="dep-imgi">
-            <img src="images/Scho/BME.png" class="dep-imgi">
-            <img src="images/Scho/REM.png" class="dep-imgi">
-            <img src="images/Scho/TAHM.png" class="dep-imgi">
-            <img src="images/Scho/BE.png" class="dep-imgi">
-            </div>
-            </div>
-
-            </div>
+            
         </div>
     </section>
 
