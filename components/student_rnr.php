@@ -4,7 +4,7 @@
 <style>
 #rnr {
   display: flex;
-  height: 190vh;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   padding: 110px;
