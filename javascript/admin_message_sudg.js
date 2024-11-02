@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    console.log('osa_message_sudg.js loaded'); // Debugging output
+    console.log('admin_message_sudg.js loaded'); // Debugging output
 
     $('#to').on('input', function() {
         var query = $(this).val();
@@ -7,7 +7,7 @@ $(document).ready(function() {
         if (query.length > 2) {
             console.log('Sending AJAX request with query:', query); // Debugging output
             $.ajax({
-                url: '../phpfiles/fetch_message_osa.php',
+                url: '../phpfiles/fetch_message_admin.php',
                 method: 'GET',
                 data: { query: query }, // Use a generic query parameter
                 success: function(data) {

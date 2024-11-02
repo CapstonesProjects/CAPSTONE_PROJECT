@@ -1,16 +1,12 @@
-
+console.log('sessionmessage.js loaded');
 
 window.addEventListener('load', function() {
-
     let alerts = document.querySelectorAll('.alert');
     alerts.forEach(alert => {
         setTimeout(function() {
             alert.style.display = 'none';
         }, 3000); // Hide the alert after 3 seconds
-});
-
-
-
+    });
 
     $('#to').on('input', function() {
         var query = $(this).val();
@@ -20,7 +16,7 @@ window.addEventListener('load', function() {
                 url: '../phpfiles/fetch_student.php',
                 method: 'GET',
                 data: { StudentID: query },
-                success: function(data) {put
+                success: function(data) {
                     if (data.suggestions && data.suggestions.length > 0) {
                         var suggestionsHtml = '';
                         data.suggestions.forEach(function(suggestion) {
@@ -32,12 +28,11 @@ window.addEventListener('load', function() {
                     }
                 },
                 error: function(xhr, status, error) {
-                   
+                    // Handle error
                 }
             });
         } else {
             $('#suggestions').hide();
-
         }
     });
 
@@ -45,6 +40,5 @@ window.addEventListener('load', function() {
         var value = $(this).text();
         $('#to').val(value);
         $('#suggestions').hide();
-        
     });
 });

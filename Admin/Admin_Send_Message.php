@@ -1,13 +1,16 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 include('../config/db_connection.php');
 
-if (isset($_SESSION['UserID'])) {
-    $userId = $_SESSION['UserID'];
+if (isset($_SESSION['AdminID'])) {
+    $adminId = $_SESSION['AdminID'];
 
-    $query = "SELECT FirstName, LastName FROM tblusers_osa WHERE UserID = ?";
+    $query = "SELECT FirstName, LastName FROM admin WHERE AdminID = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $userId);
+    $stmt->bind_param("i", $adminId);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
@@ -46,21 +49,22 @@ include('../alerts/send_message.php')
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php
             $activeMenu = 'send_message';
-            include('../components/osa_sidebar.php');
+            include('../components/admin_sidebar.php');
             ?>
         </div>
         <div class="flex justify-center items-center">
-            <?php include('../components/OSA_SendMessage.php') ?>
+            <?php include('../components/Admin_SendMessage.php') ?>
         </div>
     </div>
 
-   
-</body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="../javascript/sessionmessage.js"></script>
+<!-- <script src="../javascript/sessionmessage.js"></script> -->
 <script src="../javascript/active.js"></script>
 <script src="../javascript/message_template.js"></script>
-<script src="../javascript/osa_sidebar.js"></script>
-<script src="../javascript/osa_message_sudg.js"></script>
+<script src="../javascript/admin_message_sudg.js"></script>
+<!-- <script src="../javascript/osa_sidebar.js"></script> -->
+
+</body>
+</html>

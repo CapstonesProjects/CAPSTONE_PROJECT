@@ -8,19 +8,27 @@ header('Content-Type: application/json'); // Ensure the response is JSON
 
 $response = [];
 
-if (isset($_GET['StudentID'])) {
-    $studentID = $_GET['StudentID'];
-    $response['debug'] = "Received StudentID: $studentID";
+if (isset($_GET['query'])) {
+    $queryParam = $_GET['query'];
+    $response['debug'] = "Received query: $queryParam";
 
-    // Concatenate FirstName, MiddleName (if exists), and LastName to form FullName
-    $query = "SELECT CONCAT(FirstName, ' ', COALESCE(MiddleName, ''), ' ', LastName) AS FullName, Email FROM tblusers_student WHERE StudentID = ?";
+    // Query to fetch from both student and admin tables
+    $query = "
+        SELECT CONCAT(FirstName, ' ', COALESCE(MiddleName, ''), ' ', LastName) AS FullName, Email 
+        FROM tblusers_student 
+        WHERE StudentID = ?
+        UNION
+        SELECT CONCAT(FirstName, ' ', COALESCE(MiddleName, ''), ' ', LastName) AS FullName, Email 
+        FROM tblusers_admin 
+        WHERE AdminID = ?
+    ";
     $stmt = $conn->prepare($query);
     if ($stmt === false) {
         $response['error'] = 'Failed to prepare statement';
         echo json_encode($response);
         exit;
     }
-    $stmt->bind_param("s", $studentID); // Corrected to "s"
+    $stmt->bind_param("ss", $queryParam, $queryParam); // Bind the same parameter for both queries
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -33,7 +41,7 @@ if (isset($_GET['StudentID'])) {
         $response['Email'] = '';
     }
 } else {
-    $response['error'] = 'StudentID not set';
+    $response['error'] = 'Query parameter not set';
 }
 
 echo json_encode($response);

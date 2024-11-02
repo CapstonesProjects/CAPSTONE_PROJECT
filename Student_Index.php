@@ -2,17 +2,7 @@
 session_start();
 include('./config/db_connection.php');
 
-// Display session messages
-if (isset($_SESSION['error'])) {
-    echo "<div class='alert' id='error-message' style='padding: 20px; margin-bottom: 20px; color: black; background-color: #FF6868; border: 1px solid #DCFFB7; border-radius: 4px;'>";
-    echo $_SESSION['error'];
-    echo "</div>";
-    unset($_SESSION['error']);
-} else {
-    echo "<div class='alert' id='error-message' style='padding: 20px; margin-bottom: 20px; color: black; background-color: #FF6868; border: 1px solid #DCFFB7; border-radius: 4px; display: none;'>";
-    echo "No error message set.";
-    echo "</div>";
-}
+include('./alerts/login_alerts.php');
 
 
 // $activeMenu = 'dashboard';
