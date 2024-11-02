@@ -35,30 +35,45 @@
             <div class="bg-container">
 
                 <div class="text-content">
-                <h1 class="scholar-title">Scholarships and Grants</h1>
+                <h1 class="section-title">Section 1:  Life on Campus </h1>
+                <h2 class="sub-sec">The student </h2>
                 <section class="scho-info">
-                <p class="sent-p">An examination is being given to high school graduates whose grades in all subjects during the 4th grading period of their last year
-                in high school are not lower than 85%. However, consideration is being given to students who have a single grade lower than 85%
-                in a particular subject while the remaining subjects fully compensate for the deficit.</p>
+                <p class="para-sent">They are enrolled at the Lyceum of Alabang and are expected to be morally upright. The students of 
+                    Lyceum of Alabang shall uphold decency and righteousness inside and outside the Institution, as 
+                    they encompass the model citizens of the country. The student is expected to be a Law-abiding 
+                    Youth who is Courteous, Emphatic, Accountable, and Noble (LYCEAN). </p>
 
-            <p>If he/she scores 84 points below, the minimum discount will automatically be given to any student who took the initiative to
-            take the examination. This scholarship grant is good for 1 semester only.</p>
+            <p class="para-sent">The area covers Student Conduct and Rights (Dress Code, Offenses, & Sanctions); the section also 
+                entails the responsible team deliberating and administering the discipline and sanctions, including 
+                information about student organizations and other student services. </p>
             </section>
-
+            <h2 class="sub-sec">Student Rights and Responsibilities </h2>
+                <section class="scho-info">
+                <p class="para-sent">The Lyceum of Alabang provides certain rights to allow students to develop and evolve as 
+                    productive members of society. However, certain privileges do not allow behavior that will create 
+                    unhealthy or unsafe conditions within the Institution or disrupt the normal institutional process. 
+                    The rights and responsibilities of the students are as follows:</p>
+            </section>
             
-            <h1 class="title-sub">Scheme:</h1>
-            <section class="scheme">
+            <h2 class="sub-sec">1. The Right to be Heard</h2>
+            <section class="right">
             <ul>
-                <li>Valedictorian – 100% tuition fee discount</li>
-                <li>Salutatorian – 50% tuition fee discount</li>
-                <li>First Honorable Mention – 25% tuition fee discount</li>
-                <li>Second Honorable Mention – 20% tuition fee discount</li>
-                <li>Third Honorable Mention – 15% tuition fee discount</li>
-                <li>Fourth Honorable Mention – 10% tuition fee discount</li>
-                <li>Fifth Honorable Mention – 10% tuition fee discount</li>
+                <li>Present evidence to defend his/her/their rights.</li>
+                <li>Express his/her/their views (within the confines of academic and non-academic view). </li>
+                <li>Appeal to a verdict [Subject to the approval of the Committee on Decorum and Investigation (CODI) and Board of Trustees (BOT)].</li>
+                <li>Communicate freely with their peers within reason. </li>
+                <li>Does not violate the rights of others (The receiver of the message freely consents to the message) </li>
             </ul>
             </section>
 
+            <section class="scho-info">
+            <h2 class="sub-sec">2. The Right to Organize</h2>
+                <section class="scho-info">
+                <p class="para-sent">The students may form, assist, or join recognized organizations by the Lyceum of Alabang under the 
+                    premise that this is for their physical, intellectual, moral, cultural, civic, spiritual, and political 
+                    interests (within Lyceum of Alabang only and is subject to the approval of the Office of Student 
+                    Affairs) NO fraternities or sororities.</p>
+            </section>
             
             <h1 class="title-sub">Academics Scholarship / Deans Lister</h1>
             <section class="scho-info">
