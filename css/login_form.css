@@ -12,14 +12,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     color: #ffffff;
     font-family: Poppins, 'sans-serif';
 }
 
 .login-form-container {
     display: flex;
-
 }
 
 .login_form_card {
@@ -31,7 +30,7 @@
     border-radius: 15px;
     border: 1px solid rgba(18, 18, 18, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    margin-top: 10%;
+    margin-top: -3%;
 }
 
 .login-text-title {

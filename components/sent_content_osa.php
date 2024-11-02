@@ -1,5 +1,4 @@
 <?php
-
 include('../config/db_connection.php');
 
 // Check if the user is logged in and has an OSA_number
@@ -11,7 +10,7 @@ if (!isset($_SESSION['OSA_number'])) {
 $osaNumber = $_SESSION['OSA_number'];
 
 // Query to get the sent messages for the logged-in user
-$query = "SELECT * FROM messages WHERE sender = ?";
+$query = "SELECT * FROM messages WHERE sender = ? ORDER BY created_at DESC";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("s", $osaNumber);
 $stmt->execute();
@@ -21,9 +20,9 @@ $result = $stmt->get_result();
 <div class="overflow-y-auto" style="max-height: 840px;">
     <ul>
         <?php while ($message = $result->fetch_assoc()): ?>
-            <li class="flex items-center border-y hover:bg-gray-200 px-2 message-container">
+            <li class="flex items-center border-y hover:bg-gray-200 px-2 sent-message-container" data-date="<?php echo htmlspecialchars($message['created_at']); ?>" data-receiver="<?php echo htmlspecialchars($message['FullNameReceiver'] ?? 'Unknown Receiver'); ?>" data-subject="<?php echo htmlspecialchars($message['subject'] ?? 'No Subject'); ?>" data-body="<?php echo htmlspecialchars($message['body'] ?? 'No Body'); ?>">
                 <input type="checkbox" class="focus:ring-0 border-2 border-gray-400">
-                <div x-data="{ messageHover: false }" @mouseover="messageHover = true" @mouseleave="messageHover = false" class="w-full flex items-center justify-between p-1 my-1 cursor-pointer messages-item">
+                <div x-data="{ messageHover: false }" @mouseover="messageHover = true" @mouseleave="messageHover = false" class="w-full flex items-center justify-between p-1 my-1 cursor-pointer sent-messages-item">
                     <div class="flex items-center">
                         <div class="flex items-center mr-4 ml-1 space-x-1">
                             <button title="Not starred">
@@ -95,24 +94,24 @@ $result = $stmt->get_result();
 </style>
 
 <!-- Dedicated Section for Message Details -->
-<div id="message-details" class="bg-white shadow-lg rounded-lg overflow-hidden" style="display: none;">
+<div id="sent-message-details" class="bg-white shadow-lg rounded-lg overflow-hidden" style="display: none;">
     <div class="p-6">
         <h4 class="text-lg text-gray-800 font-bold pb-2 mb-4 border-b-2">Message Details</h4>
         <div class="flex items-center justify-between">
             <div class="flex items-center">
                 <img src="https://vojislavd.com/ta-template-demo/assets/img/message3.jpg" class="rounded-full w-8 h-8 border border-gray-500" id="details-avatar">
                 <div class="flex flex-col ml-2">
-                    <span class="text-sm font-semibold" id="details-receiver"></span>
-                    <span class="text-xs text-gray-400">Subject: <span id="details-subject"></span></span>
+                    <span class="text-sm font-semibold" id="sent-details-receiver"></span>
+                    <span class="text-xs text-gray-400">Subject: <span id="sent-details-subject"></span></span>
                 </div>
             </div>
-            <span class="text-sm text-gray-500" id="details-date"></span>
+            <span class="text-sm text-gray-500" id="sent-details-date"></span>
         </div>
         <div class="py-6 pl-2 text-gray-700">
-            <p id="details-body">Message body content will go here...</p>
+            <p id="sent-details-body">Message body content will go here...</p>
         </div>
         <div class="border-t-2 flex space-x-4 py-4">
-            <button id="close-details" class="w-32 flex items-center justify-center space-x-2 py-1.5 text-gray-600 border border-gray-400 rounded-lg hover:bg-gray-200">
+            <button id="close-sent-details" class="w-32 flex items-center justify-center space-x-2 py-1.5 text-gray-600 border border-gray-400 rounded-lg hover:bg-gray-200">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M7.707 3.293a1 1 0 010 1.414L5.414 7H11a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
@@ -127,64 +126,39 @@ $stmt->close();
 $conn->close();
 ?>
 
-<!-- Dedicated Section for Message Details -->
-<!-- <div id="message-details" class="bg-white shadow-lg rounded-lg overflow-hidden" style="display: none;">
-    <div class="p-6">
-        <div class="flex justify-between items-center border-b pb-4 mb-4">
-            <h2 class="text-2xl font-semibold text-gray-800">Message Details</h2>
-            <button id="close-details" class="text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
-        </div>
-        <div class="mb-4">
-            <p class="text-sm text-gray-500"><strong>Receiver:</strong></p>
-            <p id="details-receiver" class="text-lg text-gray-700"></p>
-        </div>
-        <div class="mb-4">
-            <p class="text-sm text-gray-500"><strong>Subject:</strong></p>
-            <p id="details-subject" class="text-lg text-gray-700"></p>
-        </div>
-        <div class="mb-4">
-            <p class="text-sm text-gray-500"><strong>Body:</strong></p>
-            <p id="details-body" class="text-lg text-gray-700 whitespace-pre-wrap"></p>
-        </div>
-        <div class="flex justify-end">
-            <button id="close-details" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Close</button>
-        </div>
-    </div>
-</div> -->
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const messageContainers = document.querySelectorAll('.message-container');
-    const messageDetails = document.getElementById('message-details');
-    const detailsReceiver = document.getElementById('details-receiver');
-    const detailsSubject = document.getElementById('details-subject');
-    const detailsBody = document.getElementById('details-body');
-    const closeDetails = document.getElementById('close-details');
+    const messageContainers = document.querySelectorAll('.sent-message-container');
+    const messageDetails = document.getElementById('sent-message-details');
+    const detailsReceiver = document.getElementById('sent-details-receiver');
+    const detailsSubject = document.getElementById('sent-details-subject');
+    const detailsBody = document.getElementById('sent-details-body');
+    const detailsDate = document.getElementById('sent-details-date');
+    const closeDetails = document.getElementById('close-sent-details');
 
     messageContainers.forEach(container => {
         container.addEventListener('click', function() {
-            const receiver = this.querySelector('.w-72').textContent;
-            const subject = this.querySelector('.w-48').textContent;
-            const body = this.querySelector('.w-64').textContent;
-            // const createdAt = this.querySelector('.text-sm').dataset.createdAt;
-            // const avatar = this.querySelector('img').src;
+            const receiver = this.getAttribute('data-receiver');
+            const subject = this.getAttribute('data-subject');
+            const body = this.getAttribute('data-body');
+            const date = this.getAttribute('data-date');
 
-            // // Format the date
-            // const currentDate = new Date();
-            // const messageDate = new Date(createdAt);
-            // const interval = Math.floor((currentDate - messageDate) / (1000 * 60 * 60 * 24));
-
-            // let formattedDate;
-            // if (interval < 1) {
-            //     formattedDate = messageDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-            // } else {
-            //     formattedDate = messageDate.toLocaleDateString([], { day: 'numeric', month: 'long' });
-            // }
+            // Format the date
+            const messageDate = new Date(date);
+            const formattedDate = messageDate.toLocaleString('en-US', {
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true,
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            });
 
             // Populate the details section with the message content
             detailsReceiver.textContent = receiver;
             detailsSubject.textContent = subject;
             detailsBody.textContent = body;
+            detailsDate.textContent = formattedDate;
 
             // Hide all message containers
             messageContainers.forEach(c => c.style.display = 'none');
