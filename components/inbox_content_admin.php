@@ -11,7 +11,7 @@ if (!isset($_SESSION['AdminNumber'])) {
 $adminNumber = $_SESSION['AdminNumber'];
 
 // Query to get the inbox messages for the logged-in user
-$query = "SELECT * FROM messages WHERE receiver = ? AND receiverType = 'admin' ORDER BY created_at DESC";
+$query = "SELECT * FROM messages WHERE receiver = ? AND receiverType = 'Admin' ORDER BY created_at DESC";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("s", $adminNumber);
 $stmt->execute();

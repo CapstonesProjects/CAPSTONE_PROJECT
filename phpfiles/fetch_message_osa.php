@@ -12,19 +12,11 @@ if (isset($_GET['query'])) {
     $queryParam = $_GET['query'];
     $response['debug'] = "Received query: $queryParam";
 
-    // Query to fetch from the users table
+    // Query to fetch from the organization table
     $query = "
-        SELECT StudentID AS ID, CONCAT(FirstName, ' ', COALESCE(MiddleName, ''), ' ', LastName) AS FullName, Email, 'student' AS Type 
-        FROM tblusers_student 
-        WHERE StudentID LIKE ? OR FirstName LIKE ? OR LastName LIKE ?
-        UNION
-        SELECT AdminNumber AS ID, CONCAT(FirstName, ' ', COALESCE(MiddleName, ''), ' ', LastName) AS FullName, Email, 'admin' AS Type 
-        FROM admin 
-        WHERE AdminNumber LIKE ? OR FirstName LIKE ? OR LastName LIKE ?
-        UNION
-        SELECT OSA_number AS ID, CONCAT(FirstName, ' ', COALESCE(MiddleName, ''), ' ', LastName) AS FullName, Email, 'osa' AS Type 
-        FROM tblusers_osa 
-        WHERE OSA_number LIKE ? OR FirstName LIKE ? OR LastName LIKE ?
+        SELECT Org_number AS ID, CONCAT(FirstName, ' ', COALESCE(MiddleName, ''), ' ', LastName) AS FullName, Email, 'Organization' AS Type 
+        FROM tblusers_organization
+        WHERE Org_number LIKE ? OR FirstName LIKE ? OR LastName LIKE ?
     ";
     $stmt = $conn->prepare($query);
     if ($stmt === false) {
@@ -33,7 +25,7 @@ if (isset($_GET['query'])) {
         exit;
     }
     $searchTerm = "%$queryParam%";
-    $stmt->bind_param("sssssssss", $searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm); // Bind the same parameter for all queries
+    $stmt->bind_param("sss", $searchTerm, $searchTerm, $searchTerm); // Bind the same parameter for all queries
     $stmt->execute();
     $result = $stmt->get_result();
 

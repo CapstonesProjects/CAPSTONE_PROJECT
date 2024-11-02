@@ -32,7 +32,7 @@ include('./alerts/login_alerts.php');
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/login_form.css">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
-    <title>OSA Login - LOA OSA</title>
+    <title>Organization Login - LOA OSA</title>
 </head>
 
 <style>
@@ -81,7 +81,7 @@ include('./alerts/login_alerts.php');
     ?>
 
     <?php
-    include('./components/osa_login_form.php');
+    include('./components/organization_login_form.php');
     ?>
 
     <?php include('./alerts/login_alerts.php') ?>
