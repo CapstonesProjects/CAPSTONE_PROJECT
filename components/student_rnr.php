@@ -333,7 +333,7 @@
             <h2 class="sub-sec">Misconduct in the Lyceum Campus </h2>
             <section class="right">
             <ul>
-                <li>Instigating or leading protests. Initiate walkouts or similar activities resulting in the 
+                <li>Instigating or leading protests. Initiate walkouts or similar activities resulting in the 
                     disruption of classes.</li>
                 <li>Cheating, copying, or allowing other students to copy during examinations, providing the 
                     means to copy or accessing means to copy exam answers, projects, term papers, 
@@ -352,6 +352,7 @@
                     Administration.</li>
             </ul>
             </section>
+            
 
             
         </div>

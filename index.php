@@ -23,72 +23,106 @@ $result = $conn->query($sql);
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <title>OSA - Lyceum of Alabang</title>
     <style>
-        .slider-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
+       
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
 
-        .slider-wrapper {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
 
-        .slider-slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
+.slider-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
 
-        .slider-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 10;
-        }
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
 
-        .slider-button-prev {
-            left: 10px;
-        }
+.slider-button-prev {
+    left: 10px;
+}
 
-        .slider-button-next {
-            right: 10px;
-        }
+.slider-button-next {
+    right: 10px;
+}
 
-        .card {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
+.card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .card:hover .view-more {
-            opacity: 1;
-        }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .view-more {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+.card:hover .view-more {
+    opacity: 1;
+}
+
+.view-more {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .slider-button {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .view-more {
+        font-size: 1.2rem;
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-button {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+
+    .view-more {
+        font-size: 1rem;
+    }
+
+    .card {
+        box-shadow: none;
+    }
+}
+
     </style>
 </head>
 
