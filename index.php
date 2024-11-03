@@ -24,6 +24,7 @@ $result = $conn->query($sql);
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <title>OSA - Lyceum of Alabang</title>
+
     <style>
        
 .slider-container {
@@ -105,12 +106,13 @@ $result = $conn->query($sql);
     }
 
     .card:hover {
-        transform: translateY(-3px);
+        transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     }
 }
 
 @media (max-width: 480px) {
+
     .slider-button {
         padding: 6px;
         font-size: 0.8rem;
@@ -122,6 +124,10 @@ $result = $conn->query($sql);
 
     .card {
         box-shadow: none;
+    }
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     }
 }
 
@@ -209,54 +215,53 @@ $result = $conn->query($sql);
 
     <!-- Upcoming Events Section -->
     <section id="events" class="events py-10 bg-gray-100 relative">
-        <div class="container mx-auto mt-10">
-            <h2 class="text-4xl font-semibold text-center mb-8">Events</h2>
-            <div class="slider-container">
-                <div class="slider-wrapper">
-                    <?php
-                    if ($result->num_rows > 0) {
-                        $counter = 0;
-                        while ($row = $result->fetch_assoc()) {
-                            if ($counter % 4 == 0) {
-                                if ($counter > 0) {
-                                    echo '</div>'; // Close previous slide
-                                }
-                                echo '<div class="slider-slide flex flex-row flex-wrap justify-center">'; // Open new slide
+    <div class="container mx-auto mt-10 px-4">
+        <h2 class="text-4xl font-semibold text-center mb-8">Events</h2>
+        <div class="slider-container relative">
+            <div class="slider-wrapper">
+                <?php
+                if ($result->num_rows > 0) {
+                    $counter = 0;
+                    while ($row = $result->fetch_assoc()) {
+                        if ($counter % 4 == 0) {
+                            if ($counter > 0) {
+                                echo '</div>'; // Close previous slide
                             }
-                            $event_id = $row['id'];
-                            $title = $row['title'];
-                            $event_date = date('F j, Y', strtotime($row['event_date']));
-                            // $description = $row['description'];
-                            $image_path = $row['image_path'];
-                            ?>
-                            <a href="EventViewMore.php?id=<?php echo $event_id; ?>" target="_blank" class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-64 card">
-                                <img src="<?php echo $image_path; ?>" alt="<?php echo $title; ?>" class="w-full h-48 object-cover">
-                                <div class="p-4">
-                                    <h3 class="text-xl font-semibold mb-2"><?php echo $title; ?></h3>
-                                    <p class="text-gray-600 mb-2">Date: <?php echo $event_date; ?></p>
-                                    <!-- <p class="text-gray-700"><?php echo $description; ?></p> -->
-                                </div>
-                                <div class="view-more">View More</div>
-                            </a>
-                            <?php
-                            $counter++;
+                            echo '<div class="slider-slide flex flex-row flex-wrap justify-center">'; // Open new slide
                         }
-                        echo '</div>'; // Close last slide
-                    } else {
-                        echo "<p class='text-center'>No events found.</p>";
+                        $event_id = $row['id'];
+                        $title = $row['title'];
+                        $event_date = date('F j, Y', strtotime($row['event_date']));
+                        $image_path = $row['image_path'];
+                        ?>
+                        <a href="EventViewMore.php?id=<?php echo $event_id; ?>" target="_blank" class="bg-white rounded-lg shadow-lg overflow-hidden m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-xs card">
+                            <img src="<?php echo $image_path; ?>" alt="<?php echo $title; ?>" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-semibold mb-2"><?php echo $title; ?></h3>
+                                <p class="text-gray-600 mb-2">Date: <?php echo $event_date; ?></p>
+                            </div>
+                            <div class="view-more text-blue-500 text-sm font-semibold">View More</div>
+                        </a>
+                        <?php
+                        $counter++;
                     }
-                    ?>
-                </div>
-                <!-- Add Navigation -->
-                <button class="slider-button slider-button-prev">
-                    <i class='bx bx-chevron-left'></i>
-                </button>
-                <button class="slider-button slider-button-next">
-                    <i class='bx bx-chevron-right'></i>
-                </button>
+                    echo '</div>'; // Close last slide
+                } else {
+                    echo "<p class='text-center'>No events found.</p>";
+                }
+                ?>
             </div>
+            <!-- Slider Navigation -->
+            <button class="slider-button slider-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
+                <i class='bx bx-chevron-left text-2xl'></i>
+            </button>
+            <button class="slider-button slider-button-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
+                <i class='bx bx-chevron-right text-2xl'></i>
+            </button>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script src="javascript/hamburger_menu.js"></script>
