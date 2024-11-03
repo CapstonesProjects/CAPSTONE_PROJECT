@@ -17,7 +17,9 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/events.css">
-    <link rel="stylesheet" href="css/responsiveness_header.css">
+    <link rel="stylesheet" href="css/respo/responsiveness_header.css">
+    <link rel="stylesheet" href="css/respo/respo_footer.css">
+
     <link rel="shortcut icon" href="images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
