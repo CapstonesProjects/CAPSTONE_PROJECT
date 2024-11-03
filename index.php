@@ -195,10 +195,13 @@ $result = $conn->query($sql);
 
         <!-- About Us Row -->
         <div class="flex flex-col text-center mt-10">
-            <h1 class="org_title text-black text-4xl font-semibold">ABOUT THE SCHOOL</h1>
+            <h1 class="org_title text-black text-4xl font-semibold">ABOUT THE OFFICE</h1>
             <div class="flex flex-col items-center mt-10">
                 <p class="text-lg text-gray-700 max-w-prose">
-                    Welcome to our school! We are dedicated to providing a nurturing and stimulating environment for our students. Our mission is to foster academic excellence, personal growth, and social responsibility. We offer a wide range of programs and activities to support the diverse needs and interests of our students. Join us in our journey to create a brighter future!
+                The Office of Student Affairs ensures that the student's welfare is implemented; 
+                        thus, it includes a comprehensive approach to the student's campus life. 
+                        The Office covers the overall supervision of the Student's admission, guidance, discipline,
+                        career placement, and continuous development as an Alumni of the Lyceum of Alabang.
                 </p>
             </div>
         </div>

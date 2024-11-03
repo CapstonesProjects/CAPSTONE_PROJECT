@@ -167,36 +167,6 @@ header {
   display: inline-block;
 }
 
-/* footer style */
-
-footer {
-  position: relative;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 13px 45px 13px 45px;
-  z-index: 1;
-}
-
-.footer-item-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-right: 3%;
-  align-items: center;
-  padding: 0px 6.5%;
-}
-
-.footer-img {
-  width: 75px;
-  height: 62px;
-}
-
-.footer-item {
-  display: flex;
-  flex-direction: row;
-}
-
 .item-title {
   color: #ffffff;
   font-size: 12px;

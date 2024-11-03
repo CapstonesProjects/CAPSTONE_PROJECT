@@ -33,8 +33,8 @@
 
                     <div>
                     <p class="statement">The Ofice of Student Affairs ensures that the student's welfare is implemented; 
-                        thus, it includes a comprehensive approach</br> to the student's campus life. 
-                        The Office covers the overall supervision of the Student's admission, guidance, discipline,</br> 
+                        thus, it includes a comprehensive approach to the student's campus life. 
+                        The Office covers the overall supervision of the Student's admission, guidance, discipline,
                         career placement, and continuous development as an Alumni of the Lyceum of Alabang</p>
 
                     </div>
