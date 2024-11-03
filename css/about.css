@@ -1,5 +1,6 @@
 #about {
   border: 1px solid red;
+  height: 70vh;
 }
 
 .about_container {
@@ -7,12 +8,10 @@
 }
 
 .org_title {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-
-
-.about>div {
+.about > div {
   flex: 1;
   margin: 1rem;
 }
@@ -27,5 +26,51 @@
 
 .org-container {
   margin-top: 20px;
+}
 
+@media (max-width: 768px) {
+  #about {
+    padding: 1rem;
+    flex-direction: column;
+    height: 130vh;
+  }
+
+  .about > div {
+    margin: 0.5rem 0;
+  }
+
+  .org_title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .org-container img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .max-w-prose {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  #about {
+    padding: 1rem;
+    flex-direction: column;
+    height: 130vh;
+  }
+  .org_title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .org-container img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .about_container {
+    padding: 0.5rem;
+  }
 }

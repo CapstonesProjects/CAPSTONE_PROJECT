@@ -103,12 +103,10 @@ header {
   display: flex;
   height: 76.8vh;
 }
-#about,
 #events {
   display: flex;
-  height: 70vh;
+  height: 70hv;
 }
-
 .home-title-container {
   display: flex;
   flex-direction: column;
