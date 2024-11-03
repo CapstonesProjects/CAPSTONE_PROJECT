@@ -1,4 +1,4 @@
-/* General styles for the header */
+
 header {
     padding: 10px 10%;
     position: relative;
@@ -6,10 +6,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: transparent; /* No background color for larger screens */
+    background-color: transparent;
 }
 
-/* Styles for the hamburger menu */
+
 .menu-toggle {
     display: none;
 }
@@ -18,7 +18,7 @@ header {
     width: 25px;
     height: 2px;
     margin: 5px;
-    background-color: #000; /* Black lines for the hamburger menu */
+    background-color: #000;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -28,7 +28,7 @@ header {
 
 @media only screen and (max-width: 769px) {
     header {
-        color: #fff; /* White text color */
+        color: #fff;
         padding: 15px 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
@@ -37,34 +37,34 @@ header {
         display: none;
         position: absolute;
         top: 70px;
-        right: 0; /* Start from the right */
+        right: 0;
         width: 100%;
-        background-color: #444; /* Darker background for the menu */
+        background-color: #444;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         flex-direction: column;
         gap: 10px;
         padding: 20px;
         box-shadow: none;
         border-radius: 0 0 10px 10px;
-        animation: slideInRight 0.3s ease-in-out; /* Add slide-in animation from the right */
+        animation: slideInRight 0.3s ease-in-out;
     }
 
     @keyframes slideInRight {
         from {
             opacity: 0;
-            transform: translateX(100%); /* Start from the right */
+            transform: translateX(100%);
         }
         to {
             opacity: 1;
-            transform: translateX(0); /* End at the original position */
+            transform: translateX(0);
         }
     }
 
     .navlist li {
-        text-align: center; /* Center align the nav items */
+        text-align: center;
     }
 
-    .login-dropdown-content a{
+    .login-dropdown-content a {
         background-color: #302e2e;
     }
 
@@ -80,20 +80,20 @@ header {
     .navlist li a {
         font-size: 1rem;
         color: #fafafa;
-        /*Whitetextcolorforthelinks*/text-decoration: none;
+        text-decoration: none;
         padding: 10px;
         display: block;
         transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-        /*Addtransformtransition*/border-radius: 5px;
+        border-radius: 5px;
         -webkit-transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
         -moz-transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
         -ms-transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
         -o-transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
+    }
 
     .navlist li a:hover {
-        background-color: #fcfafa; /* Slightly lighter background on hover */
-        transform: scale(1.05); /* Slightly enlarge on hover */
+        background-color: #fcfafa;
+        transform: scale(1.05);
     }
 
     .menu-toggle {
@@ -138,7 +138,6 @@ header {
         display: flex;
     }
 
-    /* Styles for the login dropdown */
     .login-dropdown {
         position: relative;
     }
