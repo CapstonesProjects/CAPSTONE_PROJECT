@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rammetto+One&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Rammetto+One&display=swap");
 
 * {
   margin: 0;
@@ -10,7 +9,6 @@
   text-decoration: none;
   scroll-behavior: smooth;
 }
-
 /* html, body {
     width: 100%;
     height: 100%;
@@ -26,25 +24,19 @@ body {
   background-position: top top;
 }
 
-
-
 header {
-  /* position: fixed; */
   width: 100%;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: url('path/to/your/image.jpg') no-repeat center center;
+  background: url("path/to/your/image.jpg") no-repeat center center;
   background-size: cover;
   padding: 8px 8%;
   flex-wrap: wrap;
   align-items: space-between;
   flex-direction: row;
 }
-
-
-
 
 .logo img {
   max-width: 100%;
@@ -79,7 +71,7 @@ header {
 }
 
 .logo-letter {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #ffffff;
   font-weight: bold;
   font-size: 1rem;
@@ -92,7 +84,7 @@ header {
 }
 
 .IPI-letter {
-  font-family: Poppins, 'sans-serif';
+  font-family: Poppins, "sans-serif";
   color: #534f4f;
   font-weight: 500;
   font-size: 0.5rem;
@@ -107,23 +99,15 @@ header {
   margin-left: -6%;
 }
 
-/* home section */
-
 #home {
   display: flex;
-  height: 76.80vh;
+  height: 76.8vh;
 }
-
-#about {
-  display: flex;
-  height: 70vh;
-}
-
+#about,
 #events {
   display: flex;
   height: 70vh;
 }
-
 
 .home-title-container {
   display: flex;
@@ -133,7 +117,7 @@ header {
 }
 
 .title-sm {
-  font-family: Poppins, 'sans-serif';
+  font-family: Poppins, "sans-serif";
   color: #ffffff;
   font-size: 14px;
   font-weight: 400;
@@ -142,7 +126,7 @@ header {
 
 .title-xl {
   margin-top: 0;
-  font-family: Rammetto One, 'sans-serif';
+  font-family: Rammetto One, "sans-serif";
   color: #ffffff;
   font-size: 40px;
   font-weight: 500;
@@ -154,9 +138,8 @@ header {
   margin-top: 1%;
 }
 
-
 .btn-officialsite {
-  background-color: #433FFD;
+  background-color: #433ffd;
   border: none;
   border-radius: 50px;
   padding: 5px 26px;
@@ -170,7 +153,7 @@ header {
 .item-title {
   color: #ffffff;
   font-size: 12px;
-  font-family: Poppins, 'sans-serif';
+  font-family: Poppins, "sans-serif";
   font-weight: bold;
 }
 
@@ -183,24 +166,90 @@ header {
 .swiper-button-next,
 .swiper-button-prev {
   color: #000;
-  /* Change to desired color */
   background-color: rgba(255, 255, 255, 0.8);
-  /* Semi-transparent background */
   border-radius: 50%;
-  /* Make buttons round */
   width: 40px;
-  /* Set width */
   height: 40px;
-  /* Set height */
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  /* Add shadow */
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   background-color: rgba(255, 255, 255, 1);
-  /* Fully opaque on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 8px 5%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navlist {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navlist a {
+    font-size: 18px;
+    padding: 8px 20px;
+  }
+
+  .home-title-container,
+  .title-container {
+    margin-left: 5%;
+    text-align: center;
+  }
+
+  .title-sm {
+    font-size: 12px;
+  }
+
+  .title-xl {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .btn-officialsite {
+    padding: 5px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 8px 3%;
+  }
+
+  .logo img {
+    width: 100px;
+  }
+
+  .navlist a {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+
+  .home-title-container,
+  .title-container {
+    margin-left: 0;
+  }
+
+  .title-sm {
+    font-size: 10px;
+  }
+
+  .title-xl {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .btn-officialsite {
+    padding: 5px 15px;
+    font-size: 12px;
+  }
 }
