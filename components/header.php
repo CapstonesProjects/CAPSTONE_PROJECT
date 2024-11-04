@@ -54,4 +54,5 @@
             </div>
         </li>
     </ul>
+    <script src="javascript/hamburger_menu.js"></script>
 </header>
