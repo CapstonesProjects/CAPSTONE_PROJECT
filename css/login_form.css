@@ -132,6 +132,7 @@
 
 @media (max-width: 768px) {
     .login_form_card {
+<<<<<<< Updated upstream
         width: 400px;
         height: 400px;
         background: rgba(18, 18, 18, 0.1);
@@ -214,3 +215,34 @@
     
   }
   
+=======
+      width: 500px;
+      height: 400px;
+      background: rgba(18, 18, 18, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid rgba(18, 18, 18, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      margin-top: -3%;
+    }
+  
+    .login-text-title h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    .text-box input {
+      border: 1px solid #fdf2f2;
+      background-color: transparent;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+      width: 350px;
+      height: 30px;
+      color: #242323;
+    }
+}
+>>>>>>> Stashed changes
