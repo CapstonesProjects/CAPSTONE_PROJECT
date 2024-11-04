@@ -7,7 +7,7 @@
       height: 100vh;
       justify-content: center;
       align-items: center;
-      padding: 110px;
+      padding: 100px;
       scroll-behavior: smooth;
     }
 
@@ -26,7 +26,7 @@
     }
 
     .text-content {
-      max-height: 600px; /* Adjust the height as needed */
+      max-height: 900px; /* Adjust the height as needed */
       overflow-y: auto;
       padding: 20px;
     }
