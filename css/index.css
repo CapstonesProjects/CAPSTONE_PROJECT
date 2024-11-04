@@ -182,16 +182,6 @@ header {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .navlist {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .navlist a {
-    font-size: 18px;
-    padding: 8px 20px;
-  }
-
   .home-title-container,
   .title-container {
     margin-left: 5%;
@@ -214,15 +204,6 @@ header {
 }
 
 @media (max-width: 480px) {
-  .logo img {
-    width: 100px;
-  }
-
-  .navlist a {
-    font-size: 16px;
-    padding: 8px 15px;
-  }
-
   .home-title-container,
   .title-container {
     margin-left: 0;
