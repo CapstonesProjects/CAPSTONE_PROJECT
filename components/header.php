@@ -6,14 +6,11 @@
 </style>
 
 <header class="">
-
     <div class="menu-toggle" id="menu-toggle">
         <div class="line"></div>
         <div class="line"></div>
         <div class="line"></div>
     </div>
-
-
     <div class="logo-text-container">
         <div class="logo-img-container">
             <a href="#" class="logo"><img src="images/osa_logo.png" alt=""></a>
@@ -21,7 +18,6 @@
         <div class="logo-letter-container">
             <h1 class="LL1 logo-letter">LOA</h1>
             <p class="LL2 logo-letter">Office of Student Affairs</p>
-
             <div class="IPI-container">
                 <p class="IPI-letter">Integrity</p>
                 <p class="IPI-letter">Professionalism</p>
@@ -29,19 +25,15 @@
             </div>
         </div>
     </div>
-
-
     <ul class="navlist">
         <li><a href="./index.php">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#scholar">Scholar</a></li>
     </ul>
-
     <!-- <ul class="navlist">
             <li><a href="#">Login</a></li>
         </ul> -->
-
     <ul class="navlist">
         <li class="relative login-dropdown ">
             <button id="loginDropdownLink" data-dropdown-toggle="loginDropdown" class="flex items-center text-xl justify-between w-full py-2 px-3 text-white rounded hover:bg-black-300 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-black-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-blue-400">
