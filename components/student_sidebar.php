@@ -58,18 +58,57 @@ $caseCount = $row['caseCount'];
             overflow-x: hidden;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 768px) {         
             #sidebar {
-                width: 15rem;
-                /* md:w-60 */
+                position: absolute; /* or fixed based on your layout */
+                width: 15rem;/* md:w-60 */
+                background-color: #FFFFFF; /* Opaque background */
+                z-index: 999; /* Ensure it is below the profile but above the main content */
+                
             }
+
+            #hamburger {
+                position: absolute; /* Fixed position */
+                top: 50%; /* Center vertically */
+                left: 20px; /* Spacing from the left */
+                z-index: 10; /* Ensure it sits above other content */
+                cursor: pointer;
+                font-size: 1.5rem;
+                background-color: #A9A9A9; /* Set your desired background color here */
+                color: white; /* Text color for contrast */
+                padding: 10px; /* Padding around the icon */
+                border-radius: 30; /* Set to 0 for clean edges */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+                transition: background-color 0.3s ease; /* Smooth transition for background color */
+            }
+            
+            #view{
+                position: fixed;
+             }
+
         }
+
 
         @media (min-width: 1024px) {
             #sidebar {
                 width: 20rem;
                 /* lg:w-80 */
+                position: fixed; /* Fixed position to stay on the left side */
+                left: 0; /* Align to the left side */
+                top: 0; /* Align to the top of the viewport */
+                height: 100vh; /* Ensure it takes the full height of the viewport */
             }
+
+            
+            #hamburger{
+                display: none;
+            }
+
+            #view {
+                margin-left: 20rem; /* Adjust the main content area to avoid overlap with the sidebar */
+                position: relative; /* Ensure the view section is positioned correctly */
+             }
+
         }
 
         .space-y-6>*+* {
@@ -225,6 +264,7 @@ $caseCount = $row['caseCount'];
 </head>
 
 <body class="font-poppins antialiased">
+    <div id="hamburger">☰</div>
     <div id="view" class="h-full flex flex-row">
         <div id="sidebar" class="bg-gray-300 h-screen md:block shadow-xl px-12 w-30 md:w-60 lg:w-80 overflow-x-hidden transition-transform duration-300 ease-in-out">
             <div class="space-y-6 md:space-y-10 mt-10">
@@ -293,6 +333,30 @@ $caseCount = $row['caseCount'];
                 </div>
             </div>
         </div>
+        <script>
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                const button = document.getElementById('hamburger');
+
+                // Toggle the sidebar's visibility
+                if (sidebar.style.transform === "translateX(0%)") {
+                    sidebar.style.transform = "translateX(-100%)"; // Hide sidebar
+                    button.innerHTML = "☰"; // Change back to hamburger icon
+                } else {
+                    sidebar.style.transform = "translateX(0%)"; // Show sidebar
+                    button.innerHTML = "⬅"; // Right arrow when sidebar is open
+                }
+            }
+
+            // Initialize sidebar as visible on load
+            document.addEventListener('DOMContentLoaded', () => {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.style.transform = "translateX(0%)"; // Show sidebar on load
+            });
+
+            // Add event listener to the hamburger div
+            document.getElementById('hamburger').addEventListener('click', toggleSidebar);
+        </script>
     </div>
 </body>
 
