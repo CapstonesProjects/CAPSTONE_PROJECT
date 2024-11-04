@@ -34,7 +34,7 @@ footer {
   }
 
   .footer-item-container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin-right: 0;
     padding: 0;
@@ -57,7 +57,10 @@ footer {
     background-color: #444;
     padding: 10px;
   }
-
+  .footer-item-container {
+    flex-direction: row;
+  }
+  
   .footer-img {
     width: 50px;
     height: 42px;
