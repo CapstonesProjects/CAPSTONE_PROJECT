@@ -130,3 +130,18 @@
     margin-top: 5%;
 }
 
+@media (max-width: 768px) {
+    .login_form_card {
+        width: 400px;
+        height: 400px;
+        background: rgba(18, 18, 18, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(18, 18, 18, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        margin-top: -3%;
+    }
+    
+}
+
