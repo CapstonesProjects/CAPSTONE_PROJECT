@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <style>
+    #rnr {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      padding: 110px;
+      scroll-behavior: smooth;
+    }
 
-<style>
-#rnr {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  padding: 110px;
-}
+    .bg-container {
+      width: 100%;
+      max-width: 1400px;
+      height: auto;
+      padding: 3rem;
+      background: #ffff;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 10px;
+      border: 1px solid rgba(18, 18, 18, 0.1);
+      box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
 
-
-
-.bg-container {
-  width: 100%;
-  max-width: 1400px;
-  height: auto;
-  padding: 3rem;
-  background: #ffff;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(18, 18, 18, 0.1);
-  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-</style>
+    .text-content {
+      max-height: 600px; /* Adjust the height as needed */
+      overflow-y: auto;
+      padding: 20px;
+    }
+  </style>
+</head>
 
 <body>
-
-
-    <section id="rnr" class="rnr">
-        <div class="scholar-container">
-            <div class="bg-container">
-
-                <div class="text-content">
+  <section id="rnr" class="rnr">
+    <div class="scholar-container">
+      <div class="bg-container">
+        <div class="text-content">
+                
                 <h1 class="section-title">Section 1:  Life on Campus </h1>
                 <h2 class="sub-sec">The student </h2>
                 <section class="scho-info">
@@ -520,7 +524,9 @@
 
             
 
-            
+                
+                </div>
+                </div>
         </div>
     </section>
 
