@@ -130,3 +130,119 @@
     margin-top: 5%;
 }
 
+@media (max-width: 768px) {
+    .login_form_card {
+<<<<<<< Updated upstream
+        width: 400px;
+        height: 400px;
+        background: rgba(18, 18, 18, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(18, 18, 18, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        margin-top: -3%;
+    }
+
+    .login-text-title {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 50px 20px 50px;
+        padding: 0px 7%;
+    }
+    
+    .login-text-title h2 {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    
+    .login-text-title h4 {
+        margin-top: -0.5%;
+        font-size: 10px;
+        font-weight: 400;
+    }
+    
+    .text-box-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+    }
+    
+    .text-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10px 0 10px 0;
+    }
+    
+    .text-box input {
+        border: 1px solid #FDF2F2;
+        background-color: transparent;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        width: 300px;
+        height: 30px;
+        color: #242323;
+    }
+    
+    .text-box label {
+        font-size: 13px;
+        font-family: Poppins, 'sans-serif';
+        font-weight: 400;
+        margin-left: 2.5%;
+    }
+
+    .login-btn {
+        width: 250px;
+        height: 30px;
+        background-color: #00AEE0;
+        border: none;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: Poppins, 'sans-serif';
+    }
+    
+  }
+  
+=======
+      width: 500px;
+      height: 400px;
+      background: rgba(18, 18, 18, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid rgba(18, 18, 18, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      margin-top: -3%;
+    }
+  
+    .login-text-title h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    .text-box input {
+      border: 1px solid #fdf2f2;
+      background-color: transparent;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+      width: 350px;
+      height: 30px;
+      color: #242323;
+    }
+}
+>>>>>>> Stashed changes
