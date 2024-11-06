@@ -151,14 +151,15 @@ $result = $conn->query($sql);
 
     <?php include('./components/index_footer.php'); ?>
 
+
     <section id="about" class="about flex flex-col md:flex-row h-screen p-6">
     <!-- Organizational Chart Row -->
     <div class="flex flex-col text-center org-container w-full">
         <h1 class="org_title text-black text-4xl font-semibold">ORGANIZATIONAL CHART</h1>
         <div class="flex flex-col items-center mt-10">
             <!-- Top Person -->
-            <div class="relative">
-                <img src="images/3.jpg" alt="Person 3" class="w-32 h-32 rounded-full border-4 border-black">
+            <div class="image1 relative">
+                <img src="images/1.jpg" alt="Person 3" class="w-32 h-32 rounded-full border-4 border-black">
                 <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                         <path d="m18.707 12.707-1.414-1.414L13 15.586V6h-2v9.586l-4.293-4.293-1.414 1.414L12 19.414z"></path>
@@ -166,8 +167,8 @@ $result = $conn->query($sql);
                 </div>
             </div>
             <!-- Middle Person -->
-            <div class="relative mt-10">
-                <img src="images/3.jpg" alt="Person 3" class="w-32 h-32 rounded-full border-4 border-black">
+            <div class="image2 relative mt-10">
+                <img src="images/2.jpg" alt="Person 3" class="w-32 h-32 rounded-full border-4 border-black">
                 <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                         <path d="m18.707 12.707-1.414-1.414L13 15.586V6h-2v9.586l-4.293-4.293-1.414 1.414L12 19.414z"></path>
@@ -176,7 +177,7 @@ $result = $conn->query($sql);
             </div>
             <!-- Bottom Row -->
             <div class="flex flex-col md:flex-row justify-center mt-10 gap-4 md:gap-16">
-                <div class="flex items-center relative">
+                <div class="image3 flex items-center relative">
                     <img src="images/3.jpg" alt="Person 3" class="w-32 h-32 rounded-full border-4 border-black">
                     <div class="ml-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
@@ -184,7 +185,7 @@ $result = $conn->query($sql);
                         </svg>
                     </div>
                 </div>
-                <div class="flex items-center relative">
+                <div class="image4 flex items-center relative">
                     <img src="images/4.png" alt="Person 4" class="w-32 h-32 rounded-full border-4 border-black">
                     <div class="ml-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
@@ -192,14 +193,14 @@ $result = $conn->query($sql);
                         </svg>
                     </div>
                 </div>
-                <div class="flex items-center relative">
+                <div class="image5 flex items-center relative">
                     <img src="images/5.png" alt="Person 5" class="w-32 h-32 rounded-full border-4 border-black">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- About Us Row -->
+
     <div class="flex flex-col text-center mt-10 md:mt-0">
         <h1 class="org_title text-black text-4xl font-semibold">ABOUT THE OFFICE</h1>
         <div class="flex flex-col items-center mt-10">
