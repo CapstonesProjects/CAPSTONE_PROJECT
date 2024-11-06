@@ -32,11 +32,11 @@
   #about {
     padding: 1rem;
     flex-direction: column;
-    height: 130vh;
+    display: flex;
   }
 
   .about > div {
-    margin: 0.5rem 0;
+    margin: 0.2rem 0;
   }
 
   .org_title {
@@ -44,13 +44,21 @@
     margin-bottom: 1rem;
   }
 
-  .org-container img {
-    width: 4rem;
-    height: 4rem;
+  .org-container {
+    position: relative;
   }
 
-  .max-w-prose {
-    max-width: 90%;
+  .img,
+  svg {
+    position: absolute;
+    padding: 10%;
+    margin: 0%;
+    align-items: baseline;
+  }
+  .about_container {
+    position: relative;
+    padding: 0%;
+    margin: 0%;
   }
 }
 
