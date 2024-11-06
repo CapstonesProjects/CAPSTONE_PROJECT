@@ -59,7 +59,7 @@ $caseCount = $row['caseCount'];
         }
         @media (min-width: 768px) {         
             #sidebar {
-                width: 15rem; /* md:w-60 */
+                width: 24rem; /* md:w-60 */
                 position: fixed; /* Keep it fixed */
                 top: 0; /* Align it to the top */
                 left: 0; /* Align it to the left */
@@ -68,6 +68,7 @@ $caseCount = $row['caseCount'];
                 background-color: #fff; /* Optional: Set a background color */
                 box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
                 transition: transform 0.3s ease; /* Smooth transition for opening/closing */
+
             }
 
             #sidebar.closed {
@@ -88,12 +89,12 @@ $caseCount = $row['caseCount'];
                 border-radius: 30px; /* Rounded corners */
                 transition: background-color 0.3s ease; /* Smooth transition for background color */
             }
+
         }
 
         @media (min-width: 1024px) {
             #sidebar {
-                width: 20rem;
-                /* lg:w-80 */
+                width: 16rem; /* lg:w-80 */
                 position: fixed; /* Fixed position to stay on the left side */
                 left: 0; /* Align to the left side */
                 top: 0; /* Align to the top of the viewport */
@@ -349,13 +350,12 @@ $caseCount = $row['caseCount'];
                     button.innerHTML = "⬅"; // Right arrow when sidebar is open
                 }
             }
-
             // Initialize sidebar as visible on load
             document.addEventListener('DOMContentLoaded', () => {
                 const sidebar = document.getElementById('sidebar');
                 sidebar.style.transform = "translateX(0%)"; // Show sidebar on load
             });
-
+            
             // Add event listener to the hamburger div
             document.getElementById('hamburger').addEventListener('click', toggleSidebar);
         </script>
