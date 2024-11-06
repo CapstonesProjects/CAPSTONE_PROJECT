@@ -57,61 +57,8 @@ $caseCount = $row['caseCount'];
             transition: transform 0.3s ease-in-out;
             overflow-x: hidden;
         }
-        @media (min-width: 768px) {         
-            #sidebar {
-                width: 16rem; /* md:w-60 */
-                position: fixed; /* Keep it fixed */
-                top: 0; /* Align it to the top */
-                left: 0; /* Align it to the left */
-                z-index: 20; /* Higher z-index to stay on top */
-                height: 100%; /* Full height */
-                background-color: #fff; /* Optional: Set a background color */
-                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
-                transition: transform 0.3s ease; /* Smooth transition for opening/closing */
 
-            }
 
-            #sidebar.closed {
-                transform: translateX(-100%); /* Move it out of view when closed */
-            }
-
-            /* Header Styles */
-            #hamburger {
-                position: absolute; /* Fixed position within the header */
-                top: 30px; /* Spacing from the top */
-                left: 10px; /* Spacing from the left */
-                z-index: 40; /* Ensure it sits above the header and sidebar */
-                cursor: pointer;
-                font-size: 1.5rem;
-                background-color: #A9A9A9; /* Set your desired background color here */
-                color: white; /* Text color for contrast */
-                padding: 10px; /* Padding around the icon */
-                border-radius: 30px; /* Rounded corners */
-                transition: background-color 0.3s ease; /* Smooth transition for background color */
-            }
-
-        }
-
-        @media (min-width: 1024px) {
-            #sidebar {
-                width: 20rem; /* lg:w-80 */
-                position: fixed; /* Fixed position to stay on the left side */
-                left: 0; /* Align to the left side */
-                top: 0; /* Align to the top of the viewport */
-                height: 100vh; /* Ensure it takes the full height of the viewport */
-            }
-
-            
-            #hamburger{
-                display: none;
-            }
-
-            #view {
-                margin-left: 20rem; /* Adjust the main content area to avoid overlap with the sidebar */
-                position: relative; /* Ensure the view section is positioned correctly */
-             }
-
-        }
 
         .space-y-6>*+* {
             margin-top: 1.5rem;
@@ -143,12 +90,6 @@ $caseCount = $row['caseCount'];
             margin-right: auto;
         }
 
-        @media (min-width: 768px) {
-            #profile img {
-                width: 4rem;
-                /* md:w-36 */
-            }
-        }
 
         #profile h2 {
             font-weight: 500;
@@ -160,12 +101,6 @@ $caseCount = $row['caseCount'];
             /* text-teal-500 */
         }
 
-        @media (min-width: 768px) {
-            #profile h2 {
-                font-size: 1.25rem;
-                /* md:text-xl */
-            }
-        }
 
         #profile p {
             font-size: 0.75rem;
@@ -261,6 +196,105 @@ $caseCount = $row['caseCount'];
             /* fill-current */
             display: inline-block;
             margin-right: 0.5rem;
+        }
+
+        
+        @media (min-width: 1024px){
+
+            #sidebar {
+                width: rem; /* Sidebar width */
+            }
+
+            #hamburger{
+                display: none;
+            }
+
+           
+            
+            #view{
+                width: 16rem; /* Sidebar width */
+            }
+
+        }
+
+        
+        @media (min-width: 768px) {         
+            #sidebar {
+                width: 8rem; /* md:w-60 */
+                position: fixed; /* Keep it fixed */
+                top: 0; /* Align it to the top */
+                left: 0; /* Align it to the left */
+                z-index: 20; /* Higher z-index to stay on top */
+                height: 100%; /* Full height */
+                background-color: #fff; /* Optional: Set a background color */
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+                transition: transform 0.3s ease; /* Smooth transition for opening/closing */
+
+            }
+
+            #sidebar.closed {
+                transform: translateX(-100%); /* Move it out of view when closed */
+            }
+
+            /* Header Styles */
+            #hamburger {
+                position: absolute; /* Fixed position within the header */
+                top: 30px; /* Spacing from the top */
+                left: 10px; /* Spacing from the left */
+                z-index: 40; /* Ensure it sits above the header and sidebar */
+                cursor: pointer;
+                font-size: 1.5rem;
+                background-color: #A9A9A9; /* Set your desired background color here */
+                color: white; /* Text color for contrast */
+                padding: 10px; /* Padding around the icon */
+                border-radius: 30px; /* Rounded corners */
+                transition: background-color 0.3s ease; /* Smooth transition for background color */
+            }
+
+            #profile h2 {
+                font-size: 1.25rem;
+                /* md:text-xl */
+            }
+
+            #profile img {
+                width: 4rem;
+                /* md:w-36 */
+            }
+
+        }
+
+        @media (min-width: 480px) {         
+            #sidebar {
+                width: 16rem; /* md:w-60 */
+                position: fixed; /* Keep it fixed */
+                top: 0; /* Align it to the top */
+                left: 0; /* Align it to the left */
+                z-index: 20; /* Higher z-index to stay on top */
+                height: 100%; /* Full height */
+                background-color: #fff; /* Optional: Set a background color */
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+                transition: transform 0.3s ease; /* Smooth transition for opening/closing */
+
+            }
+
+            #sidebar.closed {
+                transform: translateX(-100%); /* Move it out of view when closed */
+            }
+
+            /* Header Styles */
+            #hamburger {
+                position: absolute; /* Fixed position within the header */
+                top: 30px; /* Spacing from the top */
+                left: 10px; /* Spacing from the left */
+                z-index: 40; /* Ensure it sits above the header and sidebar */
+                cursor: pointer;
+                font-size: 1.5rem;
+                background-color: #A9A9A9; /* Set your desired background color here */
+                color: white; /* Text color for contrast */
+                padding: 10px; /* Padding around the icon */
+                border-radius: 30px; /* Rounded corners */
+                transition: background-color 0.3s ease; /* Smooth transition for background color */
+            }
         }
     </style>
 </head>
