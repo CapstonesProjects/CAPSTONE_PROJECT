@@ -1,7 +1,7 @@
 <div class="parent-container">
     <div class="login-form-container">
         <div class="login_form_card">
-            <form id="loginForm" action="#" method="POST">
+            <form id="loginForm" action="./Login/Organization_Login.php" method="POST">
                 <div class="login-text-title">
                     <h2 style="font-size: 2.3rem;">Login</h2>
                     <h4 class="mt-1" style="font-size: 0.8rem;">Welcome Back, Please Login To Your Organization Account.</h4>

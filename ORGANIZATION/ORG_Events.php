@@ -1,12 +1,11 @@
 <?php
-session_start();
+session_start(); // Start the session
 include('../config/db_connection.php');
-
 
 if (isset($_SESSION['UserID'])) {
     $userId = $_SESSION['UserID'];
 
-    $query = "SELECT FirstName, LastName FROM tblusers_student WHERE UserID = ?";
+    $query = "SELECT FirstName, LastName FROM tblusers_osa WHERE UserID = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $userId);
     $stmt->execute();
@@ -21,6 +20,7 @@ if (isset($_SESSION['UserID'])) {
 
 // $activeMenu = 'dashboard';
 // include('./components/sidebar.php');
+include('../alerts/update_case_status_alerts.php');
 ?>
 
 <!DOCTYPE html>
@@ -29,34 +29,38 @@ if (isset($_SESSION['UserID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/output.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/style2.css">
-    <link rel="stylesheet" href="../css/student_profile.css">
     <link rel="shortcut icon" href="../images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Student Rules & Regulation - LOA OSA</title>
+    <title>OSA Events - LOA OSA</title>
 </head>
 
-<body class="font-poppins antialiased bg-gray-200">
-    <div class="flex h-screen">
+
+
+
+
+<body class="font-poppins antialiased ">
+
+    <div class="flex h-screen ">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php
-            $activeMenu = 'rules&regulation';
-            include('../components/student_sidebar.php');
+            $activeMenu = 'events';
+            include('../components/admin_sidebar.php');
             ?>
         </div>
         <div class="flex justify-center items-center">
-            <?php include('../components/student_rnr.php');
+            <?php
+            include('../components/events.php');
             ?>
         </div>
     </div>
-</body>
 
+  
+</body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="../javascript/sessionmessage.js"></script>
-<script src="../javascript/active.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
 </html>

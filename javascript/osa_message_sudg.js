@@ -10,6 +10,7 @@ $(document).ready(function() {
                 url: '../phpfiles/fetch_message_osa.php',
                 method: 'GET',
                 data: { query: query }, // Use a generic query parameter
+                dataType: 'json', // Ensure the response is parsed as JSON
                 success: function(data) {
                     console.log('AJAX success, data received:', data); // Debugging output
                     if (data.suggestions && data.suggestions.length > 0) {
@@ -27,6 +28,7 @@ $(document).ready(function() {
                 },
                 error: function(xhr, status, error) {
                     console.error('AJAX error:', status, error); // Debugging output
+                    console.error('Response text:', xhr.responseText); // Debugging output
                 }
             });
         } else {

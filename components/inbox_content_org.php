@@ -3,16 +3,16 @@
 include('../config/db_connection.php');
 
 // Check if the user is logged in and has an OSA_number
-if (!isset($_SESSION['OSA_number'])) {
-    echo "OSA number not set in session";
+if (!isset($_SESSION['Org_number'])) {
+    echo "ORGANIZATION number not set in session";
     // Optionally, redirect to a login page or handle the error appropriately without exiting.
 } else {
-    $osaNumber = $_SESSION['OSA_number'];
+    $orgNumber = $_SESSION['Org_number'];
 
     // Query to get the inbox messages for the logged-in user
-    $query = "SELECT * FROM messages WHERE receiver = ? AND receiverType = 'OSA' ORDER BY created_at DESC";
+    $query = "SELECT * FROM messages WHERE receiver = ? AND receiverType = 'Organization' ORDER BY created_at DESC";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $osaNumber);
+    $stmt->bind_param("s", $orgNumber);
     $stmt->execute();
     $result = $stmt->get_result();
     ?>

@@ -33,9 +33,19 @@
 
                     <div>
                     <p class="statement">The Ofice of Student Affairs ensures that the student's welfare is implemented; 
-                        thus, it includes a comprehensive approach to the student's campus life.</br> 
-                        The Office covers the overall supervision of the Student's admission, guidance, discipline, 
-                        career placement, and</br> continuous development as an Alumni of the Lyceum of Alabang</p>
+                        thus, it includes a comprehensive approach</br> to the student's campus life. 
+                        The Office covers the overall supervision of the Student's admission, guidance, discipline,</br> 
+                        career placement, and continuous development as an Alumni of the Lyceum of Alabang</p>
+
+                    </div>
+                    <h1 class="org-title">Students</h1>
+                    <div>
+                    <p class="statement">They are enrolled at the Lyceum of Alabang and are expected to be morally upright. The students of Lyceum
+                        of Alabang</br> shall uphold decency and righteousness inside and outside the Institution, as they encompass 
+                        the model citizens of the</br> country. The student is expected to be a Law-abiding Youth who is Courteous, Emphatic, 
+                        Accountable, and Noble (LYCEAN).</br> The area covers Student Conduct and Rights (Dress Code, Offenses, & Sanctions); 
+                        the section also entails the responsible</br> team deliberating and administering the discipline and sanctions, including
+                        information about student organizations and other student services</p>
 
                     </div>
                     

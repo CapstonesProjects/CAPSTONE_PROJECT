@@ -3,12 +3,12 @@ session_start();
 include('../config/db_connection.php');
 
 
-if (isset($_SESSION['UserID'])) {
-    $userId = $_SESSION['UserID'];
+if (isset($_SESSION['OrgID'])) {
+    $orgId = $_SESSION['OrgID'];
 
-    $query = "SELECT FirstName, LastName FROM tblusers_student WHERE UserID = ?";
+    $query = "SELECT FirstName, LastName FROM tblusers_organization WHERE OrgID = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $userId);
+    $stmt->bind_param("i", $orgId);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
@@ -35,28 +35,41 @@ if (isset($_SESSION['UserID'])) {
     <link rel="stylesheet" href="../css/student_profile.css">
     <link rel="shortcut icon" href="../images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Student Rules & Regulation - LOA OSA</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Organization Dashboard - LOA OSA</title>
+
+    <style>
+        body {
+            font-family: 'IBM Plex Mono', sans-serif;
+        }
+
+        [x-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 
-<body class="font-poppins antialiased bg-gray-200">
+<body class="font-poppins antialiased bg-white">
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php
-            $activeMenu = 'rules&regulation';
-            include('../components/student_sidebar.php');
+            $activeMenu = 'dashboard';
+            include('../components/org_sidebar.php');
             ?>
         </div>
         <div class="flex justify-center items-center">
-            <?php include('../components/student_rnr.php');
-            ?>
+
         </div>
     </div>
 </body>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="../javascript/sessionmessage.js"></script>
 <script src="../javascript/active.js"></script>
+<script src="../javascript/charts.js"></script>
 
 </html>

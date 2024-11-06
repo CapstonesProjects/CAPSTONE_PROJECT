@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2024 at 01:21 AM
+-- Generation Time: Nov 02, 2024 at 10:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -151,7 +151,7 @@ CREATE TABLE `messages` (
   `FullNameSender` varchar(120) NOT NULL,
   `receiver` varchar(255) NOT NULL,
   `FullNameReceiver` varchar(120) NOT NULL,
-  `receiverType` enum('admin','student','osa','organization') NOT NULL,
+  `receiverType` enum('Admin','student','OSA','Organization') NOT NULL,
   `subject` varchar(255) NOT NULL,
   `body` text NOT NULL,
   `status` varchar(50) NOT NULL,
@@ -163,12 +163,17 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`MessageID`, `sender`, `FullNameSender`, `receiver`, `FullNameReceiver`, `receiverType`, `subject`, `body`, `status`, `created_at`) VALUES
-(1, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'osa', 'Summon', 'adminnn toooo', 'sent', '2024-11-01 22:38:28'),
-(2, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'admin', 'Summon', 'osaa tooo', 'sent', '2024-11-01 22:46:12'),
-(5, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'osa', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:45:53'),
-(6, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'admin', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:46:46'),
+(1, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', 'adminnn toooo', 'sent', '2024-11-01 22:38:28'),
+(2, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', 'osaa tooo', 'sent', '2024-11-01 22:46:12'),
+(5, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:45:53'),
+(6, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:46:46'),
 (7, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'student ka from osa', 'sent', '2024-11-01 23:50:37'),
-(8, '123-456', 'Rogel R Gerodiaz', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'student ka admin ako', 'sent', '2024-11-01 23:51:07');
+(8, '123-456', 'Rogel R Gerodiaz', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'student ka admin ako', 'sent', '2024-11-01 23:51:07'),
+(9, '543-21', 'Lebron James', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'org to student kaaaaa', 'sent', '2024-11-02 20:31:59'),
+(10, '543-21', 'Lebron James', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', 'osa ka org akooo', 'sent', '2024-11-02 20:34:50'),
+(11, '543-21', 'Lebron James', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', 'admin ka org akoooo', 'sent', '2024-11-02 20:35:06'),
+(12, '123-456', 'Rogel R Gerodiaz', '543-21', 'Lebron R James', 'Organization', 'Summon', 'org ka admin akoooo', 'sent', '2024-11-02 20:46:57'),
+(13, '1422-21', 'Helen Patalbo', '543-21', 'Lebron R James', 'Organization', 'Summon', 'org ka osa akoooo', 'sent', '2024-11-02 20:50:33');
 
 -- --------------------------------------------------------
 
@@ -225,6 +230,39 @@ INSERT INTO `tblcases` (`CaseID`, `StudentID`, `FullName`, `Email`, `Offense`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tblusers_organization`
+--
+
+CREATE TABLE `tblusers_organization` (
+  `OrgID` int(11) NOT NULL,
+  `Org_number` varchar(255) NOT NULL,
+  `FirstName` varchar(255) NOT NULL,
+  `LastName` varchar(255) NOT NULL,
+  `Username` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Role` varchar(255) NOT NULL,
+  `MiddleName` varchar(10) NOT NULL,
+  `Suffix` varchar(12) NOT NULL,
+  `Email` varchar(80) NOT NULL,
+  `PhoneNumber` int(22) NOT NULL,
+  `DateBirth` varchar(24) NOT NULL,
+  `Gender` varchar(24) NOT NULL,
+  `Nationality` varchar(32) NOT NULL,
+  `MaritalStatus` varchar(24) NOT NULL,
+  `Status` varchar(12) NOT NULL,
+  `profile_picture` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tblusers_organization`
+--
+
+INSERT INTO `tblusers_organization` (`OrgID`, `Org_number`, `FirstName`, `LastName`, `Username`, `Password`, `Role`, `MiddleName`, `Suffix`, `Email`, `PhoneNumber`, `DateBirth`, `Gender`, `Nationality`, `MaritalStatus`, `Status`, `profile_picture`) VALUES
+(1, '543-21', 'Lebron', 'James', 'organization', '123456789', 'Organization', 'R', 'N/A', 'org@gmail.com', 909313675, '06/10/2001', 'Male', 'Filipino', 'Single', 'Active', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tblusers_osa`
 --
 
@@ -253,8 +291,8 @@ CREATE TABLE `tblusers_osa` (
 --
 
 INSERT INTO `tblusers_osa` (`UserID`, `OSA_number`, `FirstName`, `LastName`, `Username`, `Password`, `Role`, `MiddleName`, `Suffix`, `Email`, `PhoneNumber`, `DateBirth`, `Gender`, `Nationality`, `MaritalStatus`, `Status`, `profile_picture`) VALUES
-(1, '1422-21', 'Helen', 'Patalbo', 'patalbohelen', '123456789', 'osa', 'R', 'N/A', 'helen@gmail.com', 925251254, '06/24/1995', 'Female', 'Filipino', 'Married', 'Active', '../osa_profiles_upload/4.png'),
-(2, '1223-41', 'Rogel', 'Gerodiaz', 'rogelgerodiaz', '123456789', 'osa', '', '', 'osa@gmail.com', 0, '', '', '', '', '', NULL);
+(1, '1422-21', 'Helen', 'Patalbo', 'patalbohelen', '123456789', 'OSA', 'R', 'N/A', 'helen@gmail.com', 925251254, '06/24/1995', 'Female', 'Filipino', 'Married', 'Active', '../osa_profiles_upload/4.png'),
+(2, '1223-41', 'Rogel', 'Gerodiaz', 'rogelgerodiaz', '123456789', 'OSA', '', '', 'osa@gmail.com', 0, '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -348,6 +386,12 @@ ALTER TABLE `tblcases`
   ADD KEY `StudentID` (`StudentID`);
 
 --
+-- Indexes for table `tblusers_organization`
+--
+ALTER TABLE `tblusers_organization`
+  ADD PRIMARY KEY (`OrgID`);
+
+--
 -- Indexes for table `tblusers_osa`
 --
 ALTER TABLE `tblusers_osa`
@@ -387,13 +431,19 @@ ALTER TABLE `event_images`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tblcases`
 --
 ALTER TABLE `tblcases`
   MODIFY `CaseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `tblusers_organization`
+--
+ALTER TABLE `tblusers_organization`
+  MODIFY `OrgID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tblusers_osa`
