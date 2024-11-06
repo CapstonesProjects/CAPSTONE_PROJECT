@@ -59,7 +59,7 @@ $caseCount = $row['caseCount'];
         }
         @media (min-width: 768px) {         
             #sidebar {
-                width: 24rem; /* md:w-60 */
+                width: 16rem; /* md:w-60 */
                 position: fixed; /* Keep it fixed */
                 top: 0; /* Align it to the top */
                 left: 0; /* Align it to the left */
@@ -94,7 +94,7 @@ $caseCount = $row['caseCount'];
 
         @media (min-width: 1024px) {
             #sidebar {
-                width: 16rem; /* lg:w-80 */
+                width: 20rem; /* lg:w-80 */
                 position: fixed; /* Fixed position to stay on the left side */
                 left: 0; /* Align to the left side */
                 top: 0; /* Align to the top of the viewport */
