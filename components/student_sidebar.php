@@ -199,28 +199,25 @@ $caseCount = $row['caseCount'];
         }
 
         
-        @media (min-width: 1024px){
-
-            #sidebar {
-                width: rem; /* Sidebar width */
-            }
-
+        @media (min-width: 1024px){ 
             #hamburger{
                 display: none;
             }
 
-           
-            
             #view{
-                width: 16rem; /* Sidebar width */
+                width: 20rem; /* md:w-60 */
+                position: relative; /* Keep it fixed */
             }
-
+            #sidebar {
+                width: 20rem;
+                display: block;
+            }
         }
 
         
         @media (min-width: 768px) {         
             #sidebar {
-                width: 8rem; /* md:w-60 */
+                width: 20rem; /* md:w-60 */
                 position: fixed; /* Keep it fixed */
                 top: 0; /* Align it to the top */
                 left: 0; /* Align it to the left */
@@ -251,21 +248,13 @@ $caseCount = $row['caseCount'];
                 transition: background-color 0.3s ease; /* Smooth transition for background color */
             }
 
-            #profile h2 {
-                font-size: 1.25rem;
-                /* md:text-xl */
-            }
 
-            #profile img {
-                width: 4rem;
-                /* md:w-36 */
-            }
 
         }
 
         @media (min-width: 480px) {         
             #sidebar {
-                width: 16rem; /* md:w-60 */
+                width: 20rem; /* md:w-60 */
                 position: fixed; /* Keep it fixed */
                 top: 0; /* Align it to the top */
                 left: 0; /* Align it to the left */
