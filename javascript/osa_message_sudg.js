@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    console.log('osa_message_sudg.js loaded'); // Debugging output
+    console.log('osa_messages_sudg.js loaded'); // Debugging output
 
     $('#to').on('input', function() {
         var query = $(this).val();
@@ -9,8 +9,8 @@ $(document).ready(function() {
             $.ajax({
                 url: '../phpfiles/fetch_message_osa.php',
                 method: 'GET',
-                data: { query: query }, // Use a generic query parameter
-                dataType: 'json', // Ensure the response is parsed as JSON
+                data: { query: query },
+                dataType: 'json',
                 success: function(data) {
                     console.log('AJAX success, data received:', data); // Debugging output
                     if (data.suggestions && data.suggestions.length > 0) {
@@ -54,7 +54,7 @@ $(document).ready(function() {
     $('form').on('submit', function(event) {
         // Check if the submit button is the logout button
         if ($(document.activeElement).attr('id') === 'logoutButton') {
-            return; // Allow the logout form to submit without validation
+            return;
         }
 
         var receiverID = $('#receiverId').val();
