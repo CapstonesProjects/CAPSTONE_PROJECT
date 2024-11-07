@@ -1,7 +1,5 @@
 <?php
 include('../config/db_connection.php');
-
-
 ?>
 
 <!DOCTYPE html>
@@ -10,18 +8,40 @@ include('../config/db_connection.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Charts</title>
 </head>
+
+<style>
+  .spinner-border {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: text-bottom;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border 0.75s linear infinite;
+  }
+
+  @keyframes spinner-border {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
 
 <body>
   <div class="antialiased sans-serif w-lg">
     <div class="px-2 w-full">
       <div class="py-5">
-        <div class=" p-4  bg-white overflow-hidden " style="height: 830px; width: 1575px;">
-          <div class="md:flex md:justify-between md:items-center">
-            <div>
-              <!-- <h2 class="text-xl text-gray-800 font-bold leading-tight">Cases</h2> -->
+        <div class="p-4 bg-white overflow-hidden" style="height: 840px; width: 1575px;">
+          <div class="md:flex md:justify-between md:items-center mb-4">
+            <!-- Legends -->
+            <div class="flex items-center mb-4">
+              <div class="w-2 h-2 bg-blue-600 mr-2 rounded-full"></div>
+              <div class="text-sm text-gray-700">Cases</div>
             </div>
 
             <!-- School Year Dropdown -->
@@ -35,13 +55,19 @@ include('../config/db_connection.php');
               </select>
             </div>
 
-            <!-- Legends -->
+            <!-- Download Report Button -->
             <div class="mb-4">
-              <div class="flex items-center">
-                <div class="w-2 h-2 bg-blue-600 mr-2 rounded-full"></div>
-                <div class="text-sm text-gray-700">Cases</div>
-              </div>
+              <a id="downloadReport" href="#" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded inline-flex items-center shadow-lg transition duration-300 ease-in-out transform hover:scale-105" onclick="return validateSelection()">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48" class="mr-2">
+                  <path fill="#4CAF50" d="M41,10H25v28h16c0.553,0,1-0.447,1-1V11C42,10.447,41.553,10,41,10z"></path>
+                  <path fill="#FFF" d="M32 15H39V18H32zM32 25H39V28H32zM32 30H39V33H32zM32 20H39V23H32zM25 15H30V18H25zM25 25H30V28H25zM25 30H30V33H25zM25 20H30V23H25z"></path>
+                  <path fill="#2E7D32" d="M27 42L6 38 6 10 27 6z"></path>
+                  <path fill="#FFF" d="M19.129,31l-2.411-4.561c-0.092-0.171-0.186-0.483-0.284-0.938h-0.037c-0.046,0.215-0.154,0.541-0.324,0.979L13.652,31H9.895l4.462-7.001L10.274,17h3.837l2.001,4.196c0.156,0.331,0.296,0.725,0.42,1.179h0.04c0.078-0.271,0.224-0.68,0.439-1.22L19.237,17h3.515l-4.199,6.939l4.316,7.059h-3.74V31z"></path>
+                </svg>
+                Download Report
+              </a>
             </div>
+
           </div>
 
           <!-- UI for Total Cases by Category -->
@@ -94,6 +120,35 @@ include('../config/db_connection.php');
       </div>
     </div>
   </div>
+
+  <div id="error-message-container" style="display: flex; justify-content: center; align-items: flex-start; position: fixed; top: -2%; left: 10%; right: 0; z-index: 1000;"></div>
+
+  <script>
+    function validateSelection() {
+      var schoolYear = document.getElementById('schoolYear').value;
+      if (schoolYear === "") {
+        var errorMessageContainer = document.getElementById('error-message-container');
+        errorMessageContainer.innerHTML = `
+            <div id='error-message' class='alert alert-danger flex align-items-center' role='alert' style='margin-top: 20px; width: 260px; padding: 10px; color: black; background-color: #FF6868; border: 1px solid #DCFFB7; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-size: 16px;'>
+              <svg class='bi flex-shrink-0 me-2' role='img' aria-label='Error:' style='width: 24px; height: 24px;'><use xlink:href='#exclamation-triangle-fill'/></svg>
+              <div>
+                Please select a school year.
+              </div>
+              <div class='spinner-border text-danger ms-auto' role='status' style='width: 1rem; height: 1rem;'>
+                <span class='visually-hidden'></span>
+              </div>
+            </div>`;
+        setTimeout(function() {
+          errorMessageContainer.innerHTML = '';
+        }, 3000);
+        return false;
+      } else {
+        var downloadLink = document.getElementById('downloadReport');
+        downloadLink.href = '../phpfiles/generate_report.php?schoolYear=' + schoolYear;
+        return true;
+      }
+    }
+  </script>
 </body>
 
 </html>

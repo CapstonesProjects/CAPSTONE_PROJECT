@@ -34,6 +34,7 @@ if (isset($_SESSION['UserID'])) {
     <link rel="stylesheet" href="../css/style2.css">
     <link rel="stylesheet" href="../css/student_profile.css">
     <link rel="shortcut icon" href="../images/osa_logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
@@ -62,7 +63,7 @@ if (isset($_SESSION['UserID'])) {
         </div>
         <div class="flex justify-center items-center">
             <?php
-            include('../components/Charts.php');
+            include('../components/OSA_Charts.php');
             ?>
         </div>
     </div>
