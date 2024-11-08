@@ -3,8 +3,7 @@
 <head>
   <style>
     #rnr {
-      display: flex;
-      height: 100vh;
+      height: 120vh;
       justify-content: center;
       align-items: center;
       padding: 100px;
@@ -15,7 +14,7 @@
       width: 100%;
       max-width: 1400px;
       height: auto;
-      padding: 3rem;
+      padding: 2rem;
       background: #ffff;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -23,14 +22,63 @@
       border: 1px solid rgba(18, 18, 18, 0.1);
       box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
       text-align: center;
+      margin: 1.5% auto;
     }
 
     .text-content {
-      max-height: 900px; /* Adjust the height as needed */
+      max-height: 800px; /* Adjust the height as needed */
       overflow-y: auto;
       padding: 20px;
-    }
 
+    }
+    .section-title {
+        font-size: 1.4rem;
+margin-bottom: 10px;
+font-weight: bold;
+    }
+    .sub-sec {
+        font-size: 1.2rem;
+font-weight: bold;
+margin-top: 10px;
+margin-bottom: 10px;
+text-align: left;
+    }
+    .para-sent {
+        padding-left: 3rem;
+font-size: 1rem;
+line-height: 1.5;
+margin-bottom: 10px;
+font-weight: normal;
+text-align: left;
+    }
+    .right ul {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  list-style: square;
+  text-align: left;
+  padding-left: 80px;
+}
+
+.right ul li {
+  list-style: square;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+.sub-note{
+    font-size: 1rem;
+font-weight: bold;
+margin-top: 10px;
+margin-bottom: 10px;
+text-align: left;
+}
+.para-note {
+    padding-left: 3rem;
+font-size: 1rem;
+line-height: 1.5;
+margin-bottom: 10px;
+font-weight: 500px;
+text-align: left;
+}
   </style>
 </head>
 
@@ -383,7 +431,7 @@
             </section>
 
             <h2 class="sub-note">Note: </h2>
-                <section class="sec-note">
+                <section class="right">
                     <ul>
                 <li>Students to undergo due process under major offenses. </li>
                 <li>For Major Offenses under No. I - Violation with Legal Implications No. 1.1 and No. 2. 
@@ -394,11 +442,14 @@
 
             <h1 class="section-title">Section 3:  Board of Discipline comprises the Committee on Decorum and Investigation with the addition of the President and the Director of NSTP/IROTC. </h1>
                 
-                <section class="scho-info">
-                <p class="para-sent">Chairperson - President </p>
+            <section class="sec-info">
+            <p class="para-sent">Chairperson - President </p>
             <p class="para-sent">Vice Chairperson - Vice President for Academic Affairs</p>
             <h2 class="sub-note">Members:</h2>
-            </ul>
+            </section>
+
+            <section class="right">
+            <ul>
             <li>Director of the Office of Student Affairs </li>
             <li>Head of the Guidance & Testing Center </li>
             <li>College Dean of the Student</li>
@@ -412,8 +463,10 @@
                 <p class="para-sent">The Board of Discipline / Committee on Decorum and Investigation (CODI) shall review the 
                     concerns or issues presented. It will be settled through a dialogue between the two partes with 
                     their professor, guardian, and witnesses, including the supporting evidence that may be presented.</p>
-
-                    </ul>
+                    </section>
+                
+            <section class="right">
+            <ul>
             <li>A complaint is made in writing duly signed by the aggrieved party and addressed to the 
                 Office of Student Affairs or the College Dean, as the case may be.</li>
             <li>The Office of Student Affairs will investigate the concern/case and make appropriate 
@@ -423,8 +476,8 @@
             <li>The Board of Discipline/Committee on Decorum and Investigations (CODI) deliberates on 
                 the merits of the case and recommends to the President or CEO for final decision on the case. </li>
             </ul>
-
             </section>
+            
 
             <h2 class="sub-note">Note: </h2>
                 <section class="sec-note">
@@ -439,7 +492,10 @@
             <p class="para-sent">B. Monitoring and Evaluation - The Office of Student Affairs (OSA) has the right to monitor and 
                 evaluate the recognized Student Organization's operation. </p>
             <h2 class="sub-note">Members:</h2>
-            </ul>
+            </section>
+
+            <section class="right">
+            <ul>
             <li>Director of the Office of Student Affairs </li>
             <li>Head of the Guidance & Testing Center </li>
             <li>College Dean of the Student</li>
@@ -460,7 +516,8 @@
             </section>
 
             <h2 class="sub-sec">The Privileges of the Organization</h2>
-                <section class="sec-info">
+
+                <section class="right">
                 <ul>
                 <li>The Lyceum of Alabang shall provide adequate office space and other institutional support (subject to approval).</li>
                 <li>The Office of Student Affairs (OSA) shall assist the recognized Student Organization in its 
@@ -479,7 +536,7 @@
             </section>
 
             <h2 class="sub-sec">Requirements:</h2>
-                <section class="sec-info">
+                <section class="right">
                 <ul>
                 <li>The activity must have a proposal and program.</li>
                 <li>The student must secure the permission slip from their parents, guardian or waiver (Parent 
@@ -491,7 +548,7 @@
             </section>
 
             <h2 class="sub-sec">B.	Educational Tours and Field Trips (CMO No.63 s 2017)</h2>
-                <section class="sec-info">
+                <section class="right">
                 <ul>
                 <li>All colleges must strictly adhere to the guidelines outlined in the Commission on Higher 
                     Education (CHED) Memorandum Order (CMO) No. 63, series of 2017,regarding Educational 
@@ -515,7 +572,7 @@
             </section>
 
             <h2 class="sub-sec">C. Representing or Attending an Activity Representing the Lyceum of Alabang </h2>
-                <section class="sec-info">
+                <section class="right">
                 <ul>
                 <li>Attending a seminar</li>
                 <li>Attending a conference</li>
@@ -639,7 +696,7 @@
 
                     <p class="para-sent">The award is given to graduates who studied in Lyceum of Alabang from High School to college and 
                         chosen by the committee upon evaluation </p>
-                        <section class="sec-info">
+                        <section class="right">
                 <ul>
                 <li>From High School to College (Silver Loyalty Award)</li>
                 <li>From Elementary  to College (Gold Loyalty Award)</li>
@@ -673,7 +730,7 @@
 
             <h2 class="sub-sec">7. Special Non-Academic Awards </h2>
 
-            <section class="sec-info">
+            <section class="right">
                 <ul>
                 <li>Culture and Arts Award: The award is given to a student who excels in acting, singing, speech, 
                     arts, and the like both in school and outside competition. </li>
@@ -723,7 +780,7 @@
 
             <h2 class="sub-sec">Privileges:</h2>
 
-            <section class="sec-info">
+            <section class="right">
                 <ul>
                 <li>Alumni ID </li>
                 <li>Alumni Admission Endorsement Discount (Good for 2 consecutive semester) </li>
