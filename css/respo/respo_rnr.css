@@ -1,0 +1,157 @@
+@media (max-width: 768px) {
+  #rnr {
+    height: 120vh;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    scroll-behavior: smooth;
+  }
+  .bg-container {
+    width: 100%;
+    max-width: 750px;
+    height: 750px;
+    padding: 2rem;
+    background: #ffff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(18, 18, 18, 0.1);
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-top: 3% auto;
+  }
+
+  .text-content {
+    max-height: 700px; /* Adjust the height as needed */
+    overflow-y: auto;
+    padding: 20px;
+  }
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .sub-sec {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .para-sent {
+    padding-left: 3rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: left;
+  }
+  .right ul {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    list-style: square;
+    text-align: left;
+    padding-left: 80px;
+  }
+
+  .right ul li {
+    list-style: square;
+    font-weight: normal;
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+  .sub-note {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .para-note {
+    padding-left: 3rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: 500px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  #rnr {
+    height: 110vh;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    scroll-behavior: smooth;
+  }
+  .bg-container {
+    width: 100%;
+    max-width: 750px;
+    height: 780px;
+    padding: 1rem;
+    background: #ffff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(18, 18, 18, 0.1);
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-top: 5% auto;
+  }
+
+  .text-content {
+    max-height: 740px; /* Adjust the height as needed */
+    overflow-y: auto;
+    padding: 20px;
+  }
+  .section-title {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .sub-sec {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .para-sent {
+    padding-left: 0.9rem;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: left;
+  }
+  .right ul {
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    list-style: square;
+    text-align: left;
+    padding-left: 0.9rem;
+  }
+
+  .right ul li {
+    list-style: square;
+    font-weight: normal;
+    margin-bottom: 5px;
+    line-height: 1;
+  }
+  .sub-note {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .para-note {
+    padding-left: 0.9rem;
+    font-size: 0.7rem;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-weight: 500px;
+    text-align: left;
+  }
+}
