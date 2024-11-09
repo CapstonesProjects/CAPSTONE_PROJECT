@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2024 at 10:06 PM
+-- Generation Time: Nov 09, 2024 at 10:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -81,7 +81,8 @@ INSERT INTO `events` (`id`, `title`, `event_date`, `description`, `location`, `c
 (13, 'Dynamic Assurance Representative', '2025-04-26', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Last Saturday, the Lorem Ipsum University witnessed a transformative event at the Main Hall. The initiative, led by Chairman and President Dr. John Doe, aimed to prepare the institution for the challenges of Industry 4.0.\r\n\r\nThe Basic Education faculty, Department Heads, and Vice President Engr. Jane Smith attended the orientation, where TechCorp’s Albert Ipsum and Romeo Lorem, as well as RoboTech’s Dr. Ipsum Dolor and Dr. Sit Amet, showcased the latest technologies in automation, artificial intelligence, and robotics.\r\n\r\nThe presentations underscored the commitment of Lorem Ipsum University to align education with the evolving demands of the industry. Dr. John Doe emphasized the importance of staying ahead in technological advancements to prepare students for the dynamic global landscape.\r\n\r\nNotably, the event provided a hands-on experience, with one teacher having the unique opportunity to try DroneSoccer. This exemplifies Lorem Ipsum University’s commitment to integrating technology into education in a practical manner.\r\n\r\nHosted by Ms. Virginia Ipsum, future collaboration between Lorem Ipsum University, TechCorp, and RoboTech signifies a strategic move towards fostering an innovative learning environment. As the institution embraces these advancements, it positions itself as a forward-thinking entity dedicated to preparing students for the challenges and opportunities of the Fourth Industrial Revolution.\r\n\r\nLIU for Industry 4.0\r\n\r\nLIU Cares', 'Unde nisi rerum.', 'meetup', '2024-10-28 15:42:48'),
 (14, 'Investor Factors Director', '2024-08-13', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Last Saturday, the Lorem Ipsum University witnessed a transformative event at the Main Hall. The initiative, led by Chairman and President Dr. John Doe, aimed to prepare the institution for the challenges of Industry 4.0.\r\n\r\nThe Basic Education faculty, Department Heads, and Vice President Engr. Jane Smith attended the orientation, where TechCorp’s Albert Ipsum and Romeo Lorem, as well as RoboTech’s Dr. Ipsum Dolor and Dr. Sit Amet, showcased the latest technologies in automation, artificial intelligence, and robotics.\r\n\r\nThe presentations underscored the commitment of Lorem Ipsum University to align education with the evolving demands of the industry. Dr. John Doe emphasized the importance of staying ahead in technological advancements to prepare students for the dynamic global landscape.\r\n\r\nNotably, the event provided a hands-on experience, with one teacher having the unique opportunity to try DroneSoccer. This exemplifies Lorem Ipsum University’s commitment to integrating technology into education in a practical manner.\r\n\r\nHosted by Ms. Virginia Ipsum, future collaboration between Lorem Ipsum University, TechCorp, and RoboTech signifies a strategic move towards fostering an innovative learning environment. As the institution embraces these advancements, it positions itself as a forward-thinking entity dedicated to preparing students for the challenges and opportunities of the Fourth Industrial Revolution.\r\n\r\nLIU for Industry 4.0\r\n\r\nLIU Cares', 'Cum dignissimos magnam explicabo nobis.', 'conference', '2024-10-28 15:43:02'),
 (15, 'Human Solutions Associate', '2024-11-18', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Last Saturday, the Lorem Ipsum University witnessed a transformative event at the Main Hall. The initiative, led by Chairman and President Dr. John Doe, aimed to prepare the institution for the challenges of Industry 4.0.\r\n\r\nThe Basic Education faculty, Department Heads, and Vice President Engr. Jane Smith attended the orientation, where TechCorp’s Albert Ipsum and Romeo Lorem, as well as RoboTech’s Dr. Ipsum Dolor and Dr. Sit Amet, showcased the latest technologies in automation, artificial intelligence, and robotics.\r\n\r\nThe presentations underscored the commitment of Lorem Ipsum University to align education with the evolving demands of the industry. Dr. John Doe emphasized the importance of staying ahead in technological advancements to prepare students for the dynamic global landscape.\r\n\r\nNotably, the event provided a hands-on experience, with one teacher having the unique opportunity to try DroneSoccer. This exemplifies Lorem Ipsum University’s commitment to integrating technology into education in a practical manner.\r\n\r\nHosted by Ms. Virginia Ipsum, future collaboration between Lorem Ipsum University, TechCorp, and RoboTech signifies a strategic move towards fostering an innovative learning environment. As the institution embraces these advancements, it positions itself as a forward-thinking entity dedicated to preparing students for the challenges and opportunities of the Fourth Industrial Revolution.\r\n\r\nLIU for Industry 4.0\r\n\r\nLIU Cares', 'Commodi quidem at molestias consequuntur soluta ratione ad quis temporibus.', 'conference', '2024-10-28 15:44:08'),
-(16, 'Investor Marketing Administrator', '2025-07-28', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Last Saturday, the Lorem Ipsum University witnessed a transformative event at the Main Hall. The initiative, led by Chairman and President Dr. John Doe, aimed to prepare the institution for the challenges of Industry 4.0.\r\n\r\nThe Basic Education faculty, Department Heads, and Vice President Engr. Jane Smith attended the orientation, where TechCorp’s Albert Ipsum and Romeo Lorem, as well as RoboTech’s Dr. Ipsum Dolor and Dr. Sit Amet, showcased the latest technologies in automation, artificial intelligence, and robotics.\r\n\r\nThe presentations underscored the commitment of Lorem Ipsum University to align education with the evolving demands of the industry. Dr. John Doe emphasized the importance of staying ahead in technological advancements to prepare students for the dynamic global landscape.\r\n\r\nNotably, the event provided a hands-on experience, with one teacher having the unique opportunity to try DroneSoccer. This exemplifies Lorem Ipsum University’s commitment to integrating technology into education in a practical manner.\r\n\r\nHosted by Ms. Virginia Ipsum, future collaboration between Lorem Ipsum University, TechCorp, and RoboTech signifies a strategic move towards fostering an innovative learning environment. As the institution embraces these advancements, it positions itself as a forward-thinking entity dedicated to preparing students for the challenges and opportunities of the Fourth Industrial Revolution.\r\n\r\nLIU for Industry 4.0\r\n\r\nLIU Cares', 'Aspernatur explicabo odit sequi architecto quia nihil facere unde voluptatibus.', 'workshop', '2024-10-28 15:44:22');
+(16, 'Investor Marketing Administrator', '2025-07-28', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Last Saturday, the Lorem Ipsum University witnessed a transformative event at the Main Hall. The initiative, led by Chairman and President Dr. John Doe, aimed to prepare the institution for the challenges of Industry 4.0.\r\n\r\nThe Basic Education faculty, Department Heads, and Vice President Engr. Jane Smith attended the orientation, where TechCorp’s Albert Ipsum and Romeo Lorem, as well as RoboTech’s Dr. Ipsum Dolor and Dr. Sit Amet, showcased the latest technologies in automation, artificial intelligence, and robotics.\r\n\r\nThe presentations underscored the commitment of Lorem Ipsum University to align education with the evolving demands of the industry. Dr. John Doe emphasized the importance of staying ahead in technological advancements to prepare students for the dynamic global landscape.\r\n\r\nNotably, the event provided a hands-on experience, with one teacher having the unique opportunity to try DroneSoccer. This exemplifies Lorem Ipsum University’s commitment to integrating technology into education in a practical manner.\r\n\r\nHosted by Ms. Virginia Ipsum, future collaboration between Lorem Ipsum University, TechCorp, and RoboTech signifies a strategic move towards fostering an innovative learning environment. As the institution embraces these advancements, it positions itself as a forward-thinking entity dedicated to preparing students for the challenges and opportunities of the Fourth Industrial Revolution.\r\n\r\nLIU for Industry 4.0\r\n\r\nLIU Cares', 'Aspernatur explicabo odit sequi architecto quia nihil facere unde voluptatibus.', 'workshop', '2024-10-28 15:44:22'),
+(17, 'Forward Program Agent', '2001-06-10', 'With the theme of “Building a legacy of learning: celebrating 20 years of education,” Lyceum of Alabang (LoA) conducts Employees’ Day at the Danilo V. Ayap (DVA) gymnasium on Saturday, October 28.\r\n\r\nHighlights of the day include various games played by all faculty and staff of LoA, including: Kiwkiw, T-Shirt Relay, Dodgeball, Toilet Paper Challenge, and Egg throw. A zumba dance led by P.E. teachers and presentation of teams in their respective colors, and a photo opportunity and prayer led by Ms. Virginia Santos.\r\n\r\nThe newly elected Supreme Student Council (SSC) and Commission on Student Election (COMSELEC) facilitated the entire day.\r\n\r\nCaption by Roxy Esmores and Junimar Trazares\r\n\r\nPhotos by Kyla Athena Ambuya and Keith Ambuya', 'Doloribus minima nesciunt explicabo repellat suscipit at.', 'seminar', '2024-11-04 01:59:57');
 
 -- --------------------------------------------------------
 
@@ -119,7 +120,10 @@ INSERT INTO `event_images` (`id`, `event_id`, `image_path`) VALUES
 (30, 15, 'uploads-events/image_slider5.jpg'),
 (31, 16, 'uploads-events/image_slider4.jpg'),
 (32, 16, 'uploads-events/image_slider5.jpg'),
-(33, 16, 'uploads-events/image_slider6.jpg');
+(33, 16, 'uploads-events/image_slider6.jpg'),
+(34, 17, 'uploads-events/image_slider1.jpg'),
+(35, 17, 'uploads-events/image_slider2.jpg'),
+(36, 17, 'uploads-events/image_slider3.jpg');
 
 -- --------------------------------------------------------
 
@@ -137,7 +141,9 @@ CREATE TABLE `event_likes` (
 --
 
 INSERT INTO `event_likes` (`event_id`, `likes_count`) VALUES
-(10, 2);
+(10, 2),
+(11, 1),
+(12, 1);
 
 -- --------------------------------------------------------
 
@@ -155,25 +161,28 @@ CREATE TABLE `messages` (
   `subject` varchar(255) NOT NULL,
   `body` text NOT NULL,
   `status` varchar(50) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `seen` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`MessageID`, `sender`, `FullNameSender`, `receiver`, `FullNameReceiver`, `receiverType`, `subject`, `body`, `status`, `created_at`) VALUES
-(1, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', 'adminnn toooo', 'sent', '2024-11-01 22:38:28'),
-(2, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', 'osaa tooo', 'sent', '2024-11-01 22:46:12'),
-(5, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:45:53'),
-(6, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:46:46'),
-(7, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'student ka from osa', 'sent', '2024-11-01 23:50:37'),
-(8, '123-456', 'Rogel R Gerodiaz', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'student ka admin ako', 'sent', '2024-11-01 23:51:07'),
-(9, '543-21', 'Lebron James', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'org to student kaaaaa', 'sent', '2024-11-02 20:31:59'),
-(10, '543-21', 'Lebron James', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', 'osa ka org akooo', 'sent', '2024-11-02 20:34:50'),
-(11, '543-21', 'Lebron James', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', 'admin ka org akoooo', 'sent', '2024-11-02 20:35:06'),
-(12, '123-456', 'Rogel R Gerodiaz', '543-21', 'Lebron R James', 'Organization', 'Summon', 'org ka admin akoooo', 'sent', '2024-11-02 20:46:57'),
-(13, '1422-21', 'Helen Patalbo', '543-21', 'Lebron R James', 'Organization', 'Summon', 'org ka osa akoooo', 'sent', '2024-11-02 20:50:33');
+INSERT INTO `messages` (`MessageID`, `sender`, `FullNameSender`, `receiver`, `FullNameReceiver`, `receiverType`, `subject`, `body`, `status`, `created_at`, `seen`) VALUES
+(1, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', 'adminnn toooo', 'sent', '2024-11-01 22:38:28', 0),
+(2, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', 'osaa tooo', 'sent', '2024-11-01 22:46:12', 0),
+(5, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:45:53', 0),
+(6, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:46:46', 1),
+(7, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'student ka from osa', 'sent', '2024-11-01 23:50:37', 0),
+(8, '123-456', 'Rogel R Gerodiaz', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'student ka admin ako', 'sent', '2024-11-01 23:51:07', 1),
+(9, '543-21', 'Lebron James', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'org to student kaaaaa', 'sent', '2024-11-02 20:31:59', 0),
+(10, '543-21', 'Lebron James', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', 'osa ka org akooo', 'sent', '2024-11-02 20:34:50', 0),
+(11, '543-21', 'Lebron James', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', 'admin ka org akoooo', 'sent', '2024-11-02 20:35:06', 1),
+(12, '123-456', 'Rogel R Gerodiaz', '543-21', 'Lebron R James', 'Organization', 'Summon', 'org ka admin akoooo', 'sent', '2024-11-02 20:46:57', 0),
+(13, '1422-21', 'Helen Patalbo', '543-21', 'Lebron R James', 'Organization', 'Summon', 'org ka osa akoooo', 'sent', '2024-11-02 20:50:33', 0),
+(14, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'for alerts test', 'sent', '2024-11-09 05:30:17', 0),
+(15, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'for alerts test', 'sent', '2024-11-09 05:30:17', 0);
 
 -- --------------------------------------------------------
 
@@ -333,7 +342,7 @@ CREATE TABLE `tblusers_student` (
 
 INSERT INTO `tblusers_student` (`UserID`, `StudentID`, `FirstName`, `LastName`, `MiddleName`, `Suffix`, `Course`, `YearLevel`, `StudentType`, `Email`, `PhoneNumber`, `DateBirth`, `Address`, `Gender`, `Nationality`, `EmergencyContact`, `MaritalStatus`, `GuardiansName`, `GuardiansContact`, `Username`, `Password`, `Role`, `Status`, `profile_picture`) VALUES
 (1, '6911-21', 'Devante', 'Tillman', 'Hilton Arm', 'V', 'Bachelor of Science in Psychology', '4', 'Regular', 'your.email+fakedata96535@gmail.com', 425, '2024-08-21', '295 Corwin Run', 'Female', 'Utica', 421, 'Married', 'Adan Buckridge', 295, 'Gust.Kshlerin-Gleichner', 'f8MDbl_LfpUy7Nq', 'student', 'active', NULL),
-(2, '1169-21', 'Rogel', 'Gerodiaz', 'Ramos', 'N/A', 'Bachelor of Science in Information Technology', '4', 'Regular', 'gerodiazrogel0@gmail.com', 2147483647, '2001-06-10', 'JASMIN', 'Male', 'Filipino', 321, 'Single', 'Evelyn Gerodiaz', 174, 'gerodiazrogel', '123456789', 'student', 'active', NULL),
+(2, '1169-21', 'Rogel', 'Gerodiaz', 'Ramos', 'N/A', 'Bachelor of Science in Information Technology', '4', 'Regular', 'gerodiazrogel0@gmail.com', 2147483647, '2001-06-10', 'JASMIN', 'Male', 'Filipino', 321, 'Single', 'Evelyn Gerodiaz', 174, 'gerodiazrogel', '123456789', 'student', 'active', '../uploads/me.jpg'),
 (3, '4084-21', 'Toney', 'Towne', 'Bette Absh', 'III', 'Bachelor of Science in Engineering', '5', 'Irregular', 'your.email+fakedata43820@gmail.com', 841, '2025-02-01', '5517 Gusikowski Ford', 'Other', 'Catonsville', 822, 'Widowed', 'Shane Gorczany', 587, 'Dixie_Franecki', '39tTrYeVmpGkV8H', 'student', 'inactive', NULL),
 (4, '3234-21', 'Allan', 'Bashirian-Goodwin', 'Cecile Cas', 'III', 'Bachelor of Science in Computer Science', '4', 'Irregular', 'your.email+fakedata12001@gmail.com', 596, '2023-10-29', '782 Angel Glens', 'Other', 'Rancho Palos Verdes', 548, 'Single', 'George Bode', 991, 'Alayna_Cole', 'YZ2ccyvghAJezBF', 'student', 'active', NULL),
 (5, '7742-32', 'Jamir', 'Kohler', 'Sanford Bo', 'Sr', 'Bachelor of Science in Psychology', '3', 'Irregular', 'your.email+fakedata72573@gmail.com', 952, '2024-11-13', '682 Stacy Stream', 'Male', 'Palm Harbor', 488, 'Married', 'Julie Carroll', 232, 'Tomas25', 'Z3jFV6QXelqX_Rp', 'student', 'active', NULL),
@@ -419,19 +428,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `event_images`
 --
 ALTER TABLE `event_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tblcases`
