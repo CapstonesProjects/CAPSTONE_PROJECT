@@ -272,6 +272,8 @@ $result = $conn->query($sql);
             document.getElementById('loadingScreen').style.display = 'flex';
         });
     </script>
+        <script src="javascript/hamburger_menu.js"></script>
+        <script src="javascript/alerts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const sliderWrapper = document.querySelector('.slider-wrapper');
