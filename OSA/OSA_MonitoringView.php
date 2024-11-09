@@ -71,6 +71,7 @@ include('../alerts/update_case_status_alerts.php');
 <script src="../javascript/autogenerate_field.js"></script>
 <script src="../javascript/offenses.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+<script src="../javascript/alerts.js"></script>
 <script>
     // document.addEventListener('DOMContentLoaded', function () {
     //     const form = document.querySelector('form');

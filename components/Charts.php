@@ -33,6 +33,7 @@ include('../config/db_connection.php');
 </style>
 
 <body>
+  <?php include('../alerts/download_reports_alerts.php') ?>
   <div class="antialiased sans-serif w-lg">
     <div class="px-2 w-full">
       <div class="py-5">
@@ -57,7 +58,7 @@ include('../config/db_connection.php');
 
             <!-- Download Report Button -->
             <div class="mb-4">
-              <a id="downloadReport" href="#" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded inline-flex items-center shadow-lg transition duration-300 ease-in-out transform hover:scale-105" onclick="return validateSelection()">
+              <a id="downloadReport" href="#" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded inline-flex items-center shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48" class="mr-2">
                   <path fill="#4CAF50" d="M41,10H25v28h16c0.553,0,1-0.447,1-1V11C42,10.447,41.553,10,41,10z"></path>
                   <path fill="#FFF" d="M32 15H39V18H32zM32 25H39V28H32zM32 30H39V33H32zM32 20H39V23H32zM25 15H30V18H25zM25 25H30V28H25zM25 30H30V33H25zM25 20H30V23H25z"></path>
@@ -66,6 +67,18 @@ include('../config/db_connection.php');
                 </svg>
                 Download Report
               </a>
+            </div>
+
+            <!-- Confirmation Modal -->
+            <div id="confirmationModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+              <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                <h2 class="text-xl font-bold mb-4">Confirm Download</h2>
+                <p class="mb-4">Are you sure you want to download the report?</p>
+                <div class="flex justify-end">
+                  <button id="cancelButton" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-2">Cancel</button>
+                  <button id="confirmButton" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">Confirm</button>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -123,32 +136,7 @@ include('../config/db_connection.php');
 
   <div id="error-message-container" style="display: flex; justify-content: center; align-items: flex-start; position: fixed; top: -2%; left: 10%; right: 0; z-index: 1000;"></div>
 
-  <script>
-    function validateSelection() {
-      var schoolYear = document.getElementById('schoolYear').value;
-      if (schoolYear === "") {
-        var errorMessageContainer = document.getElementById('error-message-container');
-        errorMessageContainer.innerHTML = `
-            <div id='error-message' class='alert alert-danger flex align-items-center' role='alert' style='margin-top: 20px; width: 260px; padding: 10px; color: black; background-color: #FF6868; border: 1px solid #DCFFB7; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-size: 16px;'>
-              <svg class='bi flex-shrink-0 me-2' role='img' aria-label='Error:' style='width: 24px; height: 24px;'><use xlink:href='#exclamation-triangle-fill'/></svg>
-              <div>
-                Please select a school year.
-              </div>
-              <div class='spinner-border text-danger ms-auto' role='status' style='width: 1rem; height: 1rem;'>
-                <span class='visually-hidden'></span>
-              </div>
-            </div>`;
-        setTimeout(function() {
-          errorMessageContainer.innerHTML = '';
-        }, 3000);
-        return false;
-      } else {
-        var downloadLink = document.getElementById('downloadReport');
-        downloadLink.href = '../phpfiles/generate_report.php?schoolYear=' + schoolYear;
-        return true;
-      }
-    }
-  </script>
+<script src="../javascript/download_report_alerts_modal.js"></script>
 </body>
 
 </html>

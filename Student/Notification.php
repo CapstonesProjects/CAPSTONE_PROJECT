@@ -59,5 +59,6 @@ if (isset($_SESSION['UserID'])) {
 <script src="../javascript/sessionmessage.js"></script>
 <script src="../javascript/active.js"></script>
 <script src="../javascript/student_inbox.js"></script>
+<script src="../javascript/alerts.js"></script>
 
 </html>

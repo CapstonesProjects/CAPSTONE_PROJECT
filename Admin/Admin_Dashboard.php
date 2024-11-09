@@ -70,5 +70,6 @@ if (isset($_SESSION['AdminID'])) {
 <script src="../javascript/sessionmessage.js"></script>
 <script src="../javascript/active.js"></script>
 <script src="../javascript/charts.js"></script>
+<script src="../javascript/alerts.js"></script>
 
 </html>

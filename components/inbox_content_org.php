@@ -20,7 +20,7 @@ if (!isset($_SESSION['Org_number'])) {
     <div class="overflow-y-auto" style="max-height: 840px;">
         <ul>
             <?php while ($message = $result->fetch_assoc()): ?>
-                <li class="flex items-center border-y hover:bg-gray-200 px-2 message-container" data-date="<?php echo htmlspecialchars($message['created_at']); ?>">
+                <li class="flex items-center border-y hover:bg-gray-200 px-2 message-container <?php echo $message['seen'] ? 'seen' : 'unseen'; ?>" data-id="<?php echo htmlspecialchars($message['MessageID'] ?? ''); ?>" data-date="<?php echo htmlspecialchars($message['created_at'] ?? ''); ?>" data-sender="<?php echo htmlspecialchars($message['FullNameSender'] ?? 'Unknown Sender'); ?>" data-subject="<?php echo htmlspecialchars($message['subject'] ?? 'No Subject'); ?>" data-body="<?php echo htmlspecialchars($message['body'] ?? 'No Body'); ?>">
                     <input type="checkbox" class="focus:ring-0 border-2 border-gray-400">
                     <div x-data="{ messageHover: false }" @mouseover="messageHover = true" @mouseleave="messageHover = false" class="w-full flex items-center justify-between p-1 my-1 cursor-pointer messages-item">
                         <div class="flex items-center">
@@ -73,6 +73,13 @@ if (!isset($_SESSION['Org_number'])) {
             font-family: 'Courier New', Courier, monospace;
             white-space: pre-wrap;
             margin-left: 20px;
+        }
+        .unseen {
+            font-weight: bold;
+            background-color: #f0f0f0;
+        }
+        .seen {
+            font-weight: normal;
         }
     </style>
 
@@ -148,6 +155,15 @@ if (!isset($_SESSION['Org_number'])) {
 
                 // Show the details section
                 messageDetails.style.display = 'block';
+                
+                container.classList.remove('unseen');
+                container.classList.add('seen');
+
+                // Update the seen status in the database
+                const messageId = this.getAttribute('data-id');
+                fetch(`../phpfiles/mark_message_seen.php?id=${messageId}`, {
+                    method: 'POST'
+                })
             });
         });
 

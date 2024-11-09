@@ -21,6 +21,8 @@ if (isset($_SESSION['UserID'])) {
 
 // $activeMenu = 'dashboard';
 // include('./components/sidebar.php');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -74,5 +76,6 @@ if (isset($_SESSION['UserID'])) {
 <script src="../javascript/sessionmessage.js"></script>
 <script src="../javascript/active.js"></script>
 <script src="../javascript/charts.js"></script>
+<script src="../javascript/alerts.js"></script>
 
 </html>

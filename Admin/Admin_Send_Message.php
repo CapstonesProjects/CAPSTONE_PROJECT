@@ -65,6 +65,7 @@ include('../alerts/send_message.php')
 <script src="../javascript/message_template.js"></script>
 <script src="../javascript/admin_message_sudg.js"></script>
 <!-- <script src="../javascript/osa_sidebar.js"></script> -->
+<script src="../javascript/alerts.js"></script>
 
 </body>
 </html>
