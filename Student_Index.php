@@ -97,11 +97,7 @@ include('./alerts/login_alerts.php');
 
     <?php include('./alerts/login_alerts.php') ?>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function() {
-            document.getElementById('loadingScreen').style.display = 'flex';
-        });
-    </script>
+  
 </body>
 
 

@@ -267,7 +267,11 @@ $result = $conn->query($sql);
 
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function() {
+            document.getElementById('loadingScreen').style.display = 'flex';
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const sliderWrapper = document.querySelector('.slider-wrapper');
