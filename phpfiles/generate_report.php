@@ -210,6 +210,7 @@ header('Cache-Control: max-age=0');
 // Write the spreadsheet to the output
 $writer = new Xlsx($spreadsheet);
 $writer->save('php://output');
+$_SESSION['report_success'] = "Report generated successfully.";
 
 // Close the database connection
 $conn->close();

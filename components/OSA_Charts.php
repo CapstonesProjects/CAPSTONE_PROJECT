@@ -15,6 +15,7 @@ include('../config/db_connection.php');
 </head>
 
 <body>
+<?php include('../alerts/download_reports_alerts.php') ?>
   <div class="antialiased sans-serif w-lg">
     <div class="px-2 w-full">
       <div class="py-5">

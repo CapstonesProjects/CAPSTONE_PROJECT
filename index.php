@@ -255,6 +255,7 @@ $result = $conn->query($sql);
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script src="javascript/hamburger_menu.js"></script>
+    <script src="javascript/alerts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const sliderWrapper = document.querySelector('.slider-wrapper');

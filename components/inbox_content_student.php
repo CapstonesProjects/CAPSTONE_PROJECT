@@ -23,7 +23,7 @@ $result = $stmt->get_result();
 <div class="overflow-y-auto" style="max-height: 840px;">
     <ul>
         <?php while ($message = $result->fetch_assoc()): ?>
-            <li class="flex items-center border-y hover:bg-gray-200 px-2 message-container">
+           <li class="flex items-center border-y hover:bg-gray-200 px-2 message-container <?php echo $message['seen'] ? 'seen' : 'unseen'; ?>" data-id="<?php echo htmlspecialchars($message['MessageID'] ?? ''); ?>" data-date="<?php echo htmlspecialchars($message['created_at'] ?? ''); ?>" data-sender="<?php echo htmlspecialchars($message['FullNameSender'] ?? 'Unknown Sender'); ?>" data-subject="<?php echo htmlspecialchars($message['subject'] ?? 'No Subject'); ?>" data-body="<?php echo htmlspecialchars($message['body'] ?? 'No Body'); ?>">
                 <input type="checkbox" class="focus:ring-0 border-2 border-gray-400">
                 <div x-data="{ messageHover: false }" @mouseover="messageHover = true" @mouseleave="messageHover = false" class="w-full flex items-center justify-between p-1 my-1 cursor-pointer messages-item">
                     <div class="flex items-center">
@@ -96,6 +96,13 @@ $result = $stmt->get_result();
         margin-left: 20px;
         /* Indent the body text */
     }
+    .unseen {
+        font-weight: bold;
+        background-color: #f0f0f0;
+    }
+    .seen {
+        font-weight: normal;
+     }
 </style>
 
 <!-- Dedicated Section for Message Details -->
@@ -130,3 +137,65 @@ $result = $stmt->get_result();
 $stmt->close();
 $conn->close();
 ?>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageContainers = document.querySelectorAll('.message-container');
+        const messageDetails = document.getElementById('message-details');
+        const detailsReceiver = document.getElementById('details-receiver');
+        const detailsSubject = document.getElementById('details-subject');
+        const detailsBody = document.getElementById('details-body');
+        const detailsDate = document.getElementById('details-date');
+        const closeDetails = document.getElementById('close-details');
+
+        messageContainers.forEach(container => {
+            container.addEventListener('click', function() {
+                const receiver = this.querySelector('.w-72').textContent.trim();
+                const subject = this.querySelector('.w-48').textContent.trim();
+                const body = this.querySelector('.w-64').textContent.trim();
+                const date = this.getAttribute('data-date');
+
+                // Format the date
+                const messageDate = new Date(date);
+                const formattedDate = messageDate.toLocaleString('en-US', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true,
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                });
+
+                // Populate the details section with the message content
+                detailsReceiver.textContent = receiver;
+                detailsSubject.textContent = subject;
+                detailsBody.textContent = body;
+                detailsDate.textContent = formattedDate;
+
+                // Hide all message containers
+                messageContainers.forEach(c => c.style.display = 'none');
+
+                // Show the details section
+                messageDetails.style.display = 'block';
+                
+                container.classList.remove('unseen');
+                container.classList.add('seen');
+
+                // Update the seen status in the database
+                const messageId = this.getAttribute('data-id');
+                fetch(`../phpfiles/mark_message_seen.php?id=${messageId}`, {
+                    method: 'POST'
+                });
+            });
+        });
+
+        closeDetails.addEventListener('click', function() {
+            // Hide the details section
+            messageDetails.style.display = 'none';
+
+            // Show all message containers
+            messageContainers.forEach(c => c.style.display = 'flex');
+        });
+    });
+</script>
