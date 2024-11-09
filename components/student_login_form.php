@@ -1,3 +1,4 @@
+<section>
 <div class="parent-container">
     <div class="login-form-container">
         <div class="login_form_card">
@@ -33,3 +34,4 @@
     </div>
 </div>
 </div>
+</section>

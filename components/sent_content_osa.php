@@ -20,7 +20,7 @@ $result = $stmt->get_result();
 <div class="overflow-y-auto" style="max-height: 840px;">
     <ul>
         <?php while ($message = $result->fetch_assoc()): ?>
-            <li class="flex items-center border-y hover:bg-gray-200 px-2 sent-message-container" data-date="<?php echo htmlspecialchars($message['created_at']); ?>" data-receiver="<?php echo htmlspecialchars($message['FullNameReceiver'] ?? 'Unknown Receiver'); ?>" data-subject="<?php echo htmlspecialchars($message['subject'] ?? 'No Subject'); ?>" data-body="<?php echo htmlspecialchars($message['body'] ?? 'No Body'); ?>">
+            <li class="flex items-center border-y hover:bg-gray-200 px-2 sent-message-container <?php echo $message['seen'] ? 'seen' : 'unseen'; ?>" data-id="<?php echo htmlspecialchars($message['MessageID'] ?? ''); ?>" data-date="<?php echo htmlspecialchars($message['created_at'] ?? ''); ?>" data-receiver="<?php echo htmlspecialchars($message['FullNameReceiver'] ?? 'Unknown Receiver'); ?>" data-subject="<?php echo htmlspecialchars($message['subject'] ?? 'No Subject'); ?>" data-body="<?php echo htmlspecialchars($message['body'] ?? 'No Body'); ?>">
                 <input type="checkbox" class="focus:ring-0 border-2 border-gray-400">
                 <div x-data="{ messageHover: false }" @mouseover="messageHover = true" @mouseleave="messageHover = false" class="w-full flex items-center justify-between p-1 my-1 cursor-pointer sent-messages-item">
                     <div class="flex items-center">
@@ -90,6 +90,13 @@ $result = $stmt->get_result();
         font-family: 'Courier New', Courier, monospace;
         white-space: pre-wrap; /* Preserve whitespace and line breaks */
         margin-left: 20px; /* Indent the body text */
+    }
+    .unseen {
+        font-weight: bold;
+        background-color: #f0f0f0;
+    }
+    .seen {
+        font-weight: normal;
     }
 </style>
 
@@ -165,6 +172,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Show the details section
             messageDetails.style.display = 'block';
+
+            container.classList.remove('unseen');
+            container.classList.add('seen');
+
+            // Update the seen status in the database
+            const messageId = this.getAttribute('data-id');
+            fetch(`../phpfiles/mark_message_seen.php?id=${messageId}`, {
+                method: 'POST'
+            });
         });
     });
 
