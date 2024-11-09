@@ -221,10 +221,98 @@ $caseCount = $row['caseCount'];
             display: inline-block;
             margin-right: 0.5rem;
         }
+
+        @media (min-width: 1024px){ 
+            #hamburger{
+                display: none;
+            }
+
+            #view{
+                width: 20rem; /* md:w-60 */
+                position: relative; /* Keep it fixed */
+            }
+            #sidebar {
+                width: 20rem;
+                display: block;
+            }
+        }
+
+        
+        @media (min-width: 768px) {         
+            #sidebar {
+                width: 20rem; /* md:w-60 */
+                position: fixed; /* Keep it fixed */
+                top: 0; /* Align it to the top */
+                left: 0; /* Align it to the left */
+                z-index: 20; /* Higher z-index to stay on top */
+                height: 100%; /* Full height */
+                background-color: #fff; /* Optional: Set a background color */
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+                transition: transform 0.3s ease; /* Smooth transition for opening/closing */
+
+            }
+
+            #sidebar.closed {
+                transform: translateX(-100%); /* Move it out of view when closed */
+            }
+
+            /* Header Styles */
+            #hamburger {
+                position: absolute; /* Fixed position within the header */
+                top: 30px; /* Spacing from the top */
+                left: 10px; /* Spacing from the left */
+                z-index: 40; /* Ensure it sits above the header and sidebar */
+                cursor: pointer;
+                font-size: 1.5rem;
+                background-color: #A9A9A9; /* Set your desired background color here */
+                color: white; /* Text color for contrast */
+                padding: 10px; /* Padding around the icon */
+                border-radius: 30px; /* Rounded corners */
+                transition: background-color 0.3s ease; /* Smooth transition for background color */
+            }
+
+
+
+        }
+
+        @media (min-width: 480px) {         
+            #sidebar {
+                width: 20rem; /* md:w-60 */
+                position: fixed; /* Keep it fixed */
+                top: 0; /* Align it to the top */
+                left: 0; /* Align it to the left */
+                z-index: 20; /* Higher z-index to stay on top */
+                height: 100%; /* Full height */
+                background-color: #fff; /* Optional: Set a background color */
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+                transition: transform 0.3s ease; /* Smooth transition for opening/closing */
+
+            }
+
+            #sidebar.closed {
+                transform: translateX(-100%); /* Move it out of view when closed */
+            }
+
+            /* Header Styles */
+            #hamburger {
+                position: absolute; /* Fixed position within the header */
+                top: 30px; /* Spacing from the top */
+                left: 10px; /* Spacing from the left */
+                z-index: 40; /* Ensure it sits above the header and sidebar */
+                cursor: pointer;
+                font-size: 1.5rem;
+                background-color: #A9A9A9; /* Set your desired background color here */
+                color: white; /* Text color for contrast */
+                padding: 10px; /* Padding around the icon */
+                border-radius: 30px; /* Rounded corners */
+                transition: background-color 0.3s ease; /* Smooth transition for background color */
+            }
+        }
     </style>
 </head>
 
 <body class="font-poppins antialiased">
+    <div id="hamburger">☰</div>
     <div id="view" class="h-full flex flex-row">
         <div id="sidebar" class="bg-gray-300 h-screen md:block shadow-xl px-12 w-30 md:w-60 lg:w-80 overflow-x-hidden transition-transform duration-300 ease-in-out">
             <div class="space-y-6 md:space-y-10 mt-10">
@@ -293,7 +381,31 @@ $caseCount = $row['caseCount'];
                 </div>
             </div>
         </div>
+
     </div>
+     <script>
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                const button = document.getElementById('hamburger');
+
+                // Toggle the sidebar's visibility
+                if (sidebar.style.transform === "translateX(0%)") {
+                    sidebar.style.transform = "translateX(-100%)"; // Hide sidebar
+                    button.innerHTML = "☰"; // Change back to hamburger icon
+                } else {
+                    sidebar.style.transform = "translateX(0%)"; // Show sidebar
+                    button.innerHTML = "⬅"; // Right arrow when sidebar is open
+                }
+            }
+            // Initialize sidebar as visible on load
+            document.addEventListener('DOMContentLoaded', () => {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.style.transform = "translateX(0%)"; // Show sidebar on load
+            });
+            
+            // Add event listener to the hamburger div
+            document.getElementById('hamburger').addEventListener('click', toggleSidebar);
+        </script>
 </body>
 
 </html>
