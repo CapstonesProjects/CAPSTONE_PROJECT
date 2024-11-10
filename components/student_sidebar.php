@@ -31,10 +31,12 @@ $caseCount = $row['caseCount'];
 
 
     <style>
+
         body {
             font-family: 'Poppins', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            font-size: 16px; /* or your preferred default size */
         }
 
         #view {
@@ -58,20 +60,12 @@ $caseCount = $row['caseCount'];
             overflow-x: hidden;
         }
 
-        @media (min-width: 768px) {
-            #sidebar {
-                width: 15rem;
-                /* md:w-60 */
-            }
+        .text-md {
+            font-size: 18px; /* Adjust this size as needed */
         }
 
-        @media (min-width: 1024px) {
-            #sidebar {
-                width: 20rem;
-                /* lg:w-80 */
-            }
-        }
 
+      
         .space-y-6>*+* {
             margin-top: 1.5rem;
             /* space-y-6 */
@@ -102,12 +96,6 @@ $caseCount = $row['caseCount'];
             margin-right: auto;
         }
 
-        @media (min-width: 768px) {
-            #profile img {
-                width: 4rem;
-                /* md:w-36 */
-            }
-        }
 
         #profile h2 {
             font-weight: 500;
@@ -119,12 +107,7 @@ $caseCount = $row['caseCount'];
             /* text-teal-500 */
         }
 
-        @media (min-width: 768px) {
-            #profile h2 {
-                font-size: 1.25rem;
-                /* md:text-xl */
-            }
-        }
+  
 
         #profile p {
             font-size: 0.75rem;
@@ -222,8 +205,8 @@ $caseCount = $row['caseCount'];
             margin-right: 0.5rem;
         }
         
-
-        @media (min-width: 1024px){ 
+        @media (min-width: 1024px)
+        { 
             #hamburger{
                 display: none;
             }
@@ -236,10 +219,17 @@ $caseCount = $row['caseCount'];
                 width: 20rem;
                 display: block;
             }
+
+            .text-md {
+                font-size: 18px; /* Adjust this size as needed */
+            }
+
+            
         }
 
         
-        @media (min-width: 768px) {         
+        @media (min-width: 768px) 
+        {         
             #sidebar {
                 width: 20rem; /* md:w-60 */
                 position: fixed; /* Keep it fixed */
@@ -272,11 +262,30 @@ $caseCount = $row['caseCount'];
                 transition: background-color 0.3s ease; /* Smooth transition for background color */
             }
 
+            #profile h2 {
+                font-size: 1.25rem;
+                /* md:text-xl */
+            }
+
+            
+            #profile img {
+                width: 4rem;
+                /* md:w-36 */
+            }
+
+            .text-md {
+                font-size: 15px; /* Adjust this size as needed */
+            }
 
 
         }
+            
 
-        @media (min-width: 480px) {         
+        
+
+        @media (min-width: 480px) 
+        {   
+
             #sidebar {
                 width: 20rem; /* md:w-60 */
                 position: fixed; /* Keep it fixed */
@@ -308,7 +317,12 @@ $caseCount = $row['caseCount'];
                 border-radius: 30px; /* Rounded corners */
                 transition: background-color 0.3s ease; /* Smooth transition for background color */
             }
+
+            .text-md {
+                font-size: 12px; /* Adjust this size as needed */
+            }
         }
+
     </style>
 </head>
 
@@ -343,7 +357,7 @@ $caseCount = $row['caseCount'];
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                             <path fill="currentColor" fill-rule="evenodd" d="M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0m0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5z" clip-rule="evenodd" />
                         </svg>
-                        <span class="text-md">Profile</span>
+                        <span class="text-sm sm:text-md md:text-lg">Profile</span>
                     </a>
                     
                     <a href="../Student/Notification.php" class="text-lg font-medium <?php echo $activeMenu == 'notification' ? 'active' : 'text-gray-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
@@ -353,14 +367,14 @@ $caseCount = $row['caseCount'];
                                 <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v3.528a1 1 0 0 1-.105.447l-1.717 3.433A1.1 1.1 0 0 0 4.162 18h15.676a1.1 1.1 0 0 0 .984-1.592l-1.716-3.433a1 1 0 0 1-.106-.447V9a7 7 0 0 0-7-7m0 19a3 3 0 0 1-2.83-2h5.66A3 3 0 0 1 12 21" />
                             </g>
                         </svg>
-                        <span class="text-md">Notification</span>
+                        <span class="text-sm sm:text-md md:text-lg">Notification</span>
                     </a>
 
                     <a href="../Student/Case.php" class="text-lg font-medium <?php echo $activeMenu == 'scholarship' ? 'active' : 'text-black-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                             <path d="M18 22a2 2 0 0 0 2-2V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12zM13 4l5 5h-5V4zM7 8h3v2H7V8zm0 4h10v2H7v-2zm0 4h10v2H7v-2z"></path>
                         </svg>
-                        <span class="text-md">Case</span>
+                        <span class="text-sm sm:text-md md:text-lg">Case</span>
                         <?php if ($caseCount > 0 && !$_SESSION['casesViewed']): ?>
                             <span class="ml-2 bg-red-500 text-white text-sm font-semibold px-2 py-1 rounded-full"><?php echo $caseCount; ?></span>
                         <?php endif; ?>
@@ -371,9 +385,19 @@ $caseCount = $row['caseCount'];
                             <path fill="currentColor" d="M18 14h12v2H18zm0 5h8v2h-8zm0-10h12v2H18z" />
                             <path fill="currentColor" d="M22 24v4H6V16h8v-2h-4V8a4 4 0 0 1 7.668-1.6l1.832-.8A6.001 6.001 0 0 0 8 8v6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4Z" />
                         </svg>
-                        <span class="text-md">Rules & Regulation</span>
+                        <span class="text-sm sm:text-md md:text-lg">Rules&Regulation</span>
                     </a>
 
+
+                    <!-- <a href="../Student/Rules_Regulation.php" class="text-lg font-medium <?php echo $activeMenu == 'rules&regulation' ? 'active' : 'text-black-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
+                            <path fill="currentColor" d="M18 14h12v2H18zm0 5h8v2h-8zm0-10h12v2H18z" />
+                            <path fill="currentColor" d="M22 24v4H6V16h8v-2h-4V8a4 4 0 0 1 7.668-1.6l1.832-.8A6.001 6.001 0 0 0 8 8v6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4Z" />
+                        </svg>
+                        <span class="text-sm sm:text-md md:text-lg">Rules & Regulation</span>
+                    </a> -->
+                          
+                    
                 </div>
 
                 <div>
@@ -383,7 +407,7 @@ $caseCount = $row['caseCount'];
                                 <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
                                 <path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path>
                             </svg>
-                            <span>Logout</span>
+                            <span class="text-sm sm:text-md md:text-lg">Logout</span>
                         </button>
                     </form>
                 </div>

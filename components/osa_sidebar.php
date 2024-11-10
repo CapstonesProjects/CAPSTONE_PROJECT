@@ -266,7 +266,6 @@
             }
 
 
-
         }
 
         @media (min-width: 480px) {         
