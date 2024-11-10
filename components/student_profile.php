@@ -37,7 +37,7 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
         }
     }
 
-    @media (min-width: 648px) {
+    @media (max-width: 648px) {
         .custom-div {
             max-width: 38rem; /* Tailwind's md:max-w-5xl */
         }
