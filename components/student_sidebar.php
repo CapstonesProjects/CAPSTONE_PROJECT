@@ -282,7 +282,7 @@ $caseCount = $row['caseCount'];
 
         
 
-        @media (min-width: 480px) 
+        @media (max-width: 648px) 
         {   
 
             #sidebar {
