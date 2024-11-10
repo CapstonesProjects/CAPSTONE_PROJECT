@@ -237,7 +237,6 @@ $caseCount = $row['caseCount'];
                 left: 0; /* Align it to the left */
                 z-index: 20; /* Higher z-index to stay on top */
                 height: 100%; /* Full height */
-                background-color: #fff; /* Optional: Set a background color */
                 box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
                 transition: transform 0.3s ease; /* Smooth transition for opening/closing */
 
@@ -293,7 +292,6 @@ $caseCount = $row['caseCount'];
                 left: 0; /* Align it to the left */
                 z-index: 20; /* Higher z-index to stay on top */
                 height: 100%; /* Full height */
-                background-color: #fff; /* Optional: Set a background color */
                 box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
                 transition: transform 0.3s ease; /* Smooth transition for opening/closing */
 
