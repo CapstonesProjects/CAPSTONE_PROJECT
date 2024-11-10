@@ -28,6 +28,51 @@ include('../modals/AddStudentModal_OSA.php');
     <title>OSA Student Profile - LOA OSA</title>
 </head>
 
+<style>
+     .custom-div {
+        overflow: auto;
+        max-height: 100%; /* Default max-height */
+        max-width: 100%;   /* Default max-width */
+    }
+    @media (max-width: 1040px) {
+        .custom-div {
+            max-width:  80rem; /* Tailwind's sm:max-w-md */
+        }
+    }
+
+    @media (max-width: 648px) {
+        .custom-div {
+            max-width: 40rem; /* Tailwind's md:max-w-5xl */
+        }
+
+        .antialiased.sans-serif.h-screen.ml-0 {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+        }
+
+        .overflow-x-auto.bg-white.rounded-lg.shadow.overflow-y-auto.relative {
+            max-height: 100%;
+            max-width: 36rem; 
+        }
+
+        .container{
+            max-height: fit-content;
+        }
+        
+        .searchbar{
+            max-width: 20rem;
+        }
+
+        .AddStudent{
+            position: right;
+        }
+
+
+    }
+
+</style>
+<div class="custom-div">
 <body class="font-poppins antialiased">
     <!-- Define the SVG symbol -->
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -55,6 +100,7 @@ include('../modals/AddStudentModal_OSA.php');
 
     <?php include('../alerts/adding_student_alerts.php'); ?>
 </body>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
