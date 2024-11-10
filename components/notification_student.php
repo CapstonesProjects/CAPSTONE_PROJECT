@@ -1,4 +1,5 @@
 <!-- component -->
+<div class="custom-div">
 <div class="w-full bg-gray-200 shadow-xl rounded-lg flex overflow-x-auto custom-scrollbar" style="width: 1598px; height: 905px;">
     <div class="flex-1 px-2" x-data="{ checkAll: false, filterMessages: false }">
         <div class="h-16 flex items-center justify-between">
@@ -87,6 +88,7 @@
         
 
     </div>
+</div>
 </div>
 <!-- 
 <script>
