@@ -61,6 +61,7 @@ if (isset($_SESSION['UserID'])) {
         .custom-div {
             max-width:  80rem; /* Tailwind's sm:max-w-md */
         }
+        
     }
 
     @media (max-width: 648px) {
@@ -72,6 +73,7 @@ if (isset($_SESSION['UserID'])) {
             max-width: 39rem; /* Tailwind's md:max-w-5xl */
         }
 
+
         .text-lg{
             font-size: 0.75rem;
             line-height: 1rem;
@@ -80,8 +82,10 @@ if (isset($_SESSION['UserID'])) {
     }
 </style>
 </head> 
+
 <div class=" custom-div">
 <body class="font-poppins antialiased bg-white">
+   
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-auto transition-transform duration-300 ease-in-out">
             <?php
