@@ -33,7 +33,49 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 </head>
 
+<style>
+    .custom-div {
+        overflow: auto;
+        max-height: 100%; /* Default max-height */
+        max-width: 100%;   /* Default max-width */
+    }
+
+    @media (max-width: 1040px) {
+        .custom-div {
+            max-width:  80rem; /* Tailwind's sm:max-w-md */
+        }
+    }
+
+    @media (max-width: 648px) {
+        .custom-div {
+            max-width: 41rem; /* Tailwind's md:max-w-5xl */
+        }
+
+        .mb-4{
+            text-align: center;
+        }
+
+        .mb-2{
+            text-align: left;
+
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0rem;
+        }
+
+        .bg-white.rounded-lg.shadow-xl.pb-8 {
+            max-width: 38rem;
+            padding: 0rem;
+        }
+
+        
+    }
+</style>
+
 <body>
+    <div class="custom-div">
     <div class="h-full  pt-2 pl-6 pr-6 overflow-hidden">
         <div class="bg-white rounded-lg shadow-xl pb-8 mt-8" style="width: 1550px; margin: 0 auto;">
             <div x-data="{ openSettings: false }" class="absolute right-12 mt-4 rounded">
@@ -159,7 +201,7 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
 
     </div>
 
-
+    </div>
 </body>
 
 </html>
