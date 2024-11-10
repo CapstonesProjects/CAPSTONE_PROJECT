@@ -31,10 +31,12 @@ $caseCount = $row['caseCount'];
 
 
     <style>
+
         body {
             font-family: 'Poppins', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            font-size: 16px; /* or your preferred default size */
         }
 
         #view {
@@ -58,20 +60,12 @@ $caseCount = $row['caseCount'];
             overflow-x: hidden;
         }
 
-        @media (min-width: 768px) {
-            #sidebar {
-                width: 15rem;
-                /* md:w-60 */
-            }
+        .text-md {
+            font-size: 18px; /* Adjust this size as needed */
         }
 
-        @media (min-width: 1024px) {
-            #sidebar {
-                width: 20rem;
-                /* lg:w-80 */
-            }
-        }
 
+      
         .space-y-6>*+* {
             margin-top: 1.5rem;
             /* space-y-6 */
@@ -102,12 +96,6 @@ $caseCount = $row['caseCount'];
             margin-right: auto;
         }
 
-        @media (min-width: 768px) {
-            #profile img {
-                width: 4rem;
-                /* md:w-36 */
-            }
-        }
 
         #profile h2 {
             font-weight: 500;
@@ -119,12 +107,7 @@ $caseCount = $row['caseCount'];
             /* text-teal-500 */
         }
 
-        @media (min-width: 768px) {
-            #profile h2 {
-                font-size: 1.25rem;
-                /* md:text-xl */
-            }
-        }
+  
 
         #profile p {
             font-size: 0.75rem;
@@ -221,12 +204,140 @@ $caseCount = $row['caseCount'];
             display: inline-block;
             margin-right: 0.5rem;
         }
+        
+        @media (min-width: 1024px)
+        { 
+            #hamburger{
+                display: none;
+            }
+
+            #view{
+                width: 20rem; /* md:w-60 */
+                position: relative; /* Keep it fixed */
+            }
+            #sidebar {
+                width: 20rem;
+                display: block;
+            }
+
+            .text-md {
+                font-size: 18px; /* Adjust this size as needed */
+            }
+
+            
+        }
+
+        
+        @media (min-width: 768px) 
+        {         
+            #sidebar {
+                width: 20rem; /* md:w-60 */
+                position: fixed; /* Keep it fixed */
+                top: 0; /* Align it to the top */
+                left: 0; /* Align it to the left */
+                z-index: 20; /* Higher z-index to stay on top */
+                height: 100%; /* Full height */
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+                transition: transform 0.3s ease; /* Smooth transition for opening/closing */
+
+            }
+
+            #sidebar.closed {
+                transform: translateX(-100%); /* Move it out of view when closed */
+            }
+
+            /* Header Styles */
+            #hamburger {
+                position: absolute; /* Fixed position within the header */
+                top: 30px; /* Spacing from the top */
+                left: 10px; /* Spacing from the left */
+                z-index: 40; /* Ensure it sits above the header and sidebar */
+                cursor: pointer;
+                font-size: 1.5rem;
+                background-color: #A9A9A9; /* Set your desired background color here */
+                color: white; /* Text color for contrast */
+                padding: 10px; /* Padding around the icon */
+                border-radius: 30px; /* Rounded corners */
+                transition: background-color 0.3s ease; /* Smooth transition for background color */
+            }
+
+            #profile h2 {
+                font-size: 1.25rem;
+                /* md:text-xl */
+            }
+
+            
+            #profile img {
+                width: 4rem;
+                /* md:w-36 */
+            }
+
+            .text-md {
+                font-size: 15px; /* Adjust this size as needed */
+            }
+
+
+        }
+            
+
+        
+
+        @media (min-width: 480px) 
+        {   
+
+            #sidebar {
+                width: 20rem; /* md:w-60 */
+                position: fixed; /* Keep it fixed */
+                top: 0; /* Align it to the top */
+                left: 0; /* Align it to the left */
+                z-index: 20; /* Higher z-index to stay on top */
+                height: 100%; /* Full height */
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+                transition: transform 0.3s ease; /* Smooth transition for opening/closing */
+
+            }
+
+            #sidebar.closed {
+                transform: translateX(-100%); /* Move it out of view when closed */
+            }
+
+            /* Header Styles */
+            #hamburger {
+                position: absolute; /* Fixed position within the header */
+                top: 30px; /* Spacing from the top */
+                left: 10px; /* Spacing from the left */
+                z-index: 40; /* Ensure it sits above the header and sidebar */
+                cursor: pointer;
+                font-size: 1.5rem;
+                background-color: #A9A9A9; /* Set your desired background color here */
+                color: white; /* Text color for contrast */
+                padding: 10px; /* Padding around the icon */
+                border-radius: 30px; /* Rounded corners */
+                transition: background-color 0.3s ease; /* Smooth transition for background color */
+            }
+
+            .text-md {
+                font-size: 12px; /* Adjust this size as needed */
+            }
+        }
+
     </style>
 </head>
 
 <body class="font-poppins antialiased">
+    <div id="hamburger">☰</div>
     <div id="view" class="h-full flex flex-row">
         <div id="sidebar" class="bg-gray-300 h-screen md:block shadow-xl px-12 w-30 md:w-60 lg:w-80 overflow-x-hidden transition-transform duration-300 ease-in-out">
+
+            <div class="absolute top-0 right-0 mt-2 ml-4">
+                <a href="" class="text-lg font-medium text-gray-700 py-3 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current inline-block">
+                            <path d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.084 0 2 .916 2 2s-.916 2-2 2-2-.916-2-2 .916-2 2-2z"></path>
+                            <path d="m2.845 16.136 1 1.73c.531.917 1.809 1.261 2.73.73l.529-.306A8.1 8.1 0 0 0 9 19.402V20c0 1.103.897 2 2 2h2c1.103 0 2-.897 2-2v-.598a8.132 8.132 0 0 0 1.896-1.111l.529.306c.923.53 2.198.188 2.731-.731l.999-1.729a2.001 2.001 0 0 0-.731-2.732l-.505-.292a7.718 7.718 0 0 0 0-2.224l.505-.292a2.002 2.002 0 0 0 .731-2.732l-.999-1.729c-.531-.92-1.808-1.265-2.731-.732l-.529.306A8.1 8.1 0 0 0 15 4.598V4c0-1.103-.897-2-2-2h-2c-1.103 0-2 .897-2 2v.598a8.132 8.132 0 0 0-1.896 1.111l-.529-.306c-.924-.531-2.2-.187-2.731.732l-.999 1.729a2.001 2.001 0 0 0 .731 2.732l.505.292a7.683 7.683 0 0 0 0 2.223l-.505.292a2.003 2.003 0 0 0-.731 2.733zm3.326-2.758A5.703 5.703 0 0 1 6 12c0-.462.058-.926.17-1.378a.999.999 0 0 0-.47-1.108l-1.123-.65.998-1.729 1.145.662a.997.997 0 0 0 1.188-.142 6.071 6.071 0 0 1 2.384-1.399A1 1 0 0 0 11 5.3V4h2v1.3a1 1 0 0 0 .708.956 6.083 6.083 0 0 1 2.384 1.399.999.999 0 0 0 1.188.142l1.144-.661 1 1.729-1.124.649a1 1 0 0 0-.47 1.108c.112.452.17.916.17 1.378 0 .461-.058.925-.171 1.378a1 1 0 0 0 .471 1.108l1.123.649-.998 1.729-1.145-.661a.996.996 0 0 0-1.188.142 6.071 6.071 0 0 1-2.384 1.399A1 1 0 0 0 13 18.7l.002 1.3H11v-1.3a1 1 0 0 0-.708-.956 6.083 6.083 0 0 1-2.384-1.399.992.992 0 0 0-1.188-.141l-1.144.662-1-1.729 1.124-.651a1 1 0 0 0 .471-1.108z"></path>
+                    </svg>
+                </a>
+            </div>
+
             <div class="space-y-6 md:space-y-10 mt-10">
                 <h1 class="hidden md:block font-bold text-sm md:text-xl text-center"></h1>
                 <div id="profile" class="space-y-3 mb-8">
@@ -244,8 +355,9 @@ $caseCount = $row['caseCount'];
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                             <path fill="currentColor" fill-rule="evenodd" d="M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0m0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5z" clip-rule="evenodd" />
                         </svg>
-                        <span class="text-md">Profile</span>
+                        <span class="text-sm sm:text-md md:text-lg">Profile</span>
                     </a>
+                    
                     <a href="../Student/Notification.php" class="text-lg font-medium <?php echo $activeMenu == 'notification' ? 'active' : 'text-gray-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                             <g fill="none">
@@ -253,31 +365,37 @@ $caseCount = $row['caseCount'];
                                 <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v3.528a1 1 0 0 1-.105.447l-1.717 3.433A1.1 1.1 0 0 0 4.162 18h15.676a1.1 1.1 0 0 0 .984-1.592l-1.716-3.433a1 1 0 0 1-.106-.447V9a7 7 0 0 0-7-7m0 19a3 3 0 0 1-2.83-2h5.66A3 3 0 0 1 12 21" />
                             </g>
                         </svg>
-                        <span class="text-md">Notification</span>
+                        <span class="text-sm sm:text-md md:text-lg">Notification</span>
                     </a>
+
                     <a href="../Student/Case.php" class="text-lg font-medium <?php echo $activeMenu == 'scholarship' ? 'active' : 'text-black-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                             <path d="M18 22a2 2 0 0 0 2-2V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12zM13 4l5 5h-5V4zM7 8h3v2H7V8zm0 4h10v2H7v-2zm0 4h10v2H7v-2z"></path>
                         </svg>
-                        <span class="text-md">Case</span>
+                        <span class="text-sm sm:text-md md:text-lg">Case</span>
                         <?php if ($caseCount > 0 && !$_SESSION['casesViewed']): ?>
                             <span class="ml-2 bg-red-500 text-white text-sm font-semibold px-2 py-1 rounded-full"><?php echo $caseCount; ?></span>
                         <?php endif; ?>
                     </a>
+
                     <a href="../Student/Rules_Regulation.php" class="text-lg font-medium <?php echo $activeMenu == 'rules&regulation' ? 'active' : 'text-black-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
                             <path fill="currentColor" d="M18 14h12v2H18zm0 5h8v2h-8zm0-10h12v2H18z" />
                             <path fill="currentColor" d="M22 24v4H6V16h8v-2h-4V8a4 4 0 0 1 7.668-1.6l1.832-.8A6.001 6.001 0 0 0 8 8v6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4Z" />
                         </svg>
-                        <span class="text-md">Rules & Regulation</span>
+                        <span class="text-sm sm:text-md md:text-lg">Rules&Regulation</span>
                     </a>
-                    <a href="" class="text-lg font-medium text-gray-700 py-3 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current inline-block">
-                            <path d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.084 0 2 .916 2 2s-.916 2-2 2-2-.916-2-2 .916-2 2-2z"></path>
-                            <path d="m2.845 16.136 1 1.73c.531.917 1.809 1.261 2.73.73l.529-.306A8.1 8.1 0 0 0 9 19.402V20c0 1.103.897 2 2 2h2c1.103 0 2-.897 2-2v-.598a8.132 8.132 0 0 0 1.896-1.111l.529.306c.923.53 2.198.188 2.731-.731l.999-1.729a2.001 2.001 0 0 0-.731-2.732l-.505-.292a7.718 7.718 0 0 0 0-2.224l.505-.292a2.002 2.002 0 0 0 .731-2.732l-.999-1.729c-.531-.92-1.808-1.265-2.731-.732l-.529.306A8.1 8.1 0 0 0 15 4.598V4c0-1.103-.897-2-2-2h-2c-1.103 0-2 .897-2 2v.598a8.132 8.132 0 0 0-1.896 1.111l-.529-.306c-.924-.531-2.2-.187-2.731.732l-.999 1.729a2.001 2.001 0 0 0 .731 2.732l.505.292a7.683 7.683 0 0 0 0 2.223l-.505.292a2.003 2.003 0 0 0-.731 2.733zm3.326-2.758A5.703 5.703 0 0 1 6 12c0-.462.058-.926.17-1.378a.999.999 0 0 0-.47-1.108l-1.123-.65.998-1.729 1.145.662a.997.997 0 0 0 1.188-.142 6.071 6.071 0 0 1 2.384-1.399A1 1 0 0 0 11 5.3V4h2v1.3a1 1 0 0 0 .708.956 6.083 6.083 0 0 1 2.384 1.399.999.999 0 0 0 1.188.142l1.144-.661 1 1.729-1.124.649a1 1 0 0 0-.47 1.108c.112.452.17.916.17 1.378 0 .461-.058.925-.171 1.378a1 1 0 0 0 .471 1.108l1.123.649-.998 1.729-1.145-.661a.996.996 0 0 0-1.188.142 6.071 6.071 0 0 1-2.384 1.399A1 1 0 0 0 13 18.7l.002 1.3H11v-1.3a1 1 0 0 0-.708-.956 6.083 6.083 0 0 1-2.384-1.399.992.992 0 0 0-1.188-.141l-1.144.662-1-1.729 1.124-.651a1 1 0 0 0 .471-1.108z"></path>
+
+
+                    <!-- <a href="../Student/Rules_Regulation.php" class="text-lg font-medium <?php echo $activeMenu == 'rules&regulation' ? 'active' : 'text-black-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
+                            <path fill="currentColor" d="M18 14h12v2H18zm0 5h8v2h-8zm0-10h12v2H18z" />
+                            <path fill="currentColor" d="M22 24v4H6V16h8v-2h-4V8a4 4 0 0 1 7.668-1.6l1.832-.8A6.001 6.001 0 0 0 8 8v6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4Z" />
                         </svg>
-                        <span class="text-md">Settings</span>
-                    </a>
+                        <span class="text-sm sm:text-md md:text-lg">Rules & Regulation</span>
+                    </a> -->
+                          
+                    
                 </div>
 
                 <div>
@@ -287,13 +405,38 @@ $caseCount = $row['caseCount'];
                                 <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
                                 <path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path>
                             </svg>
-                            <span>Logout</span>
+                            <span class="text-sm sm:text-md md:text-lg">Logout</span>
                         </button>
                     </form>
                 </div>
+
             </div>
         </div>
+
     </div>
+     <script>
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                const button = document.getElementById('hamburger');
+
+                // Toggle the sidebar's visibility
+                if (sidebar.style.transform === "translateX(0%)") {
+                    sidebar.style.transform = "translateX(-100%)"; // Hide sidebar
+                    button.innerHTML = "☰"; // Change back to hamburger icon
+                } else {
+                    sidebar.style.transform = "translateX(0%)"; // Show sidebar
+                    button.innerHTML = "⬅"; // Right arrow when sidebar is open
+                }
+            }
+            // Initialize sidebar as visible on load
+            document.addEventListener('DOMContentLoaded', () => {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.style.transform = "translateX(0%)"; // Show sidebar on load
+            });
+            
+            // Add event listener to the hamburger div
+            document.getElementById('hamburger').addEventListener('click', toggleSidebar);
+        </script>
 </body>
 
 </html>

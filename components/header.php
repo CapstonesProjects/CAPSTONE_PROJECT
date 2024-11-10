@@ -35,7 +35,6 @@
         <li><a href="./index.php">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#events">Events</a></li>
-        <li><a href="#scholar">Scholar</a></li>
     </ul>
 
     <!-- <ul class="navlist">
