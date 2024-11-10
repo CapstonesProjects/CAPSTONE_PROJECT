@@ -309,8 +309,8 @@
 <div id="hamburger">☰</div>
 <body class="font-poppins antialiased">
     <div id="view" class="h-full flex flex-row overflow-x-hidden">
-       
         <div id="sidebar" class="bg-gray-300 h-screen md:block shadow-xl px-12 w-30 md:w-60 lg:w-80 overflow-x-hidden transition-transform duration-300 ease-in-out">
+        
         <div class="absolute top-0 left-0 mt-2 ml-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current text-black hover:text-teal-500 transition-transform transform hover:scale-110">
                 <path d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.084 0 2 .916 2 2s-.916 2-2 2-2-.916-2-2 .916-2 2-2z"></path>

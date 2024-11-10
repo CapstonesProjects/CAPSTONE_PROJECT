@@ -403,7 +403,7 @@
             </div>
         </div>
     </div>
-    <script>
+     <script>
             function toggleSidebar() {
                 const sidebar = document.getElementById('sidebar');
                 const button = document.getElementById('hamburger');
