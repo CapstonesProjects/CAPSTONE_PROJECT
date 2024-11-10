@@ -37,7 +37,7 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
         }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 648px) {
         .custom-div {
             max-width: 28rem; /* Tailwind's md:max-w-5xl */
         }
@@ -61,7 +61,9 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
             margin: 0 auto;
         }
 
-        
+        .prof-bg {
+            height: 156px;;
+        }
     }
 </style>
 
@@ -118,7 +120,7 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
                     </div>
                 </div>
             </div>
-            <div class="w-full h-[250px]">
+            <div class="w-full prof-bg h-[250px]">
                 <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" class="w-full h-full rounded-tl-lg rounded-tr-lg opacity-75">
             </div>
             <div class="flex flex-col items-center -mt-20">
