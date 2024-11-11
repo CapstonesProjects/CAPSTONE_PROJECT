@@ -33,6 +33,7 @@ if (isset($_SESSION['UserID'])) {
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/style2.css">
     <link rel="stylesheet" href="../css/student_profile.css">
+    <link rel="stylesheet" href="../css/rnr.css">
     <link rel="shortcut icon" href="../images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Student Rules & Regulation - LOA OSA</title>
