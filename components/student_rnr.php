@@ -1,6 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+#rnr {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0%;
+  padding-bottom: 110px;
+  scroll-behavior: smooth;
+}
 
+.bg-container {
+  width: 100%;
+  max-width: 100rem;
+  height: 58rem;
+  padding: 3rem;
+  background: #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(18, 18, 18, 0.1);
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  overflow-y: auto ;
+  margin: 0%;
+}
+
+.scholar-container {
+  max-height: 500px;
+  
+  padding: 16px;
+}
+.right ul {
+  font-size: 1.125rem;
+  margin-bottom: 10px;
+  list-style: square;
+  text-align: left;
+  padding-left: 80px;
+}
+
+.right ul li {
+  list-style: square;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.sec-note ul {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  list-style: square;
+  text-align: left;
+  padding-left: 80px;
+}
+
+.sec-note ul li {
+  list-style: square;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+</style>
 
 <body>
   <section id="rnr" class="rnr">
@@ -8,28 +66,28 @@
       <div class="bg-container">
         <div class="text-content">
                 
-                <h1 class="section-title">Section 1:  Life on Campus </h1>
-                <h2 class="sub-sec">The student </h2>
+                <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 1:  Life on Campus </h1>
+                <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">The student </h2>
                 <section class="scho-info">
-                <p class="para-sent">They are enrolled at the Lyceum of Alabang and are expected to be morally upright. The students of 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">They are enrolled at the Lyceum of Alabang and are expected to be morally upright. The students of 
                     Lyceum of Alabang shall uphold decency and righteousness inside and outside the Institution, as 
                     they encompass the model citizens of the country. The student is expected to be a Law-abiding 
                     Youth who is Courteous, Emphatic, Accountable, and Noble (LYCEAN). </p>
 
-            <p class="para-sent">The area covers Student Conduct and Rights (Dress Code, Offenses, & Sanctions); the section also 
+            <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The area covers Student Conduct and Rights (Dress Code, Offenses, & Sanctions); the section also 
                 entails the responsible team deliberating and administering the discipline and sanctions, including 
                 information about student organizations and other student services. </p>
             </section>
 
-            <h2 class="sub-sec">Student Rights and Responsibilities </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Student Rights and Responsibilities </h2>
                 <section class="sec-info">
-                <p class="para-sent">The Lyceum of Alabang provides certain rights to allow students to develop and evolve as 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The Lyceum of Alabang provides certain rights to allow students to develop and evolve as 
                     productive members of society. However, certain privileges do not allow behavior that will create 
                     unhealthy or unsafe conditions within the Institution or disrupt the normal institutional process. 
                     The rights and responsibilities of the students are as follows:</p>
             </section>
             
-            <h2 class="sub-sec">1. The Right to be Heard</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">1. The Right to be Heard</h2>
             <section class="right">
             <ul>
                 <li>Present evidence to defend his/her/their rights.</li>
@@ -41,24 +99,24 @@
             </section>
 
            
-            <h2 class="sub-sec">2. The Right to Organize</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">2. The Right to Organize</h2>
                 <section class="sec-info">
-                <p class="para-sent">The students may form, assist, or join recognized organizations by the Lyceum of Alabang under the 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The students may form, assist, or join recognized organizations by the Lyceum of Alabang under the 
                     premise that this is for their physical, intellectual, moral, cultural, civic, spiritual, and political 
                     interests (within Lyceum of Alabang only and is subject to the approval of the Office of Student 
                     Affairs) NO fraternities or sororities.</p>
             </section>
 
             
-            <h2 class="sub-sec">3. Right to Publication </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">3. Right to Publication </h2>
                 <section class="sec-info">
-                <p class="para-sent">The students may form, assist, or join recognized organizations by the Lyceum of Alabang under the 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The students may form, assist, or join recognized organizations by the Lyceum of Alabang under the 
                     premise that this is for their physical, intellectual, moral, cultural, civic, spiritual, and political 
                     interests (within Lyceum of Alabang only and is subject to the approval of the Office of Student 
                     Affairs) NO fraternities or sororities.</p>
             </section>
             
-            <h2 class="sub-sec">4. The Student's Responsibilities</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">4. The Student's Responsibilities</h2>
             <section class="right">
             <ul>
                 <li>Be respectful and accountable for their actions. </li>
@@ -71,7 +129,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">5. The Appropriate Attire</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">5. The Appropriate Attire</h2>
             <section class="right">
             <ul>
                 <li>The student must always wear the I.D. from Lyceum of Alabang inside the campus. </li>
@@ -83,19 +141,19 @@
             </ul>
             </section>
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="sec-note">
-                <p class="para-note">The only acceptable outfits are Polo shirt, T-shirt and Blouse (not ripped, no plunging neckline, and 
+                <p class="text-base text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The only acceptable outfits are Polo shirt, T-shirt and Blouse (not ripped, no plunging neckline, and 
                     does not expose stomach and armpit). Pants that are decent, not ripped, not tattered, and not 
                     faded. The skirt should be two (2) inches below the knee). Shoes (enclosed, sneakers only on 
                     P.E. and wash days). P.E. uniforms are worn during P.E. classes and campus games only. Working or OJT 
                     Students - Corporate Attire and secure gate pass at the Office of Student Affairs(OSA).</p>
 
-                    <p class="para-note">The Prescribed Uniform of Lyceum of Alabang under the specific program (subject to the 
+                    <p class="text-base text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The Prescribed Uniform of Lyceum of Alabang under the specific program (subject to the 
                         recommendation of the Office of Student Affairs) </p>
             </section>
 
-            <h2 class="sub-sec">6. Grooming</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">6. Grooming</h2>
             <section class="right">
             <ul>
                 <li>Natural Hair Color </li>
@@ -105,7 +163,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">7. Piercing and Tattoos</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">7. Piercing and Tattoos</h2>
             <section class="right">
             <ul>
                 <li>Ear Piercing in the earlobes is the only acceptable piercing </li>
@@ -113,9 +171,9 @@
             </ul>
             </section>
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="sec-note">
-                <p class="para-note">For other concerns on piercing, tattoos, and other policies regarding dress codes and grooming, 
+                <p class="text-base text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">For other concerns on piercing, tattoos, and other policies regarding dress codes and grooming, 
                     kindly see the Office of Student Affairs. The Lesbian, Gay, Bisexual, Transgender, and Queer
                     Questioning (LGBTQ+) Community shall be allowed the following:</p>
             </section>
@@ -127,7 +185,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">8. The Classroom Decorum </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">8. The Classroom Decorum </h2>
             <section class="right">
             <ul>
                 <li>Ask a quick question that is based on the topic-in class.</li>
@@ -143,7 +201,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">9. Online Class</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">9. Online Class</h2>
             <section class="right">
             <ul>
                 <li>Fix your hair.</li>
@@ -157,17 +215,17 @@
             </ul>
             </section>
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="sec-note">
-                <p class="para-note">Use your MS Teams or LMS when getting in touch with professors or instructors for a detailed 
+                <p class="text-base text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Use your MS Teams or LMS when getting in touch with professors or instructors for a detailed 
                     question requiring a lengthy response during office hours (Monday to Friday, 8:00 AM to 5:00 PM).</p>
             </section>
 
-            <h1 class="section-title">Section 2:  Discipline </h1>
+            <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 2:  Discipline </h1>
 
-            <h2 class="sub-sec">A.	Categories of Sanctions</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">A.	Categories of Sanctions</h2>
                 <section class="sec-info">
-                <p class="para-sent">Disciplinary Administrative Sanctions for purposes of student discipline for Major Offenses 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Disciplinary Administrative Sanctions for purposes of student discipline for Major Offenses 
                     that may be applied upon an erring student are Suspension, Exclusion and Expulsion.</p>
             </section>
 
@@ -182,9 +240,9 @@
             </ul>
             </section>
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="sec-note">
-                <p class="para-note">Students under these suspensions are NOT ALLOWED to attend classes.</p>
+                <p class="text-base text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Students under these suspensions are NOT ALLOWED to attend classes.</p>
             </section>
 
             <section class="right">
@@ -198,9 +256,9 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">B.  Offenses and Sanctions</h2>
-            <h2 class="sub-sec">I. Minor Offenses: </h2>
-            <h2 class="sub-sec">Noncompliance of Academic Requirements </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">B.  Offenses and Sanctions</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">I. Minor Offenses: </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Noncompliance of Academic Requirements </h2>
             <section class="right">
             <ul>
                 <li>Attendance (exceeded allowable absences)</li>
@@ -209,7 +267,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">Attitude inside the Classroom</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Attitude inside the Classroom</h2>
             <section class="right">
             <ul>
                 <li>Classroom mischief, failure to turn off or put on silent the mobile phones</li>
@@ -219,7 +277,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">Behavior in Campus</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Behavior in Campus</h2>
             <section class="right">
             <ul>
                 <li>Engaging in bullying</li>
@@ -239,7 +297,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">Violation on ID</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Violation on ID</h2>
             <section class="right">
             <ul>
                 <li>Improper wearing of ID</li>
@@ -249,7 +307,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">Sanctions for Minor Offense:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Sanctions for Minor Offense:</h2>
             <section class="right">
             <ul>
                 <li>First Offense: Verbal reprimand or censure</li>
@@ -260,13 +318,13 @@
             </ul>
             </section>
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="sec-note">
-                <p class="para-note">Minor Offense done habitually will be considered as Major Offense.</p>
+                <p class="text-base text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Minor Offense done habitually will be considered as Major Offense.</p>
             </section>
 
-            <h2 class="sub-sec">II. Major Offenses: </h2>
-            <h2 class="sub-sec">Violations with Legal Implications</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">II. Major Offenses: </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Violations with Legal Implications</h2>
             <section class="right">
             <ul>
                 <li>Possession, use, or sale of illegal drugs (RA 9165) inside the school premises and 
@@ -304,7 +362,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">Misconduct in the Lyceum Campus </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Misconduct in the Lyceum Campus </h2>
             <section class="right">
             <ul>
                 <li>Instigating or leading protests. Initiate walkouts or similar activities resulting in the 
@@ -327,9 +385,9 @@
             </ul>
             </section>
             
-            <h2 class="sub-sec">Violations committed by a Representative of the Student</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Violations committed by a Representative of the Student</h2>
                 <section class="sec-info">
-                <p class="para-sent">Parents, guardians, or anyone who represents the student must act appropriately. Unwanted 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Parents, guardians, or anyone who represents the student must act appropriately. Unwanted 
                     decorum includes raising the voice or a taunting demeanor leading to unjust vexation will lead to 
                     the intervention of Police Officers. Lyceum of Alabang (LOA) has the right to refuse entrance to 
                     anyone misbehaving or considered a threat to the safety of the LOA personnel and students. 
@@ -339,7 +397,7 @@
                     any damage to LOA properties, including moral damage to its staff and the image of the Institution.</p>
             </section>
 
-            <h2 class="sub-sec">Sanctions for Major Offense:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Sanctions for Major Offense:</h2>
             <section class="right">
             <ul>
                 <li>First Offense: Suspension for a period of not less than five (5) days</li>
@@ -350,7 +408,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="right">
                     <ul>
                 <li>Students to undergo due process under major offenses. </li>
@@ -360,12 +418,12 @@
                     </ul>
             </section>
 
-            <h1 class="section-title">Section 3:  Board of Discipline comprises the Committee on Decorum and Investigation with the addition of the President and the Director of NSTP/IROTC. </h1>
+            <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 3:  Board of Discipline comprises the Committee on Decorum and Investigation with the addition of the President and the Director of NSTP/IROTC. </h1>
                 
             <section class="sec-info">
-            <p class="para-sent">Chairperson - President </p>
-            <p class="para-sent">Vice Chairperson - Vice President for Academic Affairs</p>
-            <h2 class="sub-note">Members:</h2>
+            <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Chairperson - President </p>
+            <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Vice Chairperson - Vice President for Academic Affairs</p>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Members:</h2>
             </section>
 
             <section class="right">
@@ -378,9 +436,9 @@
             </ul>
             </section>
 
-            <h2 class="sub-sec">The CODI Process</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">The CODI Process</h2>
                 <section class="sec-info">
-                <p class="para-sent">The Board of Discipline / Committee on Decorum and Investigation (CODI) shall review the 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The Board of Discipline / Committee on Decorum and Investigation (CODI) shall review the 
                     concerns or issues presented. It will be settled through a dialogue between the two partes with 
                     their professor, guardian, and witnesses, including the supporting evidence that may be presented.</p>
                     </section>
@@ -399,17 +457,17 @@
             </section>
             
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="sec-note">
-                <p class="para-note">(The Board of Discipline or CODI where the case is heard shall settle it through amicable settlement. Should the case does prosper, the CODI shall refer the case to the legal Counsel of the Institution and make legal opinion to the President or CEO Chairman of the Board. The decision of the President or CEO Chairman of the Board shall be final and executory). </p>
+                <p class="text-base text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">(The Board of Discipline or CODI where the case is heard shall settle it through amicable settlement. Should the case does prosper, the CODI shall refer the case to the legal Counsel of the Institution and make legal opinion to the President or CEO Chairman of the Board. The decision of the President or CEO Chairman of the Board shall be final and executory). </p>
             </section>
 
-            <h1 class="section-title">Section 4:  Student Organizations</h1>
+            <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 4:  Student Organizations</h1>
                 
                 <section class="scho-info">
-                <p class="para-sent">A. The Creation of a New Student Organization and Re-accreditation of the Existing Organization 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">A. The Creation of a New Student Organization and Re-accreditation of the Existing Organization 
                     (visit the Office of Student Affairs for the process). </p>
-            <p class="para-sent">B. Monitoring and Evaluation - The Office of Student Affairs (OSA) has the right to monitor and 
+            <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">B. Monitoring and Evaluation - The Office of Student Affairs (OSA) has the right to monitor and 
                 evaluate the recognized Student Organization's operation. </p>
             <h2 class="sub-note">Members:</h2>
             </section>
@@ -424,7 +482,7 @@
             </ul>
             </section>
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="sec-note">
                     <ul>
                 <li>The Office of Student Affairs (OSA) may recommend the suspension or termination of the 
@@ -435,7 +493,7 @@
                     </ul>
             </section>
 
-            <h2 class="sub-sec">The Privileges of the Organization</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">The Privileges of the Organization</h2>
 
                 <section class="right">
                 <ul>
@@ -445,17 +503,17 @@
                     </ul>
             </section>
 
-            <h1 class="section-title">Section 5:  Student Events and Activities (ln-Campus and Off-Campus)</h1>
+            <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 5:  Student Events and Activities (ln-Campus and Off-Campus)</h1>
 
-            <h2 class="sub-sec">A.	Co-curricular and Extra-Curricular Activities</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">A.	Co-curricular and Extra-Curricular Activities</h2>
                 
                 <section class="scho-info">
-                <p class="para-sent">An extra-curricular or co-curricular activity inside or outside the Lyceum of Alabang (LOA) 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">An extra-curricular or co-curricular activity inside or outside the Lyceum of Alabang (LOA) 
                     may be held, staged, or conducted upon favorable recommendation of the Office of 
                     Student Affairs (OSA), which shall be issued at least five (5) working days before such activity.</p>
             </section>
 
-            <h2 class="sub-sec">Requirements:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Requirements:</h2>
                 <section class="right">
                 <ul>
                 <li>The activity must have a proposal and program.</li>
@@ -467,7 +525,7 @@
                     </ul>
             </section>
 
-            <h2 class="sub-sec">B.	Educational Tours and Field Trips (CMO No.63 s 2017)</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">B.	Educational Tours and Field Trips (CMO No.63 s 2017)</h2>
                 <section class="right">
                 <ul>
                 <li>All colleges must strictly adhere to the guidelines outlined in the Commission on Higher 
@@ -491,7 +549,7 @@
                     </ul>
             </section>
 
-            <h2 class="sub-sec">C. Representing or Attending an Activity Representing the Lyceum of Alabang </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">C. Representing or Attending an Activity Representing the Lyceum of Alabang </h2>
                 <section class="right">
                 <ul>
                 <li>Attending a seminar</li>
@@ -501,16 +559,16 @@
                     </ul>
             </section>
 
-            <h2 class="sub-sec">Requirements:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Requirements:</h2>
                 
                 <section class="scho-info">
-                <p class="para-sent">The students must submit a letter indicating the consent and approval of the parent or guardian, 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The students must submit a letter indicating the consent and approval of the parent or guardian, 
                     with the invitation and program, five (5) working days before the event to the Office of Student 
                     Affairs (OSA). The OSA can assist the student with the request or completely deny it if the said can 
                     cause harm to the reputation of Lyceum of Alabang (LOA). </p>
             </section>
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="sec-note">
                     <ul>
                 <li>No student or group of students from LYCEUM shall be allowed to attend meetings, 
@@ -523,98 +581,98 @@
                     </ul>
             </section>
 
-            <h1 class="section-title">Section 6:  Fund Raising  </h1>
+            <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 6:  Fund Raising  </h1>
 
                 <section class="sec-info">
-                <p class="para-sent">Without proper authorization, no student or group of students may engage in any activity involving 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Without proper authorization, no student or group of students may engage in any activity involving 
                     collection of cash and other donations for whatever purpose. </p>
             </section>
 
-            <h1 class="section-title">Section 7:  Use of Facilities  </h1>
+            <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 7:  Use of Facilities  </h1>
 
                 <section class="sec-info">
-                <p class="para-sent">School facilities may be used by any recognized student organization, subject to rules and 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">School facilities may be used by any recognized student organization, subject to rules and 
                     regulations preserved by LYCEUM and provided that said facilities shall be used only for the 
                     purpose indicated on the permit. </p>
-                    <p class="para-sent">Any application for the use of any school facility shall be filed in writing by the officer in charge and 
+                    <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Any application for the use of any school facility shall be filed in writing by the officer in charge and 
                         secretary of the recognized student organization after securing approval of activity from the Student 
                         Affairs Officer. </p>
             </section>
 
-            <h1 class="section-title">Section 8:  Liability of Use </h1>
+            <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 8:  Liability of Use </h1>
 
                 <section class="sec-info">
-                <p class="para-sent">Any loss, damage or destruction of any school facility shall be shouldered by the responsible 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Any loss, damage or destruction of any school facility shall be shouldered by the responsible 
                     Officers of the Organization using it.</p>
             </section>
 
-            <h1 class="section-title">Section 9:  Posting of Announcement</h1>
+            <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 9:  Posting of Announcement</h1>
 
                 <section class="sec-info">
-                <p class="para-sent">The posting, distribution, or circulation within the school premises of any literature Posters, 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The posting, distribution, or circulation within the school premises of any literature Posters, 
                     handbills, and the like, whether commercial or in any form, shall first be approved by the Student 
                     Affairs Officer.  </p>
             </section>
 
-            <h1 class="section-title">Section 10:  Awards and Recognition (Non-Academic) </h1>
+            <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 10:  Awards and Recognition (Non-Academic) </h1>
                 
-            <h2 class="sub-sec">Guidelines for the Selection (Graduating and Non-Graduating Students) </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Guidelines for the Selection (Graduating and Non-Graduating Students) </h2>
                 
-                <h2 class="sub-sec">A. Selection Committee:</h2>
+                <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">A. Selection Committee:</h2>
 
                 <section class="scho-info">
-                <p class="para-sent">Committee will be formed with the dean, program chair, and adviser to review nominations and 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Committee will be formed with the dean, program chair, and adviser to review nominations and 
                     select award recipients based on outlined criteria. </p>
 
             </section>
 
-            <h2 class="sub-sec">B. Nomination Process:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">B. Nomination Process:</h2>
 
                 <section class="scho-info">
-                <p class="para-sent">Nominations for each award category can be submitted by faculty, staff, and students. The 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">Nominations for each award category can be submitted by faculty, staff, and students. The 
                     committee will review nominations and select recipients based on the criteria. Additional input 
                     may be sought from teachers, coaches, or others if needed.</p>
             </section>
 
-            <h2 class="sub-sec">C. Final Validation:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">C. Final Validation:</h2>
 
                 <section class="scho-info">
-                <p class="para-sent">The Validation Committee, comprising the Registrar and the Office of Student Affairs, will review 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The Validation Committee, comprising the Registrar and the Office of Student Affairs, will review 
                     and verify all award nominations. They have the authority to investigate further or consult relevant 
                     parties for discrepancies. Their decision is final. </p>
             </section>
 
-            <h2 class="sub-sec">D. Award Categories </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">D. Award Categories </h2>
 
-            <h2 class="sub-sec">1. Leadership Award:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">1. Leadership Award:</h2>
 
                 <section class="scho-info">
-                <p class="para-sent">The award recognizes students who have demonstrated exceptional leadership skills in their 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The award recognizes students who have demonstrated exceptional leadership skills in their 
                     extra-curricular activities or in the school community. </p>
 
-                    <p class="para-sent">The award is presented to a qualified member of the graduating and non-graduating class who has 
+                    <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The award is presented to a qualified member of the graduating and non-graduating class who has 
                         outstanding participation in the co-curricular and extra-curricular activities that promote student 
                         and school welfare. The student should possess exceptional leadership qualities, strategic 
                         thinking, decision-making skills, and the ability to inspire and motivate others. </p>
             </section>
 
-            <h2 class="sub-sec">2. Outstanding Club Member of the Year Award:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">2. Outstanding Club Member of the Year Award:</h2>
 
                 <section class="scho-info">
-                <p class="para-sent">The award recognizes students who have shown exceptional dedication, commitment, and service 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The award recognizes students who have shown exceptional dedication, commitment, and service 
                     to a specific club or organization </p>
 
-                    <p class="para-sent">The award is given to those students who are consistent in their attendance and have shown active 
+                    <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The award is given to those students who are consistent in their attendance and have shown active 
                         leadership and participation in the activities of the school club to which they belong </p>
             </section>
 
-            <h2 class="sub-sec">3. Loyalty Award:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">3. Loyalty Award:</h2>
 
-                <section class="scho-info">
-                <p class="para-sent">The award recognizes students who have demonstrated exceptional loyalty and dedication to their 
+                <sectio class="scho-info">
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The award recognizes students who have demonstrated exceptional loyalty and dedication to their 
                     school and its values.</p>
 
-                    <p class="para-sent">The award is given to graduates who studied in Lyceum of Alabang from High School to college and 
+                    <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The award is given to graduates who studied in Lyceum of Alabang from High School to college and 
                         chosen by the committee upon evaluation </p>
                         <section class="right">
                 <ul>
@@ -623,32 +681,32 @@
                     </ul>
             </section>
 
-            <h2 class="sub-sec">4. Service Award (Internal):</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">4. Service Award (Internal):</h2>
 
                 <section class="scho-info">
-                <p class="para-sent">The award is given to deserving students who have actively participated in upholding the good 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The award is given to deserving students who have actively participated in upholding the good 
                     name of Lyceum of Alabang </p>
             </section>
 
-            <h2 class="sub-sec">5. The Deportment Award:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">5. The Deportment Award:</h2>
 
                 <section class="scho-info">
-                <p class="para-sent">The award is given to students who have shown exemplary conduct, both in and out of the college.</p>
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The award is given to students who have shown exemplary conduct, both in and out of the college.</p>
             </section>
 
-            <h2 class="sub-sec">6. Athlete of the Year Award:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">6. Athlete of the Year Award:</h2>
 
                 <section class="scho-info">
-                <p class="para-sent">This award recognizes students who have shown exceptional sportsmanship, Athletic ability, and 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">This award recognizes students who have shown exceptional sportsmanship, Athletic ability, and 
                     dedication to their sport. This award is given to a student who excels in sport both in school 
                     and outside competitions. </p>
 
-                    <p class="para-sent">The nominees for the Athlete of the Year Award shall be carefully selected by the Sports and 
+                    <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">The nominees for the Athlete of the Year Award shall be carefully selected by the Sports and 
                         Cultural Coordinator, who can attest to their outstanding athletic performance and sportsmanship, 
                         and their contribution to the school's sports program. </p>
             </section>
 
-            <h2 class="sub-sec">7. Special Non-Academic Awards </h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">7. Special Non-Academic Awards </h2>
 
             <section class="right">
                 <ul>
@@ -686,19 +744,19 @@
                     </ul>
             </section>
 
-            <h2 class="sub-note">Note: </h2>
+            <h2 class="block text-left text-gray-700 text-lg font-bold mb-2" style="padding-bottom: 0.9rem;">Note: </h2>
                 <section class="sec-note">
-                <p class="para-note">See the Office of Student Affairs (OSA) for the CRITERIA per Award Category.</p>
+                <p class="text-base text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">See the Office of Student Affairs (OSA) for the CRITERIA per Award Category.</p>
             </section>
 
-            <h2 class="sub-sec">Life as LOA Alumni</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Life as LOA Alumni</h2>
 
                 <section class="scho-info">
-                <p class="para-sent">LOA Alumni are tertiary-level graduates of the Lyceum of Alabang. They may enjoy the privileges of 
+                <p class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">LOA Alumni are tertiary-level graduates of the Lyceum of Alabang. They may enjoy the privileges of 
                     conducting the Lyceum of Alabang initiatives. </p>
             </section>
 
-            <h2 class="sub-sec">Privileges:</h2>
+            <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">Privileges:</h2>
 
             <section class="right">
                 <ul>
@@ -726,11 +784,11 @@
             </section>
 
             
-
+</div>
                 
-                </div>
-                </div>
+            </div>
         </div>
+    </div>
     </section>
 
 </body>
