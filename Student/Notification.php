@@ -40,6 +40,46 @@ if (isset($_SESSION['UserID'])) {
     <title>Student Notification - LOA OSA</title>
 </head>
 
+<style>
+    .custom-div {
+        overflow: auto;
+        max-height: 100%; /* Default max-height */
+        max-width: 100%;   /* Default max-width */
+    }
+    @media (max-width: 1040px) {
+        .custom-div {
+            max-width:  80rem; /* Tailwind's sm:max-w-md */
+        }
+    }
+
+    @media (max-width: 648px) {
+        .custom-div {
+            max-width: 41rem; /* Tailwind's md:max-w-5xl */
+        }   
+        
+        .flex{
+            max-width: 41rem; 
+        }
+        .check {
+            display: none;
+        }
+
+        .star {
+            display: none;
+        }
+        .dedi-container {
+            width: 100%;
+        }
+
+        #inbox-content {
+            width: 68%;
+            overflow-x: hidden;
+        }
+
+    }
+</style>
+
+<div class="custom-div">
 <body class="font-poppins antialiased bg-gray-200">
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
@@ -53,6 +93,7 @@ if (isset($_SESSION['UserID'])) {
         </div>
     </div>
 </body>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

@@ -274,7 +274,7 @@
 
         }
 
-        @media (min-width: 480px) {         
+        @media (max-width: 648px) {         
             #sidebar {
                 width: 20rem; /* md:w-60 */
                 position: fixed; /* Keep it fixed */
