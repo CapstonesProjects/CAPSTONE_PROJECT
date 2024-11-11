@@ -46,6 +46,46 @@ if (isset($_POST['body']) && isset($_POST['receiverId']) && isset($_POST['receiv
     error_log("Execution result: affected_rows=" . $stmt->affected_rows);
 
     if ($stmt->affected_rows > 0) {
+        // Get the last inserted message ID
+        $message_id = $stmt->insert_id;
+
+        // Handle file uploads if there are any attachments
+        if (isset($_FILES["attachments"]) && !empty($_FILES["attachments"]["tmp_name"][0])) {
+            $upload_dir = "../uploads-messages/";
+            foreach ($_FILES["attachments"]["tmp_name"] as $key => $tmp_name) {
+                $file_name = basename($_FILES["attachments"]["name"][$key]);
+                $target_file = $upload_dir . $file_name;
+
+                // Debugging output to check file upload details
+                error_log("Uploading file: tmp_name=$tmp_name, target_file=$target_file");
+
+                // Move the uploaded file to the target directory
+                if (move_uploaded_file($tmp_name, $target_file)) {
+                    // Store the relative path without the leading "../"
+                    $relative_path = "uploads-messages/" . $file_name;
+
+                    // Insert file path into the message_attachments table
+                    $sql = "INSERT INTO message_attachments (MessageID, file_path) VALUES (?, ?)";
+                    $stmt_attachment = $conn->prepare($sql);
+                    if ($stmt_attachment === false) {
+                        error_log("Failed to prepare statement for message_attachments");
+                        continue;
+                    }
+                    $stmt_attachment->bind_param("is", $message_id, $relative_path);
+                    if ($stmt_attachment->execute()) {
+                        error_log("File path inserted into message_attachments: $relative_path");
+                    } else {
+                        error_log("Failed to insert file path into message_attachments: " . $stmt_attachment->error);
+                    }
+                    $stmt_attachment->close();
+                } else {
+                    error_log("Failed to move uploaded file: $tmp_name to $target_file");
+                }
+            }
+        } else {
+            error_log("No attachments found.");
+        }
+
         $_SESSION['success_message'] = 'Message sent successfully';
     } else {
         $_SESSION['error_message'] = 'Failed to send message';

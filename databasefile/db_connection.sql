@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2024 at 10:45 AM
+-- Generation Time: Nov 11, 2024 at 04:50 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -171,18 +171,60 @@ CREATE TABLE `messages` (
 
 INSERT INTO `messages` (`MessageID`, `sender`, `FullNameSender`, `receiver`, `FullNameReceiver`, `receiverType`, `subject`, `body`, `status`, `created_at`, `seen`) VALUES
 (1, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', 'adminnn toooo', 'sent', '2024-11-01 22:38:28', 0),
-(2, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', 'osaa tooo', 'sent', '2024-11-01 22:46:12', 0),
+(2, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', 'osaa tooo', 'sent', '2024-11-01 22:46:12', 1),
 (5, '123-456', 'Rogel Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:45:53', 0),
 (6, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', '\r\n        Dear [Recipient Name],\r\n\r\n        I hope this message finds you well. I am writing to inform you about [Subject].\r\n\r\n        [Body of the letter]\r\n\r\n        Best regards,\r\n        [Your Name]\r\n    ', 'sent', '2024-11-01 23:46:46', 1),
 (7, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'student ka from osa', 'sent', '2024-11-01 23:50:37', 0),
 (8, '123-456', 'Rogel R Gerodiaz', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'student ka admin ako', 'sent', '2024-11-01 23:51:07', 1),
-(9, '543-21', 'Lebron James', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'org to student kaaaaa', 'sent', '2024-11-02 20:31:59', 0),
-(10, '543-21', 'Lebron James', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', 'osa ka org akooo', 'sent', '2024-11-02 20:34:50', 0),
+(9, '543-21', 'Lebron James', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'org to student kaaaaa', 'sent', '2024-11-02 20:31:59', 1),
+(10, '543-21', 'Lebron James', '1422-21', 'Helen R Patalbo', 'OSA', 'Summon', 'osa ka org akooo', 'sent', '2024-11-02 20:34:50', 1),
 (11, '543-21', 'Lebron James', '123-456', 'Rogel R Gerodiaz', 'Admin', 'Summon', 'admin ka org akoooo', 'sent', '2024-11-02 20:35:06', 1),
 (12, '123-456', 'Rogel R Gerodiaz', '543-21', 'Lebron R James', 'Organization', 'Summon', 'org ka admin akoooo', 'sent', '2024-11-02 20:46:57', 0),
 (13, '1422-21', 'Helen Patalbo', '543-21', 'Lebron R James', 'Organization', 'Summon', 'org ka osa akoooo', 'sent', '2024-11-02 20:50:33', 0),
-(14, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'for alerts test', 'sent', '2024-11-09 05:30:17', 0),
-(15, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'for alerts test', 'sent', '2024-11-09 05:30:17', 0);
+(14, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'for alerts test', 'sent', '2024-11-09 05:30:17', 1),
+(15, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Summon', 'for alerts test', 'sent', '2024-11-09 05:30:17', 0),
+(32, '1422-21', 'Helen Patalbo', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'Testing', 'test', 'sent', '2024-11-11 11:58:33', 1),
+(36, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'test', 'testing', 'sent', '2024-11-11 14:28:30', 1),
+(37, '123-456', 'Rogel R Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Testing', 'testttt', 'sent', '2024-11-11 14:35:36', 1),
+(38, '123-456', 'Rogel R Gerodiaz', '543-21', 'Lebron R James', 'Organization', 'test', 'test', 'sent', '2024-11-11 15:30:46', 1),
+(39, '543-21', 'Lebron James', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'TESTIN', 'ORG FILE TESTING', 'sent', '2024-11-11 15:39:59', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message_attachments`
+--
+
+CREATE TABLE `message_attachments` (
+  `AttachmentID` int(11) NOT NULL,
+  `MessageID` int(11) NOT NULL,
+  `file_path` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `message_attachments`
+--
+
+INSERT INTO `message_attachments` (`AttachmentID`, `MessageID`, `file_path`) VALUES
+(6, 32, 'uploads-messages/e8e2a415-753d-464a-8970-2896e692909e - Copy.jpg'),
+(7, 32, 'uploads-messages/e8e2a415-753d-464a-8970-2896e692909e.jpg'),
+(8, 32, 'uploads-messages/botooo.png'),
+(9, 32, 'uploads-messages/Progress-Report-10.docx'),
+(10, 36, 'uploads-messages/Progress-Report-10 (1).docx'),
+(11, 36, 'uploads-messages/stud - Copy.png'),
+(12, 36, 'uploads-messages/stud.png'),
+(13, 37, 'uploads-messages/Bloggers-Freedom-of-Expression-and-Libel-Law-Group-1.pdf'),
+(14, 37, 'uploads-messages/OSA_SendMessage (3).php'),
+(15, 37, 'uploads-messages/OSA_SendMessage (2).php'),
+(16, 38, 'uploads-messages/boto.jpg'),
+(17, 38, 'uploads-messages/Group-1_20241106_231809_0000.pptx'),
+(18, 38, 'uploads-messages/Bloggers-Freedom-of-Expression-and-Libel-Law-Group-1.pdf'),
+(19, 39, 'uploads-messages/Group-1_20241106_231809_0000.pptx'),
+(20, 39, 'uploads-messages/Bloggers-Freedom-of-Expression-and-Libel-Law-Group-1.pdf'),
+(21, 39, 'uploads-messages/IMG20230819121825 (1) (1).jpg'),
+(22, 39, 'uploads-messages/IMG20230819121825 (1).jpg'),
+(23, 39, 'uploads-messages/OSA_SendMessage (3).php'),
+(24, 39, 'uploads-messages/OSA_SendMessage (2).php');
 
 -- --------------------------------------------------------
 
@@ -388,6 +430,13 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`MessageID`);
 
 --
+-- Indexes for table `message_attachments`
+--
+ALTER TABLE `message_attachments`
+  ADD PRIMARY KEY (`AttachmentID`),
+  ADD KEY `MessageID` (`MessageID`);
+
+--
 -- Indexes for table `tblcases`
 --
 ALTER TABLE `tblcases`
@@ -440,7 +489,13 @@ ALTER TABLE `event_images`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT for table `message_attachments`
+--
+ALTER TABLE `message_attachments`
+  MODIFY `AttachmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tblcases`
@@ -481,6 +536,12 @@ ALTER TABLE `event_images`
 --
 ALTER TABLE `event_likes`
   ADD CONSTRAINT `event_likes_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `message_attachments`
+--
+ALTER TABLE `message_attachments`
+  ADD CONSTRAINT `message_attachments_ibfk_1` FOREIGN KEY (`MessageID`) REFERENCES `messages` (`MessageID`);
 
 --
 -- Constraints for table `tblcases`

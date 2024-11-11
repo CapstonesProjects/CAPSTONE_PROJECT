@@ -13,17 +13,17 @@ $studentID = $_SESSION['StudentID'];
 
 
 // Query to get the received messages for the logged-in user
-$query = "SELECT * FROM messages WHERE receiver = ?";
+$query = "SELECT * FROM messages WHERE receiver = ? ORDER BY created_at DESC";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("s", $studentID);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
-<div class="overflow-y-auto" style="max-height: 840px;">
+<div class="overflow-y-auto p-5" style="max-height: 840px;">
     <ul>
         <?php while ($message = $result->fetch_assoc()): ?>
-           <li class="flex items-center border-y hover:bg-gray-200 px-2 message-container <?php echo $message['seen'] ? 'seen' : 'unseen'; ?>" data-id="<?php echo htmlspecialchars($message['MessageID'] ?? ''); ?>" data-date="<?php echo htmlspecialchars($message['created_at'] ?? ''); ?>" data-sender="<?php echo htmlspecialchars($message['FullNameSender'] ?? 'Unknown Sender'); ?>" data-subject="<?php echo htmlspecialchars($message['subject'] ?? 'No Subject'); ?>" data-body="<?php echo htmlspecialchars($message['body'] ?? 'No Body'); ?>">
+            <li class="flex items-center border-y hover:bg-gray-200 px-2 message-container <?php echo $message['seen'] ? 'seen' : 'unseen'; ?>" data-id="<?php echo htmlspecialchars($message['MessageID'] ?? ''); ?>" data-date="<?php echo htmlspecialchars($message['created_at'] ?? ''); ?>" data-sender="<?php echo htmlspecialchars($message['FullNameSender'] ?? 'Unknown Sender'); ?>" data-subject="<?php echo htmlspecialchars($message['subject'] ?? 'No Subject'); ?>" data-body="<?php echo htmlspecialchars($message['body'] ?? 'No Body'); ?>">
                 <input type="checkbox" class="focus:ring-0 border-2 border-gray-400 check">
                 <div x-data="{ messageHover: false }" @mouseover="messageHover = true" @mouseleave="messageHover = false" class="w-full flex cont items-center justify-between p-1 my-1 cursor-pointer messages-item">
                     <div class="flex items-center">
@@ -96,15 +96,17 @@ $result = $stmt->get_result();
         margin-left: 20px;
         /* Indent the body text */
     }
+
     .unseen {
         font-weight: bold;
         background-color: #f0f0f0;
     }
+
     .seen {
         font-weight: normal;
-     }
+    }
 
-     @media (max-width: 648px) {
+    @media (max-width: 648px) {
         .message-container {
             flex-direction: column;
             align-items: flex-start;
@@ -159,6 +161,7 @@ $result = $stmt->get_result();
         .message-container .md\\:inline {
             display: none;
         }
+
         .cont {
             max-width: 30rem;
         }
@@ -181,6 +184,9 @@ $result = $stmt->get_result();
         </div>
         <div class="py-6 pl-2 text-gray-700">
             <p id="details-body">Message body content will go here...</p>
+        </div>
+        <div id="details-attachments" class="py-4">
+            <!-- Attachments will be displayed here -->
         </div>
         <div class="border-t-2 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 py-4">
             <button id="close-details" class="w-full md:w-32 flex items-center justify-center space-x-2 py-1.5 text-gray-600 border border-gray-400 rounded-lg hover:bg-gray-200">
@@ -207,6 +213,7 @@ $conn->close();
         const detailsSubject = document.getElementById('details-subject');
         const detailsBody = document.getElementById('details-body');
         const detailsDate = document.getElementById('details-date');
+        const detailsAttachments = document.getElementById('details-attachments');
         const closeDetails = document.getElementById('close-details');
 
         messageContainers.forEach(container => {
@@ -215,6 +222,7 @@ $conn->close();
                 const subject = this.querySelector('.w-48').textContent.trim();
                 const body = this.querySelector('.w-64').textContent.trim();
                 const date = this.getAttribute('data-date');
+                const messageId = this.getAttribute('data-id');
 
                 // Format the date
                 const messageDate = new Date(date);
@@ -233,17 +241,50 @@ $conn->close();
                 detailsBody.textContent = body;
                 detailsDate.textContent = formattedDate;
 
+                // Fetch and display attachments
+                fetch(`../phpfiles/get_attachments.php?message_id=${messageId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        detailsAttachments.innerHTML = '';
+                        if (data.length > 0) {
+                            data.forEach(attachment => {
+                                const attachmentContainer = document.createElement('div');
+                                attachmentContainer.classList.add('flex', 'items-center', 'space-x-2', 'p-2', 'border', 'rounded', 'bg-gray-100', 'mb-2');
+
+                                const attachmentLink = document.createElement('a');
+                                attachmentLink.href = `../${attachment.file_path}`;
+                                attachmentLink.textContent = attachment.file_path.split('/').pop();
+                                attachmentLink.classList.add('text-blue-500', 'hover:underline', 'flex-grow');
+                                attachmentLink.target = '_blank';
+
+                                const downloadIcon = document.createElement('svg');
+                                downloadIcon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                                downloadIcon.setAttribute('class', 'h-5 w-5 text-gray-500');
+                                downloadIcon.setAttribute('viewBox', '0 0 20 20');
+                                downloadIcon.setAttribute('fill', 'currentColor');
+                                downloadIcon.innerHTML = `
+                                <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V3zm7 7V4a1 1 0 10-2 0v6H5a1 1 0 000 2h3v3a1 1 0 102 0v-3h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+                            `;
+
+                                attachmentContainer.appendChild(attachmentLink);
+                                attachmentContainer.appendChild(downloadIcon);
+                                detailsAttachments.appendChild(attachmentContainer);
+                            });
+                        } else {
+                            detailsAttachments.textContent = 'No attachments';
+                        }
+                    });
+
                 // Hide all message containers
                 messageContainers.forEach(c => c.style.display = 'none');
 
                 // Show the details section
                 messageDetails.style.display = 'block';
-                
+
                 container.classList.remove('unseen');
                 container.classList.add('seen');
 
                 // Update the seen status in the database
-                const messageId = this.getAttribute('data-id');
                 fetch(`../phpfiles/mark_message_seen.php?id=${messageId}`, {
                     method: 'POST'
                 });

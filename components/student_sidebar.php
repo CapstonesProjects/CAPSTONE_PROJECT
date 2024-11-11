@@ -58,6 +58,8 @@ $caseCount = $row['caseCount'];
             /* w-30 */
             transition: transform 0.3s ease-in-out;
             overflow-x: hidden;
+            z-index: 20;
+            position: relative;
         }
 
         .text-md {
