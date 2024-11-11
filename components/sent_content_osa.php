@@ -88,13 +88,17 @@ $result = $stmt->get_result();
 <style>
     #details-body {
         font-family: 'Courier New', Courier, monospace;
-        white-space: pre-wrap; /* Preserve whitespace and line breaks */
-        margin-left: 20px; /* Indent the body text */
+        white-space: pre-wrap;
+        /* Preserve whitespace and line breaks */
+        margin-left: 20px;
+        /* Indent the body text */
     }
+
     .unseen {
         font-weight: bold;
         background-color: #f0f0f0;
     }
+
     .seen {
         font-weight: normal;
     }
@@ -117,6 +121,9 @@ $result = $stmt->get_result();
         <div class="py-6 pl-2 text-gray-700">
             <p id="sent-details-body">Message body content will go here...</p>
         </div>
+        <div id="sent-details-attachments" class="py-4">
+
+        </div>
         <div class="border-t-2 flex space-x-4 py-4">
             <button id="close-sent-details" class="w-32 flex items-center justify-center space-x-2 py-1.5 text-gray-600 border border-gray-400 rounded-lg hover:bg-gray-200">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -134,62 +141,97 @@ $conn->close();
 ?>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const messageContainers = document.querySelectorAll('.sent-message-container');
-    const messageDetails = document.getElementById('sent-message-details');
-    const detailsReceiver = document.getElementById('sent-details-receiver');
-    const detailsSubject = document.getElementById('sent-details-subject');
-    const detailsBody = document.getElementById('sent-details-body');
-    const detailsDate = document.getElementById('sent-details-date');
-    const closeDetails = document.getElementById('close-sent-details');
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageContainers = document.querySelectorAll('.sent-message-container');
+        const messageDetails = document.getElementById('sent-message-details');
+        const detailsReceiver = document.getElementById('sent-details-receiver');
+        const detailsSubject = document.getElementById('sent-details-subject');
+        const detailsBody = document.getElementById('sent-details-body');
+        const detailsDate = document.getElementById('sent-details-date');
+        const detailsAttachments = document.getElementById('sent-details-attachments'); // Add this line
+        const closeDetails = document.getElementById('close-sent-details');
 
-    messageContainers.forEach(container => {
-        container.addEventListener('click', function() {
-            const receiver = this.getAttribute('data-receiver');
-            const subject = this.getAttribute('data-subject');
-            const body = this.getAttribute('data-body');
-            const date = this.getAttribute('data-date');
+        messageContainers.forEach(container => {
+            container.addEventListener('click', function() {
+                const receiver = this.getAttribute('data-receiver');
+                const subject = this.getAttribute('data-subject');
+                const body = this.getAttribute('data-body');
+                const date = this.getAttribute('data-date');
+                const messageId = this.getAttribute('data-id'); // Add this line
 
-            // Format the date
-            const messageDate = new Date(date);
-            const formattedDate = messageDate.toLocaleString('en-US', {
-                hour: 'numeric',
-                minute: 'numeric',
-                hour12: true,
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            });
+                // Format the date
+                const messageDate = new Date(date);
+                const formattedDate = messageDate.toLocaleString('en-US', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true,
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                });
 
-            // Populate the details section with the message content
-            detailsReceiver.textContent = receiver;
-            detailsSubject.textContent = subject;
-            detailsBody.textContent = body;
-            detailsDate.textContent = formattedDate;
+                // Populate the details section with the message content
+                detailsReceiver.textContent = receiver;
+                detailsSubject.textContent = subject;
+                detailsBody.textContent = body;
+                detailsDate.textContent = formattedDate;
 
-            // Hide all message containers
-            messageContainers.forEach(c => c.style.display = 'none');
+                // Fetch and display attachments
+                fetch(`../phpfiles/get_attachments.php?message_id=${messageId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        detailsAttachments.innerHTML = '';
+                        if (data.length > 0) {
+                            data.forEach(attachment => {
+                            const attachmentContainer = document.createElement('div');
+                            attachmentContainer.classList.add('flex', 'items-center', 'space-x-2', 'p-2', 'border', 'rounded', 'bg-gray-100', 'mb-2');
 
-            // Show the details section
-            messageDetails.style.display = 'block';
+                            const attachmentLink = document.createElement('a');
+                            attachmentLink.href = `../${attachment.file_path}`;
+                            attachmentLink.textContent = attachment.file_path.split('/').pop();
+                            attachmentLink.classList.add('text-blue-500', 'hover:underline', 'flex-grow');
+                            attachmentLink.target = '_blank';
 
-            container.classList.remove('unseen');
-            container.classList.add('seen');
+                            const downloadIcon = document.createElement('svg');
+                            downloadIcon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                            downloadIcon.setAttribute('class', 'h-5 w-5 text-gray-500');
+                            downloadIcon.setAttribute('viewBox', '0 0 20 20');
+                            downloadIcon.setAttribute('fill', 'currentColor');
+                            downloadIcon.innerHTML = `
+                                <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V3zm7 7V4a1 1 0 10-2 0v6H5a1 1 0 000 2h3v3a1 1 0 102 0v-3h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+                            `;
 
-            // Update the seen status in the database
-            const messageId = this.getAttribute('data-id');
-            fetch(`../phpfiles/mark_message_seen.php?id=${messageId}`, {
-                method: 'POST'
+                            attachmentContainer.appendChild(attachmentLink);
+                            attachmentContainer.appendChild(downloadIcon);
+                            detailsAttachments.appendChild(attachmentContainer);
+                        });
+                        } else {
+                            // detailsAttachments.textContent = 'No attachments';
+                        }
+                    });
+
+                // Hide all message containers
+                messageContainers.forEach(c => c.style.display = 'none');
+
+                // Show the details section
+                messageDetails.style.display = 'block';
+
+                container.classList.remove('unseen');
+                container.classList.add('seen');
+
+                // Update the seen status in the database
+                fetch(`../phpfiles/mark_message_seen.php?id=${messageId}`, {
+                    method: 'POST'
+                });
             });
         });
-    });
 
-    closeDetails.addEventListener('click', function() {
-        // Hide the details section
-        messageDetails.style.display = 'none';
+        closeDetails.addEventListener('click', function() {
+            // Hide the details section
+            messageDetails.style.display = 'none';
 
-        // Show all message containers
-        messageContainers.forEach(c => c.style.display = 'flex');
+            // Show all message containers
+            messageContainers.forEach(c => c.style.display = 'flex');
+        });
     });
-});
 </script>

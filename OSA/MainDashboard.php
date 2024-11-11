@@ -52,9 +52,6 @@ if (isset($_SESSION['UserID'])) {
         [x-cloak] {
             display: none;
         }
-        overflow: auto;
-        max-height: 100%; /* Default max-height */
-        max-width: 100%;   /* Default max-width */
     
 
     @media (max-width: 1040px) {
