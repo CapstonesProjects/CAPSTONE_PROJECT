@@ -1,11 +1,11 @@
 <!-- component -->
 <div class="custom-div">
 <div class="w-full bg-gray-200 shadow-xl rounded-lg flex overflow-x-auto custom-scrollbar" style="width: 1598px; height: 905px;">
-    <div class="flex-1 px-2" x-data="{ checkAll: false, filterMessages: false }">
-        <div class="h-16 flex items-center justify-between">
+    <div class="flex-1" x-data="{ checkAll: false, filterMessages: false }">
+        <div class="h-16  flex items-center justify-between">
             <div class="flex items-center">
                 <div class="relative flex items-center px-0.5 space-x-0.5">
-                    <input @click="checkAll = !checkAll" type="checkbox" class="focus:ring-0">
+                    <input @click="checkAll = !checkAll" type="checkbox" class="focus:ring-0 check">
                     <button @click="filterMessages = !filterMessages">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="px-2 flex items-center space-x-4">
+            <!-- <div class="px-2 flex items-center space-x-4">
                 <span class="text-sm text-gray-500">1-15 of 1,
                 <div class="flex items-center space-x-2">
                     <button class="bg-gray-200 text-gray-400 p-1.5 rounded-lg" title="Newer">
@@ -79,7 +79,7 @@
                         </svg>
                     </button>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div id="inbox-content" class="bg-gray-100 sections" style="display: block;">
             <?php include('inbox_content_student.php'); ?>
