@@ -60,6 +60,21 @@ if (isset($_SESSION['UserID'])) {
         .flex{
             max-width: 41rem; 
         }
+        .check {
+            display: none;
+        }
+
+        .star {
+            display: none;
+        }
+        .dedi-container {
+            width: 100%;
+        }
+
+        #inbox-content {
+            width: 68%;
+            overflow-x: hidden;
+        }
 
     }
 </style>
