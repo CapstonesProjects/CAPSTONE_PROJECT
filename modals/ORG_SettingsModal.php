@@ -40,7 +40,7 @@
                     </div>
                 </form>
                 <!-- Change Email Section -->
-                <form id="email-section" class="settings-section hidden border-t border-gray-200 pt-4 mt-4" action="../phpfiles/student_update_email.php" method="post">
+                <form id="email-section" class="settings-section hidden border-t border-gray-200 pt-4 mt-4" action="../phpfiles/org_update_email.php" method="post">
                     <h6 class="text-lg font-semibold text-gray-700">Change Email</h6>
                     <div class="mt-2">
                         <label for="current-email" class="block text-sm font-medium text-gray-700">Current Email</label>
