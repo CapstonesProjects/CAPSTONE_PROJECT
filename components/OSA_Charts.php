@@ -16,10 +16,10 @@ include('../config/db_connection.php');
 
 <body>
 <?php include('../alerts/download_reports_alerts.php') ?>
-  <div class="antialiased sans-serif w-lg">
+  <div class="antialiased sans-serif w-lg " style="margin-top: -2%;">
     <div class="px-2 w-full">
       <div class="py-5">
-        <div class=" p-4  bg-white overflow-hidden " style="height: 830px; width: 1575px;">
+        <div class=" p-4 bg-white overflow-hidden " style="height: 100%; width: 1575px; margin-top: -1%;">
           <div class="md:flex md:justify-between md:items-center">
             <div>
               <!-- <h2 class="text-xl text-gray-800 font-bold leading-tight">Cases</h2> -->

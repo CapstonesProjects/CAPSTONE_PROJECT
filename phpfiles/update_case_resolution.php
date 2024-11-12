@@ -2,66 +2,43 @@
 session_start();
 include('../config/db_connection.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $caseID = $_POST['caseID'];
-    $caseResolution = $_POST['caseResolution'];
-    $remarks = $_POST['remarks'];
-    $resolutionDate = $_POST['resolutionDate'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $currentPassword = $_POST['current-password'];
+    $newPassword = $_POST['new-password'];
+    $confirmPassword = $_POST['confirm-password'];
 
-    // Handle file uploads
-    $resolutionAttachment = NULL;
-    $uploadDir = "../fileattachment/";
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0777, true);
+    if ($newPassword !== $confirmPassword) {
+        $_SESSION['error'] = "New password and confirm password do not match.";
+        
+        exit;
     }
 
-    function uploadFile($fileInputName, &$filePath) {
-        global $uploadDir;
-        if (isset($_FILES[$fileInputName]) && $_FILES[$fileInputName]['error'] == UPLOAD_ERR_OK) {
-            $targetFile = $uploadDir . basename($_FILES[$fileInputName]['name']);
-            if (move_uploaded_file($_FILES[$fileInputName]['tmp_name'], $targetFile)) {
-                $filePath = $targetFile;
-                error_log("$fileInputName uploaded successfully: $filePath");
-            } else {
-                error_log("Error: Failed to upload $fileInputName.");
-            }
+    $studentId = $_SESSION['logged_in_user_id'];
+
+    $sql = "SELECT password FROM student_info WHERE student_id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $studentId);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row['password'] !== NULL) {
+        if (password_verify($currentPassword, $row['password'])) {
+            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            $sql = "UPDATE student_info SET password = ? WHERE student_id = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "si", $hashedPassword, $studentId);
+            mysqli_stmt_execute($stmt);
+
+            $_SESSION['success'] = "Password Successfully Changed.";
         } else {
-            error_log("$fileInputName upload error: " . $_FILES[$fileInputName]['error']);
+            $_SESSION['error'] = "Old password is incorrect.";
         }
-    }
-
-    uploadFile('resolutionAttachment', $resolutionAttachment);
-
-    // Log the value of resolutionAttachment
-    error_log("Final value of resolutionAttachment: " . $resolutionAttachment);
-
-    // Set resolutionDate to current date if empty
-    if (empty($resolutionDate)) {
-        $resolutionDate = date('Y-m-d');
-    }
-
-    // Determine the status based on the case resolution
-    $status = 'Resolved';
-    if (stripos($caseResolution, 'suspension') !== false) {
-        $status = 'Pending Suspension';
     } else {
-        $status = $caseResolution;
+        $_SESSION['error'] = "Old password is NULL.";
     }
 
-    // Update the case in the database
-    $updateQuery = "UPDATE tblcases SET CaseResolution = ?, Remarks = ?, ResolutionAttachment = ?, ResolutionDate = ?, Status = ? WHERE CaseID = ?";
-    $stmt = $conn->prepare($updateQuery);
-    $stmt->bind_param("ssssss", $caseResolution, $remarks, $resolutionAttachment, $resolutionDate, $status, $caseID);
-
-    if ($stmt->execute()) {
-        $_SESSION['update_success'] = 'The case resolution was successfully updated.';
-        error_log("Case resolution updated successfully.");
-    } else {
-        $_SESSION['update_error'] = "Error: " . $stmt->error;
-        error_log("Database update error: " . $stmt->error);
-    }
-
-    header('Location: ../OSA/OSA_Cases.php');
+  
     exit;
 }
 ?>

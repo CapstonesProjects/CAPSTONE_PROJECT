@@ -58,7 +58,10 @@
   font-weight: 400;
   margin-bottom: 10px;
 }
-
+#para-sent {
+    max-width: 115ch;
+    margin-left: 2%;;
+}
 
 
 </style>
@@ -72,7 +75,7 @@
                 <h1 class="text-2xl text-gray-900 font-bold mb-4">Section 1:  Life on Campus </h1>
                 <h2 class="block text-left text-gray-700 text-xl font-bold mb-2" style="padding-bottom: 0.9rem;">The student </h2>
                 <section class="scho-info">
-                <p id="para-sent" class="text-lg text-gray-700 max-w-prose text-left"style="padding-bottom: 0.7rem;">They are enrolled at the Lyceum of Alabang and are expected to be morally upright. The students of 
+                <p id="para-sent" class="text-lg text-gray-700 text-left"style="padding-bottom: 0.7rem;">They are enrolled at the Lyceum of Alabang and are expected to be morally upright. The students of 
                     Lyceum of Alabang shall uphold decency and righteousness inside and outside the Institution, as 
                     they encompass the model citizens of the country. The student is expected to be a Law-abiding 
                     Youth who is Courteous, Emphatic, Accountable, and Noble (LYCEAN). </p>

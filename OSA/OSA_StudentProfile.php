@@ -99,6 +99,7 @@ include('../modals/AddStudentModal_OSA.php');
     </div>
 
     <?php include('../alerts/adding_student_alerts.php'); ?>
+    <?php include('../alerts/changepassword_alerts.php'); ?>
 </body>
 </div>
 

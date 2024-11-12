@@ -62,6 +62,7 @@ include('../alerts/update_case_status_alerts.php');
     </div>
 
     <?php include('../alerts/addcases_alerts.php'); ?>
+    <?php include('../alerts/changepassword_alerts.php'); ?>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

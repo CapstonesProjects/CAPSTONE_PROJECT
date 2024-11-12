@@ -50,6 +50,8 @@ if (isset($_SESSION['UserID'])) {
             
         </div>
     </div>
+
+    <?php include('../alerts/changepassword_alerts.php'); ?>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

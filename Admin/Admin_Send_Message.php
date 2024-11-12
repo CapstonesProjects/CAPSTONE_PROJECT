@@ -56,6 +56,7 @@ include('../alerts/send_message.php')
             <?php include('../components/Admin_SendMessage.php') ?>
         </div>
     </div>
+    <?php include('../alerts/changepassword_alerts.php') ?>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

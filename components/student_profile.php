@@ -19,7 +19,9 @@ $stmt->bind_param("s", $student_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
-$profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://i.pinimg.com/736x/10/26/73/1026734a49e1a7bdbbec411c861a69ab.jpg'; // Use a default picture if none is set
+$profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://i.pinimg.com/736x/10/26/73/1026734a49e1a7bdbbec411c861a69ab.jpg'; 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
