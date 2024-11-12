@@ -32,7 +32,7 @@
 
 
     <ul class="navlist">
-        <li><a href="./index.php">Home</a></li>
+        <li><a id="home-nav" href="./index.php">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#events">Events</a></li>
     </ul>
