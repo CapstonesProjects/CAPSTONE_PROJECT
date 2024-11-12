@@ -1,7 +1,7 @@
 <?php if (isset($_SESSION['AdminID'])) {
     $adminId = $_SESSION['AdminID'];
 
-    $query = "SELECT FirstName, LastName, Role FROM admin WHERE AdminID = ?";
+    $query = "SELECT FirstName, LastName, Role, Email FROM admin WHERE AdminID = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $adminId);
     $stmt->execute();
@@ -11,6 +11,7 @@
     $_SESSION['FirstName'] = $user['FirstName'];
     $_SESSION['LastName'] = $user['LastName'];
     $_SESSION['Role'] = $user['Role'];
+    $_SESSION['Email'] = $user['Email'];
 } else {
     // Redirect to login page or show an error
 }
