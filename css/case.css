@@ -35,31 +35,22 @@
   }
 }
 
-/*@media (max-width: 480px) {
-  .tbl-lbl {
-    margin: 5%;
-    padding-left: 0;
-    margin-left: 0;
-    width: 200px;
-    height: auto;
-    font-size: 10px;
-    justify-content: left;
-  }
+@media (max-width: 480px) {
   #case-details-modal {
     overflow: hidden;
-
+    height: auto;
     padding: 1rem;
   }
   #modal-container {
-    width: 20%;
-    height: 15%;
+    height: 40%;
     top: 5rem;
     margin-left: 0;
-    left: 4rem;
+    left: 6rem;
     overflow-y: scroll;
   }
-  .btn {
-    font-size: 10px;
+  input[type="text"] {
+    width: 100%;
+    padding: 0rem;
   }
 
   .mb-4 {
@@ -67,6 +58,6 @@
   }
   .mt-4 {
     width: 60%;
-    padding-left: 35%;
+    padding-left: 40%;
   }
-}*/
+}
