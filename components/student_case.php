@@ -19,8 +19,9 @@ while ($row = $result->fetch_assoc()) {
 <div class="container mx-auto p-4 m-0 ml-8">
     <div class="flex justify-center">
         <!-- <div class="flex-1 bg-white rounded-lg p-8 mx-auto shadow-lg" style="max-width: 1570px; width: 1580px; height: 870px;"> -->
-            <div class="overflow-x-hidden" style=" width: 1566px; height: 880px; margin-left: -1%">
-                <table class="min-w-full bg-white border border-gray-300 shadow-lg rounded-lg">
+            <div id="full-container" class="overflow-x-hidden" style="height: 100vh; justify-content: center; align-items: center; padding-top: 10px; padding-bottom: 110px;">
+                <div class="tbl-lbl">
+                <table class=" max-w-full bg-white border border-gray-300 shadow-lg rounded-lg">
                     <thead class=" text-white" style="background: teal;">
                         <tr>
                             <th class="py-2 px-4 border-b border-gray-300 text-left text-sm font-semibold">Case ID</th>
@@ -42,6 +43,7 @@ while ($row = $result->fetch_assoc()) {
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                </div>
             </div>
         <!-- </div> -->
     </div>

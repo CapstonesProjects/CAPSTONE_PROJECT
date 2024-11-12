@@ -33,6 +33,7 @@ if (isset($_SESSION['UserID'])) {
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/style2.css">
     <link rel="stylesheet" href="../css/student_profile.css">
+    <link rel="stylesheet" href="../css/case.css">
     <link rel="shortcut icon" href="../images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">

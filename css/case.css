@@ -1,0 +1,63 @@
+@media (max-width: 648px) {
+  .tbl-lbl {
+    margin: 5%;
+    padding-left: 0%;
+    margin-left: 0%;
+    width: 100%;
+    max-width: 100rem;
+    height: auto;
+    font-size: 1rem;
+  }
+  #case-details-modal {
+    overflow: hidden;
+    height: auto;
+    padding: 1rem;
+  }
+  #modal-container {
+    width: 70%;
+    height: 60%;
+    top: 5rem;
+    margin-left: 0;
+    left: 6rem;
+    overflow-y: scroll;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 0rem;
+  }
+
+  .mb-4 {
+    text-align: left;
+  }
+  .mt-4 {
+    width: 60%;
+    padding-left: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+  #case-details-modal {
+    overflow: hidden;
+    height: auto;
+    padding: 1rem;
+  }
+  #modal-container {
+    height: 40%;
+    top: 5rem;
+    margin-left: 0;
+    left: 6rem;
+    overflow-y: scroll;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 0rem;
+  }
+
+  .mb-4 {
+    text-align: left;
+  }
+  .mt-4 {
+    width: 60%;
+    padding-left: 40%;
+  }
+}
