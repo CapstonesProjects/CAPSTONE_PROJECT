@@ -67,6 +67,7 @@ if (isset($_SESSION['AdminID'])) {
 
     <?php include('../alerts/profile_image_change_alerts.php'); ?>
     <?php include('../alerts/file_large_alerts.php'); ?>
+    <?php include('../alerts/changepassword_alerts.php') ?>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

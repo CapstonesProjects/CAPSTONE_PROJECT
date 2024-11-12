@@ -111,6 +111,8 @@ include('../alerts/send_message.php')
             </div>
         </div>
     </div>
+
+    <?php include('../alerts/changepassword_alerts.php'); ?>
 </body>
 
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
