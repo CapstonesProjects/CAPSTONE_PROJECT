@@ -52,9 +52,6 @@ if (isset($_SESSION['UserID'])) {
         [x-cloak] {
             display: none;
         }
-        overflow: auto;
-        max-height: 100%; /* Default max-height */
-        max-width: 100%;   /* Default max-width */
     
 
     @media (max-width: 1040px) {
@@ -71,14 +68,18 @@ if (isset($_SESSION['UserID'])) {
 
         .p-4{
             max-width: 39rem; /* Tailwind's md:max-w-5xl */
+            height: 7rem; /* Adjusted height for smaller screens */
+            overflow: visible;
+
+
         }
 
 
         .text-lg{
-            font-size: 0.75rem;
+            font-size: 0.50rem;
             line-height: 1rem;
         }
-
+        
     }
 </style>
 </head> 
