@@ -24,6 +24,49 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+    .custom-div {
+        overflow: auto;
+        max-height: 100%; /* Default max-height */
+        max-width: 100%;   /* Default max-width */
+    }
+
+    @media (max-width: 1040px) {
+        .custom-div {
+            max-width:  80rem; /* Tailwind's sm:max-w-md */
+        }
+    }
+
+    @media (max-width: 648px) {
+        .custom-div {
+            max-width: 38rem; /* Tailwind's md:max-w-5xl */
+        }
+
+        .mb-4{
+            text-align: center;
+        }
+
+        .mb-2{
+            text-align: left;
+
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0rem;
+        }
+
+        .bg-white.rounded-lg.shadow-xl.pb-8 {
+            max-width: 38rem;
+            margin: 0 auto;
+        }
+
+        .prof-bg {
+            height: 156px;;
+        }
+    }
+</style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +77,9 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
 </head>
 
 <body>
+    
     <div class="h-full bg-gray-200 pt-2 pl-6 pr-6 overflow-hidden">
+        <div class="custom-div">
         <div class="bg-white rounded-lg shadow-xl pb-8" style="width: 1550px; margin: 0 auto;">
             <div x-data="{ openSettings: false }" class="absolute right-12 mt-4 rounded">
                 <button @click="openSettings = !openSettings" class="border border-gray-400 p-2 rounded text-gray-300 hover:text-gray-300 bg-gray-100 bg-opacity-10 hover:bg-opacity-20" title="Settings">
@@ -75,7 +120,7 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
                     </div>
                 </div>
             </div>
-            <div class="w-full h-[250px]">
+            <div class="w-full prof-bg h-[250px]">
                 <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" class="w-full h-full rounded-tl-lg rounded-tr-lg opacity-75">
             </div>
             <div class="flex flex-col items-center -mt-20">
@@ -93,9 +138,11 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
                 </div>
                 <p class="text-sm text-gray-500"><?php echo $_SESSION['Course'] ?></p>
             </div>
-
+        </div>
         </div>
 
+
+    <div class="custom-div">
         <div class="flex-1 bg-white rounded-lg shadow-xl p-8 mt-4 mx-auto" style="max-width: 1550px;">
     <div class="overflow-auto max-h-96">
         <h4 class="text-2xl text-gray-900 font-bold mb-4">Basic Information</h4>
@@ -182,6 +229,7 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
     </div>
 
 
+    </div>
     </div>
 
 
