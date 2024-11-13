@@ -5,7 +5,7 @@
                 <form id="loginForm" action="./Login/Organization_Login.php" method="POST">
                     <div class="login-text-title">
                         <h2 class="text-2xl font-bold">Login</h2>
-                        <h4 class="mt-1 text-sm">Welcome Back, Please Login To Your Student Account.</h4>
+                        <h4 class="mt-1 text-sm">Welcome Back, Please Login To Your Organization Account.</h4>
                     </div>
 
                     <div class="text-box-container">
