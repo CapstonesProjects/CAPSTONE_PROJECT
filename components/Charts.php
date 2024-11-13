@@ -104,28 +104,28 @@ include('../config/db_connection.php');
           <!-- Grid Container for Charts -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Container for Total Cases Chart -->
-            <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; height: 280px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Monthly Total Cases</h3>
               <canvas id="myChart"></canvas>
               <div id="noDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -2.5rem;">No data available.</div>
             </div>
 
             <!-- Container for Minor and Major Offenses Chart -->
-            <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; height: 280px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Minor and Major Offenses</h3>
               <canvas id="offenseChart" style="height: 275px;" width="700" height="275"></canvas>
               <div id="noOffenseDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -10rem;">No data available.</div>
             </div>
 
             <!-- Container for Percentage of Cases per School Year -->
-            <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; height: 280px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Percentage of Cases per School Year</h3>
               <canvas id="percentageChart" style="height: 275px;" width="700" height="275"></canvas>
               <div id="noPercentageDataMessage" class="text-center text-gray-500 mt-4" style="display: none; margin-top: -10rem;">No data available.</div>
             </div>
 
             <!-- Container for Cases per Semester Chart -->
-            <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; height: 280px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Cases per Semester</h3>
               <canvas id="semesterChart" style="height: 285px;" width="700" height="275"></canvas>
               <div id="noSemesterDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -10rem;">No data available.</div>

@@ -68,7 +68,10 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
             max-width: 38rem;
             margin: 0 auto;
         }
-
+         
+        .width{
+            max-width: 39rem;
+        }
         
     }
 </style>
