@@ -53,10 +53,13 @@ include('../config/db_connection.php');
             <div class="mb-4">
               <select id="schoolYear" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                 <option value="">Select a school year</option>
-                <option value="2021-2022">2021-2022</option>
-                <option value="2022-2023">2022-2023</option>
-                <option value="2023-2024">2023-2024</option>
-                <option value="2024-2025">2024-2025</option>
+                <?php
+                $query_school_years = "SELECT Year FROM school_years ORDER BY Year DESC";
+                $result_school_years = $conn->query($query_school_years);
+                while ($row = $result_school_years->fetch_assoc()) {
+                  echo '<option value="' . $row['Year'] . '">' . $row['Year'] . '</option>';
+                }
+                ?>
               </select>
             </div>
 
@@ -140,7 +143,7 @@ include('../config/db_connection.php');
 
   <div id="error-message-container" style="display: flex; justify-content: center; align-items: flex-start; position: fixed; top: -2%; left: 10%; right: 0; z-index: 1000;"></div>
 
-<script src="../javascript/download_report_alerts_modal.js"></script>
+  <script src="../javascript/download_report_alerts_modal.js"></script>
 </body>
 
 </html>

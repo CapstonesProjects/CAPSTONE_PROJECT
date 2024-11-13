@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../config/db_connection.php');
 
 // Function to sanitize input data
@@ -43,14 +44,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        // Redirect to a success page or display a success message
-        echo "Event added successfully!";
+        // Set success message in session
+        $_SESSION['event_success'] = 'Event added successfully!';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     } else {
-        echo "Error: " . $stmt->error;
+        // Set error message in session
+        $_SESSION['event_error'] = 'Failed to add event';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
     $stmt->close();
-}
+    $conn->close();
 
-$conn->close();
+    // Redirect to a page to display the message
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+}
 ?>

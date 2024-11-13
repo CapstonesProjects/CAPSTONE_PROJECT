@@ -66,6 +66,7 @@ if (isset($_SESSION['AdminID'])) {
     </div>
 
     <?php include('../alerts/changepassword_alerts.php') ?>
+    <?php include('../alerts/school_year_alerts.php') ?>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
