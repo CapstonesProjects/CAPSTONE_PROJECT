@@ -87,13 +87,13 @@ if (isset($_SESSION['UserID'])) {
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-auto transition-transform duration-300 ease-in-out">
             <?php
-            $activeMenu = 'dashboard';
-            include('../components/osa_sidebar.php');
+            $activeMenu = 'activity_log';
+            include('../components/admin_sidebar.php');
             ?>
         </div>
         <div class="flex justify-center items-center">
             <?php
-            include('../components/OSA_Charts.php');
+            include('../components/activitylog.php');
             ?>
         </div>
     </div>
