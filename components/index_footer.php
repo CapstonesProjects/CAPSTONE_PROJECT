@@ -1,7 +1,32 @@
 <style>
-    
+   @media screen and (min-width: 350px) and (max-width: 760px) {
+    #footer{
+       
+        padding: 0px;
+        margin: 0px;
+    }
+    .footer-item-container {
+        padding: 0; 
+    margin: 0;
+       
+        flex-direction: row; 
+    }
+
+    .footer-item {
+        margin: 0 30px; 
+    }
+
+    .footer-img {
+        width: 100%; 
+    }
+
+    .title-container h3 {
+        font-size: 0.4rem; 
+    }
+}
+
 </style>
-<footer>
+<footer id="footer">
         <div class="footer-item-container">
             <div class="footer-item">
                 <img class="footer-img" src="images/CHED.png" alt="CHED IMAGES">
