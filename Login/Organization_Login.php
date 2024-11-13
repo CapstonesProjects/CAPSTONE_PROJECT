@@ -83,7 +83,7 @@ if ($user = mysqli_fetch_assoc($result)) {
     // Invalid username
     $_SESSION['login_error'] = 'Invalid username or password';
     $_SESSION['login_username'] = $username;
-    header('Location: ../Organization_Index.php');
+    header('Location: ../Org_Index.php');
     exit;
 }
 ?>
