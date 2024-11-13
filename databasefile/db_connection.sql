@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2024 at 02:19 AM
+-- Generation Time: Nov 11, 2024 at 04:50 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,17 +44,15 @@ CREATE TABLE `admin` (
   `Nationality` varchar(32) NOT NULL,
   `MaritalStatus` varchar(24) NOT NULL,
   `Status` varchar(12) NOT NULL,
-  `profile_picture` varchar(255) DEFAULT NULL,
-  `failed_attempts` int(11) DEFAULT 0,
-  `lock_time` datetime DEFAULT NULL
+  `profile_picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`AdminID`, `AdminNumber`, `FirstName`, `LastName`, `Username`, `Password`, `Role`, `MiddleName`, `Suffix`, `Email`, `PhoneNumber`, `DateBirth`, `Gender`, `Nationality`, `MaritalStatus`, `Status`, `profile_picture`, `failed_attempts`, `lock_time`) VALUES
-(1, '123-456', 'Rogel', 'Gerodiaz', 'admin', '123456789', 'Admin', 'R', 'N/A', 'admin2@gmail.com', 909313675, '06/10/2001', 'Male', 'Filipino', 'Single', 'Active', NULL, 0, NULL);
+INSERT INTO `admin` (`AdminID`, `AdminNumber`, `FirstName`, `LastName`, `Username`, `Password`, `Role`, `MiddleName`, `Suffix`, `Email`, `PhoneNumber`, `DateBirth`, `Gender`, `Nationality`, `MaritalStatus`, `Status`, `profile_picture`) VALUES
+(1, '123-456', 'Rogel', 'Gerodiaz', 'admin', '123456789', 'Admin', 'R', 'N/A', 'admin@gmail.com', 909313675, '06/10/2001', 'Male', 'Filipino', 'Single', 'Active', NULL);
 
 -- --------------------------------------------------------
 
@@ -84,8 +82,7 @@ INSERT INTO `events` (`id`, `title`, `event_date`, `description`, `location`, `c
 (14, 'Investor Factors Director', '2024-08-13', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Last Saturday, the Lorem Ipsum University witnessed a transformative event at the Main Hall. The initiative, led by Chairman and President Dr. John Doe, aimed to prepare the institution for the challenges of Industry 4.0.\r\n\r\nThe Basic Education faculty, Department Heads, and Vice President Engr. Jane Smith attended the orientation, where TechCorp’s Albert Ipsum and Romeo Lorem, as well as RoboTech’s Dr. Ipsum Dolor and Dr. Sit Amet, showcased the latest technologies in automation, artificial intelligence, and robotics.\r\n\r\nThe presentations underscored the commitment of Lorem Ipsum University to align education with the evolving demands of the industry. Dr. John Doe emphasized the importance of staying ahead in technological advancements to prepare students for the dynamic global landscape.\r\n\r\nNotably, the event provided a hands-on experience, with one teacher having the unique opportunity to try DroneSoccer. This exemplifies Lorem Ipsum University’s commitment to integrating technology into education in a practical manner.\r\n\r\nHosted by Ms. Virginia Ipsum, future collaboration between Lorem Ipsum University, TechCorp, and RoboTech signifies a strategic move towards fostering an innovative learning environment. As the institution embraces these advancements, it positions itself as a forward-thinking entity dedicated to preparing students for the challenges and opportunities of the Fourth Industrial Revolution.\r\n\r\nLIU for Industry 4.0\r\n\r\nLIU Cares', 'Cum dignissimos magnam explicabo nobis.', 'conference', '2024-10-28 15:43:02'),
 (15, 'Human Solutions Associate', '2024-11-18', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Last Saturday, the Lorem Ipsum University witnessed a transformative event at the Main Hall. The initiative, led by Chairman and President Dr. John Doe, aimed to prepare the institution for the challenges of Industry 4.0.\r\n\r\nThe Basic Education faculty, Department Heads, and Vice President Engr. Jane Smith attended the orientation, where TechCorp’s Albert Ipsum and Romeo Lorem, as well as RoboTech’s Dr. Ipsum Dolor and Dr. Sit Amet, showcased the latest technologies in automation, artificial intelligence, and robotics.\r\n\r\nThe presentations underscored the commitment of Lorem Ipsum University to align education with the evolving demands of the industry. Dr. John Doe emphasized the importance of staying ahead in technological advancements to prepare students for the dynamic global landscape.\r\n\r\nNotably, the event provided a hands-on experience, with one teacher having the unique opportunity to try DroneSoccer. This exemplifies Lorem Ipsum University’s commitment to integrating technology into education in a practical manner.\r\n\r\nHosted by Ms. Virginia Ipsum, future collaboration between Lorem Ipsum University, TechCorp, and RoboTech signifies a strategic move towards fostering an innovative learning environment. As the institution embraces these advancements, it positions itself as a forward-thinking entity dedicated to preparing students for the challenges and opportunities of the Fourth Industrial Revolution.\r\n\r\nLIU for Industry 4.0\r\n\r\nLIU Cares', 'Commodi quidem at molestias consequuntur soluta ratione ad quis temporibus.', 'conference', '2024-10-28 15:44:08'),
 (16, 'Investor Marketing Administrator', '2025-07-28', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Last Saturday, the Lorem Ipsum University witnessed a transformative event at the Main Hall. The initiative, led by Chairman and President Dr. John Doe, aimed to prepare the institution for the challenges of Industry 4.0.\r\n\r\nThe Basic Education faculty, Department Heads, and Vice President Engr. Jane Smith attended the orientation, where TechCorp’s Albert Ipsum and Romeo Lorem, as well as RoboTech’s Dr. Ipsum Dolor and Dr. Sit Amet, showcased the latest technologies in automation, artificial intelligence, and robotics.\r\n\r\nThe presentations underscored the commitment of Lorem Ipsum University to align education with the evolving demands of the industry. Dr. John Doe emphasized the importance of staying ahead in technological advancements to prepare students for the dynamic global landscape.\r\n\r\nNotably, the event provided a hands-on experience, with one teacher having the unique opportunity to try DroneSoccer. This exemplifies Lorem Ipsum University’s commitment to integrating technology into education in a practical manner.\r\n\r\nHosted by Ms. Virginia Ipsum, future collaboration between Lorem Ipsum University, TechCorp, and RoboTech signifies a strategic move towards fostering an innovative learning environment. As the institution embraces these advancements, it positions itself as a forward-thinking entity dedicated to preparing students for the challenges and opportunities of the Fourth Industrial Revolution.\r\n\r\nLIU for Industry 4.0\r\n\r\nLIU Cares', 'Aspernatur explicabo odit sequi architecto quia nihil facere unde voluptatibus.', 'workshop', '2024-10-28 15:44:22'),
-(17, 'Forward Program Agent', '2001-06-10', 'With the theme of “Building a legacy of learning: celebrating 20 years of education,” Lyceum of Alabang (LoA) conducts Employees’ Day at the Danilo V. Ayap (DVA) gymnasium on Saturday, October 28.\r\n\r\nHighlights of the day include various games played by all faculty and staff of LoA, including: Kiwkiw, T-Shirt Relay, Dodgeball, Toilet Paper Challenge, and Egg throw. A zumba dance led by P.E. teachers and presentation of teams in their respective colors, and a photo opportunity and prayer led by Ms. Virginia Santos.\r\n\r\nThe newly elected Supreme Student Council (SSC) and Commission on Student Election (COMSELEC) facilitated the entire day.\r\n\r\nCaption by Roxy Esmores and Junimar Trazares\r\n\r\nPhotos by Kyla Athena Ambuya and Keith Ambuya', 'Doloribus minima nesciunt explicabo repellat suscipit at.', 'seminar', '2024-11-04 01:59:57'),
-(18, 'Regional Program Manager', '2024-12-26', 'Nostrum suscipit vel est perferendis nam.', 'Dolores officia minus quae temporibus numquam itaque.', 'workshop', '2024-11-13 01:05:59');
+(17, 'Forward Program Agent', '2001-06-10', 'With the theme of “Building a legacy of learning: celebrating 20 years of education,” Lyceum of Alabang (LoA) conducts Employees’ Day at the Danilo V. Ayap (DVA) gymnasium on Saturday, October 28.\r\n\r\nHighlights of the day include various games played by all faculty and staff of LoA, including: Kiwkiw, T-Shirt Relay, Dodgeball, Toilet Paper Challenge, and Egg throw. A zumba dance led by P.E. teachers and presentation of teams in their respective colors, and a photo opportunity and prayer led by Ms. Virginia Santos.\r\n\r\nThe newly elected Supreme Student Council (SSC) and Commission on Student Election (COMSELEC) facilitated the entire day.\r\n\r\nCaption by Roxy Esmores and Junimar Trazares\r\n\r\nPhotos by Kyla Athena Ambuya and Keith Ambuya', 'Doloribus minima nesciunt explicabo repellat suscipit at.', 'seminar', '2024-11-04 01:59:57');
 
 -- --------------------------------------------------------
 
@@ -126,9 +123,7 @@ INSERT INTO `event_images` (`id`, `event_id`, `image_path`) VALUES
 (33, 16, 'uploads-events/image_slider6.jpg'),
 (34, 17, 'uploads-events/image_slider1.jpg'),
 (35, 17, 'uploads-events/image_slider2.jpg'),
-(36, 17, 'uploads-events/image_slider3.jpg'),
-(37, 18, 'uploads-events/stud - Copy.png'),
-(38, 18, 'uploads-events/stud.png');
+(36, 17, 'uploads-events/image_slider3.jpg');
 
 -- --------------------------------------------------------
 
@@ -192,7 +187,7 @@ INSERT INTO `messages` (`MessageID`, `sender`, `FullNameSender`, `receiver`, `Fu
 (36, '1422-21', 'Helen Patalbo', '123-456', 'Rogel R Gerodiaz', 'Admin', 'test', 'testing', 'sent', '2024-11-11 14:28:30', 1),
 (37, '123-456', 'Rogel R Gerodiaz', '1422-21', 'Helen R Patalbo', 'OSA', 'Testing', 'testttt', 'sent', '2024-11-11 14:35:36', 1),
 (38, '123-456', 'Rogel R Gerodiaz', '543-21', 'Lebron R James', 'Organization', 'test', 'test', 'sent', '2024-11-11 15:30:46', 1),
-(39, '543-21', 'Lebron James', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'TESTIN', 'ORG FILE TESTING', 'sent', '2024-11-11 15:39:59', 1);
+(39, '543-21', 'Lebron James', '1169-21', 'Rogel Ramos Gerodiaz', 'student', 'TESTIN', 'ORG FILE TESTING', 'sent', '2024-11-11 15:39:59', 0);
 
 -- --------------------------------------------------------
 
@@ -230,27 +225,6 @@ INSERT INTO `message_attachments` (`AttachmentID`, `MessageID`, `file_path`) VAL
 (22, 39, 'uploads-messages/IMG20230819121825 (1).jpg'),
 (23, 39, 'uploads-messages/OSA_SendMessage (3).php'),
 (24, 39, 'uploads-messages/OSA_SendMessage (2).php');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `school_years`
---
-
-CREATE TABLE `school_years` (
-  `SchoolYearID` int(11) NOT NULL,
-  `Year` varchar(20) NOT NULL,
-  `IsCurrent` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `school_years`
---
-
-INSERT INTO `school_years` (`SchoolYearID`, `Year`, `IsCurrent`) VALUES
-(1, '2022-2023', 0),
-(2, '2023-2024', 0),
-(4, '2024-2025', 1);
 
 -- --------------------------------------------------------
 
@@ -327,17 +301,15 @@ CREATE TABLE `tblusers_organization` (
   `Nationality` varchar(32) NOT NULL,
   `MaritalStatus` varchar(24) NOT NULL,
   `Status` varchar(12) NOT NULL,
-  `profile_picture` varchar(255) DEFAULT NULL,
-  `failed_attempts` int(11) DEFAULT 0,
-  `lock_time` datetime DEFAULT NULL
+  `profile_picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblusers_organization`
 --
 
-INSERT INTO `tblusers_organization` (`OrgID`, `Org_number`, `FirstName`, `LastName`, `Username`, `Password`, `Role`, `MiddleName`, `Suffix`, `Email`, `PhoneNumber`, `DateBirth`, `Gender`, `Nationality`, `MaritalStatus`, `Status`, `profile_picture`, `failed_attempts`, `lock_time`) VALUES
-(1, '543-21', 'Lebron', 'James', 'organization', '987654321', 'Organization', 'R', 'N/A', 'org1@gmail.com', 909313675, '06/10/2001', 'Male', 'Filipino', 'Single', 'Active', NULL, 1, NULL);
+INSERT INTO `tblusers_organization` (`OrgID`, `Org_number`, `FirstName`, `LastName`, `Username`, `Password`, `Role`, `MiddleName`, `Suffix`, `Email`, `PhoneNumber`, `DateBirth`, `Gender`, `Nationality`, `MaritalStatus`, `Status`, `profile_picture`) VALUES
+(1, '543-21', 'Lebron', 'James', 'organization', '123456789', 'Organization', 'R', 'N/A', 'org@gmail.com', 909313675, '06/10/2001', 'Male', 'Filipino', 'Single', 'Active', NULL);
 
 -- --------------------------------------------------------
 
@@ -362,18 +334,16 @@ CREATE TABLE `tblusers_osa` (
   `Nationality` varchar(32) NOT NULL,
   `MaritalStatus` varchar(24) NOT NULL,
   `Status` varchar(12) NOT NULL,
-  `profile_picture` varchar(255) DEFAULT NULL,
-  `failed_attempts` int(11) DEFAULT 0,
-  `lock_time` datetime DEFAULT NULL
+  `profile_picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblusers_osa`
 --
 
-INSERT INTO `tblusers_osa` (`UserID`, `OSA_number`, `FirstName`, `LastName`, `Username`, `Password`, `Role`, `MiddleName`, `Suffix`, `Email`, `PhoneNumber`, `DateBirth`, `Gender`, `Nationality`, `MaritalStatus`, `Status`, `profile_picture`, `failed_attempts`, `lock_time`) VALUES
-(1, '1422-21', 'Helen', 'Patalbo', 'patalbohelen', '123456789', 'OSA', 'R', 'N/A', 'rogelgerodiaz@gmail.com', 925251254, '06/24/1995', 'Female', 'Filipino', 'Married', 'Active', '../osa_profiles_upload/4.png', 1, NULL),
-(2, '1223-41', 'Rogel', 'Gerodiaz', 'rogelgerodiaz', '123456789', 'OSA', '', '', 'osa@gmail.com', 0, '', '', '', '', '', NULL, 0, NULL);
+INSERT INTO `tblusers_osa` (`UserID`, `OSA_number`, `FirstName`, `LastName`, `Username`, `Password`, `Role`, `MiddleName`, `Suffix`, `Email`, `PhoneNumber`, `DateBirth`, `Gender`, `Nationality`, `MaritalStatus`, `Status`, `profile_picture`) VALUES
+(1, '1422-21', 'Helen', 'Patalbo', 'patalbohelen', '123456789', 'OSA', 'R', 'N/A', 'helen@gmail.com', 925251254, '06/24/1995', 'Female', 'Filipino', 'Married', 'Active', '../osa_profiles_upload/4.png'),
+(2, '1223-41', 'Rogel', 'Gerodiaz', 'rogelgerodiaz', '123456789', 'OSA', '', '', 'osa@gmail.com', 0, '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -405,26 +375,23 @@ CREATE TABLE `tblusers_student` (
   `Password` varchar(255) NOT NULL,
   `Role` varchar(255) NOT NULL,
   `Status` varchar(12) NOT NULL,
-  `profile_picture` varchar(255) DEFAULT NULL,
-  `failed_attempts` int(11) DEFAULT 0,
-  `lock_time` datetime DEFAULT NULL,
-  `SchoolYearID` int(11) DEFAULT NULL
+  `profile_picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tblusers_student`
 --
 
-INSERT INTO `tblusers_student` (`UserID`, `StudentID`, `FirstName`, `LastName`, `MiddleName`, `Suffix`, `Course`, `YearLevel`, `StudentType`, `Email`, `PhoneNumber`, `DateBirth`, `Address`, `Gender`, `Nationality`, `EmergencyContact`, `MaritalStatus`, `GuardiansName`, `GuardiansContact`, `Username`, `Password`, `Role`, `Status`, `profile_picture`, `failed_attempts`, `lock_time`, `SchoolYearID`) VALUES
-(1, '6911-21', 'Devante', 'Tillman', 'Hilton Arm', 'V', 'Bachelor of Science in Psychology', '3rd Year', 'Regular', 'patalbo@gmail.com', 425, '2024-08-21', '295 Corwin Run', 'Female', 'Utica', 421, 'Married', 'Adan Buckridge', 295, 'Gust.Kshlerin-Gleichner', 'f8MDbl_LfpUy7Nq', 'student', 'active', NULL, 1, NULL, NULL),
-(2, '1169-21', 'Rogel', 'Gerodiaz', 'Ramos', 'N/A', 'Bachelor of Science in Information Technology', '3rd Year', 'Regular', 'gerodiazrogel1@gmail.com', 2147483647, '2001-06-10', 'JASMIN', 'Male', 'Filipino', 321, 'Single', 'Evelyn Gerodiaz', 174, 'gerodiazrogel', '123456789', 'student', 'active', '../uploads/me.jpg', 2, NULL, NULL),
-(3, '4084-21', 'Toney', 'Towne', 'Bette Absh', 'III', 'Bachelor of Science in Engineering', '3rd Year', 'Irregular', 'your.email+fakedata43820@gmail.com', 841, '2025-02-01', '5517 Gusikowski Ford', 'Other', 'Catonsville', 822, 'Widowed', 'Shane Gorczany', 587, 'Dixie_Franecki', '39tTrYeVmpGkV8H', 'student', 'inactive', NULL, 1, NULL, NULL),
-(4, '3234-21', 'Allan', 'Bashirian-Goodwin', 'Cecile Cas', 'III', 'Bachelor of Science in Computer Science', '3rd Year', 'Irregular', 'your.email+fakedata12001@gmail.com', 596, '2023-10-29', '782 Angel Glens', 'Other', 'Rancho Palos Verdes', 548, 'Single', 'George Bode', 991, 'Alayna_Cole', 'YZ2ccyvghAJezBF', 'student', 'active', NULL, 0, NULL, NULL),
-(5, '7742-32', 'Jamir', 'Kohler', 'Sanford Bo', 'Sr', 'Bachelor of Science in Psychology', '3rd Year', 'Irregular', 'your.email+fakedata72573@gmail.com', 952, '2024-11-13', '682 Stacy Stream', 'Male', 'Palm Harbor', 488, 'Married', 'Julie Carroll', 232, 'Tomas25', 'Z3jFV6QXelqX_Rp', 'student', 'active', NULL, 0, NULL, NULL),
-(6, '4232-21', 'Jamey', 'Bosco', 'Dandre Bre', 'Sr', 'Bachelor of Science in Business Administration', '3rd Year', 'Irregular', 'your.email+fakedata42530@gmail.com', 921, '2024-06-27', '8369 Hodkiewicz Route', 'Other', 'Spring Valley', 243, 'Divorced', 'Everett Beier', 616, 'General.Legros', 'AQMX6GobitT3KKh', 'student', 'active', NULL, 0, NULL, NULL),
-(7, '4372-31', 'Ronny', 'Gibson', 'Bette Wind', 'Sr', 'Bachelor of Science in Engineering', '3rd Year', 'Regular', 'your.email+fakedata57452@gmail.com', 307, '2024-04-26', '8566 Ken Fields', 'Male', 'Porterville', 69, 'Divorced', 'Kamille McLaughlin', 752, 'Isom26', 'OpBJWExaCgdKy68', 'student', 'inactive', NULL, 0, NULL, NULL),
-(8, '3272-21', '', 'Swaniawski', 'Meaghan Re', 'Sr', 'Bachelor of Science in Education', '2nd Year', 'Irregular', 'your.email+fakedata76110@gmail.com', 919, '2025-07-20', '51807 Beaulah Creek', 'Female', 'Lompoc', 67, 'Divorced', 'Casandra Hoppe', 444, 'Vida.Williamson66', 'Ql1TGov1AzrMyPe', 'student', 'active', NULL, 0, NULL, NULL),
-(9, '1932-21', 'Kyleigh', 'Bailey', 'Ethelyn Zi', 'Jr', 'Bachelor of Science in Information Technology', '2nd Year', 'Irregular', 'your.email+fakedata33120@gmail.com', 237, '2024-06-10', '606 Brittany Hollow', 'Female', 'Miami Gardens', 849, 'Single', 'Berry Wyman', 683, 'Jaleel4', 'ktGJiHEmnoAP18V', 'student', 'active', NULL, 0, NULL, NULL);
+INSERT INTO `tblusers_student` (`UserID`, `StudentID`, `FirstName`, `LastName`, `MiddleName`, `Suffix`, `Course`, `YearLevel`, `StudentType`, `Email`, `PhoneNumber`, `DateBirth`, `Address`, `Gender`, `Nationality`, `EmergencyContact`, `MaritalStatus`, `GuardiansName`, `GuardiansContact`, `Username`, `Password`, `Role`, `Status`, `profile_picture`) VALUES
+(1, '6911-21', 'Devante', 'Tillman', 'Hilton Arm', 'V', 'Bachelor of Science in Psychology', '4', 'Regular', 'your.email+fakedata96535@gmail.com', 425, '2024-08-21', '295 Corwin Run', 'Female', 'Utica', 421, 'Married', 'Adan Buckridge', 295, 'Gust.Kshlerin-Gleichner', 'f8MDbl_LfpUy7Nq', 'student', 'active', NULL),
+(2, '1169-21', 'Rogel', 'Gerodiaz', 'Ramos', 'N/A', 'Bachelor of Science in Information Technology', '4', 'Regular', 'gerodiazrogel0@gmail.com', 2147483647, '2001-06-10', 'JASMIN', 'Male', 'Filipino', 321, 'Single', 'Evelyn Gerodiaz', 174, 'gerodiazrogel', '123456789', 'student', 'active', '../uploads/me.jpg'),
+(3, '4084-21', 'Toney', 'Towne', 'Bette Absh', 'III', 'Bachelor of Science in Engineering', '5', 'Irregular', 'your.email+fakedata43820@gmail.com', 841, '2025-02-01', '5517 Gusikowski Ford', 'Other', 'Catonsville', 822, 'Widowed', 'Shane Gorczany', 587, 'Dixie_Franecki', '39tTrYeVmpGkV8H', 'student', 'inactive', NULL),
+(4, '3234-21', 'Allan', 'Bashirian-Goodwin', 'Cecile Cas', 'III', 'Bachelor of Science in Computer Science', '4', 'Irregular', 'your.email+fakedata12001@gmail.com', 596, '2023-10-29', '782 Angel Glens', 'Other', 'Rancho Palos Verdes', 548, 'Single', 'George Bode', 991, 'Alayna_Cole', 'YZ2ccyvghAJezBF', 'student', 'active', NULL),
+(5, '7742-32', 'Jamir', 'Kohler', 'Sanford Bo', 'Sr', 'Bachelor of Science in Psychology', '3', 'Irregular', 'your.email+fakedata72573@gmail.com', 952, '2024-11-13', '682 Stacy Stream', 'Male', 'Palm Harbor', 488, 'Married', 'Julie Carroll', 232, 'Tomas25', 'Z3jFV6QXelqX_Rp', 'student', 'active', NULL),
+(6, '4232-21', 'Jamey', 'Bosco', 'Dandre Bre', 'Sr', 'Bachelor of Science in Business Administration', '1', 'Irregular', 'your.email+fakedata42530@gmail.com', 921, '2024-06-27', '8369 Hodkiewicz Route', 'Other', 'Spring Valley', 243, 'Divorced', 'Everett Beier', 616, 'General.Legros', 'AQMX6GobitT3KKh', 'student', 'active', NULL),
+(7, '4372-31', 'Ronny', 'Gibson', 'Bette Wind', 'Sr', 'Bachelor of Science in Engineering', '2', 'Regular', 'your.email+fakedata57452@gmail.com', 307, '2024-04-26', '8566 Ken Fields', 'Male', 'Porterville', 69, 'Divorced', 'Kamille McLaughlin', 752, 'Isom26', 'OpBJWExaCgdKy68', 'student', 'inactive', NULL),
+(8, '3272-21', 'Mable', 'Swaniawski', 'Meaghan Re', 'Sr', 'Bachelor of Science in Education', '5', 'Irregular', 'your.email+fakedata76110@gmail.com', 919, '2025-07-20', '51807 Beaulah Creek', 'Female', 'Lompoc', 67, 'Divorced', 'Casandra Hoppe', 444, 'Vida.Williamson66', 'Ql1TGov1AzrMyPe', 'student', 'active', NULL),
+(9, '1932-21', 'Kyleigh', 'Bailey', 'Ethelyn Zi', 'Jr', 'Bachelor of Science in Information Technology', '5', 'Irregular', 'your.email+fakedata33120@gmail.com', 237, '2024-06-10', '606 Brittany Hollow', 'Female', 'Miami Gardens', 849, 'Single', 'Berry Wyman', 683, 'Jaleel4', 'ktGJiHEmnoAP18V', 'student', 'active', NULL);
 
 --
 -- Indexes for dumped tables
@@ -470,12 +437,6 @@ ALTER TABLE `message_attachments`
   ADD KEY `MessageID` (`MessageID`);
 
 --
--- Indexes for table `school_years`
---
-ALTER TABLE `school_years`
-  ADD PRIMARY KEY (`SchoolYearID`);
-
---
 -- Indexes for table `tblcases`
 --
 ALTER TABLE `tblcases`
@@ -500,8 +461,7 @@ ALTER TABLE `tblusers_osa`
 --
 ALTER TABLE `tblusers_student`
   ADD PRIMARY KEY (`UserID`),
-  ADD UNIQUE KEY `StudentID` (`StudentID`),
-  ADD KEY `SchoolYearID` (`SchoolYearID`);
+  ADD UNIQUE KEY `StudentID` (`StudentID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -517,13 +477,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `event_images`
 --
 ALTER TABLE `event_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -536,12 +496,6 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `message_attachments`
   MODIFY `AttachmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT for table `school_years`
---
-ALTER TABLE `school_years`
-  MODIFY `SchoolYearID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tblcases`
@@ -594,12 +548,6 @@ ALTER TABLE `message_attachments`
 --
 ALTER TABLE `tblcases`
   ADD CONSTRAINT `tblcases_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `tblusers_student` (`StudentID`);
-
---
--- Constraints for table `tblusers_student`
---
-ALTER TABLE `tblusers_student`
-  ADD CONSTRAINT `tblusers_student_ibfk_1` FOREIGN KEY (`SchoolYearID`) REFERENCES `school_years` (`SchoolYearID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

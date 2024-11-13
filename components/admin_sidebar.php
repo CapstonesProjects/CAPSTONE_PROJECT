@@ -443,6 +443,13 @@ include('../modals/Admin_SettingsModal.php');
                         </svg>
                         <span class="text-sm sm:text-md md:text-lg">Events</span>
                     </a>
+
+                    <a href="../Admin/Admin_AddOSA.php" class="text-lg font-medium <?php echo $activeMenu == 'add_osa' ? 'active' : 'text-gray-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+                            <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM8.715 8c1.151 0 2 .849 2 2s-.849 2-2 2-2-.849-2-2 .848-2 2-2zm3.715 8H5v-.465c0-1.373 1.676-2.785 3.715-2.785s3.715 1.412 3.715 2.785V16zM19 15h-4v-2h4v2zm0-4h-5V9h5v2z"></path>
+                        </svg>
+                        <span class="text-sm sm:text-md md:text-lg">Add OSA</span>
+                    </a>
                     <!-- <a href="" class="text-lg font-medium text-gray-700 py-3 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="0.5em" height="0.5em" class=" fill-current inline-block">
                             <path d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.084 0 2 .916 2 2s-.916 2-2 2-2-.916-2-2 .916-2 2-2z"></path>
