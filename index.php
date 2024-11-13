@@ -270,6 +270,7 @@ $result = $conn->query($sql);
                         <li><a href="#" class="text-blue-400 hover:underline">Academics</a></li>
                         <li><a href="#" class="text-blue-400 hover:underline">Contact Us</a></li>
                         <li><a href="https://lyceumalabang.edu.ph/" class="text-blue-400 hover:underline">Lyceum of Alabang Website</a></li>
+                        <li><a href="admin_osa_index.php" class="text-blue-400 hover:underline">Admin and OSA Login</a></li>
                     </ul>
                 </div>
                 <div class="footer-content-right">
