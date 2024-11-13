@@ -55,7 +55,7 @@ if (isset($_SESSION['UserID'])) {
 
     @media (max-width: 648px) {
         .custom-div {
-            max-width: 41rem; /* Tailwind's md:max-w-5xl */
+            max-width: 36rem; /* Tailwind's md:max-w-5xl */
         }   
         
         .flex{
@@ -73,7 +73,7 @@ if (isset($_SESSION['UserID'])) {
         }
 
         #inbox-content {
-            width: 68%;
+            width: 100%;
             overflow-x: hidden;
         }
 
