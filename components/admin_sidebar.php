@@ -12,6 +12,15 @@
     $_SESSION['LastName'] = $user['LastName'];
     $_SESSION['Role'] = $user['Role'];
     $_SESSION['Email'] = $user['Email'];
+
+    // Query to get the current school year
+    $query_school_year = "SELECT Year FROM school_years WHERE IsCurrent = TRUE";
+    $stmt_school_year = $conn->prepare($query_school_year);
+    $stmt_school_year->execute();
+    $result_school_year = $stmt_school_year->get_result();
+    $school_year = $result_school_year->fetch_assoc();
+
+    $_SESSION['CurrentSchoolYear'] = $school_year['Year'];
 } else {
     // Redirect to login page or show an error
 }
