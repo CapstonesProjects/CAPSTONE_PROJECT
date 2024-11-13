@@ -30,6 +30,8 @@ include('../config/db_connection.php');
       transform: rotate(360deg);
     }
   }
+
+
 </style>
 
 <body>
@@ -37,7 +39,7 @@ include('../config/db_connection.php');
   <div class="antialiased sans-serif w-lg">
     <div class="px-2 w-full">
       <div class="py-5">
-        <div class="p-4 bg-white overflow-hidden" style="height: 840px; width: 1575px;">
+        <div class="p-4 bg-white overflow-visible" style="height: 840px; width: 100%;">
           <div class="md:flex md:justify-between md:items-center mb-4">
             <!-- Legends -->
             <div class="flex items-center mb-4">
@@ -138,5 +140,6 @@ include('../config/db_connection.php');
 
 <script src="../javascript/download_report_alerts_modal.js"></script>
 </body>
+
 
 </html>

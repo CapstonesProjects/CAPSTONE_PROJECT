@@ -48,10 +48,32 @@ if (isset($_SESSION['AdminID'])) {
         [x-cloak] {
             display: none;
         }
+
+        .custom-div {
+        overflow: auto;
+        max-height: 100%; /* Default max-height */
+        max-width: 100%;   /* Default max-width */
+    }
+    @media (max-width: 1040px) {
+        .custom-div {
+            max-width:  80rem; /* Tailwind's sm:max-w-md */
+        }
+    }
+
+    @media (max-width: 648px) {
+        .custom-div {
+            max-width: 41rem; /* Tailwind's md:max-w-5xl */
+        }   
+        .p-4{
+            max-width: 40rem;
+            overflow: visible;
+        }
+    }
     </style>
 </head>
 
 <body class="font-poppins antialiased bg-white">
+    <div class="custom-div">
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php
@@ -64,6 +86,7 @@ if (isset($_SESSION['AdminID'])) {
         </div>
     </div>
 </body>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
