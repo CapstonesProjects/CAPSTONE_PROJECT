@@ -15,7 +15,6 @@ include('./config/db_connection.php');
   <link rel="stylesheet" href="css/admin_index.css">
   <link rel="shortcut icon" href="images/osa_logo.png" type="image/x-icon">
   <title>Admin & OSA - LOA Office of Student Affairs</title>
-  
 </head>
 
 <style>
@@ -58,12 +57,12 @@ include('./config/db_connection.php');
     <div class="loading-spinner"></div>
   </div>
 
-  <div class="relative min-h-screen flex ">
+  <div class="relative min-h-screen flex">
     <div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-white">
       <div class="sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden bg-purple-900 text-white bg-no-repeat bg-cover relative"
         style="background-image: url(images/index-background.png);">
         <div class="absolute bg-gradient-to-b from-indigo-600 to-blue-500 opacity-75 inset-0 z-0"></div>
-        <div class="w-full  max-w-md z-10">
+        <div class="w-full max-w-md z-10">
           <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6 whitespace-nowrap">Office of Student Affairs <br> in <span class="text-red-400">Lyceum of Alabang</span></div>
           <div class="sm:text-sm xl:text-md text-gray-200 font-normal"> What is Lorem Ipsum Lorem Ipsum is simply dummy
             text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever
@@ -84,7 +83,7 @@ include('./config/db_connection.php');
           <li></li>
         </ul>
       </div>
-      <div class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white">
+      <div class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white">
         <div class="max-w-md w-full space-y-8">
           <div class="text-center">
             <h2 class="mt-6 text-3xl font-bold text-gray-900">
@@ -102,9 +101,7 @@ include('./config/db_connection.php');
             <form id="loginForm" class="mt-8 space-y-6" action="Login/OSA_Admin_Login.php" method="POST">
               <input type="hidden" name="remember" value="true">
               <div class="relative">
-                <div class="absolute right-3 mt-4">
-
-                </div>
+                <div class="absolute right-3 mt-4"></div>
                 <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Username</label>
                 <input
                   class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500"
@@ -138,9 +135,18 @@ include('./config/db_connection.php');
                   Sign in
                 </button>
               </div>
-              <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
-
-              </p>
+              <?php if (isset($_SESSION['login_attempts']) && isset($_SESSION['login_username'])): ?>
+                <div class="flex flex-col justify-center items-center text-red-500 space-x-2 mt-4">
+                  <span class="text-black"><?php echo "You have <span class='text-red-500 font-extrabold'>" . (3 - $_SESSION['login_attempts']) . "</span> attempts left."; ?></span>
+                  <?php if (isset($_SESSION['login_email'])): ?>
+                    <span class="text-black"><?php echo "Email: <span class='text-red-500 font-extrabold'>" . $_SESSION['login_email'] . "</span>"; ?></span>
+                  <?php endif; ?>
+                  <?php if (isset($_SESSION['login_username'])): ?>
+                    <span class="text-black"><?php echo "Username: <span class='text-red-500 font-extrabold'>" . $_SESSION['login_username'] . "</span>"; ?></span>
+                  <?php endif; ?>
+                </div>
+              <?php endif; ?>
+              <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500"></p>
             </form>
           </div>
         </div>
