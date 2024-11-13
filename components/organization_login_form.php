@@ -27,7 +27,9 @@
                         </div>
 
                         <div class="btn-container mb-4">
-                            <button type="submit" class=" bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded shadow-lg transition duration-300 ease-in-out transform hover:scale-105" style="width: 530px;">Login</button>
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded shadow-lg transition duration-300 ease-in-out transform hover:scale-105 w-full sm:w-96 md:w-80 lg:w-72 xl:w-64">
+                                Login
+                            </button>
                         </div>
 
                         <?php if (isset($_SESSION['login_attempts']) && isset($_SESSION['login_username']) && isset($_SESSION['login_username'])): ?>
