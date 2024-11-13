@@ -25,7 +25,7 @@ include('../modals/AddOSA_Admin.php');
     <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" />
     <link rel="shortcut icon" href="../images/osa_logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>OSA Student Profile - LOA OSA</title>
+    <title>Admin Add OSA - LOA OSA</title>
 </head>
 
 <style>

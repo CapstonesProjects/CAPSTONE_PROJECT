@@ -23,6 +23,7 @@
     $_SESSION['CurrentSchoolYear'] = $school_year['Year'];
 } else {
     // Redirect to login page or show an error
+    header('Location: ../admin_osa_index.php');
 }
 include('../modals/Admin_SettingsModal.php');
 ?>
@@ -407,9 +408,23 @@ include('../modals/Admin_SettingsModal.php');
                     <img src="../images/osa_logo.png" alt="Avatar user" class="w-8 md:w-36 mb-6 rounded-full mx-auto" />
                     <div>
                         <h2 class="font-medium text-xs md:text-xl text-center text-teal-500">
-                            <?php echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName']; ?>
+                            <?php
+                            if (isset($_SESSION['FirstName']) && isset($_SESSION['LastName'])) {
+                                echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName'];
+                            } else {
+                                echo 'Guest';
+                            }
+                            ?>
                         </h2>
-                        <p class="text-xs text-gray-500 text-center" style="margin-bottom: 50%;"><?php echo $_SESSION['Role'] ?></p>
+                        <p class="text-xs text-gray-500 text-center" style="margin-bottom: 50%;">
+                            <?php
+                            if (isset($_SESSION['Role'])) {
+                                echo $_SESSION['Role'];
+                            } else {
+                                echo 'Role not set';
+                            }
+                            ?>
+                        </p>
                     </div>
                 </div>
 
@@ -449,6 +464,12 @@ include('../modals/Admin_SettingsModal.php');
                             <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM8.715 8c1.151 0 2 .849 2 2s-.849 2-2 2-2-.849-2-2 .848-2 2-2zm3.715 8H5v-.465c0-1.373 1.676-2.785 3.715-2.785s3.715 1.412 3.715 2.785V16zM19 15h-4v-2h4v2zm0-4h-5V9h5v2z"></path>
                         </svg>
                         <span class="text-sm sm:text-md md:text-lg">Add OSA</span>
+                    </a>
+                    <a href="../OSA/OSA_ActivityLog.php" class="text-lg font-medium <?php echo $activeMenu == 'activity_log' ? 'active' : 'text-gray-700'; ?> py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+                            <path d="M15 3H4.984c-1.103 0-2 .897-2 2v14.016c0 1.103.897 2 2 2H19c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-4zm4 5h-3V5h3v3zM4.984 10h3v4.016h-3V10zm5 0H14v4.016H9.984V10zM16 10h3v4.016h-3V10zm-2-5v3H9.984V5H14zM7.984 5v3h-3V5h3zm-3 11.016h3v3h-3v-3zm5 3v-3H14v3H9.984zm6.016 0v-3h3.001v3H16z"></path>
+                        </svg>
+                        <span class="text-sm sm:text-md md:text-lg">Activity Log</span>
                     </a>
                     <!-- <a href="" class="text-lg font-medium text-gray-700 py-3 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" width="0.5em" height="0.5em" class=" fill-current inline-block">

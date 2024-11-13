@@ -41,7 +41,7 @@ include('../alerts/send_message.php')
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
-    <title>OSA Send Message - LOA OSA</title>
+    <title>Admin Send Message - LOA OSA</title>
 </head>
 
 <body class="font-poppins antialiased bg-gray-200">

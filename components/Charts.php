@@ -1,5 +1,18 @@
 <?php
 include('../config/db_connection.php');
+
+// Function to log activity
+function log_activity($conn, $userID, $userType, $action) {
+  $sql = "INSERT INTO activity_log (UserID, UserType, Action) VALUES (?, ?, ?)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("iss", $userID, $userType, $action);
+  $stmt->execute();
+  $stmt->close();
+}
+
+// Fetch school years
+$query_school_years = "SELECT Year FROM school_years ORDER BY Year DESC";
+$result_school_years = $conn->query($query_school_years);
 ?>
 
 <!DOCTYPE html>

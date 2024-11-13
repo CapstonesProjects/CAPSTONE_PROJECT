@@ -14,9 +14,18 @@ function handle_failed_attempts($conn, $user, $userType) {
         $lockTime = date('Y-m-d H:i:s');
     }
 
-    $sql = "UPDATE $userType SET failed_attempts = ?, lock_time = ? WHERE UserID = ?";
+    if ($userType == 'tblusers_osa') {
+        $sql = "UPDATE tblusers_osa SET failed_attempts = ?, lock_time = ? WHERE UserID = ?";
+    } else {
+        $sql = "UPDATE admin SET failed_attempts = ?, lock_time = ? WHERE AdminID = ?";
+    }
+
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "isi", $failedAttempts, $lockTime, $user['UserID']);
+    if ($userType == 'tblusers_osa') {
+        mysqli_stmt_bind_param($stmt, "isi", $failedAttempts, $lockTime, $user['UserID']);
+    } else {
+        mysqli_stmt_bind_param($stmt, "isi", $failedAttempts, $lockTime, $user['AdminID']);
+    }
     mysqli_stmt_execute($stmt);
 
     $_SESSION['login_attempts'] = $failedAttempts;
@@ -35,7 +44,13 @@ function handle_successful_login($user, $userType) {
     unset($_SESSION['login_username']);
 
     // Set session variables
-    $_SESSION['UserID'] = $user['UserID'];
+    if ($userType == 'tblusers_osa') {
+        $_SESSION['UserID'] = $user['UserID'];
+        $_SESSION['UserType'] = 'osa';
+    } else {
+        $_SESSION['UserID'] = $user['AdminID'];
+        $_SESSION['UserType'] = 'admin';
+    }
     $_SESSION['FirstName'] = $user['FirstName'];
     $_SESSION['LastName'] = $user['LastName'];
     $_SESSION['Role'] = $user['Role'];
