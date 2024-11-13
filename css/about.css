@@ -1,14 +1,8 @@
-
-
-
-
 .org_title {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-
-
-.about>div {
+.about > div {
   flex: 1;
   margin: 1rem;
 }
@@ -23,6 +17,10 @@
 
 .org-container {
   margin-top: 20px;
-
 }
 
+@media screen and (min-width: 350px) and (max-width: 760px) {
+  .w-32 {
+    width: 10%;
+  }
+}
