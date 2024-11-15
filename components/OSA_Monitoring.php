@@ -177,13 +177,13 @@ mysqli_close($conn);
                                         <i class='bx bx-show'></i> <!-- View Icon -->
                                     </button>
 
-                                    <template x-if="!getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).isActive && caseItem.Status.toLowerCase() !== 'ongoing' && caseItem.Status.toLowerCase() !== 'suspension completed' && caseItem.Status.toLowerCase() !== 'resolved'">
+                                    <template x-if="caseItem.CaseResolution && !caseItem.StartDate">
                                         <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 rounded text-sm flex items-center justify-center" data-bs-toggle="modal" :data-bs-target="'#scheduleSuspensionModal' + caseItem.CaseID" @click="openScheduleSuspensionModal(caseItem.CaseID)" style="width: 40px; height: 40px;">
                                             <i class='bx bx-calendar'></i> <!-- Schedule Suspension Icon -->
                                         </button>
                                     </template>
 
-                                    <template x-if="getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).isActive">
+                                    <template x-if="caseItem.StartDate && getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).text !== 'Suspension Completed'">
                                         <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded text-sm flex items-center justify-center" data-bs-toggle="modal" :data-bs-target="'#liftSuspensionModal' + caseItem.CaseID" @click="liftSuspension(caseItem.CaseID)" style="width: 40px; height: 40px;">
                                             <i class='bx bx-up-arrow-alt'></i> <!-- Lift Suspension Icon -->
                                         </button>
@@ -202,6 +202,7 @@ mysqli_close($conn);
             <?php include('../modals/ScheduleSuspensionModal.php'); ?>
             <?php include('../modals/LiftSuspensionModal.php'); ?>
         <?php endforeach; ?>
+        <?php include('../alerts/suspension_date.php') ?>
     </div>
 
     <script>
@@ -266,11 +267,12 @@ mysqli_close($conn);
                         };
                     }
 
-                    if (dbStatus.toLowerCase() !== 'suspended') {
-                        console.log('Status: Pending Suspension (dbStatus is not suspended)');
+                    // Check if the status in the database is 'Suspended'
+                    if (dbStatus.toLowerCase() === 'suspended') {
+                        console.log('Status: Active Suspension (dbStatus is suspended)');
                         return {
-                            text: 'Pending Suspension',
-                            isActive: false
+                            text: 'Active Suspension',
+                            isActive: true
                         };
                     }
 
@@ -306,14 +308,6 @@ mysqli_close($conn);
                         };
                     }
 
-                    // if (currentDate > end) {
-                    //     console.log('Status: Suspension Completed (current date is after end date)');
-                    //     return {
-                    //         text: 'Suspension Completed',
-                    //         isActive: false
-                    //     };
-                    // }
-
                     console.log('Status: Pending Suspension (default case)');
                     return {
                         text: 'Pending Suspension',
@@ -323,12 +317,12 @@ mysqli_close($conn);
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
-        tippy('[data-tippy-content]', {
-            allowHTML: true,
-            theme: 'light-border',
+        document.addEventListener('DOMContentLoaded', function() {
+            tippy('[data-tippy-content]', {
+                allowHTML: true,
+                theme: 'light-border',
+            });
         });
-    });
     </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>

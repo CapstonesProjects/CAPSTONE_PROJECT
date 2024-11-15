@@ -23,7 +23,7 @@
                                 <input type="checkbox" name="remember_me">
                                 Remember me
                             </label>
-                            <a href="#" class=" text-white hover:text-indigo-500 float-right" style="font-size: 0.8rem;">Forgot Password?</a>
+                            <!-- <a href="#" class=" text-white hover:text-indigo-500 float-right" style="font-size: 0.8rem;">Forgot Password?</a> -->
                         </div>
 
                         <div class="btn-container mb-4">

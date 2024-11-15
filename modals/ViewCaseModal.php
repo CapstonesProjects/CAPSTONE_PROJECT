@@ -14,15 +14,16 @@ mysqli_close($conn);
 ?>
 
 <style>
-    .modal-5xl {
-        width: 120%;
+    .modaly {
+        width: 100%;
+        max-width: 90%;
     }
 </style>
 
 <!-- Modals -->
 <?php foreach ($cases as $caseItem): ?>
     <div class="modal fade" id="ViewCasesModal<?php echo $caseItem['CaseID']; ?>" tabindex="-1" aria-labelledby="ViewCaseModalLabel<?php echo $caseItem['CaseID']; ?>" aria-hidden="true">
-        <div class="modal-dialog modal-5xl modal-dialog-scrollable">
+        <div class="modal-dialog  modaly modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header d-flex">
                     <h5 class="modal-title me-5" id="ViewCasesModalLabel<?php echo $caseItem['CaseID']; ?>">

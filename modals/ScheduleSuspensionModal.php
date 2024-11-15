@@ -11,17 +11,17 @@
                     <div class="grid grid-cols-1 gap-6">
                         <div class="form-section mb-4">
                             <label class="form-label block text-sm font-medium text-gray-700" for="startDate">Suspension Start Date</label>
-                            <input type="date" id="startDate" name="startDate" class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" value="<?php echo isset($suspensionDetails['StartDate']) ? $suspensionDetails['StartDate'] : ''; ?>">
+                            <input type="date" id="startDate" name="startDate" class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" value="<?php echo isset($suspensionDetails['StartDate']) ? $suspensionDetails['StartDate'] : ''; ?>" required>
                         </div>
 
                         <div class="form-section mb-4">
                             <label class="form-label block text-sm font-medium text-gray-700" for="endDate">Suspension End Date</label>
-                            <input type="date" id="endDate" name="endDate" class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" value="<?php echo isset($suspensionDetails['EndDate']) ? $suspensionDetails['EndDate'] : ''; ?>">
+                            <input type="date" id="endDate" name="endDate" class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" value="<?php echo isset($suspensionDetails['EndDate']) ? $suspensionDetails['EndDate'] : ''; ?>" required>
                         </div>
 
                         <div class="form-section mb-4">
                             <label class="form-label block text-sm font-medium text-gray-700" for="startLetter">Letter for Starting Suspension</label>
-                            <input type="file" id="startLetter" name="startLetter" class="form-file mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                            <input type="file" id="startLetter" name="startLetter" class="form-file mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required>
                         </div>
                     </div>
 

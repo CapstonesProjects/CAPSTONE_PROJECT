@@ -53,7 +53,7 @@ if (isset($_SESSION['UserID'])) {
         }
     }
 
-    @media (max-width: 648px) {
+    @media only screen and (min-width: 350px)  and (max-width: 768px) {
         .custom-div {
             max-width: 36rem; /* Tailwind's md:max-w-5xl */
         }   
@@ -73,7 +73,8 @@ if (isset($_SESSION['UserID'])) {
         }
 
         #inbox-content {
-            width: 100%;
+            width: auto;
+            max-width: 25rem;
             overflow-x: hidden;
         }
 

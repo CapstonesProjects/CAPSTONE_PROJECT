@@ -128,7 +128,7 @@
             <div class="form-container bg-white rounded-lg shadow-lg" style="width: 1575px; height: 840px;">
                 <div class="form-group mb-10">
                     <label for="event-title" class="block text-gray-700 font-bold mb-2">Event Title</label>
-                    <input type="text" id="event-title" name="event-title" placeholder="Enter event title" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="text" id="event-title" name="event-title" placeholder="Enter event title" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="form-group mb-10">
                     <label for="event-date" class="block text-gray-700 font-bold mb-2">Event Date</label>
@@ -136,7 +136,7 @@
                 </div>
                 <div class="form-group mb-10">
                     <label for="event-description" class="block text-gray-700 font-bold mb-2">Event Description</label>
-                    <textarea id="event-description" name="event-description" placeholder="Enter event description" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <textarea id="event-description" name="event-description" placeholder="Enter event description" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
                 </div>
                 <div class="form-group mb-10">
                     <label for="event-image" class="block text-gray-700 font-bold mb-2">Event Images</label>
@@ -144,18 +144,18 @@
                         <div id="upload-area" class="upload-area">
                             <i class='bx bx-upload text-6xl text-gray-400'></i>
                             <p class="text-gray-600">Drag & drop images here or click to upload</p>
-                            <input type="file" id="event-image" name="event-image[]" multiple>
+                            <input type="file" id="event-image" name="event-image[]" multiple required>
                         </div>
                         <div id="image-preview" class="image-preview"></div>
                     </div>
                 </div>
                 <div class="form-group mb-10">
                     <label for="event-location" class="block text-gray-700 font-bold mb-2">Event Location</label>
-                    <input type="text" id="event-location" name="event-location" placeholder="Enter event location" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="text" id="event-location" name="event-location" placeholder="Enter event location" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="form-group mb-10">
                     <label for="event-category" class="block text-gray-700 font-bold mb-2">Event Category</label>
-                    <select id="event-category" name="event-category" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select id="event-category" name="event-category" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                         <option value="">Select category</option>
                         <option value="conference">Conference</option>
                         <option value="workshop">Workshop</option>

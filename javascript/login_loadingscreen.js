@@ -4,5 +4,5 @@ document.getElementById('loginForm').addEventListener('submit', function() {
 
     setTimeout(function() {
       document.getElementById('loginForm').submit();
-    }, 3000);
+    }, 5000);
   });

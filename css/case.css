@@ -1,4 +1,4 @@
-@media (max-width: 648px) {
+@media only screen and (min-width: 350px)  and (max-width: 768px) {
   .tbl-lbl {
     margin: 5%;
     padding-left: 0%;
@@ -6,7 +6,11 @@
     width: 100%;
     max-width: 100rem;
     height: auto;
-    font-size: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .py-2 {
+    font-size: 0.8rem;
   }
   #case-details-modal {
     overflow: hidden;
@@ -35,7 +39,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media only screen and (min-width: 350px)  and (max-width: 768px) {
   #case-details-modal {
     overflow: hidden;
     height: auto;

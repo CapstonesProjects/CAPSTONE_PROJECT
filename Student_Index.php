@@ -7,6 +7,28 @@ include('./alerts/login_alerts.php');
 
 // $activeMenu = 'dashboard';
 // include('./components/sidebar.php');
+if (isset($_COOKIE['remember_me'])) {
+    $token = $_COOKIE['remember_me'];
+    $sql = "SELECT * FROM tblusers_student WHERE remember_token = ? AND remember_token_expiry > NOW()";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $token);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($user = mysqli_fetch_assoc($result)) {
+        // Set session variables
+        $_SESSION['UserID'] = $user['UserID'];
+        $_SESSION['StudentID'] = $user['StudentID'];
+        $_SESSION['FirstName'] = $user['FirstName'];
+        $_SESSION['LastName'] = $user['LastName'];
+        $_SESSION['Role'] = $user['Role'];
+        $_SESSION['Email'] = $user['Email'];
+        $_SESSION['login_success'] = 'You have successfully logged in!';
+        
+        header('Location: ../Student/Student_Dashboard.php');
+        exit;
+    }
+}
 ?>
 
 
@@ -46,7 +68,7 @@ include('./alerts/login_alerts.php');
         border-radius: 50%;
         width: 120px;
         height: 120px;
-        animation: spin 2s linear infinite;
+        animation: spin 5s linear infinite;
     }
 
     @keyframes spin {
@@ -58,7 +80,7 @@ include('./alerts/login_alerts.php');
             transform: rotate(360deg);
         }
 
-    
+
     }
 
     * {
@@ -98,13 +120,14 @@ include('./alerts/login_alerts.php');
     <?php include('./alerts/login_alerts.php') ?>
 
 </body>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="javascript/hamburger_menu.js"></script>
-    <script src="./javascript/sessionmessage.js"></script>
-    <script src="./javascript/active.js"></script>
-    <script src="javascript/alerts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="javascript/hamburger_menu.js"></script>
+<script src="./javascript/sessionmessage.js"></script>
+<script src="./javascript/active.js"></script>
+<script src="javascript/alerts.js"></script>
+<script src="javascript/login_loadingscreen.js"></script>
 
 
 </html>

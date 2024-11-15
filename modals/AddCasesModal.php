@@ -1,5 +1,3 @@
-
-
 <style>
     /* Adjust the width of the dropdown */
     #offense {
@@ -32,7 +30,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="AddCasesModalLabel">New Case</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+                        <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                    </svg></button>
             </div>
             <div class="modal-body">
                 <form id="addCaseForm" action="../phpfiles/add_case.php" method="POST" enctype="multipart/form-data">
@@ -181,7 +181,7 @@
                             <input type="text" class="form-control" id="complainant" name="Complainant" required>
                         </div>
                         <div class="mb-3">
-                            <label for="ComplainantNumber" class="form-label">Complainant Number</label>
+                            <label for="ComplainantNumber" class="form-label">Complainant Phone Number</label>
                             <input type="text" class="form-control" id="complainantnumber" name="ComplainantNumber" required>
                         </div>
 
@@ -191,33 +191,19 @@
                         </div>
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <select class="form-select" id="status" name="Status" required>
-                                <option selected disabled value="">Choose...</option>
-                                <option value="Ongoing">Ongoing</option>
-                                <!-- <option value="Resolved">Resolved</option> -->
-                                <option value="Pending">Pending</option>
-                            </select>
+                            <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed" id="status" name="Status" value="Ongoing" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="FiledDate" class="form-label">Filed Date</label>
-                            <input type="date" class="form-control" id="fileddate" name="FiledDate" required>
+                            <input type="date" class="form-control bg-gray-200 text-black cursor-not-allowed" id="fileddate" name="FiledDate" required>
                         </div>
                         <div class="mb-3">
                             <label for="schoolYear" class="form-label">School Year</label>
-                            <select class="form-control" id="schoolYear" name="SchoolYear" required>
-                                <option value="">Select School Year</option>
-                                <option value="2021-2022">2021-2022</option>
-                                <option value="2023-2024">2023-2024</option>
-                                <option value="2024-2025">2024-2025</option>
-                            </select>
+                            <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed" id="schoolYear" name="SchoolYear" value="<?php echo $current_school_year; ?>" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="Semester" class="form-label">Semester</label>
-                            <select class="form-control" id="semester" name="Semester" required>
-                                <option value="">Select Semester</option>
-                                <option value="1st Semester">1st Semester</option>
-                                <option value="2nd Semester">2nd Semester</option>
-                            </select>
+                            <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed" id="semester" name="semester" value="<?php echo $current_semester; ?>" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="FiledBy" class="form-label">Filed By</label>
@@ -227,10 +213,10 @@
                             <label for="reportAttachment" class="form-label">Report Attachment</label>
                             <input type="file" class="form-control" id="reportAttachment" name="ReportAttachment" accept=".pdf" required>
                         </div>
-                        <!-- <div class="mb-3" id="writtenReprimandAttachmentContainer">
+                        <div class="mb-3" id="writtenReprimandAttachmentContainer">
                             <label for="writtenReprimandAttachment" class="form-label">Written Reprimand Attachment</label>
                             <input type="file" class="form-control" id="writtenReprimandAttachment" name="WrittenReprimandAttachment" accept=".pdf">
-                        </div> -->
+                        </div>
                         <!-- <div class="mb-3">
                             <label for="sanctionLetterAttachment" class="form-label">Sanction Letter Attachment</label>
                             <input type="file" class="form-control" id="sanctionLetterAttachment" name="SanctionLetterAttachment" accept=".pdf">

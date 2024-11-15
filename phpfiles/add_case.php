@@ -23,7 +23,7 @@ if (isset($_POST['btnadd_case'])) {
     $affiliation = $_POST['Affiliation'];
     $schoolyear = $_POST['SchoolYear'];
     $filedby = $_POST['FiledBy'];
-    $semester = $_POST['Semester'];
+    $semester = isset($_POST['Semester']) ? $_POST['Semester'] : 'Default Semester'; // Set a default value if Semester is not set
 
     // Handle file uploads
     $reportAttachment = '';
@@ -66,19 +66,21 @@ if (isset($_POST['btnadd_case'])) {
     }
 
     // Check if the case already exists
-    $caseID = $_POST['CaseID']; // Assuming CaseID is passed in the POST request
+    $caseID = isset($_POST['CaseID']) ? $_POST['CaseID'] : null; // Ensure CaseID is set
 
-    $caseCheckQuery = "SELECT * FROM tblcases WHERE CaseID = ?";
-    $stmt = $conn->prepare($caseCheckQuery);
-    $stmt->bind_param("s", $caseID);
-    $stmt->execute();
-    $caseCheckResult = $stmt->get_result();
+    if ($caseID) {
+        $caseCheckQuery = "SELECT * FROM tblcases WHERE CaseID = ?";
+        $stmt = $conn->prepare($caseCheckQuery);
+        $stmt->bind_param("s", $caseID);
+        $stmt->execute();
+        $caseCheckResult = $stmt->get_result();
 
-    if ($caseCheckResult->num_rows > 0) {
-        // Case already exists
-        $_SESSION['addcases_error'] = "Error: This case already exists.";
-        header('Location: ../OSA/OSA_Cases.php');
-        exit;
+        if ($caseCheckResult->num_rows > 0) {
+            // Case already exists
+            $_SESSION['addcases_error'] = "Error: This case already exists.";
+            header('Location: ../OSA/OSA_Cases.php');
+            exit;
+        }
     }
 
     $insertQuery = "INSERT INTO tblcases (

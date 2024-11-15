@@ -75,3 +75,5 @@ document.getElementById('offense').addEventListener('change', function() {
         // document.getElementById('sanctionLetterAttachmentContainer').style.display = 'none';
     }
 });
+
+

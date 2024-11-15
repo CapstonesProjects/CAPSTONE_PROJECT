@@ -19,6 +19,7 @@
                         <option value="email">Change Email</option>
                         <option value="theme">Theme</option>
                         <option value="school-year">Manage School Year</option>
+                        <option value="semester">Manage Semester</option>
                     </select>
                 </div>
                 <!-- Change Password Section -->
@@ -45,7 +46,7 @@
                     <h6 class="text-lg font-semibold text-gray-700">Change Email</h6>
                     <div class="mt-2">
                         <label for="current-email" class="block text-sm font-medium text-gray-700">Current Email</label>
-                        <input type="email" id="current-email" name="current-email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="<?php echo isset($_SESSION['Email']) ? $_SESSION['Email'] : ''; ?>" readonly>
+                        <input type="email" id="current-email" name="current-email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-200 text-black cursor-not-allowed focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="<?php echo isset($_SESSION['Email']) ? $_SESSION['Email'] : ''; ?>" readonly>
                     </div>
                     <div class="mt-2">
                         <label for="new-email" class="block text-sm font-medium text-gray-700">New Email</label>
@@ -77,12 +78,40 @@
                     <h6 class="text-lg font-semibold text-gray-700">Manage School Year</h6>
                     <div class="mt-2">
                         <label for="current-school-year" class="block text-sm font-medium text-gray-700">Current School Year</label>
-                        <input type="text" id="current-school-year" name="current-school-year" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="<?php echo isset($_SESSION['CurrentSchoolYear']) ? $_SESSION['CurrentSchoolYear'] : ''; ?>" readonly>
+                        <input type="text" id="current-school-year" name="current-school-year" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-200 text-black cursor-not-allowed focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="<?php echo isset($_SESSION['CurrentSchoolYear']) ? $_SESSION['CurrentSchoolYear'] : ''; ?>" readonly>
                     </div>
                     <div class="mt-2">
                         <label for="new-school-year" class="block text-sm font-medium text-gray-700">New School Year</label>
                         <input type="text" id="new-school-year" name="new-school-year" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                     </div>
+                    <div class="flex justify-end mt-6">
+                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save Changes</button>
+                    </div>
+                </form>
+                <!-- Manage Semester Section -->
+                <form id="semester-section" class="settings-section hidden border-t border-gray-200 pt-4 mt-4" action="../phpfiles/admin_update_semester.php" method="post">
+                    <h6 class="text-lg font-semibold text-gray-700">Manage Semester</h6>
+
+                    <!-- Current Semester (Read-Only) -->
+                    <div class="mt-2">
+                        <label for="current-semester" class="block text-sm font-medium text-gray-700">Current Semester</label>
+                        <input type="text" id="current-semester" name="current-semester" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-200 text-black cursor-not-allowed focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="<?php echo $current_semester; ?>" readonly>
+                    </div>
+
+                    <!-- New Semester (Radio Buttons) -->
+                    <div class="mt-2">
+                        <label for="new-semester" class="block text-sm font-medium text-gray-700">New Semester</label>
+                        <div class="flex items-center mt-2">
+                            <input id="semester1" name="new-semester" type="radio" value="1st Semester" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="semester1" class="ml-3 block text-sm font-medium text-gray-700">1st Semester</label>
+                        </div>
+                        <div class="flex items-center mt-2">
+                            <input id="semester2" name="new-semester" type="radio" value="2nd Semester" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="semester2" class="ml-3 block text-sm font-medium text-gray-700">2nd Semester</label>
+                        </div>
+                    </div>
+
+                    <!-- Save Changes Button -->
                     <div class="flex justify-end mt-6">
                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save Changes</button>
                     </div>

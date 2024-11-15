@@ -6,16 +6,16 @@
                 <button type="button" class="btn-close text-gray-400 hover:text-gray-500" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-6">
-                <form action="../phpfiles/Lifting.php" method="post" enctype="multipart/form-data">
+                <form id="liftSuspensionForm<?php echo $caseItem['CaseID']; ?>" action="../phpfiles/Lifting.php" method="post" enctype="multipart/form-data" onsubmit="return validateEndDate('<?php echo $caseItem['EndDate']; ?>', '<?php echo $caseItem['CaseID']; ?>')">
                     <input type="hidden" name="caseID" value="<?php echo htmlspecialchars($caseItem['CaseID']); ?>">
                     <div class="grid grid-cols-1 gap-6">
                         <div class="form-section mb-4">
                             <label class="form-label block text-sm font-medium text-gray-700" for="liftingLetter">Lifting Suspension Letter</label>
-                            <input type="file" id="liftingLetter" name="liftingLetter" class="form-file mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <input type="file" id="liftingLetter" name="liftingLetter" class="form-file mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                         </div>
                         <div class="form-section mb-4">
                             <label class="form-label block text-sm font-medium text-gray-700" for="liftingRemark">Lifting Remark</label>
-                            <textarea id="liftingRemark" name="liftingRemark" class="form-textarea mt-1 block w-full border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4" placeholder="Enter your remarks here..."></textarea>
+                            <textarea id="liftingRemark" name="liftingRemark" class="form-textarea mt-1 block w-full border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4" placeholder="Enter your remarks here..." required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer mt-4 flex justify-end space-x-2 p-4 border-t border-gray-200 bg-gray-100">
@@ -27,3 +27,17 @@
         </div>
     </div>
 </div>
+
+<script>
+function validateEndDate(endDate, caseID) {
+    const options = { timeZone: 'Asia/Manila', year: 'numeric', month: '2-digit', day: '2-digit' };
+    const currentDate = new Date().toLocaleDateString('en-CA', options); // 'en-CA' format is YYYY-MM-DD
+    console.log(`Current Date: ${currentDate}`);
+    console.log(`End Date: ${endDate}`);
+    if (currentDate !== endDate) {
+        alert('The current date does not match the end date of the suspension.');
+        return false;
+    }
+    return true;
+}
+</script>

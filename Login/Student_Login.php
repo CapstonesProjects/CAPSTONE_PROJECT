@@ -18,8 +18,8 @@ if ($user = mysqli_fetch_assoc($result)) {
         $currentTime = time();
         $timeDifference = $currentTime - $lockTime;
 
-        if ($timeDifference < 86400) { // 24 hours in seconds
-            $_SESSION['login_error'] = 'Your account is locked. Please try again after 24 hours.';
+        if ($timeDifference < 600) { // 24 hours in seconds
+            $_SESSION['login_error'] = 'Your account is locked. Please try again after 10 minutes.';
             $_SESSION['login_attempts'] = $user['failed_attempts'];
             $_SESSION['login_email'] = $user['Email'];
             $_SESSION['login_username'] = $username;

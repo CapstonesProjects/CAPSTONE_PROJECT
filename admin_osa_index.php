@@ -124,9 +124,9 @@ include('./config/db_connection.php');
                   </label>
                 </div>
                 <div class="text-sm">
-                  <a href="#" class="text-indigo-400 hover:text-blue-500">
+                  <!-- <a href="#" class="text-indigo-400 hover:text-blue-500">
                     Forgot your password?
-                  </a>
+                  </a> -->
                 </div>
               </div>
               <div>

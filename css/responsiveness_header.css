@@ -24,9 +24,9 @@ header {
   -o-transition: all 0.3s ease-in-out;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (min-width: 350px)  and (max-width: 768px) {
   #home-nav {
-    margin-top: 13%;
+    margin-top: 18%;
   }
   header {
     color: #fff;

@@ -259,14 +259,14 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
                                     </button>
                                     <button type="button" class="transition duration-300 ease-in-out text-sm transform hover:scale-105 text-white font-bold py-2 px-2 rounded flex items-center justify-center"
                                         :class="{
-                'bg-gray-600 cursor-not-allowed opacity-50': ['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)),
-                'bg-green-500 hover:bg-green-700': !['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status))
-            }"
+        'bg-gray-600 cursor-not-allowed opacity-50': ['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)) || caseItem.CaseResolution,
+        'bg-green-500 hover:bg-green-700': !['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)) && !caseItem.CaseResolution
+    }"
                                         data-bs-toggle="modal"
                                         :data-bs-target="'#CaseAttachmentFileModal' + caseItem.CaseID"
-                                        :disabled="['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status))"
+                                        :disabled="['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)) || caseItem.CaseResolution"
                                         style="width: 40px; height: 40px;">
-                                        <i :class="['pending', 'suspension', 'suspended', 'resolved'].some(status => caseItem.Status.toLowerCase().includes(status)) ? 'bx bx-check-circle' : 'bx bx-upload'"></i> <!-- Submit Resolution Icon -->
+                                        <i :class="caseItem.CaseResolution ? 'bx bx-check-circle' : 'bx bx-upload'"></i> <!-- Submit Resolution Icon -->
                                     </button>
 
                                 </div>

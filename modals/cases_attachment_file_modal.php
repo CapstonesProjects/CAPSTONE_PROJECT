@@ -14,8 +14,8 @@ mysqli_close($conn);
 
 <style>
     .modal-5xl {
-    max-width: 70%; 
-}
+        max-width: 70%;
+    }
 </style>
 
 <!-- Modals -->
@@ -35,13 +35,14 @@ mysqli_close($conn);
                             <span class="font-weight-bold text-sm">Sanction:</span> <span class="text-primary"><?php echo htmlspecialchars($caseItem['Sanction']); ?></span>
                         </h5>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+                            <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                        </svg></button>
                 </div>
                 <div class="modal-body">
 
                     <form action="../phpfiles/update_case_resolution.php" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="caseID" value="<?php echo htmlspecialchars($caseItem['CaseID']); ?>">
-                        
 
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2">Attach Resolution File:</label>
@@ -49,10 +50,10 @@ mysqli_close($conn);
                         </div>
 
                         <?php if ($caseItem['Sanction'] == 'Second offense - Written reprimand'): ?>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 text-sm font-bold mb-2">Attach Written Reprimand File:</label>
-                            <input type="file" name="writtenReprimandAttachment" class="w-full px-3 py-2 border border-gray-300 rounded-md" accept=".pdf" required>
-                        </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Attach Written Reprimand File:</label>
+                                <input type="file" name="writtenReprimandAttachment" class="w-full px-3 py-2 border border-gray-300 rounded-md" accept=".pdf" required>
+                            </div>
                         <?php endif; ?>
 
                         <div class="mb-4">

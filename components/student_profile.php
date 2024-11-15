@@ -35,15 +35,15 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
 
     @media (max-width: 1040px) {
         .custom-div {
-            max-width:  80rem; 
+            max-width:  50rem; 
             width: 34rem;/* Tailwind's sm:max-w-md */
         }
     }
 
-    @media (max-width: 648px) {
+    @media only screen and (min-width: 350px)  and (max-width: 768px) {
         .custom-div {
             max-width: 38rem; 
-            width: 35rem;/* Tailwind's md:max-w-5xl */
+            width: auto;/* Tailwind's md:max-w-5xl */
             overflow: hidden;
         }
 
@@ -62,8 +62,8 @@ $profile_picture = $row['profile_picture'] ? $row['profile_picture'] : 'https://
         }
 
         .bg-white.rounded-lg.shadow-xl.pb-8 {
-            max-width: 41rem;
-            width: 40rem;
+            max-width: 23rem;
+            width: 23rem;
             overflow: hidden;
             margin: 0 auto;
         }

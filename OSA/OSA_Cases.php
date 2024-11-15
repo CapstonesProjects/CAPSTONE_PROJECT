@@ -20,6 +20,14 @@ if (isset($_SESSION['UserID'])) {
     // Redirect to login page or show an error
 }
 
+$query_current_school_year = "SELECT Year FROM school_years WHERE IsCurrent = 1";
+$result_current_school_year = $conn->query($query_current_school_year);
+$current_school_year = $result_current_school_year->fetch_assoc()['Year'];
+
+$query_current_semester = "SELECT Name FROM semesters WHERE IsCurrent = 1";
+$result_current_semester = $conn->query($query_current_semester);
+$current_semester = $result_current_semester->fetch_assoc()['Name'];
+
 // $activeMenu = 'dashboard';
 // include('./components/sidebar.php');
 include('../alerts/update_case_status_alerts.php');
@@ -63,11 +71,12 @@ include('../alerts/update_case_status_alerts.php');
 
     <?php include('../alerts/addcases_alerts.php'); ?>
     <?php include('../alerts/changepassword_alerts.php'); ?>
+    <?php include('../alerts/resolution_alerts.php') ?>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="../javascript/sessionmessage.js"></script>
+<!-- <script src="../javascript/sessionmessage.js"></script> -->
 <script src="../javascript/active.js"></script>
 <script src="../javascript/searchbar.js"></script>
 <script src="../javascript/saction_offense_counting.js"></script>
@@ -75,6 +84,7 @@ include('../alerts/update_case_status_alerts.php');
 <script src="../javascript/offenses.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 <script src="../javascript/alerts.js"></script>
+<script src="../javascript/current_date.js"></script>
 <script>
     
     // document.addEventListener('DOMContentLoaded', function () {

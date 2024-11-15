@@ -35,4 +35,8 @@ if (isset($_GET['StudentID']) && isset($_GET['OffenseCategory'])) {
 }
 
 echo json_encode($response);
+
+
+
+
 ?>

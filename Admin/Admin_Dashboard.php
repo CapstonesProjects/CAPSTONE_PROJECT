@@ -21,6 +21,10 @@ if (isset($_SESSION['AdminID'])) {
 
 // $activeMenu = 'dashboard';
 // include('./components/sidebar.php');
+// Fetch the current semester
+$query_current_semester = "SELECT Name FROM semesters WHERE IsCurrent = 1";
+$result_current_semester = $conn->query($query_current_semester);
+$current_semester = $result_current_semester->fetch_assoc()['Name'];
 ?>
 
 <!DOCTYPE html>
@@ -67,6 +71,7 @@ if (isset($_SESSION['AdminID'])) {
 
     <?php include('../alerts/changepassword_alerts.php') ?>
     <?php include('../alerts/school_year_alerts.php') ?>
+    <?php include('../alerts/semester_alert.php') ?>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
