@@ -18,7 +18,7 @@ if ($user = mysqli_fetch_assoc($result)) {
         $currentTime = time();
         $timeDifference = $currentTime - $lockTime;
 
-        if ($timeDifference < 600) { // 24 hours in seconds
+        if ($timeDifference < 600) { // 10 minutes in seconds
             $_SESSION['login_error'] = 'Your account is locked. Please try again after 10 minutes.';
             $_SESSION['login_attempts'] = $user['failed_attempts'];
             $_SESSION['login_email'] = $user['Email'];
@@ -26,7 +26,7 @@ if ($user = mysqli_fetch_assoc($result)) {
             header('Location: ../Student_Index.php');
             exit;
         } else {
-            // Reset failed attempts after 24 hours
+            // Reset failed attempts after 10 minutes
             $sql = "UPDATE tblusers_student SET failed_attempts = 0, lock_time = NULL WHERE UserID = ?";
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, "i", $user['UserID']);
@@ -35,7 +35,7 @@ if ($user = mysqli_fetch_assoc($result)) {
     }
 
     // Verify the password
-    if ($password === $user['Password']) { // Direct comparison since passwords are not hashed
+    if (password_verify($password, $user['Password'])) { // Verify the hashed password
         // Login successful. Reset failed attempts.
         $sql = "UPDATE tblusers_student SET failed_attempts = 0, lock_time = NULL WHERE UserID = ?";
         $stmt = mysqli_prepare($conn, $sql);

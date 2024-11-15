@@ -34,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $row = mysqli_fetch_assoc($result);
 
     if ($row && $row['Password'] !== NULL) {
-        if ($currentPassword === $row['Password']) { // Direct comparison since passwords are not hashed
-            $hashedPassword = $newPassword; // No hashing since passwords are stored in plain text
+        if (password_verify($currentPassword, $row['Password'])) { // Verify the hashed password
+            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT); // Hash the new password
             $sql = "UPDATE tblusers_student SET Password = ? WHERE UserID = ?";
             $stmt = mysqli_prepare($conn, $sql);
             if (!$stmt) {

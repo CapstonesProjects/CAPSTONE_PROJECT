@@ -151,11 +151,11 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="Username" required>
+                                <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed "  id="username" name="Username" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="Password" required>
+                                <input type="password" class="form-control bg-gray-200 text-black cursor-not-allowed "  id="password" name="Password" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -178,3 +178,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('studentId').addEventListener('input', function() {
+        document.getElementById('username').value = this.value;
+    });
+
+    document.getElementById('dob').addEventListener('input', function() {
+        const dob = this.value;
+        document.getElementById('password').value = dob;
+    });
+</script>

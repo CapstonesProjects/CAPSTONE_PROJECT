@@ -29,20 +29,20 @@ if (isset($_POST['btnadd_student'])) {
     $GuardiansName = $_POST['GuardiansName'];
     $GuardiansContact = $_POST['GuardiansContact'];
     $Username = $_POST['Username'];
-    $Password = $_POST['Password'];
+    $Password = password_hash($_POST['Password'], PASSWORD_DEFAULT); // Hash the password
     $Role = 'student';
     $Status = $_POST['Status'];
 
-     // Check if the StudentID already exists
-     $checkQuery = "SELECT * FROM tblusers_student WHERE StudentID = '$StudentID'";
-     $checkResult = mysqli_query($conn, $checkQuery);
- 
-     if (mysqli_num_rows($checkResult) > 0) {
-         // StudentID already exists
-         $_SESSION['addingstudent_error'] = "Student ID already exists.";
-         header('Location: ../OSA/OSA_StudentProfile.php');
-         exit;
-     }
+    // Check if the StudentID already exists
+    $checkQuery = "SELECT * FROM tblusers_student WHERE StudentID = '$StudentID'";
+    $checkResult = mysqli_query($conn, $checkQuery);
+
+    if (mysqli_num_rows($checkResult) > 0) {
+        // StudentID already exists
+        $_SESSION['addingstudent_error'] = "Student ID already exists.";
+        header('Location: ../OSA/OSA_StudentProfile.php');
+        exit;
+    }
 
     $insertQuery = "INSERT INTO tblusers_student (
         StudentID, FirstName, LastName, MiddleName, Suffix, Course, YearLevel,
