@@ -23,6 +23,10 @@ if (isset($_SESSION['AdminID'])) {
     exit();
 }
 
+$query_current_semester = "SELECT Name FROM semesters WHERE IsCurrent = 1";
+$result_current_semester = $conn->query($query_current_semester);
+$current_semester = $result_current_semester->fetch_assoc()['Name'];
+
 include('../alerts/send_message.php')
 ?>
 
@@ -57,6 +61,8 @@ include('../alerts/send_message.php')
         </div>
     </div>
     <?php include('../alerts/changepassword_alerts.php') ?>
+    <?php include('../alerts/school_year_alerts.php') ?>
+    <?php include('../alerts/semester_alert.php') ?>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -30,6 +30,9 @@ if (isset($_SESSION['AdminID'])) {
 
 // $activeMenu = 'dashboard';
 // include('./components/sidebar.php');
+$query_current_semester = "SELECT Name FROM semesters WHERE IsCurrent = 1";
+$result_current_semester = $conn->query($query_current_semester);
+$current_semester = $result_current_semester->fetch_assoc()['Name'];
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +71,8 @@ if (isset($_SESSION['AdminID'])) {
     <?php include('../alerts/profile_image_change_alerts.php'); ?>
     <?php include('../alerts/file_large_alerts.php'); ?>
     <?php include('../alerts/changepassword_alerts.php') ?>
+    <?php include('../alerts/semester_alert.php') ?>
+    <?php include('../alerts/school_year_alerts.php') ?>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

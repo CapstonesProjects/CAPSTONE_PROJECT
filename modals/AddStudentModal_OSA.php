@@ -17,7 +17,7 @@
                             </div> -->
                             <div class="col-md-4">
                                 <label for="studentId" class="form-label">Student ID</label>
-                                <input type="text" class="form-control" id="studentId" name="StudentID" required>
+                                <input type="text" class="form-control" id="studentId" name="StudentID" pattern="\d*" inputmode="numeric" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="firstName" class="form-label">First Name</label>
@@ -91,7 +91,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone" name="PhoneNumber" required>
+                                <input type="tel" class="form-control" id="phone" name="PhoneNumber" pattern="\d*" inputmode="numeric" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="dob" class="form-label">Date of Birth</label>
@@ -120,7 +120,7 @@
                         <div class="row mb-3">
                             <div class="col-md-4">
                                 <label for="emergencyContact" class="form-label">Emergency Contact</label>
-                                <input type="tel" class="form-control" id="emergencyContact" name="EmergencyContact" required>
+                                <input type="tel" class="form-control" id="emergencyContact" name="EmergencyContact" pattern="\d*" inputmode="numeric" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="maritalStatus" class="form-label">Marital Status</label>
@@ -140,7 +140,7 @@
                         <div class="row mb-3">
                             <div class="col-md-4">
                                 <label for="guardianContact" class="form-label">Guardian's Contact</label>
-                                <input type="tel" class="form-control" id="guardianContact" name="GuardiansContact" required>
+                                <input type="tel" class="form-control" id="guardianContact" name="GuardiansContact" pattern="\d*" inputmode="numeric" required>
                             </div>
                         </div>
                     </div>

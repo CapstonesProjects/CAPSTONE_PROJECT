@@ -20,6 +20,9 @@ if (isset($_SESSION['UserID'])) {
 
 // $activeMenu = 'dashboard';
 // include('./components/sidebar.php');
+$query_current_semester = "SELECT Name FROM semesters WHERE IsCurrent = 1";
+$result_current_semester = $conn->query($query_current_semester);
+$current_semester = $result_current_semester->fetch_assoc()['Name'];
 include('../alerts/update_case_status_alerts.php');
 ?>
 

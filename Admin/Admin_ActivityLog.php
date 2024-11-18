@@ -97,7 +97,9 @@ if (isset($_SESSION['UserID'])) {
             ?>
         </div>
     </div>
-    <?php include('../alerts/changepassword_alerts.php'); ?>
+    <?php include('../alerts/changepassword_alerts.php') ?>
+    <?php include('../alerts/school_year_alerts.php') ?>
+    <?php include('../alerts/semester_alert.php') ?>
 </body>
 </div>
 

@@ -82,7 +82,7 @@
                     </div>
                     <div class="mt-2">
                         <label for="new-school-year" class="block text-sm font-medium text-gray-700">New School Year</label>
-                        <input type="text" id="new-school-year" name="new-school-year" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        <input type="text" id="new-school-year" name="new-school-year" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required pattern="\d{4}-\d{4}" title="Please enter a valid school year in the format YYYY-YYYY" placeholder="e.g., 2021-2022">
                     </div>
                     <div class="flex justify-end mt-6">
                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save Changes</button>
@@ -138,3 +138,16 @@
         });
     });
 </script>
+
+<script>
+        document.getElementById('schoolYearForm').addEventListener('submit', function(event) {
+            const input = document.getElementById('new-school-year').value;
+            const currentYear = new Date().getFullYear();
+            const [startYear, endYear] = input.split('-').map(Number);
+
+            if (startYear < currentYear || endYear < currentYear) {
+                event.preventDefault();
+                alert('The school year cannot be below the current year.');
+            }
+        });
+    </script>

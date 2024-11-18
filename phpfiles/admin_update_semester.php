@@ -4,6 +4,18 @@ include('../config/db_connection.php');
 
 $newSemester = $_POST['new-semester'];
 
+$query_current = "SELECT Name FROM semesters WHERE IsCurrent = TRUE LIMIT 1";
+$result_current = $conn->query($query_current);
+$currentSemester = $result_current->fetch_assoc()['Name'];
+
+// Check if the new semester matches the current semester
+if ($newSemester === $currentSemester) {
+    // New semester matches the current semester
+    $_SESSION['semester_error'] = 'The selected semester is already the current semester.';
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+}
+
 // Check if the semester already exists
 $query_check = "SELECT * FROM semesters WHERE Name = ?";
 $stmt_check = $conn->prepare($query_check);

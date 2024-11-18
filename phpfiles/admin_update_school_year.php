@@ -4,6 +4,25 @@ include('../config/db_connection.php');
 
 $newSchoolYear = $_POST['new-school-year'];
 
+// Extract the start year from the new school year
+list($newStartYear, $newEndYear) = explode('-', $newSchoolYear);
+
+// Get the current school year
+$query_current = "SELECT Year FROM school_years WHERE IsCurrent = TRUE LIMIT 1";
+$result_current = $conn->query($query_current);
+$currentSchoolYear = $result_current->fetch_assoc()['Year'];
+
+// Extract the start year from the current school year
+list($currentStartYear, $currentEndYear) = explode('-', $currentSchoolYear);
+
+// Check if the new school year is below the current school year
+if ($newStartYear < $currentStartYear) {
+    // New school year is below the current school year
+    $_SESSION['school_year_error'] = 'The new school year cannot be below the current school year.';
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+}
+
 // Check if the school year already exists
 $query_check = "SELECT * FROM school_years WHERE Year = ?";
 $stmt_check = $conn->prepare($query_check);

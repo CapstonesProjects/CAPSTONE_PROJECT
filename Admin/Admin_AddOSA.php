@@ -11,6 +11,10 @@ if ($result) {
     echo "Error: " . $query . "<br>" . mysqli_error($conn);
 }
 
+$query_current_semester = "SELECT Name FROM semesters WHERE IsCurrent = 1";
+$result_current_semester = $conn->query($query_current_semester);
+$current_semester = $result_current_semester->fetch_assoc()['Name'];
+
 include('../modals/AddOSA_Admin.php');
 ?>
 
@@ -101,6 +105,8 @@ include('../modals/AddOSA_Admin.php');
     <?php include('../alerts/adding_student_alerts.php'); ?>
     <?php include('../alerts/changepassword_alerts.php'); ?>
     <?php include('../alerts/adding_osa_alerts.php') ?>
+    <?php include('../alerts/school_year_alerts.php') ?>
+    <?php include('../alerts/semester_alert.php') ?>
 </body>
 </div>
 

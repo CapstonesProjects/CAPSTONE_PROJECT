@@ -157,6 +157,7 @@ $result_school_years = $conn->query($query_school_years);
   <div id="error-message-container" style="display: flex; justify-content: center; align-items: flex-start; position: fixed; top: -2%; left: 10%; right: 0; z-index: 1000;"></div>
 
   <script src="../javascript/download_report_alerts_modal.js"></script>
+  <script src="../javascript/osa_charts.js"></script>
 </body>
 
 </html>
