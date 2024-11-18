@@ -2,8 +2,53 @@
 session_start();
 include('../config/db_connection.php');
 
+// Set the time zone to Philippine time
+date_default_timezone_set('Asia/Manila');
+
 $username = $_POST['username'];
 $password = $_POST['password'];
+
+// Function to handle failed login attempts
+function handle_failed_attempts($conn, $user) {
+    $failedAttempts = max(0, $user['failed_attempts'] + 1); // Ensure failed attempts do not go negative
+    $lockTime = NULL;
+
+    if ($failedAttempts >= 3) {
+        $lockTime = date('Y-m-d H:i:s');
+    }
+
+    $sql = "UPDATE tblusers_student SET failed_attempts = ?, lock_time = ? WHERE UserID = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "isi", $failedAttempts, $lockTime, $user['UserID']);
+    mysqli_stmt_execute($stmt);
+
+    $_SESSION['login_attempts'] = $failedAttempts;
+    $_SESSION['login_email'] = $user['Email'];
+    $_SESSION['login_username'] = $user['Username'];
+    $_SESSION['login_error'] = 'Invalid username or password';
+    header('Location: ../Student_Index.php');
+    exit;
+}
+
+// Function to handle successful login
+function handle_successful_login($user) {
+    // Clear session variables related to login attempts
+    unset($_SESSION['login_attempts']);
+    unset($_SESSION['login_email']);
+    unset($_SESSION['login_username']);
+
+    // Set session variables
+    $_SESSION['UserID'] = $user['UserID'];
+    $_SESSION['StudentID'] = $user['StudentID'];
+    $_SESSION['FirstName'] = $user['FirstName'];
+    $_SESSION['LastName'] = $user['LastName'];
+    $_SESSION['Role'] = $user['Role'];
+    $_SESSION['Email'] = $user['Email'];
+    $_SESSION['login_success'] = 'You have successfully logged in!';
+
+    header('Location: ../Student/Student_Dashboard.php');
+    exit;
+}
 
 $sql = "SELECT * FROM tblusers_student WHERE Username = ?";
 $stmt = mysqli_prepare($conn, $sql);
@@ -31,53 +76,30 @@ if ($user = mysqli_fetch_assoc($result)) {
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, "i", $user['UserID']);
             mysqli_stmt_execute($stmt);
+            $user['failed_attempts'] = 0; // Reset the failed attempts in the user array
         }
     }
 
     // Verify the password
     if (password_verify($password, $user['Password'])) { // Verify the hashed password
-        // Login successful. Reset failed attempts.
-        $sql = "UPDATE tblusers_student SET failed_attempts = 0, lock_time = NULL WHERE UserID = ?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "i", $user['UserID']);
-        mysqli_stmt_execute($stmt);
-
-        // Clear session variables related to login attempts
-        unset($_SESSION['login_attempts']);
-        unset($_SESSION['login_email']);
-        unset($_SESSION['login_username']);
-
-        // Set session variables
-        $_SESSION['UserID'] = $user['UserID'];
-        $_SESSION['StudentID'] = $user['StudentID'];
-        $_SESSION['FirstName'] = $user['FirstName'];
-        $_SESSION['LastName'] = $user['LastName'];
-        $_SESSION['Role'] = $user['Role'];
-        $_SESSION['Email'] = $user['Email'];
-        $_SESSION['login_success'] = 'You have successfully logged in!';
-        
-        header('Location: ../Student/Student_Dashboard.php');
-        exit;
+        handle_successful_login($user);
     } else {
-        // Increment failed attempts
-        $failedAttempts = $user['failed_attempts'] + 1;
-        $lockTime = NULL;
+        // Check if the password is plain text and needs to be hashed
+        if ($user['Password'] === $password) {
+            // Hash the plain text password and update the database
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "UPDATE tblusers_student SET Password = ? WHERE UserID = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "si", $hashedPassword, $user['UserID']);
+            mysqli_stmt_execute($stmt);
 
-        if ($failedAttempts >= 3) {
-            $lockTime = date('Y-m-d H:i:s');
+            // Verify the hashed password
+            if (password_verify($password, $hashedPassword)) {
+                handle_successful_login($user);
+            }
+        } else {
+            handle_failed_attempts($conn, $user);
         }
-
-        $sql = "UPDATE tblusers_student SET failed_attempts = ?, lock_time = ? WHERE UserID = ?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "isi", $failedAttempts, $lockTime, $user['UserID']);
-        mysqli_stmt_execute($stmt);
-
-        $_SESSION['login_attempts'] = $failedAttempts;
-        $_SESSION['login_email'] = $user['Email'];
-        $_SESSION['login_username'] = $username;
-        $_SESSION['login_error'] = 'Invalid username or password';
-        header('Location: ../Student_Index.php');
-        exit;
     }
 } else {
     // Invalid username

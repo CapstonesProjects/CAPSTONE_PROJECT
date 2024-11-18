@@ -2,12 +2,15 @@
 session_start();
 include('../config/db_connection.php');
 
+// Set the time zone to Philippine time
+date_default_timezone_set('Asia/Manila');
+
 $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Function to handle failed login attempts
 function handle_failed_attempts($conn, $user, $userType) {
-    $failedAttempts = $user['failed_attempts'] + 1;
+    $failedAttempts = max(0, $user['failed_attempts'] + 1); // Ensure failed attempts do not go negative
     $lockTime = NULL;
 
     if ($failedAttempts >= 3) {
@@ -82,7 +85,7 @@ if ($user_osa = mysqli_fetch_assoc($result_osa)) {
         $currentTime = time();
         $timeDifference = $currentTime - $lockTime;
 
-        if ($timeDifference < 600) { // 24 hours in seconds
+        if ($timeDifference < 600) { // 10 minutes in seconds
             $_SESSION['login_error'] = 'Your account is locked. Please try again after 10 minutes.';
             $_SESSION['login_attempts'] = $user_osa['failed_attempts'];
             $_SESSION['login_email'] = $user_osa['Email'];
@@ -90,19 +93,35 @@ if ($user_osa = mysqli_fetch_assoc($result_osa)) {
             header('Location: ../admin_osa_index.php');
             exit;
         } else {
-            // Reset failed attempts after 24 hours
+            // Reset failed attempts after 10 minutes
             $sql = "UPDATE tblusers_osa SET failed_attempts = 0, lock_time = NULL WHERE UserID = ?";
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, "i", $user_osa['UserID']);
             mysqli_stmt_execute($stmt);
+            $user_osa['failed_attempts'] = 0; // Reset the failed attempts in the user array
         }
     }
 
     // Verify the password
-    if ($password === $user_osa['Password']) { // Direct comparison since passwords are not hashed
+    if (password_verify($password, $user_osa['Password'])) { // Verify the hashed password
         handle_successful_login($user_osa, 'tblusers_osa');
     } else {
-        handle_failed_attempts($conn, $user_osa, 'tblusers_osa');
+        // Check if the password is plain text and needs to be hashed
+        if ($user_osa['Password'] === $password) {
+            // Hash the plain text password and update the database
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "UPDATE tblusers_osa SET Password = ? WHERE UserID = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "si", $hashedPassword, $user_osa['UserID']);
+            mysqli_stmt_execute($stmt);
+
+            // Verify the hashed password
+            if (password_verify($password, $hashedPassword)) {
+                handle_successful_login($user_osa, 'tblusers_osa');
+            }
+        } else {
+            handle_failed_attempts($conn, $user_osa, 'tblusers_osa');
+        }
     }
 }
 
@@ -120,7 +139,7 @@ if ($user_admin = mysqli_fetch_assoc($result_admin)) {
         $currentTime = time();
         $timeDifference = $currentTime - $lockTime;
 
-        if ($timeDifference < 600) { // 24 hours in seconds
+        if ($timeDifference < 600) { // 10 minutes in seconds
             $_SESSION['login_error'] = 'Your account is locked. Please try again after 10 minutes.';
             $_SESSION['login_attempts'] = $user_admin['failed_attempts'];
             $_SESSION['login_email'] = $user_admin['Email'];
@@ -128,19 +147,35 @@ if ($user_admin = mysqli_fetch_assoc($result_admin)) {
             header('Location: ../admin_osa_index.php');
             exit;
         } else {
-            // Reset failed attempts after 24 hours
+            // Reset failed attempts after 10 minutes
             $sql = "UPDATE admin SET failed_attempts = 0, lock_time = NULL WHERE AdminID = ?";
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, "i", $user_admin['AdminID']);
             mysqli_stmt_execute($stmt);
+            $user_admin['failed_attempts'] = 0; // Reset the failed attempts in the user array
         }
     }
 
     // Verify the password
-    if ($password === $user_admin['Password']) { // Direct comparison since passwords are not hashed
+    if (password_verify($password, $user_admin['Password'])) { // Verify the hashed password
         handle_successful_login($user_admin, 'admin');
     } else {
-        handle_failed_attempts($conn, $user_admin, 'admin');
+        // Check if the password is plain text and needs to be hashed
+        if ($user_admin['Password'] === $password) {
+            // Hash the plain text password and update the database
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "UPDATE admin SET Password = ? WHERE AdminID = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "si", $hashedPassword, $user_admin['AdminID']);
+            mysqli_stmt_execute($stmt);
+
+            // Verify the hashed password
+            if (password_verify($password, $hashedPassword)) {
+                handle_successful_login($user_admin, 'admin');
+            }
+        } else {
+            handle_failed_attempts($conn, $user_admin, 'admin');
+        }
     }
 }
 

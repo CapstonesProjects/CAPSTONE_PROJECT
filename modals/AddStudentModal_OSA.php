@@ -151,22 +151,16 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed "  id="username" name="Username" required>
+                                <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed " id="username" name="Username" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control bg-gray-200 text-black cursor-not-allowed "  id="password" name="Password" required>
+                                <input type="password" class="form-control bg-gray-200 text-black cursor-not-allowed " id="password" name="Password" required>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="status" class="form-label">Status</label>
-                                <select class="form-select" id="status" name="Status" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
-                                </select>
-                            </div>
+                        <div class="col-md-6">
+                            <label for="status" class="form-label">Status</label>
+                            <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed" id="status" name="Status" value="Active" readonly required>
                         </div>
                     </div>
                     <div class="modal-footer">

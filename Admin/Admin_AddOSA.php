@@ -100,6 +100,7 @@ include('../modals/AddOSA_Admin.php');
 
     <?php include('../alerts/adding_student_alerts.php'); ?>
     <?php include('../alerts/changepassword_alerts.php'); ?>
+    <?php include('../alerts/adding_osa_alerts.php') ?>
 </body>
 </div>
 

@@ -97,29 +97,21 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="Username" required>
+                                <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed " id="username" name="Username" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="Password" required>
+                                <input type="password" class="form-control bg-gray-200 text-black cursor-not-allowed " id="password" name="Password" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="role" class="form-label">Role</label>
-                                <select class="form-select" id="role" name="Role" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="OSA">OSA</option>
-                                </select>
+                                <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed" id="role" name="Role" value="OSA" readonly required>
                             </div>
                             <div class="col-md-6">
                                 <label for="status" class="form-label">Status</label>
-                                <select class="form-select" id="status" name="Status" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
-                                </select>
+                                <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed" id="status" name="Status" value="Active" readonly required>
                             </div>
                         </div>
                     </div>
@@ -132,3 +124,15 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    document.getElementById('osaNumber').addEventListener('input', function() {
+        document.getElementById('username').value = this.value;
+    });
+
+    document.getElementById('dob').addEventListener('input', function() {
+        const dob = this.value;
+        document.getElementById('password').value = dob;
+    });
+</script>

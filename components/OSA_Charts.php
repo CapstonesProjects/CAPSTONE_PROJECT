@@ -103,7 +103,6 @@ $result_school_years = $conn->query($query_school_years);
 
           </div>
 
-          <!-- UI for Total Cases by Category -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
             <div class="bg-blue-200 p-4 rounded-lg shadow-md">
               <h3 class="text-lg font-bold text-blue-800 mb-2">Total Cases</h3>
@@ -157,6 +156,7 @@ $result_school_years = $conn->query($query_school_years);
   <div id="error-message-container" style="display: flex; justify-content: center; align-items: flex-start; position: fixed; top: -2%; left: 10%; right: 0; z-index: 1000;"></div>
 
   <script src="../javascript/download_report_alerts_modal.js"></script>
+  <script src="../javascript/osa_charts.js"></script>
 </body>
 
 </html>
