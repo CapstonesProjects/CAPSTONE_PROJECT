@@ -39,10 +39,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         uploadFile('writtenReprimandAttachment', $writtenReprimandAttachmentPath);
     }
 
+    // Determine if the case should be marked as resolved
+    $query_get_case = "SELECT Sanction, OffenseCategory FROM tblcases WHERE CaseID = ?";
+    $stmt_get_case = $conn->prepare($query_get_case);
+    $stmt_get_case->bind_param("i", $caseID);
+    $stmt_get_case->execute();
+    $result_get_case = $stmt_get_case->get_result();
+    $case = $result_get_case->fetch_assoc();
+
+    $sanction = $case['Sanction'];
+    $offenseCategory = $case['OffenseCategory'];
+    $status = 'Ongoing';
+
+    if (stripos($sanction, 'suspended') === false && stripos($offenseCategory, 'minor') !== false) {
+        $status = 'Resolved';
+    }
+
+    // Set the resolution date to the current date
+    $resolutionDate = date('Y-m-d');
+
     // Update the case resolution in the database
-    $query = "UPDATE tblcases SET ResolutionAttachment = ?, WrittenReprimandAttachment = ?, CaseResolution = ?, Remarks = ? WHERE CaseID = ?";
+    $query = "UPDATE tblcases SET ResolutionAttachment = ?, WrittenReprimandAttachment = ?, CaseResolution = ?, Remarks = ?, Status = ?, ResolutionDate = ? WHERE CaseID = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ssssi", $resolutionAttachmentPath, $writtenReprimandAttachmentPath, $caseResolution, $remarks, $caseID);
+    $stmt->bind_param("ssssssi", $resolutionAttachmentPath, $writtenReprimandAttachmentPath, $caseResolution, $remarks, $status, $resolutionDate, $caseID);
 
     if ($stmt->execute()) {
         $_SESSION['success_update_case_resolution'] = 'Case resolution updated successfully';

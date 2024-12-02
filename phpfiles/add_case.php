@@ -23,7 +23,7 @@ if (isset($_POST['btnadd_case'])) {
     $affiliation = $_POST['Affiliation'];
     $schoolyear = $_POST['SchoolYear'];
     $filedby = $_POST['FiledBy'];
-    $semester = isset($_POST['Semester']) ? $_POST['Semester'] : 'Default Semester'; // Set a default value if Semester is not set
+    $semester = $_POST['Semester']; // Ensure the name attribute matches
 
     // Handle file uploads
     $reportAttachment = '';
@@ -101,13 +101,3 @@ if (isset($_POST['btnadd_case'])) {
     exit;
 }
 ?>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const form = document.querySelector('form');
-        form.addEventListener('submit', function () {
-            const submitButton = form.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-        });
-    });
-</script>

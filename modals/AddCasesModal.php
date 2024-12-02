@@ -39,7 +39,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="mb-3">
                             <label for="studentId" class="form-label">Student ID</label>
-                            <input type="text" class="form-control" id="studentId" name="StudentID" pattern="\d*" inputmode="numeric" placeholder="e.g., 1234-12" required>
+                            <input type="text" class="form-control" id="studentId" name="StudentID" placeholder="e.g., 1234-12" required>
                         </div>
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Full Name</label>
@@ -182,7 +182,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="ComplainantNumber" class="form-label">Complainant Phone Number</label>
-                            <input type="text" class="form-control" id="complainantnumber" name="ComplainantNumber"  pattern="\d*" inputmode="numeric" placeholder="e.g., 09123456789" required>
+                            <input type="text" class="form-control" id="complainantnumber" name="ComplainantNumber" pattern="\d*" inputmode="numeric" placeholder="e.g., 09123456789" required>
                         </div>
 
                         <div class="mb-3">
@@ -203,7 +203,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="Semester" class="form-label">Semester</label>
-                            <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed" id="semester" name="semester" value="<?php echo $current_semester; ?>" readonly>
+                            <input type="text" class="form-control bg-gray-200 text-black cursor-not-allowed" id="semester" name="Semester" value="<?php echo $current_semester; ?>" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="FiledBy" class="form-label">Filed By</label>

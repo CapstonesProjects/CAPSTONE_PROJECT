@@ -88,6 +88,10 @@ mysqli_close($conn);
                                 <input type="text" value="<?php echo htmlspecialchars($caseItem['SchoolYear']); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
                             </div>
                             <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Semester:</label>
+                                <input type="text" value="<?php echo htmlspecialchars($caseItem['Semester']); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
+                            </div>
+                            <div>
                                 <label class="block text-gray-700 text-sm font-bold mb-2">Filed By:</label>
                                 <input type="text" value="<?php echo htmlspecialchars($caseItem['FiledBy']); ?>" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
                             </div>

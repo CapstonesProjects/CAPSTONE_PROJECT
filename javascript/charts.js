@@ -48,73 +48,73 @@ document.addEventListener('DOMContentLoaded', function() {
       noSemesterDataMessage.style.display = 'none';
 
       fetch(`../phpfiles/fetch_cases_data.php?schoolYear=${schoolYear}`)
-        .then(response => response.json())
-        .then(data => {
+      .then(response => response.json())
+      .then(data => {
           console.log(data); // Debugging: Log the fetched data
           if (data.length === 0) {
-            console.error('No data fetched');
-            noDataMessage.style.display = 'block';
-            return;
+              console.error('No data fetched');
+              noDataMessage.style.display = 'block';
+              return;
           }
 
           const labels = data.map(item => item.month);
           const values = data.map(item => parseInt(item.cases)); // Ensure values are integers
 
           myChart = new Chart(ctx, {
-            type: 'bar', // Ensure the chart type is set to 'bar'
-            data: {
-              labels: labels,
-              datasets: [{
-                label: 'Cases',
-                data: values,
-                backgroundColor: 'rgba(54, 162, 235, 1)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-                barThickness: 30, // Adjust the bar thickness
-                maxBarThickness: 30 // Maximum bar thickness
-              }]
-            },
-            options: {
-              maintainAspectRatio: false,
-              responsive: true,
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  ticks: {
-                    stepSize: 1, // Ensure the y-axis increments by 1
-                    callback: function(value) {
-                      if (Number.isInteger(value)) {
-                        return value;
-                      }
-                    }
-                  }
-                }
+              type: 'bar', // Ensure the chart type is set to 'bar'
+              data: {
+                  labels: labels,
+                  datasets: [{
+                      label: 'Cases',
+                      data: values,
+                      backgroundColor: 'rgba(54, 162, 235, 1)',
+                      borderColor: 'rgba(54, 162, 235, 1)',
+                      borderWidth: 1,
+                      barThickness: 30, // Adjust the bar thickness
+                      maxBarThickness: 30 // Maximum bar thickness
+                  }]
               },
-              plugins: {
-                legend: {
-                  display: true,
-                  labels: {
-                    color: 'rgb(54, 162, 235)'
+              options: {
+                  maintainAspectRatio: false,
+                  responsive: true,
+                  scales: {
+                      y: {
+                          beginAtZero: true,
+                          ticks: {
+                              stepSize: 1, // Ensure the y-axis increments by 1
+                              callback: function(value) {
+                                  if (Number.isInteger(value)) {
+                                      return value;
+                                  }
+                              }
+                          }
+                      }
+                  },
+                  plugins: {
+                      legend: {
+                          display: true,
+                          labels: {
+                              color: 'rgb(54, 162, 235)'
+                          }
+                      },
+                      tooltip: {
+                          enabled: true,
+                          backgroundColor: 'rgba(0,0,0,0.7)',
+                          titleColor: '#fff',
+                          bodyColor: '#fff',
+                          borderColor: 'rgba(54, 162, 235, 1)',
+                          borderWidth: 1
+                      }
                   }
-                },
-                tooltip: {
-                  enabled: true,
-                  backgroundColor: 'rgba(0,0,0,0.7)',
-                  titleColor: '#fff',
-                  bodyColor: '#fff',
-                  borderColor: 'rgba(54, 162, 235, 1)',
-                  borderWidth: 1
-                }
               }
-            }
           });
 
           console.log('Chart initialized:', myChart); // Debugging: Log the chart initialization
-        })
-        .catch(error => {
+      })
+      .catch(error => {
           console.error('Error fetching data:', error);
           noDataMessage.style.display = 'block';
-        });
+      });
 
       fetch(`../phpfiles/fetch_offense_category.php?schoolYear=${schoolYear}`)
         .then(response => response.json())

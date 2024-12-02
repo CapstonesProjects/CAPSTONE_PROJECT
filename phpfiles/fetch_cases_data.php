@@ -4,6 +4,8 @@ include('../config/db_connection.php');
 
 $schoolYear = isset($_GET['schoolYear']) ? $_GET['schoolYear'] : '';
 
+$data = [];
+
 if ($schoolYear) {
     $query = "SELECT MONTHNAME(ResolutionDate) as month, COUNT(*) as cases 
               FROM tblcases 
@@ -21,7 +23,6 @@ if ($schoolYear) {
     $result = mysqli_query($conn, $query);
 }
 
-$data = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $data[] = $row;
 }
@@ -29,6 +30,4 @@ while ($row = mysqli_fetch_assoc($result)) {
 mysqli_close($conn);
 
 echo json_encode($data);
-
-
 ?>
