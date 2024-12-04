@@ -29,15 +29,15 @@
 </div>
 
 <script>
-function validateEndDate(endDate, caseID) {
-    const options = { timeZone: 'Asia/Manila', year: 'numeric', month: '2-digit', day: '2-digit' };
-    const currentDate = new Date().toLocaleDateString('en-CA', options); // 'en-CA' format is YYYY-MM-DD
-    console.log(`Current Date: ${currentDate}`);
-    console.log(`End Date: ${endDate}`);
-    if (currentDate !== endDate) {
-        alert('The current date does not match the end date of the suspension.');
-        return false;
-    }
-    return true;
-}
+// function validateEndDate(endDate, caseID) {
+//     const options = { timeZone: 'Asia/Manila', year: 'numeric', month: '2-digit', day: '2-digit' };
+//     const currentDate = new Date().toLocaleDateString('en-CA', options); // 'en-CA' format is YYYY-MM-DD
+//     console.log(`Current Date: ${currentDate}`);
+//     console.log(`End Date: ${endDate}`);
+//     if (currentDate !== endDate) {
+//         alert('The current date does not match the end date of the suspension.');
+//         return false;
+//     }
+//     return true;
+// }
 </script>

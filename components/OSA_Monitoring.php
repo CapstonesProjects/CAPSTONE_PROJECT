@@ -72,7 +72,7 @@ mysqli_close($conn);
 
     <div class="container py-3 px-1 ml-12 overflow-hidden" x-data="filteredCases()">
         <div class="flex justify-between items-center mb-10">
-            <h1 class="text-3xl font-bold text-gray-800">Suspended Students</h1>
+            <h1 class="text-3xl font-lg text-gray-800">Suspended Students</h1>
         </div>
 
         <div class="mb-4 flex justify-between items-center space-x-4">
@@ -94,6 +94,7 @@ mysqli_close($conn);
                 <button :class="{ 'bg-blue-500 text-white': selectedStatus === 'suspension completed' }" class="px-4 py-2 rounded" @click="selectedStatus = 'suspension completed'">Completed</button>
                 <button :class="{ 'bg-blue-500 text-white': selectedStatus === 'pending suspension' }" class="px-4 py-2 rounded" @click="selectedStatus = 'pending suspension'">Pending</button>
                 <button :class="{ 'bg-blue-500 text-white': selectedStatus === 'active suspension' }" class="px-4 py-2 rounded" @click="selectedStatus = 'active suspension'">Active</button>
+                <button :class="{ 'bg-blue-500 text-white': selectedStatus === 'ready for lifting' }" class="px-4 py-2 rounded" @click="selectedStatus = 'ready for lifting'">Ready</button>
             </div>
             <div class="shadow rounded-lg flex justify-center items-center space-x-4">
                 <select x-model="selectedSchoolYear" class="form-select block w-full mt-1 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium">
@@ -183,7 +184,7 @@ mysqli_close($conn);
                                         </button>
                                     </template>
 
-                                    <template x-if="caseItem.StartDate && getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).text !== 'Suspension Completed'">
+                                    <template x-if="caseItem.StartDate && getStatus(caseItem.Status, caseItem.StartDate, caseItem.EndDate).text === 'Ready for Lifting'">
                                         <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded text-sm flex items-center justify-center" data-bs-toggle="modal" :data-bs-target="'#liftSuspensionModal' + caseItem.CaseID" @click="liftSuspension(caseItem.CaseID)" style="width: 40px; height: 40px;">
                                             <i class='bx bx-up-arrow-alt'></i> <!-- Lift Suspension Icon -->
                                         </button>
@@ -249,7 +250,13 @@ mysqli_close($conn);
                     return filtered;
                 },
                 getStatus(dbStatus, startDate, endDate) {
-                    const currentDate = new Date();
+                    const options = {
+                        timeZone: 'Asia/Manila',
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                    };
+                    const currentDate = new Date(new Intl.DateTimeFormat('en-CA', options).format(new Date()));
                     const start = startDate ? new Date(startDate) : null;
                     const end = endDate ? new Date(endDate) : null;
 
@@ -269,6 +276,13 @@ mysqli_close($conn);
 
                     // Check if the status in the database is 'Suspended'
                     if (dbStatus.toLowerCase() === 'suspended') {
+                        if (end && (currentDate >= end)) {
+                            console.log('Status: Ready for Lifting (current date is on or after end date)');
+                            return {
+                                text: 'Ready for Lifting',
+                                isActive: false
+                            };
+                        }
                         console.log('Status: Active Suspension (dbStatus is suspended)');
                         return {
                             text: 'Active Suspension',
@@ -276,37 +290,7 @@ mysqli_close($conn);
                         };
                     }
 
-                    if (!start || !end) {
-                        console.log('Status: Pending Suspension (missing start or end date)');
-                        return {
-                            text: 'Pending Suspension',
-                            isActive: false
-                        };
-                    }
-
-                    if (currentDate < start) {
-                        console.log('Status: Pending Suspension (current date is before start date)');
-                        return {
-                            text: 'Pending Suspension',
-                            isActive: false
-                        };
-                    }
-
-                    if (currentDate.toDateString() === start.toDateString()) {
-                        console.log('Status: Active Suspension (current date is the start date)');
-                        return {
-                            text: 'Active Suspension',
-                            isActive: true
-                        };
-                    }
-
-                    if (currentDate >= start && currentDate <= end) {
-                        console.log('Status: Active Suspension (current date is between start and end date)');
-                        return {
-                            text: 'Active Suspension',
-                            isActive: true
-                        };
-                    }
+                
 
                     console.log('Status: Pending Suspension (default case)');
                     return {
