@@ -114,11 +114,11 @@ header {
   height: 76.80vh;
 }
 
-
 #about {
   display: flex;
-  height: 70vh;
+  height: 85vh;
 }
+
 
 #events {
   display: flex;

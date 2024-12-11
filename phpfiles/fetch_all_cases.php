@@ -5,7 +5,7 @@ include('../config/db_connection.php');
 $data = [];
 
 // Fetch total cases
-$query_total_cases = "SELECT COUNT(*) AS total FROM tblcases";
+$query_total_cases = "SELECT COUNT(*) AS total FROM tblcases WHERE ResolutionDate IS NOT NULL";
 $result_total_cases = $conn->query($query_total_cases);
 $total_cases = $result_total_cases->fetch_assoc()['total'];
 

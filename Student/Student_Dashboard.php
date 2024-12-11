@@ -5,7 +5,7 @@ include('../config/db_connection.php');
 if (isset($_SESSION['UserID'])) {
     $userId = $_SESSION['UserID'];
 
-    $query = "SELECT *  FROM tblusers_student WHERE UserID = ?";
+    $query = "SELECT * FROM tblusers_student WHERE UserID = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $userId);
     $stmt->execute();
@@ -30,12 +30,10 @@ if (isset($_SESSION['UserID'])) {
     $_SESSION['MaritalStatus'] = $user['MaritalStatus'];
     $_SESSION['GuardiansName'] = $user['GuardiansName'];
     $_SESSION['GuardiansContact'] = $user['GuardiansContact'];
+    $_SESSION['password_changed'] = $user['password_changed']; // Add this line
 } else {
     // Redirect to login page or show an error
 }
-
-// $activeMenu = 'dashboard';
-// include('./components/sidebar.php');
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +53,7 @@ if (isset($_SESSION['UserID'])) {
     <title>Student profile - LOA OSA</title>
 </head>
 
-
+<body>
     <div class="flex h-screen">
         <div class="h-full shadow-xl overflow-x-hidden transition-transform duration-300 ease-in-out">
             <?php
@@ -74,14 +72,30 @@ if (isset($_SESSION['UserID'])) {
     <?php include('../alerts/file_large_alerts.php'); ?>
     <?php include("../modals/Student_SettingsModal.php"); ?>
     <?php include('../alerts/changepassword_alerts.php'); ?>
+    <?php include('../modals/change_password_modal.php'); ?> <!-- Include the modal file -->
+
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"></script>
 <script src="../javascript/sessionmessage.js"></script>
 <script src="../javascript/active.js"></script>
 <script src="../javascript/alerts.js"></script>
 
+<?php if (isset($_SESSION['password_needs_change']) && $_SESSION['password_needs_change']): ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('changePasswordModal').style.display = 'flex';
+    });
+</script>
+<?php endif; ?>
 
+<?php if (isset($_SESSION['password_changed']) && $_SESSION['password_changed'] == 1): ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('changePasswordModal').style.display = 'none';
+    });
+</script>
+<?php endif; ?>
 </html>

@@ -9,7 +9,8 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Function to handle failed login attempts
-function handle_failed_attempts($conn, $user) {
+function handle_failed_attempts($conn, $user)
+{
     $failedAttempts = max(0, $user['failed_attempts'] + 1); // Ensure failed attempts do not go negative
     $lockTime = NULL;
 
@@ -31,7 +32,8 @@ function handle_failed_attempts($conn, $user) {
 }
 
 // Function to handle successful login
-function handle_successful_login($user) {
+function handle_successful_login($user)
+{
     // Clear session variables related to login attempts
     unset($_SESSION['login_attempts']);
     unset($_SESSION['login_email']);
@@ -82,6 +84,18 @@ if ($user = mysqli_fetch_assoc($result)) {
 
     // Verify the password
     if (password_verify($password, $user['Password'])) { // Verify the hashed password
+        // Check if the password has been changed
+        if ($user['password_changed'] == 0) {
+            $_SESSION['password_needs_change'] = true;
+            $_SESSION['default_password'] = $password; // Store the default password
+
+            // Debugging: Check session variables
+            error_log('password_needs_change: ' . $_SESSION['password_needs_change']);
+            error_log('default_password: ' . $_SESSION['default_password']);
+        } else {
+            unset($_SESSION['password_needs_change']);
+            unset($_SESSION['default_password']);
+        }
         handle_successful_login($user);
     } else {
         // Check if the password is plain text and needs to be hashed
@@ -95,7 +109,21 @@ if ($user = mysqli_fetch_assoc($result)) {
 
             // Verify the hashed password
             if (password_verify($password, $hashedPassword)) {
+                // Check if the password has been changed
+                if ($user['password_changed'] == 0) {
+                    $_SESSION['password_needs_change'] = true;
+                    $_SESSION['default_password'] = $password; // Store the default password
+
+                    // Debugging: Check session variables
+                    error_log('password_needs_change: ' . $_SESSION['password_needs_change']);
+                    error_log('default_password: ' . $_SESSION['default_password']);
+                } else {
+                    unset($_SESSION['password_needs_change']);
+                    unset($_SESSION['default_password']);
+                }
                 handle_successful_login($user);
+            } else {
+                handle_failed_attempts($conn, $user);
             }
         } else {
             handle_failed_attempts($conn, $user);
@@ -108,4 +136,3 @@ if ($user = mysqli_fetch_assoc($result)) {
     header('Location: ../Student_Index.php');
     exit;
 }
-?>

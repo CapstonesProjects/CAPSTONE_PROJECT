@@ -144,50 +144,71 @@ $result = $conn->query($sql);
 
     <section id="about" class="about flex flex-row h-screen p-6">
         <!-- Organizational Chart Row -->
-        <div class="flex flex-col text-center org-container w-full org-container">
+        <div class="flex flex-col text-center org-container w-full">
             <h1 class="org_title text-black text-4xl font-semibold">ORGANIZATIONAL CHART</h1>
             <div class="flex flex-col items-center mt-10">
                 <!-- Top Person -->
-                <div class="relative ">
-                    <img src="images/danilo.jpg" alt="Person 3" class="w-32 h-32 rounded-full border-4 border-black">
-                    <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
+                <div class="relative flex flex-col items-center">
+                    <img src="images/danilo.jpg" alt="Person 1" class="w-32 h-32 rounded-full border-4 border-black">
+                    <div class="mt-2 text-center">
+                        <p class="text-lg font-semibold">Dr. Danilo V. Ayap</p>
+                        <p class="text-sm text-gray-600">President / CEO</p>
+                    </div>
+                    <!-- <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                             <path d="m18.707 12.707-1.414-1.414L13 15.586V6h-2v9.586l-4.293-4.293-1.414 1.414L12 19.414z"></path>
                         </svg>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- Middle Person -->
-                <div class="relative mt-10">
-                    <img src="images/ayap.jpg" alt="Person 3" class="w-32 h-32 rounded-full border-4 border-black">
-                    <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
+                <div class="relative flex flex-col items-center mt-10">
+                    <img src="images/ayap.jpg" alt="Person 2" class="w-32 h-32 rounded-full border-4 border-black">
+                    <div class="mt-2 text-center">
+                        <p class="text-lg font-semibold">Ms. Faith M. Ayap-Aquino</p>
+                        <p class="text-sm text-gray-600">VP for Administration</p>
+                    </div>
+                    <!-- <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                             <path d="m18.707 12.707-1.414-1.414L13 15.586V6h-2v9.586l-4.293-4.293-1.414 1.414L12 19.414z"></path>
                         </svg>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- Bottom Row -->
-                <div class="flex justify-center mt-10 " style="gap: 4rem;">
-                    <div class="flex items-center relative">
+                <div class="flex justify-center mt-10 gap-16 flex-wrap">
+                    <div class="flex flex-col items-center relative">
                         <img src="images/3.jpg" alt="Person 3" class="w-32 h-32 rounded-full border-4 border-black">
-                        <div class="ml-6">
+                        <div class="mt-2 text-center">
+                            <p class="text-lg font-semibold">Ms. Ermelyn M. Guan</p>
+                            <p class="text-sm text-gray-600">Director OSA</p>
+                        </div>
+                        <!-- <div class="ml-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                                 <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
                             </svg>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="flex items-center relative ">
+                    <div class="flex flex-col items-center relative">
                         <img src="images/4.png" alt="Person 4" class="w-32 h-32 rounded-full border-4 border-black">
-                        <div class="ml-6">
+                        <div class="mt-2 text-center">
+                            <p class="text-lg font-semibold">Ms. Helen G. Patalbo</p>
+                            <p class="text-sm text-gray-600">Executive Secretary OSA</p>
+                        </div>
+                        <!-- <div class="ml-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
                                 <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
                             </svg>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="flex items-center relative ">
+                    <div class="flex flex-col items-center relative">
                         <img src="images/5.png" alt="Person 5" class="w-32 h-32 rounded-full border-4 border-black">
+                        <div class="mt-2 text-center">
+                            <p class="text-lg font-semibold">Mr. Mark Anthony G. Alarba</p>
+                            <p class="text-sm text-gray-600">Monitoring Officer OSA</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- About Us Row -->

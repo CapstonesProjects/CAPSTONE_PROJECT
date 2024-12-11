@@ -10,6 +10,16 @@ while ($row = mysqli_fetch_assoc($result)) {
     $cases[] = $row;
 }
 
+$sql = "SELECT Year, IsCurrent FROM school_years ORDER BY Year DESC";
+$result = mysqli_query($conn, $sql);
+
+$schoolYears = [];
+
+
+while ($row  = mysqli_fetch_assoc($result)) {
+    $schoolYears[] = $row;
+}
+
 mysqli_close($conn);
 
 // Initialize $filteredCases
@@ -26,6 +36,7 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
         return $statusMatch && $schoolYearMatch;
     });
 }
+
 ?>
 
 <link href="https://unpkg.com/tippy.js@6/dist/tippy.css" rel="stylesheet">
@@ -174,12 +185,14 @@ if ($selectedStatus !== 'all' || !empty($selectedSchoolYear)) {
             <div class="shadow rounded-lg flex justify-center items-center space-x-4">
                 <select x-model="selectedSchoolYear" class="form-select block w-full mt-1 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium">
                     <option value="">Select School Year</option>
-                    <option value="2021-2022">2021-2022</option>
-                    <option value="2022-2023">2022-2023</option>
-                    <option value="2023-2024">2023-2024</option>
-                    <option value="2024-2025">2024-2025</option>
+                    <?php foreach ($schoolYears as $year): ?>
+                        <option value="<?php echo htmlspecialchars($year['Year']); ?>" <?php echo $year['IsCurrent'] ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($year['Year']); ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
+
 
             <div class="shadow rounded-lg flex justify-center items-center space-x-4">
                 <select x-model="selectedSemester" class="form-select block w-full mt-1 rounded-lg shadow focus:outline-none focus:shadow-outline text-gray-600 font-medium">

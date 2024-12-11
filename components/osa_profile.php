@@ -7,7 +7,7 @@ include('../config/db_connection.php');
 // Check if the session variables are set
 if (!isset($_SESSION['UserID'])) {
     // Handle the case where the session variable is not set
-    echo "Student ID is not set in the session.";
+    header('Location: ../admin_osa_index.php');
     exit;
 }
 

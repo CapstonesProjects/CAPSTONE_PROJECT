@@ -53,10 +53,15 @@ include('./config/db_connection.php');
 
 <body>
 
+<div class="absolute top-0 left-0 z-50 p-4">
+    <a href="/" class="logo flex items-center">
+    <img src="images/osa_logo.png" alt="OSA Logo" class="mr-2" style="width: 100px; height: auto;">
+    </a>
+  </div>
+
   <div class="loading-screen" id="loadingScreen">
     <div class="loading-spinner"></div>
   </div>
-
   <div class="relative min-h-screen flex">
     <div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-white">
       <div class="sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden bg-purple-900 text-white bg-no-repeat bg-cover relative"

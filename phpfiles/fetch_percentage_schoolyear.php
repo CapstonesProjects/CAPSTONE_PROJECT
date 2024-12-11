@@ -13,6 +13,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     $data[] = $row;
 }
 
+// Log the fetched data
+error_log(print_r($data, true));
+
 mysqli_close($conn);
 
 echo json_encode($data);
