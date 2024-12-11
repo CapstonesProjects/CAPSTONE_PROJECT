@@ -2,7 +2,8 @@
 include('../config/db_connection.php');
 
 // Function to log activity
-function log_activity($conn, $userID, $userType, $action) {
+function log_activity($conn, $userID, $userType, $action)
+{
   $sql = "INSERT INTO activity_log (UserID, UserType, Action) VALUES (?, ?, ?)";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("iss", $userID, $userType, $action);
@@ -51,10 +52,10 @@ $result_school_years = $conn->query($query_school_years);
 
 <body>
   <?php include('../alerts/download_reports_alerts.php') ?>
-  <div class="antialiased sans-serif w-lg">
+  <div class="antialiased sans-serif w-full">
     <div class="px-2 w-full">
       <div class="py-5">
-        <div class="p-4 bg-white overflow-hidden" style="height: 100%; width: 1575px; margin-top: -2%; overflow: hidden;">
+        <div class="p-4 bg-white overflow-hidden" style="height: 100%; width: 120%; max-width: 1575px; margin-top: 62%; overflow: hidden;">
           <div class="md:flex md:justify-between md:items-center mb-4">
             <!-- Legends -->
             <div class="flex items-center mb-4">
@@ -103,61 +104,85 @@ $result_school_years = $conn->query($query_school_years);
 
           </div>
 
-          <!-- UI for Total Cases by Category -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            <div class="bg-blue-200 p-4 rounded-lg shadow-md">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 mr-4">
+            <div class="bg-blue-200 p-4 rounded-lg shadow-md w-full max-w-md mx-auto">
               <h3 class="text-lg font-bold text-blue-800 mb-2">Total Cases</h3>
               <p id="totalCases" class="text-2xl font-semibold text-blue-600">0</p>
             </div>
-            <div class="bg-green-200 p-4 rounded-lg shadow-md">
+            <div class="bg-green-200 p-4 rounded-lg shadow-md w-full max-w-md mx-auto">
               <h3 class="text-lg font-bold text-green-800 mb-2">Resolved Cases</h3>
               <p id="resolvedCases" class="text-2xl font-semibold text-green-600">0</p>
             </div>
-            <div class="bg-yellow-200 p-4 rounded-lg shadow-md">
+            <div class="bg-yellow-200 p-4 rounded-lg shadow-md w-full max-w-md mx-auto">
               <h3 class="text-lg font-bold text-yellow-800 mb-2">Ongoing Cases</h3>
               <p id="ongoingCases" class="text-2xl font-semibold text-yellow-600">0</p>
             </div>
           </div>
 
           <!-- Grid Container for Charts -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <!-- Container for Total Cases Chart -->
-            <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; max-width: 725px; height: 300px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Monthly Total Cases</h3>
-              <canvas id="myChart"></canvas>
+              <canvas id="myChart" style="height: 345px;" width="700" height="325"></canvas>
               <div id="noDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -2.5rem;">No data available.</div>
             </div>
 
             <!-- Container for Minor and Major Offenses Chart -->
-            <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; max-width: 725px; height: 300px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Minor and Major Offenses</h3>
-              <canvas id="offenseChart" style="height: 275px;" width="700" height="275"></canvas>
+              <canvas id="offenseChart" style="height: 345px;" width="700" height="325"></canvas>
               <div id="noOffenseDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -10rem;">No data available.</div>
             </div>
 
             <!-- Container for Percentage of Cases per School Year -->
-            <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; max-width: 725px; height: 300px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Percentage of Cases per School Year</h3>
-              <canvas id="percentageChart" style="height: 275px;" width="700" height="275"></canvas>
+              <canvas id="percentageChart" style="height: 345px;" width="700" height="325"></canvas>
               <div id="noPercentageDataMessage" class="text-center text-gray-500 mt-4" style="display: none; margin-top: -10rem;">No data available.</div>
             </div>
 
             <!-- Container for Cases per Semester Chart -->
-            <div class="bg-white shadow-lg rounded-md p-4" style="width: 740px; height: 280px;">
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; max-width: 725px; height: 300px;">
               <h3 class="text-lg font-bold text-gray-800 mb-4">Cases per Semester</h3>
-              <canvas id="semesterChart" style="height: 285px;" width="700" height="275"></canvas>
+              <canvas id="semesterChart" style="height: 345px;" width="700" height="325"></canvas>
               <div id="noSemesterDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -10rem;">No data available.</div>
+            </div>
+
+            <!-- Container for Cases per Program/Course Chart -->
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; max-width: 725px; height: 300px;">
+              <h3 class="text-lg font-bold text-gray-800 mb-4">Cases per Program/Course</h3>
+              <canvas id="programChart" style="height: 345px;" width="700" height="325"></canvas>
+              <div id="noProgramDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -10rem;">No data available.</div>
+            </div>
+
+            <!-- Container for Cases per Gender Chart -->
+            <div class="bg-white shadow-lg rounded-md p-4" style="width: 100%; max-width: 725px; height: 300px;">
+              <h3 class="text-lg font-bold text-gray-800 mb-4">Cases per Gender</h3>
+              <canvas id="genderChart" style="height: 350px;" width="700" height="325" class="pb-10"></canvas>
+              <div id="noGenderDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -10rem;">No data available.</div>
+            </div>
+
+            <!-- Container for Most Common Cases Chart -->
+            <div class="bg-white shadow-lg rounded-md p-4 col-span-2 flex flex-row" style="width: 100%; max-width: 1500px; height: 550px;">
+              <div class="flex-1">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Most Common Cases</h3>
+                <canvas id="commonCasesChart" style="height: 345px;" width="700" height="305" class="pb-10"></canvas>
+                <div id="noCommonCasesDataMessage" class="text-center text-gray-500" style="display: none; margin-top: -10rem;">No data available.</div>
+              </div>
+              <div class="flex-1 pl-5">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Case Percentages</h3>
+                <ul id="casePercentagesList" class="list-disc pl-5 text-gray-800 space-y-2"></ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div id="error-message-container" style="display: flex; justify-content: center; align-items: flex-start; position: fixed; top: -2%; left: 10%; right: 0; z-index: 1000;"></div>
+      <div id="error-message-container" style="display: flex; justify-content: center; align-items: flex-start; position: fixed; top: -2%; left: 10%; right: 0; z-index: 1000;"></div>
 
-  <script src="../javascript/download_report_alerts_modal.js"></script>
-  <script src="../javascript/osa_charts.js"></script>
+      <script src="../javascript/download_report_alerts_modal.js"></script>
+      <script src="../javascript/osa_charts.js"></script>
 </body>
 
 </html>
