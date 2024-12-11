@@ -15,7 +15,7 @@ $result = mysqli_query($conn, $query);
     <div class="container py-3 px-1 ml-12 overflow-hidden" x-data="datatables()" x-cloak>
         <div class="flex justify-between items-center" style="width: 100%;">
             <h1 class="text-3xl py-3 mb-10">Students List</h1>
-            <form action="../phpfiles/add_student.php" method="POST" enctype="multipart/form-data">
+            <form action="../phpfiles/preview_import.php" method="POST" enctype="multipart/form-data">
                 <label for="importExcel" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-flex items-center shadow-lg transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48" class="mr-2">
                         <path fill="#4CAF50" d="M41,10H25v28h16c0.553,0,1-0.447,1-1V11C42,10.447,41.553,10,41,10z"></path>
@@ -29,7 +29,7 @@ $result = mysqli_query($conn, $query);
             </form>
         </div>
 
-        
+
 
         <div class="mb-4 flex justify-between items-center">
             <div class="flex-1 pr-4">
