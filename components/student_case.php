@@ -76,7 +76,7 @@ while ($row = $result->fetch_assoc()) {
                         <label class="block text-gray-700 text-sm font-bold mb-2">Sanction:</label>
                         <input type="text" id="case-sanction" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
                     </div>
-                    <div>
+                    <!-- <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2">Complainant:</label>
                         <input type="text" id="case-complainant" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
                     </div>
@@ -87,7 +87,7 @@ while ($row = $result->fetch_assoc()) {
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2">Affiliation:</label>
                         <input type="text" id="case-affiliation" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
-                    </div>
+                    </div> -->
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2">School Year:</label>
                         <input type="text" id="case-school-year" class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" readonly>
@@ -123,9 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('case-status').value = caseData.Status;
             document.getElementById('case-filed-date').value = caseData.FiledDate;
             document.getElementById('case-sanction').value = caseData.Sanction;
-            document.getElementById('case-complainant').value = caseData.Complainant;
-            document.getElementById('case-complainant-number').value = caseData.ComplainantNumber;
-            document.getElementById('case-affiliation').value = caseData.Affiliation;
+            // document.getElementById('case-complainant').value = caseData.Complainant;
+            // document.getElementById('case-complainant-number').value = caseData.ComplainantNumber;
+            // document.getElementById('case-affiliation').value = caseData.Affiliation;
             document.getElementById('case-school-year').value = caseData.SchoolYear;
             document.getElementById('case-filed-by').value = caseData.FiledBy;
 
